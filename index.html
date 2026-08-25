@@ -239,6 +239,7 @@ td.num,th.num{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:1
 /* ================================================================
    CONFIG
 ================================================================ */
+const BUILD = "v8";
 const SHEET_ID = "1otLNM8g0D3yp44DlUyq5IR8dLj0hI_DFdFo7hjQ3JUQ";
 /* Cole aqui o token do "Publicar na web" (a parte 2PACX-... do link) quando tiver: */
 const PUB_TOKEN = "";
@@ -543,6 +544,12 @@ function aggB(list){
 }
 
 /* ---- aba Apostas: o razão do que foi realmente apostado ---- */
+function colLetter(i){
+  let n = i + 1, out = "";
+  while (n > 0){ const r = (n - 1) % 26; out = String.fromCharCode(65 + r) + out; n = Math.floor((n - 1) / 26); }
+  return out;
+}
+
 function buildApostas(rows){
   let hi = -1;
   for (let i = 0; i < Math.min(rows.length, 12); i++){
@@ -587,6 +594,29 @@ function buildApostas(rows){
     stake:      firstIn(c => c.includes("stake") || (c.includes("valor") && c.includes("apost")), inMan, -1)
   };
   const hasManual = M.stake >= 0;
+
+  /* Resultado: entre as candidatas (nomes compatíveis + coluna S), usa a que
+     tem mais valores numéricos de verdade nas linhas de dados */
+  const cand = new Set(findAll(c => c.includes("resultado") || c.includes("retorno") ||
+    c === "lucro" || c.endsWith(" lucro")).filter(inMain));
+  cand.add(18);
+  if (C.resultado >= 0) cand.add(C.resultado);
+  let best = C.resultado, bestN = -1;
+  for (const ci of cand){
+    let n = 0;
+    for (let r = hi + 1; r < rows.length; r++){
+      const row = rows[r]; if (!row) continue;
+      if (parseNum(ci < row.length ? row[ci] : "") != null) n++;
+    }
+    if (n > bestN || (n === bestN && ci === 18)){ best = ci; bestN = n; }
+  }
+  if (bestN > 0) C.resultado = best;
+  window.QC_DEBUG = window.QC_DEBUG || {};
+  window.QC_DEBUG.apostas = {
+    col: C.resultado, letra: C.resultado >= 0 ? colLetter(C.resultado) : "—",
+    titulo: C.resultado >= 0 ? String(rows[hi][C.resultado] || "(sem título)") : "—",
+    valores: Math.max(bestN, 0)
+  };
 
   const out = [];
   for (let r = hi + 1; r < rows.length; r++){
@@ -813,7 +843,8 @@ async function loadAll(){
         BETS.length.toLocaleString("pt-BR") + " apostas reais" +
         (BETS_SRC ? " (aba Apostas via " + BETS_SRC + ")" : " (aba Apostas indispon\u00edvel \u2014 usando recomenda\u00e7\u00f5es)") +
         " \u00b7 DB via " + dbRes.source +
-        " \u00b7 Banca " + (bancaRes ? "via " + bancaRes.source : "indispon\u00edvel") + filtroAviso;
+        " \u00b7 Banca " + (bancaRes ? "via " + bancaRes.source : "indispon\u00edvel") + filtroAviso +
+        " \u00b7 build " + BUILD;
       si.title = (window.QC_DEBUG && window.QC_DEBUG.headerDB) ? "Cabe\u00e7alho: " + window.QC_DEBUG.headerDB.join(" | ") : "";
     }
     document.getElementById("statusDot").classList.remove("err");
@@ -1034,6 +1065,9 @@ function concilCard(month, settled){
       issues.push({ tipo: "Resultado sem vencedor na DB", b });
   }
   const aM = aggB(month);
+  const dbg = window.QC_DEBUG && window.QC_DEBUG.apostas;
+  const fonteRes = dbg ? '<p style="font-size:12px;color:var(--muted);margin-bottom:10px">Resultado lido da coluna <b>' +
+    esc(dbg.letra) + '</b> ("' + esc(dbg.titulo) + '") · ' + dbg.valores + ' valores numéricos encontrados.</p>' : "";
   let body;
   if (!issues.length){
     body = '<p style="color:var(--muted);font-size:13px">Nenhuma divergência: cada aposta liquidada bate com o Resultado registrado na aba Apostas, e todo ID encontrou o jogo na DB Oficial.</p>';
@@ -1048,7 +1082,7 @@ function concilCard(month, settled){
       (issues.length > 12 ? '<p style="color:var(--muted);font-size:12px;margin-top:8px">+ ' + (issues.length - 12) + ' itens — filtre CONFERIR na aba Apostas.</p>' : '');
   }
   return '<div class="card"><h3>Conciliação<span class="hint">mês: ' + fmtBRLs(month.length ? aM.profit : null) +
-    ' em ' + aM.n + ' apostas · geral: ' + aggB(settled).n + '</span></h3>' + body + '</div>';
+    ' em ' + aM.n + ' apostas · geral: ' + aggB(settled).n + '</span></h3>' + fonteRes + body + '</div>';
 }
 
 function renderBanca(){
