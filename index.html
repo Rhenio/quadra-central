@@ -402,7 +402,8 @@ function buildGames(rows){
     if (!data) continue;
     const aposta = String(row[C.aposta] || "").trim();
     const napo = norm(aposta);
-    const hasBet = !!aposta && napo !== "nao" && napo !== "-" && napo !== "—" && napo !== "sem aposta";
+    const hasBet = !!aposta && napo !== "nao" && !napo.startsWith("nao ") &&
+      !napo.includes("sem aposta") && napo !== "-" && napo !== "—" && napo !== "\u2014";
     const stake = parseNum(row[C.stake]);
     games.push({
       id: String(row[C.id] || "").trim(),
@@ -581,9 +582,9 @@ async function fetchSheet(name, parseFn){
   const sources = [];
   if (PUB_TOKEN && GIDS[name]) sources.push(["pub", () => fetchCsvUrl(
     "https://docs.google.com/spreadsheets/d/e/" + PUB_TOKEN + "/pub?gid=" + GIDS[name] + "&single=true&output=csv&_=" + Date.now())]);
-  sources.push(["CSV", () => fetchCsvUrl(gvizCsv)]);
   if (GIDS[name]) sources.push(["export", () => fetchCsvUrl(
     "https://docs.google.com/spreadsheets/d/" + SHEET_ID + "/export?format=csv&gid=" + GIDS[name] + "&_=" + Date.now())]);
+  sources.push(["CSV", () => fetchCsvUrl(gvizCsv)]);
   sources.push(["gviz", () => fetchJsonp(name)]);
   sources.push(["proxy1", () => fetchCsvUrl("https://api.allorigins.win/raw?url=" + encodeURIComponent(gvizCsv))]);
   sources.push(["proxy2", () => fetchCsvUrl("https://corsproxy.io/?url=" + encodeURIComponent(gvizCsv))]);
@@ -632,9 +633,13 @@ async function loadAll(){
     renderAll();
     const si = document.getElementById("srcInfo");
     if (si){
+      const filtroAviso = ((dbRes.source === "CSV" || dbRes.source === "gviz" ||
+        dbRes.source.startsWith("proxy")) && DB.length < 200)
+        ? " \u00b7 \u26a0\ufe0f poucos jogos lidos \u2014 um filtro ativo na DB Oficial limita este caminho de leitura"
+        : "";
       si.textContent = DB.length.toLocaleString("pt-BR") + " jogos \u00b7 " +
         DB.filter(g => g.hasBet).length.toLocaleString("pt-BR") + " apostas \u00b7 DB via " + dbRes.source +
-        " \u00b7 Banca " + (bancaRes ? "via " + bancaRes.source : "indispon\u00edvel");
+        " \u00b7 Banca " + (bancaRes ? "via " + bancaRes.source : "indispon\u00edvel") + filtroAviso;
       si.title = (window.QC_DEBUG && window.QC_DEBUG.headerDB) ? "Cabe\u00e7alho: " + window.QC_DEBUG.headerDB.join(" | ") : "";
     }
     document.getElementById("statusDot").classList.remove("err");
@@ -845,13 +850,17 @@ function renderBanca(){
 
   /* CAGR diário: média geométrica dos retornos diários, descontando aportes e saques
      r_d = (saldo_d - aporte_d + saque_d) / saldo_(d-1) - 1 */
-  let logSum = 0, nDays = 0;
+  let logSum = 0, nDays = 0, idx = 100;
+  const cagrSerie = [];
+  if (saldoRows.length) cagrSerie.push({ label: fmtD(saldoRows[0].data), idx: 100 });
   for (let i = 1; i < saldoRows.length; i++){
     const prev = saldoRows[i - 1].saldo, cur = saldoRows[i];
     if (prev == null || prev <= 0 || cur.saldo == null) continue;
     const r = (cur.saldo - (cur.aporte || 0) + (cur.saque || 0)) / prev - 1;
     if (1 + r <= 0) continue;
     logSum += Math.log(1 + r); nDays++;
+    idx *= (1 + r);
+    cagrSerie.push({ label: fmtD(cur.data), idx });
   }
   const cagrDia = nDays ? Math.exp(logSum / nDays) - 1 : null;
   const cagrMes = cagrDia != null ? Math.pow(1 + cagrDia, 30) - 1 : null;
@@ -875,6 +884,7 @@ function renderBanca(){
   '</div>' +
   '<div class="grid-2" style="margin-top:22px">' +
     '<div class="card" style="grid-column:1/-1"><h3>Evolução da banca<span class="hint">' + (saldoRows.length ? "saldo diário (aba Banca)" : "lucro acumulado (DB Oficial)") + '</span></h3><div class="chart-box tall"><canvas id="chEquity"></canvas></div></div>' +
+    '<div class="card"><h3>Crescimento composto<span class="hint">base 100 · sem aportes · CAGR diário ' + fmtPctS(cagrDia, 2) + '</span></h3><div class="chart-box"><canvas id="chCagr"></canvas></div></div>' +
     '<div class="card"><h3>Evolução mensal<span class="hint">aportes × lucro, empilhados</span></h3><div class="chart-box"><canvas id="chMensal"></canvas></div></div>' +
     '<div class="card"><h3>Últimas liquidadas</h3><div style="max-height:260px;overflow:auto"><table><thead><tr><th>Data</th><th>Aposta</th><th class="num">Odd</th><th class="num">R$</th></tr></thead><tbody>' +
       settled.slice(-12).reverse().map(g => {
@@ -911,6 +921,23 @@ function renderBanca(){
       plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => fmtBRL(c.parsed.y) } } },
       scales: { x: { ticks: { maxTicksLimit: 8, font: { size: 10 } }, grid: { display: false } },
                 y: { ticks: { callback: v => "R$ " + v.toLocaleString("pt-BR"), font: { size: 10 } }, grid: { color: "#EFF1EC" } } } }
+  });
+
+  /* CAGR chart: índice composto base 100, sem efeito de aportes */
+  makeChart("chCagr", {
+    type: "line",
+    data: { labels: cagrSerie.map(p => p.label), datasets: [
+      { data: cagrSerie.map(p => p.idx), borderColor: "#B98A12", borderWidth: 2,
+        pointRadius: 0, tension: .25, fill: false },
+      { data: cagrSerie.map(() => 100), borderColor: "#C8D1C4", borderWidth: 1,
+        borderDash: [4, 4], pointRadius: 0, fill: false }
+    ]},
+    options: { responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: { filter: c => c.datasetIndex === 0,
+        callbacks: { label: c => "Índice " + c.parsed.y.toLocaleString("pt-BR", { maximumFractionDigits: 1 }) +
+          " (" + fmtPctS(c.parsed.y / 100 - 1, 1) + " acumulado)" } } },
+      scales: { x: { ticks: { maxTicksLimit: 8, font: { size: 10 } }, grid: { display: false } },
+                y: { ticks: { font: { size: 10 } }, grid: { color: "#EFF1EC" } } } }
   });
 
   /* monthly chart: stacked aportes líquidos + lucro */
