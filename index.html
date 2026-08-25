@@ -226,6 +226,9 @@ td.num,th.num{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:1
    CONFIG
 ================================================================ */
 const SHEET_ID = "1otLNM8g0D3yp44DlUyq5IR8dLj0hI_DFdFo7hjQ3JUQ";
+/* Cole aqui o token do "Publicar na web" (a parte 2PACX-... do link) quando tiver: */
+const PUB_TOKEN = "";
+const GIDS = { "DB Oficial": "458750439", "Banca": "" };
 const SHEET_DB = "DB Oficial";
 const SHEET_BANCA = "Banca";
 const TZ = "America/Sao_Paulo";
@@ -518,8 +521,6 @@ function makeChart(id, cfg){
   charts[id] = new Chart(el, cfg);
 }
 
-const GIDS = { "DB Oficial": "458750439" };
-
 async function fetchCsvUrl(url){
   const res = await fetch(url);
   if (!res.ok) throw new Error("HTTP " + res.status);
@@ -575,7 +576,14 @@ function fetchJsonp(name){
 
 async function fetchSheet(name){
   const tries = [];
-  try { return await fetchCsvUrl(csvUrl(name)); }
+  const gvizCsv = csvUrl(name);
+  if (PUB_TOKEN && GIDS[name]){
+    try {
+      return await fetchCsvUrl("https://docs.google.com/spreadsheets/d/e/" + PUB_TOKEN +
+        "/pub?gid=" + GIDS[name] + "&single=true&output=csv&_=" + Date.now());
+    } catch (e){ tries.push("pub: " + e.message); }
+  }
+  try { return await fetchCsvUrl(gvizCsv); }
   catch (e){ tries.push("CSV: " + e.message); }
   if (GIDS[name]){
     try {
@@ -585,6 +593,10 @@ async function fetchSheet(name){
   }
   try { return await fetchJsonp(name); }
   catch (e){ tries.push("gviz: " + e.message); }
+  try { return await fetchCsvUrl("https://api.allorigins.win/raw?url=" + encodeURIComponent(gvizCsv)); }
+  catch (e){ tries.push("proxy1: " + e.message); }
+  try { return await fetchCsvUrl("https://corsproxy.io/?url=" + encodeURIComponent(gvizCsv)); }
+  catch (e){ tries.push("proxy2: " + e.message); }
   throw new Error('Aba "' + name + '": ' + tries.join(" · "));
 }
 
