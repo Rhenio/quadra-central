@@ -290,14 +290,17 @@ function norm(s){
 function parseNum(s){
   if (s == null) return null;
   if (typeof s === "number") return isFinite(s) ? s : null;
-  let t = String(s).replace(/\u00a0/g," ").trim();
+  let t = String(s).replace(/\u00a0/g," ").replace(/\u2212/g,"-").trim();
   if (!t || t === "-" || t === "—") return null;
+  let negParen = false;
+  if (/^\(.*\)$/.test(t)){ negParen = true; t = t.slice(1, -1); }
   const isPct = t.includes("%");
   t = t.replace(/[R$\s%]/g, "");
   if (t.includes(",")) t = t.replace(/\./g, "").replace(",", ".");
   const v = parseFloat(t);
   if (!isFinite(v)) return null;
-  return isPct ? v / 100 : v;
+  const out = isPct ? v / 100 : v;
+  return negParen ? -Math.abs(out) : out;
 }
 
 function parseProb(s){
@@ -552,40 +555,72 @@ function buildApostas(rows){
   if (hi < 0) throw new Error("cabeçalho da aba Apostas não encontrado");
   const h = rows[hi].map(norm);
   const findAll = t => h.map((c, i) => t(c) ? i : -1).filter(i => i >= 0);
-  const first = (t, fb) => { const a = findAll(t); return a.length ? a[0] : fb; };
-  const oddCols = findAll(c => c === "odd" || (c.includes("odd") && !c.includes("fech")));
+  const inMain = i => i < 22, inMan = i => i >= 22;
+  const firstIn = (t, zone, fb) => { const a = findAll(t).filter(zone); return a.length ? a[0] : fb; };
+
+  /* bloco principal (apostas com ID de jogo) */
+  const oddCols = findAll(c => c.includes("odd") && !c.includes("fech")).filter(inMain);
   let oddI = oddCols.find(i => /obtid|real|final|conseguid/.test(h[i]));
   if (oddI == null) oddI = oddCols.includes(12) ? 12 : (oddCols.length ? oddCols[oddCols.length - 1] : 12);
-  const stCols = findAll(c => c.includes("stake") || (c.includes("valor") && c.includes("apost")));
+  const stCols = findAll(c => c.includes("stake") || (c.includes("valor") && c.includes("apost"))).filter(inMain);
   let stI = stCols.find(i => /apostad|real/.test(h[i]));
   if (stI == null) stI = stCols.includes(14) ? 14 : (stCols.length ? stCols[stCols.length - 1] : 14);
   const C = {
-    idJogo:     first(c => c.includes("id") && c.includes("jogo"), 1),
-    data:       first(c => c === "data" || c.endsWith(" data"), -1),
-    torneio:    first(c => c.includes("torneio"), -1),
-    aposta:     first(c => c === "aposta" || c.endsWith(" aposta"), -1),
-    estrategia: first(c => c.includes("estrategia"), -1),
-    casa:       first(c => c === "casa" || c.endsWith(" casa"), -1),
-    resultado:  first(c => c.includes("resultado") || c === "retorno", -1),
+    idJogo:     firstIn(c => c.includes("id") && c.includes("jogo"), inMain, 1),
+    data:       firstIn(c => c === "data" || c.endsWith(" data"), inMain, -1),
+    torneio:    firstIn(c => c.includes("torneio"), inMain, -1),
+    aposta:     firstIn(c => c === "aposta" || c.endsWith(" aposta"), inMain, -1),
+    estrategia: firstIn(c => c.includes("estrategia"), inMain, -1),
+    casa:       firstIn(c => c === "casa" || c.endsWith(" casa"), inMain, -1),
+    resultado:  firstIn(c => c.includes("resultado") || c.includes("retorno") || c === "lucro" || c.endsWith(" lucro"), inMain, 18),
     odd: oddI, stake: stI
   };
+  /* bloco de entrada manual (W–AE): apostas sem jogo correspondente */
+  const M = {
+    data:       firstIn(c => c === "data" || c.endsWith(" data"), inMan, -1),
+    torneio:    firstIn(c => c.includes("torneio"), inMan, -1),
+    aposta:     firstIn(c => c === "aposta" || c.endsWith(" aposta") || c.includes("jogador"), inMan, -1),
+    estrategia: firstIn(c => c.includes("estrategia"), inMan, -1),
+    casa:       firstIn(c => c.includes("casa"), inMan, -1),
+    resultado:  firstIn(c => c.includes("resultado") || c.includes("retorno") || c === "lucro" || c.endsWith(" lucro"), inMan, -1),
+    odd:        firstIn(c => c.includes("odd") && !c.includes("fech"), inMan, -1),
+    stake:      firstIn(c => c.includes("stake") || (c.includes("valor") && c.includes("apost")), inMan, -1)
+  };
+  const hasManual = M.stake >= 0;
+
   const out = [];
   for (let r = hi + 1; r < rows.length; r++){
     const row = rows[r]; if (!row || !row.length) continue;
     const get = i => (i >= 0 && i < row.length) ? row[i] : "";
     const stake = parseNum(get(C.stake));
-    if (stake == null || stake <= 0) continue;
-    out.push({
-      idJogo: String(get(C.idJogo) || "").trim(),
-      stake,
-      data: parseDateBR(get(C.data)),
-      torneio: String(get(C.torneio) || "").trim(),
-      aposta: String(get(C.aposta) || "").trim(),
-      estrategia: String(get(C.estrategia) || "").trim(),
-      casa: String(get(C.casa) || "").trim(),
-      odd: parseNum(get(C.odd)),
-      resultado: parseNum(get(C.resultado))
-    });
+    const idJogo = String(get(C.idJogo) || "").trim();
+    if (stake != null && stake > 0){
+      out.push({
+        idJogo, stake, manual: false,
+        data: parseDateBR(get(C.data)),
+        torneio: String(get(C.torneio) || "").trim(),
+        aposta: String(get(C.aposta) || "").trim(),
+        estrategia: String(get(C.estrategia) || "").trim(),
+        casa: String(get(C.casa) || "").trim(),
+        odd: parseNum(get(C.odd)),
+        resultado: parseNum(get(C.resultado))
+      });
+    }
+    if (hasManual){
+      const mStake = parseNum(get(M.stake));
+      if (mStake != null && mStake > 0){
+        out.push({
+          idJogo: "", stake: mStake, manual: true,
+          data: parseDateBR(get(M.data)),
+          torneio: String(get(M.torneio) || "").trim(),
+          aposta: String(get(M.aposta) || "").trim(),
+          estrategia: String(get(M.estrategia) || "").trim(),
+          casa: String(get(M.casa) || "").trim(),
+          odd: parseNum(get(M.odd)),
+          resultado: parseNum(get(M.resultado))
+        });
+      }
+    }
   }
   return out;
 }
@@ -604,18 +639,18 @@ function joinBets(apRows, games){
     const data = a.data || (g && g.data) || null;
     if (!data) continue;
     const side = a.aposta || (g ? g.aposta : "");
-    if (!side) continue;
+    if (!side && a.resultado == null) continue;
     const odd = a.odd != null ? a.odd : (g ? g.oddAp : null);
-    let settled, won = null, profit = null;
-    if (g){
-      settled = !!g.vencedor;
-      if (settled){
-        won = norm(g.vencedor) === norm(side);
-        profit = a.resultado != null ? a.resultado : (won ? (odd ? a.stake * (odd - 1) : 0) : -a.stake);
-      }
-    } else {
-      settled = a.resultado != null;
-      if (settled){ profit = a.resultado; won = profit > 0; }
+    const reg = a.resultado;
+    let settled = false, won = null, profit = null, comp = null;
+    if (g && g.vencedor){
+      settled = true;
+      const nameWon = norm(g.vencedor) === norm(side);
+      comp = nameWon ? (odd ? a.stake * (odd - 1) : 0) : -a.stake;
+      won = reg != null ? reg > 0 : nameWon;
+      profit = reg != null ? reg : comp;
+    } else if (reg != null){
+      settled = true; won = reg > 0; profit = reg;
     }
     bets.push({
       game: g, idJogo: a.idJogo, data, dk: dKey(data), mk: mKey(data),
@@ -625,6 +660,7 @@ function joinBets(apRows, games){
       estrategia: a.estrategia || (g ? g.estrategia : "") || "",
       favZebra: g ? g.favZebra : "",
       settled, won, resultado: profit,
+      regResultado: reg, compResultado: comp, manual: !!a.manual,
       pModel: g ? sideProbG(g) : null
     });
   }
@@ -987,6 +1023,34 @@ function renderHoje(){
 /* ================================================================
    RENDER — BANCA
 ================================================================ */
+function concilCard(month, settled){
+  const issues = [];
+  for (const b of BETS){
+    if (b.idJogo && !b.game) issues.push({ tipo: "ID sem jogo na DB", b });
+    else if (b.settled && b.regResultado != null && b.compResultado != null &&
+             Math.abs(b.regResultado - b.compResultado) > 0.01)
+      issues.push({ tipo: "Registrado ≠ calculado", b });
+    else if (b.settled && b.game && !b.game.vencedor)
+      issues.push({ tipo: "Resultado sem vencedor na DB", b });
+  }
+  const aM = aggB(month);
+  let body;
+  if (!issues.length){
+    body = '<p style="color:var(--muted);font-size:13px">Nenhuma divergência: cada aposta liquidada bate com o Resultado registrado na aba Apostas, e todo ID encontrou o jogo na DB Oficial.</p>';
+  } else {
+    body = '<div style="max-height:260px;overflow:auto"><table><thead><tr><th>Data</th><th>Aposta</th><th class="num">Registrado</th><th class="num">Calculado</th></tr></thead><tbody>' +
+      issues.slice(0, 12).map(x =>
+        '<tr><td>' + fmtD(x.b.data) + '</td><td>' + esc(x.b.side || "—") +
+        '<div style="font-size:11px;color:var(--warn)">' + esc(x.tipo) + (x.b.idJogo ? ' · #' + esc(x.b.idJogo) : '') + '</div></td>' +
+        '<td class="num">' + fmtBRLs(x.b.regResultado) + '</td>' +
+        '<td class="num">' + fmtBRLs(x.b.compResultado) + '</td></tr>').join("") +
+      '</tbody></table></div>' +
+      (issues.length > 12 ? '<p style="color:var(--muted);font-size:12px;margin-top:8px">+ ' + (issues.length - 12) + ' itens — filtre CONFERIR na aba Apostas.</p>' : '');
+  }
+  return '<div class="card"><h3>Conciliação<span class="hint">mês: ' + fmtBRLs(month.length ? aM.profit : null) +
+    ' em ' + aM.n + ' apostas · geral: ' + aggB(settled).n + '</span></h3>' + body + '</div>';
+}
+
 function renderBanca(){
   const t = todayParts();
   const curM = t.y * 100 + t.mo;
@@ -1048,6 +1112,7 @@ function renderBanca(){
           '<td class="num">' + fmtOdd(b.odd) + '</td><td class="num ' + cls(b.resultado) + '">' + fmtBRLs(b.resultado) + '</td></tr>';
       }).join("") +
     '</tbody></table></div></div>' +
+    concilCard(month, settled) +
   '</div>';
 
   document.getElementById("bancaContent").innerHTML = html;
