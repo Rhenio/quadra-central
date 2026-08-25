@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quadra Central — Painel Diário</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{
+  --bg:#F3F5F0; --card:#FFFFFF; --ink:#101B14; --muted:#64716A; --line:#E4E9E1;
+  --grass:#14683F; --grass-deep:#0C4A2C; --ball:#D8F04A; --ball-ink:#3A420A;
+  --win:#148A4E; --win-bg:#E4F4EA; --loss:#D2492F; --loss-bg:#FBEAE5;
+  --market:#5A5FD8; --market-bg:#EDEEFB; --warn:#B98A12; --warn-bg:#FBF3DC;
+  --radius:14px; --shadow:0 1px 2px rgba(16,27,20,.05),0 6px 20px -8px rgba(16,27,20,.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-size:14.5px;line-height:1.5;min-height:100vh}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--grass);outline-offset:2px;border-radius:6px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* ---------- header ---------- */
+.topbar{position:sticky;top:0;z-index:40;background:rgba(243,245,240,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topbar-in{max-width:1160px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;margin-right:auto}
+.brand-mark{width:34px;height:34px;border-radius:10px;background:var(--grass-deep);display:grid;place-items:center;position:relative;overflow:hidden}
+.brand-mark::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 46%,rgba(216,240,74,.25) 46%,rgba(216,240,74,.25) 54%,transparent 54%)}
+.brand-mark svg{position:relative;z-index:1}
+.brand h1{font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:700;letter-spacing:-.02em}
+.brand small{display:block;font-family:'Inter',sans-serif;font-size:11px;font-weight:500;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.tabs{display:flex;gap:4px;background:#E9ECE5;border-radius:12px;padding:4px}
+.tab{border:0;background:transparent;padding:8px 16px;border-radius:9px;font-size:13.5px;font-weight:600;color:var(--muted);transition:all .15s}
+.tab:hover{color:var(--ink)}
+.tab.active{background:var(--card);color:var(--ink);box-shadow:0 1px 3px rgba(16,27,20,.10)}
+.sync{display:flex;align-items:center;gap:10px}
+.sync-info{text-align:right;line-height:1.25}
+.sync-info b{font-size:12.5px;font-weight:600}
+.sync-info span{display:block;font-size:11px;color:var(--muted)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--ball);box-shadow:0 0 0 3px rgba(216,240,74,.35);flex:none}
+.dot.err{background:var(--loss);box-shadow:0 0 0 3px rgba(210,73,47,.25)}
+.btn-refresh{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 14px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:7px;transition:border-color .15s}
+.btn-refresh:hover{border-color:var(--grass)}
+.btn-refresh svg{transition:transform .5s}
+.btn-refresh.spin svg{transform:rotate(360deg)}
+
+/* ---------- layout ---------- */
+.wrap{max-width:1160px;margin:0 auto;padding:26px 20px 80px}
+.page{display:none}
+.page.active{display:block;animation:fade .25s ease}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.page-head{display:flex;align-items:baseline;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.page-head h2{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;letter-spacing:-.02em}
+.page-head .date-chip{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--muted);background:#E9ECE5;border-radius:999px;padding:4px 12px}
+.section-label{font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:26px 0 12px;display:flex;align-items:center;gap:10px}
+.section-label::after{content:"";flex:1;height:1px;background:var(--line)}
+
+/* ---------- KPI cards ---------- */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
+.kpi .k-label{font-size:12px;font-weight:600;color:var(--muted);display:flex;align-items:center;gap:7px;margin-bottom:8px}
+.kpi .k-value{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.kpi .k-sub{font-size:12px;color:var(--muted);margin-top:5px}
+.kpi.hl{background:var(--grass-deep);border-color:var(--grass-deep);color:#fff}
+.kpi.hl .k-label{color:#B9CDBF}
+.kpi.hl .k-sub{color:#9DB8A6}
+.kpi.hl .k-value{color:var(--ball)}
+.pos{color:var(--win)} .neg{color:var(--loss)}
+
+/* ---------- match cards ---------- */
+.match{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px;margin-bottom:12px}
+.match.bet{border-left:4px solid var(--ball)}
+.match-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.chip{font-size:11px;font-weight:600;border-radius:999px;padding:3px 10px;letter-spacing:.02em}
+.chip.tour{background:#E9ECE5;color:var(--ink)}
+.chip.surface{border:1px solid var(--line);color:var(--muted)}
+.chip.surface.grama{background:#E7F3E4;color:var(--grass);border-color:transparent}
+.chip.surface.saibro{background:#F8E9DC;color:#A65A2A;border-color:transparent}
+.chip.surface.dura{background:#E4EEF6;color:#2C6394;border-color:transparent}
+.chip.bet-side{background:var(--ball);color:var(--ball-ink)}
+.chip.no-bet{background:#EFF1EC;color:var(--muted)}
+.chip.won{background:var(--win-bg);color:var(--win)}
+.chip.lost{background:var(--loss-bg);color:var(--loss)}
+.chip.warn{background:var(--warn-bg);color:var(--warn)}
+.match-id{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted)}
+.players{display:grid;grid-template-columns:1fr auto;gap:4px 14px;margin-bottom:12px}
+.player{display:flex;align-items:center;gap:8px;font-family:'Space Grotesk',sans-serif;font-size:16.5px;font-weight:600}
+.player .side-tag{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;color:var(--muted);background:#EFF1EC;border-radius:5px;padding:1px 6px}
+.player.picked .side-tag{background:var(--ball);color:var(--ball-ink)}
+.player .odd{font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:500;color:var(--muted)}
+.player.picked .odd{color:var(--ink);font-weight:600}
+.player.winner{color:var(--win)}
+
+/* signature: baseline duel track */
+.duel{margin:6px 0 4px}
+.duel-track{position:relative;height:34px;border-radius:8px;background:linear-gradient(#EFF3EC,#EFF3EC);border:1px solid var(--line);overflow:hidden}
+.duel-track::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:repeating-linear-gradient(#C8D1C4 0 4px,transparent 4px 8px)}
+.duel-fill{position:absolute;top:0;bottom:0;left:0;border-right:2px solid transparent}
+.duel-fill.edge-pos{background:rgba(20,138,78,.14)}
+.duel-fill.edge-neg{background:rgba(210,73,47,.12)}
+.duel-pin{position:absolute;top:0;bottom:0;width:2px}
+.duel-pin.model{background:var(--grass)}
+.duel-pin.mkt{background:var(--market)}
+.duel-pin i{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:9px;height:9px;border-radius:50%;border:2px solid #fff}
+.duel-pin.model i{background:var(--grass)}
+.duel-pin.mkt i{background:var(--market)}
+.duel-legend{display:flex;gap:16px;font-size:11.5px;color:var(--muted);margin-top:6px;flex-wrap:wrap}
+.duel-legend b{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--ink)}
+.lg-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:baseline}
+.lg-dot.model{background:var(--grass)} .lg-dot.mkt{background:var(--market)}
+
+.match-nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
+.mn{line-height:1.3}
+.mn small{display:block;font-size:10.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.mn b{font-family:'IBM Plex Mono',monospace;font-size:14.5px;font-weight:600}
+
+.mini-list{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.mini-row{display:flex;align-items:center;gap:12px;padding:11px 16px;border-top:1px solid var(--line);font-size:13.5px;flex-wrap:wrap}
+.mini-row:first-child{border-top:0}
+.mini-row .who{font-weight:600;font-family:'Space Grotesk',sans-serif}
+.mini-row .meta{color:var(--muted);font-size:12px}
+.mini-row .tail{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--muted)}
+
+/* ---------- tables & cards ---------- */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:820px){.grid-2{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
+.card h3{font-family:'Space Grotesk',sans-serif;font-size:15.5px;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.card h3 .hint{margin-left:auto;font-family:'Inter',sans-serif;font-size:11.5px;font-weight:500;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:7px 8px;border-bottom:1px solid var(--line)}
+td{padding:8px;border-bottom:1px solid #EFF1EC;vertical-align:middle}
+tr:last-child td{border-bottom:0}
+td.num,th.num{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:12.5px}
+.bar-cell{display:flex;align-items:center;gap:8px}
+.bar{flex:1;height:6px;border-radius:99px;background:#EFF1EC;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:99px;background:var(--grass)}
+.chart-box{position:relative;height:260px}
+.chart-box.tall{height:300px}
+
+/* ---------- states ---------- */
+.state{background:var(--card);border:1px dashed #C8D1C4;border-radius:var(--radius);padding:40px 24px;text-align:center;color:var(--muted)}
+.state h3{font-family:'Space Grotesk',sans-serif;color:var(--ink);font-size:17px;margin-bottom:8px}
+.state code{font-family:'IBM Plex Mono',monospace;font-size:12px;background:#EFF1EC;border-radius:6px;padding:2px 7px}
+.state ol{text-align:left;max-width:520px;margin:14px auto 0;padding-left:20px;font-size:13.5px}
+.state ol li{margin-bottom:6px}
+.loading-court{width:52px;height:34px;border:2px solid var(--grass);border-radius:4px;margin:0 auto 16px;position:relative;animation:pulse 1.2s ease-in-out infinite}
+.loading-court::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:var(--grass)}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+.foot{margin-top:40px;text-align:center;font-size:11.5px;color:var(--muted)}
+.foot a{color:var(--grass);font-weight:600;text-decoration:none}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <div class="brand">
+      <div class="brand-mark">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#D8F04A" stroke-width="1.6"/><path d="M3.5 3.5c2.6 1.4 2.6 7.6 0 9M12.5 3.5c-2.6 1.4-2.6 7.6 0 9" stroke="#D8F04A" stroke-width="1.3"/></svg>
+      </div>
+      <h1>Quadra Central<small>Tennis Test v3</small></h1>
+    </div>
+    <nav class="tabs" role="tablist">
+      <button class="tab active" data-page="hoje" role="tab">Hoje</button>
+      <button class="tab" data-page="banca" role="tab">Banca</button>
+      <button class="tab" data-page="stats" role="tab">Estatísticas</button>
+    </nav>
+    <div class="sync">
+      <span class="dot" id="statusDot"></span>
+      <div class="sync-info">
+        <b id="syncTitle">Conectando…</b>
+        <span id="syncTime">—</span>
+      </div>
+      <button class="btn-refresh" id="btnRefresh" title="Buscar dados agora">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12.25 7A5.25 5.25 0 1 1 7 1.75c1.9 0 3.57 1 4.5 2.5M11.5 1.5v2.75H8.75" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Atualizar
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ HOJE ============ -->
+  <section class="page active" id="page-hoje">
+    <div class="page-head">
+      <h2>Jogos do dia</h2>
+      <span class="date-chip" id="todayChip">—</span>
+    </div>
+    <div id="hojeContent">
+      <div class="state"><div class="loading-court"></div>Carregando a planilha…</div>
+    </div>
+  </section>
+
+  <!-- ============ BANCA ============ -->
+  <section class="page" id="page-banca">
+    <div class="page-head">
+      <h2>Banca</h2>
+      <span class="date-chip" id="bancaChip">mês corrente + geral</span>
+    </div>
+    <div id="bancaContent">
+      <div class="state"><div class="loading-court"></div>Carregando a planilha…</div>
+    </div>
+  </section>
+
+  <!-- ============ ESTATÍSTICAS ============ -->
+  <section class="page" id="page-stats">
+    <div class="page-head">
+      <h2>Estatísticas</h2>
+      <span class="date-chip">histórico completo</span>
+    </div>
+    <div id="statsContent">
+      <div class="state"><div class="loading-court"></div>Carregando a planilha…</div>
+    </div>
+  </section>
+
+  <p class="foot">Fonte: <a id="sheetLink" href="#" target="_blank" rel="noopener">Tennis Test v3 (Google Sheets)</a> · leitura direta, sem cópia intermediária · atualiza sozinho a cada 10 min</p>
+</main>
+
+<script>
+/* ================================================================
+   CONFIG
+================================================================ */
+const SHEET_ID = "1otLNM8g0D3yp44DlUyq5IR8dLj0hI_DFdFo7hjQ3JUQ";
+const SHEET_DB = "DB Oficial";
+const SHEET_BANCA = "Banca";
+const TZ = "America/Sao_Paulo";
+const REFRESH_MS = 10 * 60 * 1000;
+
+document.getElementById("sheetLink").href =
+  "https://docs.google.com/spreadsheets/d/" + SHEET_ID + "/edit";
+
+/* ================================================================
+   HELPERS — parsing
+================================================================ */
+function csvUrl(sheetName){
+  return "https://docs.google.com/spreadsheets/d/" + SHEET_ID +
+         "/gviz/tq?tqx=out:csv&sheet=" + encodeURIComponent(sheetName) +
+         "&_=" + Date.now();
+}
+
+function parseCSV(text){
+  const rows = []; let row = [], field = "", inQ = false;
+  for (let i = 0; i < text.length; i++){
+    const c = text[i];
+    if (inQ){
+      if (c === '"'){
+        if (text[i+1] === '"'){ field += '"'; i++; }
+        else inQ = false;
+      } else field += c;
+    } else {
+      if (c === '"') inQ = true;
+      else if (c === ","){ row.push(field); field = ""; }
+      else if (c === "\n"){ row.push(field); rows.push(row); row = []; field = ""; }
+      else if (c !== "\r") field += c;
+    }
+  }
+  if (field !== "" || row.length){ row.push(field); rows.push(row); }
+  return rows;
+}
+
+function norm(s){
+  return String(s == null ? "" : s)
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .replace(/\u00a0/g, " ").trim().toLowerCase();
+}
+
+function parseNum(s){
+  if (s == null) return null;
+  if (typeof s === "number") return isFinite(s) ? s : null;
+  let t = String(s).replace(/\u00a0/g," ").trim();
+  if (!t || t === "-" || t === "—") return null;
+  const isPct = t.includes("%");
+  t = t.replace(/[R$\s%]/g, "");
+  if (t.includes(",")) t = t.replace(/\./g, "").replace(",", ".");
+  const v = parseFloat(t);
+  if (!isFinite(v)) return null;
+  return isPct ? v / 100 : v;
+}
+
+function parseProb(s){
+  let v = parseNum(s);
+  if (v == null) return null;
+  if (v > 1.5) v = v / 100;          // "62,5" sem símbolo de %
+  if (v < 0 || v > 1.0001) return null;
+  return Math.min(Math.max(v, 0), 1);
+}
+
+function parseDateBR(s){
+  if (s == null) return null;
+  const t = String(s).trim();
+  let m = t.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})/);
+  if (m){
+    let y = +m[3]; if (y < 100) y += 2000;
+    return { y, mo: +m[2], d: +m[1] };
+  }
+  m = t.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (m) return { y: +m[1], mo: +m[2], d: +m[3] };
+  m = t.match(/^Date\((\d+),(\d+),(\d+)/);
+  if (m) return { y: +m[1], mo: +m[2] + 1, d: +m[3] };
+  return null;
+}
+const dKey = d => d ? d.y * 10000 + d.mo * 100 + d.d : 0;
+const mKey = d => d ? d.y * 100 + d.mo : 0;
+
+function todayParts(){
+  const p = new Intl.DateTimeFormat("en-CA", { timeZone: TZ }).format(new Date()).split("-");
+  return { y: +p[0], mo: +p[1], d: +p[2] };
+}
+
+/* ================================================================
+   HELPERS — formatting
+================================================================ */
+const fmtBRL = v => v == null ? "—" :
+  v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+const fmtBRLs = v => v == null ? "—" :
+  (v >= 0 ? "+" : "\u2212") + Math.abs(v).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+const fmtPct = (v, d) => v == null ? "—" :
+  (v * 100).toLocaleString("pt-BR", { minimumFractionDigits: d ?? 1, maximumFractionDigits: d ?? 1 }) + "%";
+const fmtPctS = v => v == null ? "—" :
+  (v >= 0 ? "+" : "\u2212") + Math.abs(v * 100).toLocaleString("pt-BR", { maximumFractionDigits: 1 }) + "%";
+const fmtOdd = v => v == null ? "—" :
+  v.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const fmtD = d => d ? String(d.d).padStart(2,"0") + "/" + String(d.mo).padStart(2,"0") : "—";
+const MESES = ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
+const fmtMes = k => MESES[(k % 100) - 1] + "/" + String(Math.floor(k / 100)).slice(2);
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g,
+  c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const cls = v => v == null ? "" : (v >= 0 ? "pos" : "neg");
+
+/* ================================================================
+   HEADER MAPPING — DB Oficial
+================================================================ */
+function findHeaderRow(rows){
+  for (let i = 0; i < Math.min(rows.length, 8); i++){
+    const cells = rows[i].map(norm);
+    if (cells.includes("id") && cells.some(c => c.startsWith("torneio"))) return i;
+  }
+  return -1;
+}
+
+function mapColumns(header){
+  const h = header.map(norm);
+  const find = (test, fallback) => {
+    const i = h.findIndex(test);
+    return i >= 0 ? i : fallback;
+  };
+  return {
+    id:        find(c => c === "id", 0),
+    data:      find(c => c === "data", 1),
+    torneio:   find(c => c.startsWith("torneio"), 2),
+    round:     find(c => c === "round" || c === "rodada", 3),
+    quadra:    find(c => c === "quadra", 4),
+    j1:        find(c => c === "jogador 1" || c === "j1", 5),
+    j2:        find(c => c === "jogador 2" || c === "j2", 6),
+    pvj1:      find(c => c.includes("vj1") && !c.includes("yelo") && !c.includes("elo"), 7),
+    odd1:      find(c => c.replace(/\s/g,"") === "odd1", 8),
+    odd2:      find(c => c.replace(/\s/g,"") === "odd2", 9),
+    vencedor:  find(c => c === "vencedor" || c === "vitoria", 10),
+    aposta:    find(c => c === "aposta", 11),
+    oddAp:     find(c => c === "odd", 12),
+    estrategia:find(c => c.startsWith("estrategia"), 13),
+    stake:     find(c => c.includes("stake") && !c.includes("%") && !c.includes("bruto"), 14),
+    stakePct:  find(c => c.includes("stake") && c.includes("%"), 15),
+    situacao:  find(c => c.startsWith("situac"), 16),
+    descOdds:  find(c => c.startsWith("desc"), 31),
+    pAj:       find(c => c.includes("aj") && (c.includes("vj") || c.includes("%")), 33),
+    pMkt:      find(c => c.includes("mkt") && !/[12]/.test(c), 34),
+    pUsada:    find(c => c.includes("usada"), 35),
+    acertou:   find(c => c === "acertou", 45),
+    resultado: find(c => c === "resultado", 46),
+    brierMod:  h.findIndex(c => c.includes("brier")),
+    favZebra:  find(c => c.includes("fav"), 52)
+  };
+}
+
+function buildGames(rows){
+  const hi = findHeaderRow(rows);
+  if (hi < 0) throw new Error("Cabeçalho da DB Oficial não encontrado (procurei por ID + Torneio).");
+  const C = mapColumns(rows[hi]);
+  const briers = rows[hi].map(norm)
+    .map((c, i) => c.includes("brier") ? i : -1).filter(i => i >= 0);
+  const games = [];
+  for (let r = hi + 1; r < rows.length; r++){
+    const row = rows[r];
+    if (!row || !row.length) continue;
+    const j1 = String(row[C.j1] || "").trim();
+    const j2 = String(row[C.j2] || "").trim();
+    const data = parseDateBR(row[C.data]);
+    if (!j1 && !j2) continue;
+    if (!data) continue;
+    const aposta = String(row[C.aposta] || "").trim();
+    const napo = norm(aposta);
+    const hasBet = !!aposta && napo !== "nao" && napo !== "-" && napo !== "—" && napo !== "sem aposta";
+    const stake = parseNum(row[C.stake]);
+    games.push({
+      id: String(row[C.id] || "").trim(),
+      data, dk: dKey(data), mk: mKey(data),
+      torneio: String(row[C.torneio] || "").trim(),
+      round: String(row[C.round] || "").trim(),
+      quadra: String(row[C.quadra] || "").trim(),
+      j1, j2,
+      pvj1: parseProb(row[C.pvj1]),
+      odd1: parseNum(row[C.odd1]),
+      odd2: parseNum(row[C.odd2]),
+      vencedor: String(row[C.vencedor] || "").trim(),
+      aposta, hasBet,
+      oddAp: parseNum(row[C.oddAp]),
+      estrategia: String(row[C.estrategia] || "").trim(),
+      stake: hasBet && stake ? stake : null,
+      situacao: String(row[C.situacao] || "").trim(),
+      descOdds: parseNum(row[C.descOdds]),
+      pAj: parseProb(row[C.pAj]),
+      pMkt: parseProb(row[C.pMkt]),
+      pUsada: parseProb(row[C.pUsada]),
+      acertou: norm(row[C.acertou]),
+      resultado: parseNum(row[C.resultado]),
+      brier: briers.length ? parseNum(row[briers[0]]) : null,
+      brierMkt: briers.length > 2 ? parseNum(row[briers[2]]) : null,
+      favZebra: String(row[C.favZebra] || "").trim()
+    });
+  }
+  return games;
+}
+
+/* ================================================================
+   BANCA sheet
+================================================================ */
+function buildBanca(rows){
+  let hi = -1;
+  for (let i = 0; i < Math.min(rows.length, 8); i++){
+    const c = rows[i].map(norm);
+    if (c.some(x => x.startsWith("saldo")) && c.includes("data")){ hi = i; break; }
+  }
+  let ci = { data: 0, aporte: 1, saque: 2, saldo: 7 };
+  if (hi >= 0){
+    const h = rows[hi].map(norm);
+    const f = (t, fb) => { const i = h.findIndex(t); return i >= 0 ? i : fb; };
+    ci = {
+      data:   f(c => c === "data", 0),
+      aporte: f(c => c.startsWith("aporte"), 1),
+      saque:  f(c => c.startsWith("saque"), 2),
+      saldo:  f(c => c.startsWith("saldo"), 7)
+    };
+  } else hi = 0;
+  const out = [];
+  for (let r = hi + 1; r < rows.length; r++){
+    const row = rows[r]; if (!row) continue;
+    const d = parseDateBR(row[ci.data]); if (!d) continue;
+    const saldo = parseNum(row[ci.saldo]);
+    out.push({ data: d, dk: dKey(d),
+      aporte: parseNum(row[ci.aporte]) || 0,
+      saque: parseNum(row[ci.saque]) || 0,
+      saldo });
+  }
+  return out;
+}
+
+/* ================================================================
+   AGGREGATES
+================================================================ */
+function isSettled(g){
+  const s = norm(g.situacao);
+  return (g.hasBet && (s.includes("ganhou") || s.includes("perdeu"))) ||
+         (g.hasBet && g.resultado != null && !!g.vencedor);
+}
+function betWon(g){
+  const s = norm(g.situacao);
+  if (s.includes("ganhou")) return true;
+  if (s.includes("perdeu")) return false;
+  if (g.acertou) return g.acertou.startsWith("s") || g.acertou === "1" || g.acertou === "true";
+  return g.resultado != null ? g.resultado > 0 : null;
+}
+function betProfit(g){
+  if (g.resultado != null) return g.resultado;
+  const w = betWon(g);
+  if (w == null || g.stake == null) return 0;
+  return w ? (g.oddAp ? g.stake * (g.oddAp - 1) : 0) : -g.stake;
+}
+function agg(list){
+  const n = list.length;
+  let wins = 0, staked = 0, profit = 0;
+  for (const g of list){
+    if (betWon(g)) wins++;
+    staked += g.stake || 0;
+    profit += betProfit(g);
+  }
+  return { n, wins, wr: n ? wins / n : null, staked, profit,
+           roi: staked > 0 ? profit / staked : null };
+}
+function groupBy(list, keyFn){
+  const m = new Map();
+  for (const g of list){
+    const k = keyFn(g);
+    if (k == null || k === "") continue;
+    if (!m.has(k)) m.set(k, []);
+    m.get(k).push(g);
+  }
+  return m;
+}
+
+/* ================================================================
+   STATE + FETCH
+================================================================ */
+let DB = null, BANCA = null;
+const charts = {};
+function makeChart(id, cfg){
+  if (charts[id]) charts[id].destroy();
+  const el = document.getElementById(id);
+  if (!el) return;
+  charts[id] = new Chart(el, cfg);
+}
+
+async function fetchSheet(name){
+  const res = await fetch(csvUrl(name));
+  if (!res.ok) throw new Error("HTTP " + res.status + " ao ler a aba \"" + name + "\"");
+  const text = await res.text();
+  if (/^\s*</.test(text)) throw new Error("A planilha respondeu com HTML — provavelmente não está compartilhada como pública.");
+  return parseCSV(text);
+}
+
+async function loadAll(){
+  const btn = document.getElementById("btnRefresh");
+  btn.classList.add("spin");
+  document.getElementById("syncTitle").textContent = "Sincronizando…";
+  try {
+    const [dbRows, bancaRows] = await Promise.all([
+      fetchSheet(SHEET_DB),
+      fetchSheet(SHEET_BANCA).catch(() => null)
+    ]);
+    DB = buildGames(dbRows);
+    BANCA = bancaRows ? buildBanca(bancaRows) : [];
+    renderAll();
+    document.getElementById("statusDot").classList.remove("err");
+    document.getElementById("syncTitle").textContent = "Planilha conectada";
+    document.getElementById("syncTime").textContent = "Atualizado às " +
+      new Intl.DateTimeFormat("pt-BR", { timeZone: TZ, hour: "2-digit", minute: "2-digit" }).format(new Date());
+  } catch (e){
+    document.getElementById("statusDot").classList.add("err");
+    document.getElementById("syncTitle").textContent = "Falha ao ler a planilha";
+    document.getElementById("syncTime").textContent = "toque em Atualizar para tentar de novo";
+    if (!DB) renderError(e);
+    console.error(e);
+  } finally {
+    setTimeout(() => btn.classList.remove("spin"), 600);
+  }
+}
+
+function renderError(e){
+  const html =
+    '<div class="state"><h3>Não consegui ler a planilha</h3>' +
+    '<p>' + esc(e.message) + '</p>' +
+    '<ol>' +
+    '<li>Abra a <b>Tennis Test v3</b> no Google Sheets.</li>' +
+    '<li>Compartilhar → Acesso geral → <b>Qualquer pessoa com o link</b> → <b>Leitor</b>.</li>' +
+    '<li>Volte aqui e toque em <b>Atualizar</b>.</li>' +
+    '</ol>' +
+    '<p style="margin-top:12px">Os nomes das abas precisam ser <code>DB Oficial</code> e <code>Banca</code>.</p></div>';
+  document.getElementById("hojeContent").innerHTML = html;
+  document.getElementById("bancaContent").innerHTML = html;
+  document.getElementById("statsContent").innerHTML = html;
+}
+
+/* ================================================================
+   RENDER — HOJE
+================================================================ */
+function surfaceClass(q){
+  const n = norm(q);
+  if (n.startsWith("gram")) return "grama";
+  if (n.startsWith("saib") || n.includes("clay")) return "saibro";
+  if (n.startsWith("dur") || n.includes("hard")) return "dura";
+  return "";
+}
+
+function duelHTML(pModel, pMkt){
+  if (pModel == null && pMkt == null) return "";
+  const a = pModel != null ? pModel * 100 : null;
+  const b = pMkt != null ? pMkt * 100 : null;
+  let fill = "";
+  if (a != null && b != null){
+    const lo = Math.min(a, b), w = Math.abs(a - b);
+    fill = '<span class="duel-fill ' + (a >= b ? "edge-pos" : "edge-neg") +
+           '" style="left:' + lo + '%;width:' + w + '%"></span>';
+  }
+  const pin = (v, k) => v == null ? "" :
+    '<span class="duel-pin ' + k + '" style="left:' + v + '%"><i></i></span>';
+  const edge = (a != null && b != null) ? (a - b) / 100 : null;
+  return '<div class="duel"><div class="duel-track">' + fill +
+    pin(a, "model") + pin(b, "mkt") + '</div>' +
+    '<div class="duel-legend">' +
+    '<span><i class="lg-dot model"></i>Nosso modelo <b>' + fmtPct(pModel) + '</b></span>' +
+    '<span><i class="lg-dot mkt"></i>Casa (sem vig) <b>' + fmtPct(pMkt) + '</b></span>' +
+    (edge != null ? '<span>Edge <b class="' + cls(edge) + '">' + fmtPctS(edge) + '</b></span>' : "") +
+    '</div></div>';
+}
+
+function situacaoChip(g){
+  const s = norm(g.situacao);
+  if (s.includes("ganhou")) return '<span class="chip won">Ganhou</span>';
+  if (s.includes("perdeu")) return '<span class="chip lost">Perdeu</span>';
+  if (s.includes("falta"))  return '<span class="chip warn">Faltam dados</span>';
+  if (g.hasBet)             return '<span class="chip bet-side">Aposta ativa</span>';
+  return '<span class="chip no-bet">Sem aposta</span>';
+}
+
+function matchCard(g, showDate){
+  const betOnJ1 = g.hasBet && norm(g.aposta) === norm(g.j1);
+  const betOnJ2 = g.hasBet && norm(g.aposta) === norm(g.j2);
+  const pModel = g.pAj != null ? g.pAj : (g.hasBet ? (betOnJ1 ? g.pvj1 : (g.pvj1 != null ? 1 - g.pvj1 : null)) : g.pvj1);
+  let pMkt = g.pMkt;
+  if (pMkt == null && g.odd1 && g.odd2){
+    const i1 = 1 / g.odd1, i2 = 1 / g.odd2;
+    const p1 = i1 / (i1 + i2);
+    pMkt = g.hasBet ? (betOnJ2 ? 1 - p1 : p1) : p1;
+  }
+  const gain = (g.hasBet && g.stake && g.oddAp) ? g.stake * (g.oddAp - 1) : null;
+  const loss = (g.hasBet && g.stake) ? g.stake : null;
+  const ev = (g.hasBet && g.stake && g.oddAp && g.pUsada != null)
+    ? g.pUsada * g.stake * (g.oddAp - 1) - (1 - g.pUsada) * g.stake
+    : (gain != null && pModel != null ? pModel * gain - (1 - pModel) * loss : null);
+  const wonName = norm(g.vencedor);
+  const pRow = (name, tag, odd, picked) =>
+    '<div class="player' + (picked ? " picked" : "") + (wonName && norm(name) === wonName ? " winner" : "") + '">' +
+    '<span class="side-tag">' + tag + '</span>' + esc(name || "—") +
+    '</div><div class="player' + (picked ? " picked" : "") + '"><span class="odd">@ ' + fmtOdd(odd) + '</span></div>';
+
+  return '<article class="match' + (g.hasBet ? " bet" : "") + '">' +
+    '<div class="match-top">' +
+      '<span class="chip tour">' + esc(g.torneio || "Torneio") + '</span>' +
+      (g.round ? '<span class="chip surface">' + esc(g.round) + '</span>' : "") +
+      (g.quadra ? '<span class="chip surface ' + surfaceClass(g.quadra) + '">' + esc(g.quadra) + '</span>' : "") +
+      situacaoChip(g) +
+      '<span class="match-id">' + (showDate ? fmtD(g.data) + " · " : "") + "#" + esc(g.id) + '</span>' +
+    '</div>' +
+    '<div class="players">' + pRow(g.j1, "J1", g.odd1, betOnJ1) + pRow(g.j2, "J2", g.odd2, betOnJ2) + '</div>' +
+    duelHTML(pModel, pMkt) +
+    (g.hasBet ?
+      '<div class="match-nums">' +
+        '<div class="mn"><small>Aposta</small><b>' + esc(g.aposta) + '</b></div>' +
+        '<div class="mn"><small>Estratégia</small><b style="font-family:Inter;font-size:12.5px">' + esc(g.estrategia || "—") + '</b></div>' +
+        '<div class="mn"><small>Stake</small><b>' + fmtBRL(g.stake) + '</b></div>' +
+        '<div class="mn"><small>Se ganhar</small><b class="pos">' + fmtBRLs(gain) + '</b></div>' +
+        '<div class="mn"><small>Se perder</small><b class="neg">' + (loss != null ? "\u2212" + fmtBRL(loss) : "—") + '</b></div>' +
+        '<div class="mn"><small>Esperado (EV)</small><b class="' + cls(ev) + '">' + fmtBRLs(ev) + '</b></div>' +
+      '</div>' : "") +
+    '</article>';
+}
+
+function renderHoje(){
+  const t = todayParts();
+  const tk = dKey(t);
+  document.getElementById("todayChip").textContent =
+    String(t.d).padStart(2,"0") + "/" + String(t.mo).padStart(2,"0") + "/" + t.y;
+
+  const todayGames = DB.filter(g => g.dk === tk);
+  const openToday = todayGames.filter(g => !g.vencedor);
+  const doneToday = todayGames.filter(g => !!g.vencedor);
+  const openBets = openToday.filter(g => g.hasBet && g.stake);
+  const pendPast = DB.filter(g => g.dk < tk && g.hasBet && !g.vencedor);
+
+  let staked = 0, gain = 0, ev = 0, evOk = 0;
+  for (const g of openBets){
+    staked += g.stake;
+    if (g.oddAp) gain += g.stake * (g.oddAp - 1);
+    const p = g.pUsada != null ? g.pUsada : g.pAj;
+    if (p != null && g.oddAp){ ev += p * g.stake * (g.oddAp - 1) - (1 - p) * g.stake; evOk++; }
+  }
+  const doneBetsToday = todayGames.filter(g => isSettled(g));
+  const doneAgg = agg(doneBetsToday);
+
+  let html =
+  '<div class="kpis">' +
+    '<div class="kpi hl"><div class="k-label">Em jogo hoje</div><div class="k-value">' + fmtBRL(staked) + '</div>' +
+      '<div class="k-sub">' + openBets.length + ' aposta' + (openBets.length === 1 ? "" : "s") + ' aberta' + (openBets.length === 1 ? "" : "s") + ' · ' + openToday.length + ' jogo' + (openToday.length === 1 ? "" : "s") + ' na grade</div></div>' +
+    '<div class="kpi"><div class="k-label">Ganho possível</div><div class="k-value pos">' + fmtBRLs(gain) + '</div><div class="k-sub">se todas as abertas ganharem</div></div>' +
+    '<div class="kpi"><div class="k-label">Perda possível</div><div class="k-value neg">' + (staked ? "\u2212" + fmtBRL(staked) : "R$ 0,00") + '</div><div class="k-sub">se todas as abertas perderem</div></div>' +
+    '<div class="kpi"><div class="k-label">Resultado esperado</div><div class="k-value ' + cls(ev) + '">' + fmtBRLs(evOk ? ev : null) + '</div><div class="k-sub">EV pelas probabilidades usadas (p Usada)</div></div>' +
+    '<div class="kpi"><div class="k-label">Já liquidado hoje</div><div class="k-value ' + cls(doneAgg.profit) + '">' + fmtBRLs(doneBetsToday.length ? doneAgg.profit : null) + '</div><div class="k-sub">' + doneAgg.n + ' aposta' + (doneAgg.n === 1 ? "" : "s") + ' encerrada' + (doneAgg.n === 1 ? "" : "s") + '</div></div>' +
+  '</div>';
+
+  const betsOpen = openToday.filter(g => g.hasBet);
+  const noBet = openToday.filter(g => !g.hasBet);
+
+  if (!todayGames.length){
+    html += '<div class="state" style="margin-top:22px"><h3>Sem jogos cadastrados para hoje</h3><p>Cadastre a grade do dia na DB Oficial (bloco amarelo, colunas B–G) e volte aqui.</p></div>';
+  } else {
+    if (betsOpen.length){
+      html += '<div class="section-label">Apostas em aberto</div>';
+      html += betsOpen.map(g => matchCard(g, false)).join("");
+    }
+    if (noBet.length){
+      html += '<div class="section-label">Grade do dia — sem aposta</div><div class="mini-list">';
+      html += noBet.map(g =>
+        '<div class="mini-row"><span class="who">' + esc(g.j1) + ' × ' + esc(g.j2) + '</span>' +
+        '<span class="meta">' + esc(g.torneio) + (g.round ? " · " + esc(g.round) : "") + '</span>' +
+        '<span class="tail">' + fmtOdd(g.odd1) + ' / ' + fmtOdd(g.odd2) +
+        (g.pvj1 != null ? ' · modelo ' + fmtPct(g.pvj1, 0) + ' J1' : "") + '</span></div>').join("");
+      html += '</div>';
+    }
+    if (doneToday.length){
+      html += '<div class="section-label">Encerrados hoje</div><div class="mini-list">';
+      html += doneToday.map(g => {
+        const w = betWon(g); const p = isSettled(g) ? betProfit(g) : null;
+        return '<div class="mini-row"><span class="who">' + esc(g.vencedor) + '</span>' +
+        '<span class="meta">venceu ' + esc(norm(g.vencedor) === norm(g.j1) ? g.j2 : g.j1) + ' · ' + esc(g.torneio) + '</span>' +
+        '<span class="tail">' + (g.hasBet ? (w ? '<b class="pos">' : '<b class="neg">') + fmtBRLs(p) + '</b>' : 'sem aposta') + '</span></div>';
+      }).join("");
+      html += '</div>';
+    }
+  }
+
+  if (pendPast.length){
+    html += '<div class="section-label">Pendentes de dias anteriores</div>';
+    html += pendPast.slice(-6).map(g => matchCard(g, true)).join("");
+  }
+
+  document.getElementById("hojeContent").innerHTML = html;
+}
+
+/* ================================================================
+   RENDER — BANCA
+================================================================ */
+function renderBanca(){
+  const t = todayParts();
+  const curM = t.y * 100 + t.mo;
+  const settled = DB.filter(isSettled).sort((a, b) => a.dk - b.dk);
+  const month = settled.filter(g => g.mk === curM);
+  const aM = agg(month), aG = agg(settled);
+
+  const saldoRows = BANCA.filter(b => b.saldo != null && b.dk <= dKey(t));
+  const saldoAtual = saldoRows.length ? saldoRows[saldoRows.length - 1].saldo : null;
+  const aportes = BANCA.reduce((s, b) => s + (b.aporte || 0) - (b.saque || 0), 0);
+
+  let peak = -Infinity, dd = 0;
+  for (const b of saldoRows){
+    if (b.saldo > peak) peak = b.saldo;
+    if (peak > 0) dd = Math.max(dd, (peak - b.saldo) / peak);
+  }
+
+  let html =
+  '<div class="section-label" style="margin-top:0">Mês corrente — ' + fmtMes(curM) + '</div>' +
+  '<div class="kpis">' +
+    '<div class="kpi"><div class="k-label">Lucro do mês</div><div class="k-value ' + cls(aM.profit) + '">' + fmtBRLs(month.length ? aM.profit : null) + '</div><div class="k-sub">' + fmtBRL(aM.staked) + ' apostados</div></div>' +
+    '<div class="kpi"><div class="k-label">ROI do mês</div><div class="k-value ' + cls(aM.roi) + '">' + fmtPctS(aM.roi) + '</div><div class="k-sub">lucro / apostado</div></div>' +
+    '<div class="kpi"><div class="k-label">Taxa de acerto</div><div class="k-value">' + fmtPct(aM.wr) + '</div><div class="k-sub">' + aM.wins + ' de ' + aM.n + ' apostas</div></div>' +
+    '<div class="kpi"><div class="k-label">Apostas no mês</div><div class="k-value">' + aM.n + '</div><div class="k-sub">liquidadas até hoje</div></div>' +
+  '</div>' +
+  '<div class="section-label">Geral</div>' +
+  '<div class="kpis">' +
+    '<div class="kpi hl"><div class="k-label">Banca atual</div><div class="k-value">' + fmtBRL(saldoAtual) + '</div><div class="k-sub">' + (saldoAtual != null ? "aba Banca · conferir com a bet365" : "aba Banca indisponível") + '</div></div>' +
+    '<div class="kpi"><div class="k-label">Lucro total</div><div class="k-value ' + cls(aG.profit) + '">' + fmtBRLs(aG.profit) + '</div><div class="k-sub">' + fmtBRL(aG.staked) + ' apostados no histórico</div></div>' +
+    '<div class="kpi"><div class="k-label">ROI geral</div><div class="k-value ' + cls(aG.roi) + '">' + fmtPctS(aG.roi) + '</div><div class="k-sub">WR ' + fmtPct(aG.wr) + ' em ' + aG.n + ' apostas</div></div>' +
+    '<div class="kpi"><div class="k-label">Aportes líquidos</div><div class="k-value">' + fmtBRL(BANCA.length ? aportes : null) + '</div><div class="k-sub">aportes − saques</div></div>' +
+    '<div class="kpi"><div class="k-label">Drawdown máx.</div><div class="k-value neg">' + (saldoRows.length ? "\u2212" + fmtPct(dd) : "—") + '</div><div class="k-sub">queda do topo da banca</div></div>' +
+  '</div>' +
+  '<div class="grid-2" style="margin-top:22px">' +
+    '<div class="card" style="grid-column:1/-1"><h3>Evolução da banca<span class="hint">' + (saldoRows.length ? "saldo diário (aba Banca)" : "lucro acumulado (DB Oficial)") + '</span></h3><div class="chart-box tall"><canvas id="chEquity"></canvas></div></div>' +
+    '<div class="card"><h3>Lucro por mês</h3><div class="chart-box"><canvas id="chMensal"></canvas></div></div>' +
+    '<div class="card"><h3>Últimas liquidadas</h3><div style="max-height:260px;overflow:auto"><table><thead><tr><th>Data</th><th>Aposta</th><th class="num">Odd</th><th class="num">R$</th></tr></thead><tbody>' +
+      settled.slice(-12).reverse().map(g => {
+        const p = betProfit(g);
+        return '<tr><td>' + fmtD(g.data) + '</td><td>' + esc(g.aposta) + '<div style="font-size:11px;color:var(--muted)">' + esc(g.torneio) + '</div></td>' +
+          '<td class="num">' + fmtOdd(g.oddAp) + '</td><td class="num ' + cls(p) + '">' + fmtBRLs(p) + '</td></tr>';
+      }).join("") +
+    '</tbody></table></div></div>' +
+  '</div>';
+
+  document.getElementById("bancaContent").innerHTML = html;
+
+  /* equity chart */
+  let labels = [], series = [];
+  if (saldoRows.length){
+    labels = saldoRows.map(b => fmtD(b.data));
+    series = saldoRows.map(b => b.saldo);
+  } else {
+    let acc = 0;
+    for (const g of settled){ acc += betProfit(g); labels.push(fmtD(g.data)); series.push(acc); }
+  }
+  makeChart("chEquity", {
+    type: "line",
+    data: { labels, datasets: [{
+      data: series, borderColor: "#14683F", borderWidth: 2, pointRadius: 0,
+      fill: true, tension: .25,
+      backgroundColor: c => {
+        const g = c.chart.ctx.createLinearGradient(0, 0, 0, 300);
+        g.addColorStop(0, "rgba(20,104,63,.18)"); g.addColorStop(1, "rgba(20,104,63,0)");
+        return g;
+      }
+    }]},
+    options: { responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => fmtBRL(c.parsed.y) } } },
+      scales: { x: { ticks: { maxTicksLimit: 8, font: { size: 10 } }, grid: { display: false } },
+                y: { ticks: { callback: v => "R$ " + v.toLocaleString("pt-BR"), font: { size: 10 } }, grid: { color: "#EFF1EC" } } } }
+  });
+
+  /* monthly chart */
+  const byMonth = [...groupBy(settled, g => g.mk).entries()].sort((a, b) => a[0] - b[0]).slice(-10);
+  makeChart("chMensal", {
+    type: "bar",
+    data: { labels: byMonth.map(e => fmtMes(e[0])),
+      datasets: [{ data: byMonth.map(e => agg(e[1]).profit),
+        backgroundColor: byMonth.map(e => agg(e[1]).profit >= 0 ? "#148A4E" : "#D2492F"),
+        borderRadius: 6, maxBarThickness: 34 }]},
+    options: { responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => fmtBRLs(c.parsed.y) } } },
+      scales: { x: { grid: { display: false }, ticks: { font: { size: 10 } } },
+                y: { ticks: { callback: v => "R$ " + v.toLocaleString("pt-BR"), font: { size: 10 } }, grid: { color: "#EFF1EC" } } } }
+  });
+}
+
+/* ================================================================
+   RENDER — ESTATÍSTICAS
+================================================================ */
+function tableAgg(map, label, sortByProfit){
+  let rows = [...map.entries()].map(([k, list]) => ({ k, a: agg(list) }));
+  rows = rows.filter(r => r.a.n > 0);
+  rows.sort((x, y) => sortByProfit ? y.a.profit - x.a.profit : y.a.n - x.a.n);
+  return '<table><thead><tr><th>' + label + '</th><th class="num">N</th><th class="num">WR</th><th class="num">Lucro</th><th class="num">ROI</th></tr></thead><tbody>' +
+    rows.map(r =>
+      '<tr><td>' + esc(r.k) + '</td><td class="num">' + r.a.n + '</td>' +
+      '<td class="num"><div class="bar-cell"><span>' + fmtPct(r.a.wr, 0) + '</span><span class="bar"><i style="width:' + Math.round((r.a.wr || 0) * 100) + '%"></i></span></div></td>' +
+      '<td class="num ' + cls(r.a.profit) + '">' + fmtBRLs(r.a.profit) + '</td>' +
+      '<td class="num ' + cls(r.a.roi) + '">' + fmtPctS(r.a.roi) + '</td></tr>').join("") +
+    '</tbody></table>';
+}
+
+function renderStats(){
+  const settled = DB.filter(isSettled);
+  if (!settled.length){
+    document.getElementById("statsContent").innerHTML =
+      '<div class="state"><h3>Ainda sem apostas liquidadas</h3><p>As estatísticas aparecem quando houver histórico com resultado.</p></div>';
+    return;
+  }
+  const byEstr = groupBy(settled, g => g.estrategia || "(sem estratégia)");
+  const byFav  = groupBy(settled, g => g.favZebra || null);
+  const byQuad = groupBy(settled, g => g.quadra || null);
+  const byTour = groupBy(settled, g => g.torneio || null);
+
+  const bins = [
+    { k: "1,01–1,50", t: o => o < 1.5 },
+    { k: "1,50–2,00", t: o => o >= 1.5 && o < 2 },
+    { k: "2,00–2,50", t: o => o >= 2 && o < 2.5 },
+    { k: "2,50–3,00", t: o => o >= 2.5 && o < 3 },
+    { k: "3,00+",     t: o => o >= 3 }
+  ];
+  const oddAgg = bins.map(b => ({ k: b.k, a: agg(settled.filter(g => g.oddAp != null && b.t(g.oddAp))) }));
+
+  const briers = settled.map(g => g.brier).filter(v => v != null);
+  const briersMkt = settled.map(g => g.brierMkt).filter(v => v != null);
+  const brierAvg = briers.length ? briers.reduce((a, b) => a + b, 0) / briers.length : null;
+  const brierMktAvg = briersMkt.length ? briersMkt.reduce((a, b) => a + b, 0) / briersMkt.length : null;
+
+  const tourRows = [...byTour.entries()].map(([k, l]) => ({ k, a: agg(l) })).filter(r => r.a.n >= 3);
+  tourRows.sort((a, b) => b.a.profit - a.a.profit);
+  const bestT = tourRows.slice(0, 5), worstT = tourRows.slice(-5).reverse();
+
+  let html =
+  '<div class="kpis">' +
+    '<div class="kpi"><div class="k-label">Apostas liquidadas</div><div class="k-value">' + settled.length + '</div><div class="k-sub">histórico completo</div></div>' +
+    '<div class="kpi"><div class="k-label">Odd média apostada</div><div class="k-value">' + fmtOdd(settled.filter(g => g.oddAp).reduce((s, g) => s + g.oddAp, 0) / Math.max(1, settled.filter(g => g.oddAp).length)) + '</div><div class="k-sub">preço médio de entrada</div></div>' +
+    '<div class="kpi"><div class="k-label">Stake médio</div><div class="k-value">' + fmtBRL(agg(settled).staked / settled.length) + '</div><div class="k-sub">por aposta</div></div>' +
+    (brierAvg != null ?
+    '<div class="kpi"><div class="k-label">Brier modelo' + (brierMktAvg != null ? " vs mercado" : "") + '</div><div class="k-value">' + brierAvg.toLocaleString("pt-BR", { maximumFractionDigits: 3 }) + (brierMktAvg != null ? ' <span style="font-size:15px;color:var(--muted)">/ ' + brierMktAvg.toLocaleString("pt-BR", { maximumFractionDigits: 3 }) + '</span>' : "") + '</div><div class="k-sub">menor é melhor</div></div>' : "") +
+  '</div>' +
+  '<div class="grid-2" style="margin-top:22px">' +
+    '<div class="card"><h3>Por estratégia<span class="hint">Pró vs Contra-Modelo</span></h3>' + tableAgg(byEstr, "Estratégia", true) + '</div>' +
+    '<div class="card"><h3>Favorito × Zebra</h3>' + (byFav.size ? tableAgg(byFav, "Perfil", true) : '<p style="color:var(--muted);font-size:13px">Coluna Fav/Zebra vazia no histórico.</p>') + '</div>' +
+    '<div class="card"><h3>ROI por faixa de odd</h3><div class="chart-box"><canvas id="chOdds"></canvas></div></div>' +
+    '<div class="card"><h3>Por quadra</h3>' + tableAgg(byQuad, "Quadra", true) + '</div>' +
+    '<div class="card"><h3>Torneios que mais pagam<span class="hint">mín. 3 apostas</span></h3>' + tableAgg(new Map(bestT.map(r => [r.k, byTour.get(r.k)])), "Torneio", true) + '</div>' +
+    '<div class="card"><h3>Torneios que mais custam<span class="hint">mín. 3 apostas</span></h3>' + tableAgg(new Map(worstT.map(r => [r.k, byTour.get(r.k)])), "Torneio", true) + '</div>' +
+  '</div>';
+
+  document.getElementById("statsContent").innerHTML = html;
+
+  makeChart("chOdds", {
+    type: "bar",
+    data: { labels: oddAgg.map(o => o.k),
+      datasets: [{ data: oddAgg.map(o => o.a.roi != null ? o.a.roi * 100 : 0),
+        backgroundColor: oddAgg.map(o => (o.a.roi || 0) >= 0 ? "#14683F" : "#D2492F"),
+        borderRadius: 6, maxBarThickness: 44 }]},
+    options: { responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false },
+        tooltip: { callbacks: { label: c => { const o = oddAgg[c.dataIndex]; return "ROI " + fmtPctS(o.a.roi) + " · " + o.a.n + " apostas"; } } } },
+      scales: { x: { grid: { display: false }, ticks: { font: { size: 10 } } },
+                y: { ticks: { callback: v => v + "%", font: { size: 10 } }, grid: { color: "#EFF1EC" } } } }
+  });
+}
+
+function renderAll(){
+  renderHoje();
+  renderBanca();
+  renderStats();
+}
+
+/* ================================================================
+   NAV + BOOT
+================================================================ */
+document.querySelectorAll(".tab").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".tab").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+    btn.classList.add("active");
+    document.getElementById("page-" + btn.dataset.page).classList.add("active");
+  });
+});
+document.getElementById("btnRefresh").addEventListener("click", loadAll);
+setInterval(loadAll, REFRESH_MS);
+loadAll();
+</script>
+</body>
+</html>
