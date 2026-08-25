@@ -218,7 +218,7 @@ td.num,th.num{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:1
     </div>
   </section>
 
-  <p class="foot">Fonte: <a id="sheetLink" href="#" target="_blank" rel="noopener">Tennis Test v3 (Google Sheets)</a> · leitura direta, sem cópia intermediária · atualiza sozinho a cada 10 min</p>
+  <p class="foot">Fonte: <a id="sheetLink" href="#" target="_blank" rel="noopener">Tennis Test v3 (Google Sheets)</a> · leitura direta, sem cópia intermediária · atualiza sozinho a cada 10 min<br><span id="srcInfo"></span></p>
 </main>
 
 <script>
@@ -324,8 +324,8 @@ const fmtBRLs = v => v == null ? "—" :
   (v >= 0 ? "+" : "\u2212") + Math.abs(v).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 const fmtPct = (v, d) => v == null ? "—" :
   (v * 100).toLocaleString("pt-BR", { minimumFractionDigits: d ?? 1, maximumFractionDigits: d ?? 1 }) + "%";
-const fmtPctS = v => v == null ? "—" :
-  (v >= 0 ? "+" : "\u2212") + Math.abs(v * 100).toLocaleString("pt-BR", { maximumFractionDigits: 1 }) + "%";
+const fmtPctS = (v, d) => v == null ? "—" :
+  (v >= 0 ? "+" : "\u2212") + Math.abs(v * 100).toLocaleString("pt-BR", { maximumFractionDigits: d ?? 1 }) + "%";
 const fmtOdd = v => v == null ? "—" :
   v.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 const fmtD = d => d ? String(d.d).padStart(2,"0") + "/" + String(d.mo).padStart(2,"0") : "—";
@@ -341,9 +341,9 @@ const cls = v => v == null ? "" : (v >= 0 ? "pos" : "neg");
 function findHeaderRow(rows){
   for (let i = 0; i < Math.min(rows.length, 12); i++){
     const cells = rows[i].map(norm);
-    const hasId   = cells.some(c => /^id( |$)/.test(c));
-    const hasTour = cells.some(c => c.startsWith("torneio"));
-    const hasJog  = cells.some(c => c.startsWith("jogador"));
+    const hasId   = cells.some(c => /(^| )id( |$)/.test(c) || c === "id");
+    const hasTour = cells.some(c => c.includes("torneio"));
+    const hasJog  = cells.some(c => c.includes("jogador"));
     if ((hasId && hasTour) || (hasTour && hasJog)) return i;
   }
   return -1;
@@ -355,30 +355,31 @@ function mapColumns(header){
     const i = h.findIndex(test);
     return i >= 0 ? i : fallback;
   };
+  const ns = c => c.replace(/\s/g, "");
   return {
-    id:        find(c => /^id( |$)/.test(c), 0),
-    data:      find(c => c === "data", 1),
-    torneio:   find(c => c.startsWith("torneio"), 2),
-    round:     find(c => c === "round" || c === "rodada", 3),
-    quadra:    find(c => c === "quadra", 4),
-    j1:        find(c => c === "jogador 1" || c === "j1", 5),
-    j2:        find(c => c === "jogador 2" || c === "j2", 6),
-    pvj1:      find(c => c.includes("vj1") && !c.includes("yelo") && !c.includes("elo"), 7),
-    odd1:      find(c => c.replace(/\s/g,"") === "odd1", 8),
-    odd2:      find(c => c.replace(/\s/g,"") === "odd2", 9),
-    vencedor:  find(c => c === "vencedor" || c === "vitoria", 10),
-    aposta:    find(c => c === "aposta", 11),
-    oddAp:     find(c => c === "odd", 12),
-    estrategia:find(c => c.startsWith("estrategia"), 13),
+    id:        find(c => /(^| )id$/.test(c) || c === "id", 0),
+    data:      find(c => c === "data" || c.endsWith(" data"), 1),
+    torneio:   find(c => c.includes("torneio"), 2),
+    round:     find(c => c.includes("round") || c === "rodada", 3),
+    quadra:    find(c => c === "quadra" || c.endsWith(" quadra"), 4),
+    j1:        find(c => c.endsWith("jogador 1") || c === "j1", 5),
+    j2:        find(c => c.endsWith("jogador 2") || c === "j2", 6),
+    pvj1:      find(c => c.includes("vj1") && !c.includes("yelo") && !c.includes("elo") && !c.includes("aj"), 7),
+    odd1:      find(c => ns(c).endsWith("odd1"), 8),
+    odd2:      find(c => ns(c).endsWith("odd2"), 9),
+    vencedor:  find(c => c.endsWith("vencedor") || c.endsWith("vitoria"), 10),
+    aposta:    find(c => c === "aposta" || c.endsWith(" aposta"), 11),
+    oddAp:     find(c => c === "odd" || c.endsWith(" odd"), 12),
+    estrategia:find(c => c.includes("estrategia"), 13),
     stake:     find(c => c.includes("stake") && !c.includes("%") && !c.includes("bruto"), 14),
     stakePct:  find(c => c.includes("stake") && c.includes("%"), 15),
-    situacao:  find(c => c.startsWith("situac"), 16),
-    descOdds:  find(c => c.startsWith("desc"), 31),
+    situacao:  find(c => c.includes("situac"), 16),
+    descOdds:  find(c => c.includes("desc"), 31),
     pAj:       find(c => c.includes("aj") && (c.includes("vj") || c.includes("%")), 33),
     pMkt:      find(c => c.includes("mkt") && !/[12]/.test(c), 34),
     pUsada:    find(c => c.includes("usada"), 35),
-    acertou:   find(c => c === "acertou", 45),
-    resultado: find(c => c === "resultado", 46),
+    acertou:   find(c => c.includes("acertou"), 45),
+    resultado: find(c => c === "resultado" || c.endsWith(" resultado"), 46),
     brierMod:  h.findIndex(c => c.includes("brier")),
     favZebra:  find(c => c.includes("fav"), 52)
   };
@@ -574,30 +575,47 @@ function fetchJsonp(name){
   });
 }
 
-async function fetchSheet(name){
+async function fetchSheet(name, parseFn){
   const tries = [];
   const gvizCsv = csvUrl(name);
-  if (PUB_TOKEN && GIDS[name]){
+  const sources = [];
+  if (PUB_TOKEN && GIDS[name]) sources.push(["pub", () => fetchCsvUrl(
+    "https://docs.google.com/spreadsheets/d/e/" + PUB_TOKEN + "/pub?gid=" + GIDS[name] + "&single=true&output=csv&_=" + Date.now())]);
+  sources.push(["CSV", () => fetchCsvUrl(gvizCsv)]);
+  if (GIDS[name]) sources.push(["export", () => fetchCsvUrl(
+    "https://docs.google.com/spreadsheets/d/" + SHEET_ID + "/export?format=csv&gid=" + GIDS[name] + "&_=" + Date.now())]);
+  sources.push(["gviz", () => fetchJsonp(name)]);
+  sources.push(["proxy1", () => fetchCsvUrl("https://api.allorigins.win/raw?url=" + encodeURIComponent(gvizCsv))]);
+  sources.push(["proxy2", () => fetchCsvUrl("https://corsproxy.io/?url=" + encodeURIComponent(gvizCsv))]);
+  for (const [label, fn] of sources){
     try {
-      return await fetchCsvUrl("https://docs.google.com/spreadsheets/d/e/" + PUB_TOKEN +
-        "/pub?gid=" + GIDS[name] + "&single=true&output=csv&_=" + Date.now());
-    } catch (e){ tries.push("pub: " + e.message); }
+      const rows = await fn();
+      return { parsed: parseFn(rows), source: label };
+    } catch (e){ tries.push(label + ": " + e.message); }
   }
-  try { return await fetchCsvUrl(gvizCsv); }
-  catch (e){ tries.push("CSV: " + e.message); }
-  if (GIDS[name]){
-    try {
-      return await fetchCsvUrl("https://docs.google.com/spreadsheets/d/" + SHEET_ID +
-        "/export?format=csv&gid=" + GIDS[name] + "&_=" + Date.now());
-    } catch (e){ tries.push("export: " + e.message); }
+  throw new Error('Aba "' + name + '": ' + tries.join(" \u00b7 "));
+}
+
+function parseDB(rows){
+  const hi = findHeaderRow(rows);
+  if (hi < 0) throw new Error("cabe\u00e7alho n\u00e3o encontrado");
+  const h = rows[hi].map(norm);
+  const okOdd = h.some(c => c.replace(/\s/g, "").endsWith("odd1"));
+  const okVen = h.some(c => c.endsWith("vencedor") || c.endsWith("vitoria"));
+  if (!okOdd || !okVen){
+    throw new Error("aba errada? cabe\u00e7alho lido: " +
+      rows[hi].filter(x => String(x).trim()).slice(0, 10).join(" | "));
   }
-  try { return await fetchJsonp(name); }
-  catch (e){ tries.push("gviz: " + e.message); }
-  try { return await fetchCsvUrl("https://api.allorigins.win/raw?url=" + encodeURIComponent(gvizCsv)); }
-  catch (e){ tries.push("proxy1: " + e.message); }
-  try { return await fetchCsvUrl("https://corsproxy.io/?url=" + encodeURIComponent(gvizCsv)); }
-  catch (e){ tries.push("proxy2: " + e.message); }
-  throw new Error('Aba "' + name + '": ' + tries.join(" · "));
+  const games = buildGames(rows);
+  if (!games.length) throw new Error("0 jogos reconhecidos");
+  window.QC_DEBUG = { headerDB: rows[hi].filter(x => String(x).trim()) };
+  return games;
+}
+
+function parseBanca(rows){
+  const out = buildBanca(rows);
+  if (!out.length) throw new Error("0 linhas com data reconhecidas");
+  return out;
 }
 
 async function loadAll(){
@@ -605,13 +623,20 @@ async function loadAll(){
   btn.classList.add("spin");
   document.getElementById("syncTitle").textContent = "Sincronizando…";
   try {
-    const [dbRows, bancaRows] = await Promise.all([
-      fetchSheet(SHEET_DB),
-      fetchSheet(SHEET_BANCA).catch(() => null)
+    const [dbRes, bancaRes] = await Promise.all([
+      fetchSheet(SHEET_DB, parseDB),
+      fetchSheet(SHEET_BANCA, parseBanca).catch(() => null)
     ]);
-    DB = buildGames(dbRows);
-    BANCA = bancaRows ? buildBanca(bancaRows) : [];
+    DB = dbRes.parsed;
+    BANCA = bancaRes ? bancaRes.parsed : [];
     renderAll();
+    const si = document.getElementById("srcInfo");
+    if (si){
+      si.textContent = DB.length.toLocaleString("pt-BR") + " jogos \u00b7 " +
+        DB.filter(g => g.hasBet).length.toLocaleString("pt-BR") + " apostas \u00b7 DB via " + dbRes.source +
+        " \u00b7 Banca " + (bancaRes ? "via " + bancaRes.source : "indispon\u00edvel");
+      si.title = (window.QC_DEBUG && window.QC_DEBUG.headerDB) ? "Cabe\u00e7alho: " + window.QC_DEBUG.headerDB.join(" | ") : "";
+    }
     document.getElementById("statusDot").classList.remove("err");
     document.getElementById("syncTitle").textContent = "Planilha conectada";
     document.getElementById("syncTime").textContent = "Atualizado às " +
@@ -818,6 +843,19 @@ function renderBanca(){
     if (peak > 0) dd = Math.max(dd, (peak - b.saldo) / peak);
   }
 
+  /* CAGR diário: média geométrica dos retornos diários, descontando aportes e saques
+     r_d = (saldo_d - aporte_d + saque_d) / saldo_(d-1) - 1 */
+  let logSum = 0, nDays = 0;
+  for (let i = 1; i < saldoRows.length; i++){
+    const prev = saldoRows[i - 1].saldo, cur = saldoRows[i];
+    if (prev == null || prev <= 0 || cur.saldo == null) continue;
+    const r = (cur.saldo - (cur.aporte || 0) + (cur.saque || 0)) / prev - 1;
+    if (1 + r <= 0) continue;
+    logSum += Math.log(1 + r); nDays++;
+  }
+  const cagrDia = nDays ? Math.exp(logSum / nDays) - 1 : null;
+  const cagrMes = cagrDia != null ? Math.pow(1 + cagrDia, 30) - 1 : null;
+
   let html =
   '<div class="section-label" style="margin-top:0">Mês corrente — ' + fmtMes(curM) + '</div>' +
   '<div class="kpis">' +
@@ -832,11 +870,12 @@ function renderBanca(){
     '<div class="kpi"><div class="k-label">Lucro total</div><div class="k-value ' + cls(aG.profit) + '">' + fmtBRLs(aG.profit) + '</div><div class="k-sub">' + fmtBRL(aG.staked) + ' apostados no histórico</div></div>' +
     '<div class="kpi"><div class="k-label">ROI geral</div><div class="k-value ' + cls(aG.roi) + '">' + fmtPctS(aG.roi) + '</div><div class="k-sub">WR ' + fmtPct(aG.wr) + ' em ' + aG.n + ' apostas</div></div>' +
     '<div class="kpi"><div class="k-label">Aportes líquidos</div><div class="k-value">' + fmtBRL(BANCA.length ? aportes : null) + '</div><div class="k-sub">aportes − saques</div></div>' +
+    '<div class="kpi"><div class="k-label">CAGR diário</div><div class="k-value ' + cls(cagrDia) + '">' + fmtPctS(cagrDia, 2) + '</div><div class="k-sub">' + (cagrMes != null ? "≈ " + fmtPctS(cagrMes, 1) + " ao mês · sem contar aportes" : "precisa da aba Banca") + '</div></div>' +
     '<div class="kpi"><div class="k-label">Drawdown máx.</div><div class="k-value neg">' + (saldoRows.length ? "\u2212" + fmtPct(dd) : "—") + '</div><div class="k-sub">queda do topo da banca</div></div>' +
   '</div>' +
   '<div class="grid-2" style="margin-top:22px">' +
     '<div class="card" style="grid-column:1/-1"><h3>Evolução da banca<span class="hint">' + (saldoRows.length ? "saldo diário (aba Banca)" : "lucro acumulado (DB Oficial)") + '</span></h3><div class="chart-box tall"><canvas id="chEquity"></canvas></div></div>' +
-    '<div class="card"><h3>Lucro por mês</h3><div class="chart-box"><canvas id="chMensal"></canvas></div></div>' +
+    '<div class="card"><h3>Evolução mensal<span class="hint">aportes × lucro, empilhados</span></h3><div class="chart-box"><canvas id="chMensal"></canvas></div></div>' +
     '<div class="card"><h3>Últimas liquidadas</h3><div style="max-height:260px;overflow:auto"><table><thead><tr><th>Data</th><th>Aposta</th><th class="num">Odd</th><th class="num">R$</th></tr></thead><tbody>' +
       settled.slice(-12).reverse().map(g => {
         const p = betProfit(g);
@@ -874,82 +913,132 @@ function renderBanca(){
                 y: { ticks: { callback: v => "R$ " + v.toLocaleString("pt-BR"), font: { size: 10 } }, grid: { color: "#EFF1EC" } } } }
   });
 
-  /* monthly chart */
-  const byMonth = [...groupBy(settled, g => g.mk).entries()].sort((a, b) => a[0] - b[0]).slice(-10);
+  /* monthly chart: stacked aportes líquidos + lucro */
+  const lucroMes = new Map([...groupBy(settled, g => g.mk).entries()].map(([k, l]) => [k, agg(l).profit]));
+  const aporteMes = new Map();
+  for (const b of BANCA){
+    const flow = (b.aporte || 0) - (b.saque || 0);
+    if (flow) aporteMes.set(b.mk ?? mKey(b.data), (aporteMes.get(b.mk ?? mKey(b.data)) || 0) + flow);
+  }
+  const meses = [...new Set([...lucroMes.keys(), ...aporteMes.keys()])].sort((a, b) => a - b).slice(-12);
   makeChart("chMensal", {
     type: "bar",
-    data: { labels: byMonth.map(e => fmtMes(e[0])),
-      datasets: [{ data: byMonth.map(e => agg(e[1]).profit),
-        backgroundColor: byMonth.map(e => agg(e[1]).profit >= 0 ? "#148A4E" : "#D2492F"),
-        borderRadius: 6, maxBarThickness: 34 }]},
+    data: { labels: meses.map(fmtMes),
+      datasets: [
+        { label: "Aportes líquidos", stack: "s",
+          data: meses.map(m => aporteMes.get(m) || 0),
+          backgroundColor: "#5A5FD8", borderRadius: 4, maxBarThickness: 34 },
+        { label: "Lucro das apostas", stack: "s",
+          data: meses.map(m => lucroMes.get(m) || 0),
+          backgroundColor: meses.map(m => (lucroMes.get(m) || 0) >= 0 ? "#148A4E" : "#D2492F"),
+          borderRadius: 4, maxBarThickness: 34 }
+      ]},
     options: { responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => fmtBRLs(c.parsed.y) } } },
-      scales: { x: { grid: { display: false }, ticks: { font: { size: 10 } } },
-                y: { ticks: { callback: v => "R$ " + v.toLocaleString("pt-BR"), font: { size: 10 } }, grid: { color: "#EFF1EC" } } } }
+      plugins: {
+        legend: { display: true, position: "bottom", labels: { boxWidth: 10, font: { size: 11 } } },
+        tooltip: { callbacks: {
+          label: c => c.dataset.label + ": " + fmtBRLs(c.parsed.y),
+          footer: items => "Total do mês: " + fmtBRLs(items.reduce((t, i) => t + i.parsed.y, 0))
+        } }
+      },
+      scales: { x: { stacked: true, grid: { display: false }, ticks: { font: { size: 10 } } },
+                y: { stacked: true, ticks: { callback: v => "R$ " + v.toLocaleString("pt-BR"), font: { size: 10 } }, grid: { color: "#EFF1EC" } } } }
   });
 }
 
 /* ================================================================
    RENDER — ESTATÍSTICAS
 ================================================================ */
-function tableAgg(map, label, sortByProfit){
+function tableAgg(map, label, opt){
+  opt = opt || {};
   let rows = [...map.entries()].map(([k, list]) => ({ k, a: agg(list) }));
-  rows = rows.filter(r => r.a.n > 0);
-  rows.sort((x, y) => sortByProfit ? y.a.profit - x.a.profit : y.a.n - x.a.n);
-  return '<table><thead><tr><th>' + label + '</th><th class="num">N</th><th class="num">WR</th><th class="num">Lucro</th><th class="num">ROI</th></tr></thead><tbody>' +
+  rows = rows.filter(r => r.a.n >= (opt.minN || 1));
+  if (opt.sort === "n") rows.sort((x, y) => y.a.n - x.a.n);
+  else if (opt.sort !== "none") rows.sort((x, y) => y.a.profit - x.a.profit);
+  if (opt.limit) rows = rows.slice(0, opt.limit);
+  const table = '<table><thead><tr><th>' + label + '</th><th class="num">N</th><th class="num">G</th><th class="num">WR</th><th class="num">Lucro</th><th class="num">ROI</th></tr></thead><tbody>' +
     rows.map(r =>
-      '<tr><td>' + esc(r.k) + '</td><td class="num">' + r.a.n + '</td>' +
+      '<tr><td>' + esc(r.k) + '</td><td class="num">' + r.a.n + '</td><td class="num">' + r.a.wins + '</td>' +
       '<td class="num"><div class="bar-cell"><span>' + fmtPct(r.a.wr, 0) + '</span><span class="bar"><i style="width:' + Math.round((r.a.wr || 0) * 100) + '%"></i></span></div></td>' +
       '<td class="num ' + cls(r.a.profit) + '">' + fmtBRLs(r.a.profit) + '</td>' +
       '<td class="num ' + cls(r.a.roi) + '">' + fmtPctS(r.a.roi) + '</td></tr>').join("") +
     '</tbody></table>';
+  return opt.scroll ? '<div style="max-height:330px;overflow:auto">' + table + '</div>' : table;
+}
+
+function sideProb(g){
+  if (g.pAj != null) return g.pAj;
+  if (g.pUsada != null) return g.pUsada;
+  if (g.pvj1 != null && g.aposta) return norm(g.aposta) === norm(g.j2) ? 1 - g.pvj1 : g.pvj1;
+  return null;
 }
 
 function renderStats(){
   const settled = DB.filter(isSettled);
   if (!settled.length){
     document.getElementById("statsContent").innerHTML =
-      '<div class="state"><h3>Ainda sem apostas liquidadas</h3><p>As estatísticas aparecem quando houver histórico com resultado.</p></div>';
+      '<div class="state"><h3>Ainda sem apostas liquidadas</h3><p>As estat\u00edsticas aparecem quando houver hist\u00f3rico com resultado.</p></div>';
     return;
   }
-  const byEstr = groupBy(settled, g => g.estrategia || "(sem estratégia)");
+  const byEstr = groupBy(settled, g => g.estrategia || "(sem estrat\u00e9gia)");
   const byFav  = groupBy(settled, g => g.favZebra || null);
   const byQuad = groupBy(settled, g => g.quadra || null);
   const byTour = groupBy(settled, g => g.torneio || null);
+  const byJog  = groupBy(settled, g => g.aposta || null);
+  const byCon  = groupBy(settled, g => {
+    if (!g.aposta || (!g.j1 && !g.j2)) return null;
+    return norm(g.aposta) === norm(g.j1) ? (g.j2 || null) : (g.j1 || null);
+  });
+  const mesMap = new Map([...groupBy(settled, g => g.mk).entries()]
+    .sort((a, b) => b[0] - a[0]).map(([k, l]) => [fmtMes(k), l]));
 
-  const bins = [
-    { k: "1,01–1,50", t: o => o < 1.5 },
-    { k: "1,50–2,00", t: o => o >= 1.5 && o < 2 },
-    { k: "2,00–2,50", t: o => o >= 2 && o < 2.5 },
-    { k: "2,50–3,00", t: o => o >= 2.5 && o < 3 },
+  const oddBins = [
+    { k: "1,01\u20131,50", t: o => o < 1.5 },
+    { k: "1,50\u20132,00", t: o => o >= 1.5 && o < 2 },
+    { k: "2,00\u20132,50", t: o => o >= 2 && o < 2.5 },
+    { k: "2,50\u20133,00", t: o => o >= 2.5 && o < 3 },
     { k: "3,00+",     t: o => o >= 3 }
   ];
-  const oddAgg = bins.map(b => ({ k: b.k, a: agg(settled.filter(g => g.oddAp != null && b.t(g.oddAp))) }));
+  const oddEntries = oddBins.map(b => [b.k, settled.filter(g => g.oddAp != null && b.t(g.oddAp))]).filter(e => e[1].length);
+  const oddMap = new Map(oddEntries);
+  const oddAgg = oddEntries.map(([k, l]) => ({ k, a: agg(l) }));
+
+  const pBins = [
+    { k: "at\u00e9 45%", t: p => p < .45 },
+    { k: "45\u201355%", t: p => p >= .45 && p < .55 },
+    { k: "55\u201365%", t: p => p >= .55 && p < .65 },
+    { k: "65\u201375%", t: p => p >= .65 && p < .75 },
+    { k: "75\u201385%", t: p => p >= .75 && p < .85 },
+    { k: "85%+",   t: p => p >= .85 }
+  ];
+  const pMap = new Map(pBins.map(b => [b.k,
+    settled.filter(g => { const p = sideProb(g); return p != null && b.t(p); })]).filter(e => e[1].length));
 
   const briers = settled.map(g => g.brier).filter(v => v != null);
   const briersMkt = settled.map(g => g.brierMkt).filter(v => v != null);
   const brierAvg = briers.length ? briers.reduce((a, b) => a + b, 0) / briers.length : null;
   const brierMktAvg = briersMkt.length ? briersMkt.reduce((a, b) => a + b, 0) / briersMkt.length : null;
-
-  const tourRows = [...byTour.entries()].map(([k, l]) => ({ k, a: agg(l) })).filter(r => r.a.n >= 3);
-  tourRows.sort((a, b) => b.a.profit - a.a.profit);
-  const bestT = tourRows.slice(0, 5), worstT = tourRows.slice(-5).reverse();
+  const withOdd = settled.filter(g => g.oddAp);
 
   let html =
   '<div class="kpis">' +
-    '<div class="kpi"><div class="k-label">Apostas liquidadas</div><div class="k-value">' + settled.length + '</div><div class="k-sub">histórico completo</div></div>' +
-    '<div class="kpi"><div class="k-label">Odd média apostada</div><div class="k-value">' + fmtOdd(settled.filter(g => g.oddAp).reduce((s, g) => s + g.oddAp, 0) / Math.max(1, settled.filter(g => g.oddAp).length)) + '</div><div class="k-sub">preço médio de entrada</div></div>' +
-    '<div class="kpi"><div class="k-label">Stake médio</div><div class="k-value">' + fmtBRL(agg(settled).staked / settled.length) + '</div><div class="k-sub">por aposta</div></div>' +
+    '<div class="kpi"><div class="k-label">Apostas liquidadas</div><div class="k-value">' + settled.length + '</div><div class="k-sub">hist\u00f3rico completo</div></div>' +
+    '<div class="kpi"><div class="k-label">Odd m\u00e9dia apostada</div><div class="k-value">' + fmtOdd(withOdd.length ? withOdd.reduce((s2, g) => s2 + g.oddAp, 0) / withOdd.length : null) + '</div><div class="k-sub">pre\u00e7o m\u00e9dio de entrada</div></div>' +
+    '<div class="kpi"><div class="k-label">Stake m\u00e9dio</div><div class="k-value">' + fmtBRL(agg(settled).staked / settled.length) + '</div><div class="k-sub">por aposta</div></div>' +
     (brierAvg != null ?
-    '<div class="kpi"><div class="k-label">Brier modelo' + (brierMktAvg != null ? " vs mercado" : "") + '</div><div class="k-value">' + brierAvg.toLocaleString("pt-BR", { maximumFractionDigits: 3 }) + (brierMktAvg != null ? ' <span style="font-size:15px;color:var(--muted)">/ ' + brierMktAvg.toLocaleString("pt-BR", { maximumFractionDigits: 3 }) + '</span>' : "") + '</div><div class="k-sub">menor é melhor</div></div>' : "") +
+    '<div class="kpi"><div class="k-label">Brier modelo' + (brierMktAvg != null ? " vs mercado" : "") + '</div><div class="k-value">' + brierAvg.toLocaleString("pt-BR", { maximumFractionDigits: 3 }) + (brierMktAvg != null ? ' <span style="font-size:15px;color:var(--muted)">/ ' + brierMktAvg.toLocaleString("pt-BR", { maximumFractionDigits: 3 }) + '</span>' : "") + '</div><div class="k-sub">menor \u00e9 melhor</div></div>' : "") +
   '</div>' +
   '<div class="grid-2" style="margin-top:22px">' +
-    '<div class="card"><h3>Por estratégia<span class="hint">Pró vs Contra-Modelo</span></h3>' + tableAgg(byEstr, "Estratégia", true) + '</div>' +
-    '<div class="card"><h3>Favorito × Zebra</h3>' + (byFav.size ? tableAgg(byFav, "Perfil", true) : '<p style="color:var(--muted);font-size:13px">Coluna Fav/Zebra vazia no histórico.</p>') + '</div>' +
+    '<div class="card"><h3>Por estrat\u00e9gia<span class="hint">Pr\u00f3 vs Contra-Modelo</span></h3>' + tableAgg(byEstr, "Estrat\u00e9gia") + '</div>' +
+    '<div class="card"><h3>Favorito \u00d7 Zebra</h3>' + (byFav.size ? tableAgg(byFav, "Perfil") : '<p style="color:var(--muted);font-size:13px">Coluna Fav/Zebra vazia no hist\u00f3rico.</p>') + '</div>' +
+    '<div class="card"><h3>Por faixa de odd<span class="hint">N \u00b7 ganhas \u00b7 lucro</span></h3>' + tableAgg(oddMap, "Odd", { sort: "none" }) + '</div>' +
+    '<div class="card"><h3>Por probabilidade do modelo<span class="hint">prob. do lado apostado</span></h3>' + (pMap.size ? tableAgg(pMap, "Faixa", { sort: "none" }) : '<p style="color:var(--muted);font-size:13px">Sem probabilidades no hist\u00f3rico.</p>') + '</div>' +
     '<div class="card"><h3>ROI por faixa de odd</h3><div class="chart-box"><canvas id="chOdds"></canvas></div></div>' +
-    '<div class="card"><h3>Por quadra</h3>' + tableAgg(byQuad, "Quadra", true) + '</div>' +
-    '<div class="card"><h3>Torneios que mais pagam<span class="hint">mín. 3 apostas</span></h3>' + tableAgg(new Map(bestT.map(r => [r.k, byTour.get(r.k)])), "Torneio", true) + '</div>' +
-    '<div class="card"><h3>Torneios que mais custam<span class="hint">mín. 3 apostas</span></h3>' + tableAgg(new Map(worstT.map(r => [r.k, byTour.get(r.k)])), "Torneio", true) + '</div>' +
+    '<div class="card"><h3>Por m\u00eas</h3>' + tableAgg(mesMap, "M\u00eas", { sort: "none", scroll: true }) + '</div>' +
+    '<div class="card"><h3>Por jogador apostado<span class="hint">a favor de quem apostamos</span></h3>' + tableAgg(byJog, "Jogador", { sort: "n", scroll: true }) + '</div>' +
+    '<div class="card"><h3>Por jogador contra<span class="hint">contra quem apostamos</span></h3>' + tableAgg(byCon, "Jogador", { sort: "n", scroll: true }) + '</div>' +
+    '<div class="card"><h3>Por quadra</h3>' + tableAgg(byQuad, "Quadra") + '</div>' +
+    '<div class="card"><h3>Por torneio</h3>' + tableAgg(byTour, "Torneio", { sort: "n", scroll: true }) + '</div>' +
   '</div>';
 
   document.getElementById("statsContent").innerHTML = html;
@@ -962,7 +1051,7 @@ function renderStats(){
         borderRadius: 6, maxBarThickness: 44 }]},
     options: { responsive: true, maintainAspectRatio: false,
       plugins: { legend: { display: false },
-        tooltip: { callbacks: { label: c => { const o = oddAgg[c.dataIndex]; return "ROI " + fmtPctS(o.a.roi) + " · " + o.a.n + " apostas"; } } } },
+        tooltip: { callbacks: { label: c => { const o = oddAgg[c.dataIndex]; return "ROI " + fmtPctS(o.a.roi) + " \u00b7 " + o.a.n + " apostas"; } } } },
       scales: { x: { grid: { display: false }, ticks: { font: { size: 10 } } },
                 y: { ticks: { callback: v => v + "%", font: { size: 10 } }, grid: { color: "#EFF1EC" } } } }
   });
