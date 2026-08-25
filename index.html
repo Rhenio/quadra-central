@@ -73,6 +73,8 @@ button{font-family:inherit;cursor:pointer}
 /* ---------- match cards ---------- */
 .match{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px;margin-bottom:12px}
 .match.bet{border-left:4px solid var(--ball)}
+.match.rec{border-left:4px solid var(--market)}
+.chip.rec{background:var(--market-bg);color:var(--market)}
 .match-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
 .chip{font-size:11px;font-weight:600;border-radius:999px;padding:3px 10px;letter-spacing:.02em}
 .chip.tour{background:#E9ECE5;color:var(--ink)}
@@ -168,6 +170,7 @@ td.num,th.num{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:1
       <button class="tab active" data-page="hoje" role="tab">Hoje</button>
       <button class="tab" data-page="banca" role="tab">Banca</button>
       <button class="tab" data-page="stats" role="tab">Estatísticas</button>
+      <button class="tab" data-page="modelo" role="tab">Modelo</button>
     </nav>
     <div class="sync">
       <span class="dot" id="statusDot"></span>
@@ -211,9 +214,20 @@ td.num,th.num{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:1
   <section class="page" id="page-stats">
     <div class="page-head">
       <h2>Estatísticas</h2>
-      <span class="date-chip">histórico completo</span>
+      <span class="date-chip">apostas reais · aba Apostas</span>
     </div>
     <div id="statsContent">
+      <div class="state"><div class="loading-court"></div>Carregando a planilha…</div>
+    </div>
+  </section>
+
+  <!-- ============ MODELO ============ -->
+  <section class="page" id="page-modelo">
+    <div class="page-head">
+      <h2>Modelo</h2>
+      <span class="date-chip">todas as recomendações · DB Oficial</span>
+    </div>
+    <div id="modeloContent">
       <div class="state"><div class="loading-court"></div>Carregando a planilha…</div>
     </div>
   </section>
@@ -230,6 +244,7 @@ const SHEET_ID = "1otLNM8g0D3yp44DlUyq5IR8dLj0hI_DFdFo7hjQ3JUQ";
 const PUB_TOKEN = "";
 const GIDS = { "DB Oficial": "458750439", "Banca": "" };
 const SHEET_DB = "DB Oficial";
+const SHEET_APOSTAS = "Apostas";
 const SHEET_BANCA = "Banca";
 const TZ = "America/Sao_Paulo";
 const REFRESH_MS = 10 * 60 * 1000;
@@ -511,10 +526,128 @@ function groupBy(list, keyFn){
   return m;
 }
 
+function sideProbG(g){
+  if (g.pAj != null) return g.pAj;
+  if (g.pUsada != null) return g.pUsada;
+  if (g.pvj1 != null && g.aposta) return norm(g.aposta) === norm(g.j2) ? 1 - g.pvj1 : g.pvj1;
+  return null;
+}
+
+function aggB(list){
+  let n = list.length, w = 0, st = 0, pf = 0;
+  for (const b of list){ if (b.won) w++; st += b.stake || 0; pf += b.resultado || 0; }
+  return { n, wins: w, wr: n ? w / n : null, staked: st, profit: pf, roi: st > 0 ? pf / st : null };
+}
+
+/* ---- aba Apostas: o razão do que foi realmente apostado ---- */
+function buildApostas(rows){
+  let hi = -1;
+  for (let i = 0; i < Math.min(rows.length, 12); i++){
+    const c = rows[i].map(norm);
+    const hasIdJogo = c.some(x => x.includes("id") && x.includes("jogo"));
+    const hasStake  = c.some(x => x.includes("stake"));
+    const hasOdd    = c.some(x => x.includes("odd"));
+    if (hasIdJogo || (hasStake && hasOdd)){ hi = i; break; }
+  }
+  if (hi < 0) throw new Error("cabeçalho da aba Apostas não encontrado");
+  const h = rows[hi].map(norm);
+  const findAll = t => h.map((c, i) => t(c) ? i : -1).filter(i => i >= 0);
+  const first = (t, fb) => { const a = findAll(t); return a.length ? a[0] : fb; };
+  const oddCols = findAll(c => c === "odd" || (c.includes("odd") && !c.includes("fech")));
+  let oddI = oddCols.find(i => /obtid|real|final|conseguid/.test(h[i]));
+  if (oddI == null) oddI = oddCols.includes(12) ? 12 : (oddCols.length ? oddCols[oddCols.length - 1] : 12);
+  const stCols = findAll(c => c.includes("stake") || (c.includes("valor") && c.includes("apost")));
+  let stI = stCols.find(i => /apostad|real/.test(h[i]));
+  if (stI == null) stI = stCols.includes(14) ? 14 : (stCols.length ? stCols[stCols.length - 1] : 14);
+  const C = {
+    idJogo:     first(c => c.includes("id") && c.includes("jogo"), 1),
+    data:       first(c => c === "data" || c.endsWith(" data"), -1),
+    torneio:    first(c => c.includes("torneio"), -1),
+    aposta:     first(c => c === "aposta" || c.endsWith(" aposta"), -1),
+    estrategia: first(c => c.includes("estrategia"), -1),
+    casa:       first(c => c === "casa" || c.endsWith(" casa"), -1),
+    resultado:  first(c => c.includes("resultado") || c === "retorno", -1),
+    odd: oddI, stake: stI
+  };
+  const out = [];
+  for (let r = hi + 1; r < rows.length; r++){
+    const row = rows[r]; if (!row || !row.length) continue;
+    const get = i => (i >= 0 && i < row.length) ? row[i] : "";
+    const stake = parseNum(get(C.stake));
+    if (stake == null || stake <= 0) continue;
+    out.push({
+      idJogo: String(get(C.idJogo) || "").trim(),
+      stake,
+      data: parseDateBR(get(C.data)),
+      torneio: String(get(C.torneio) || "").trim(),
+      aposta: String(get(C.aposta) || "").trim(),
+      estrategia: String(get(C.estrategia) || "").trim(),
+      casa: String(get(C.casa) || "").trim(),
+      odd: parseNum(get(C.odd)),
+      resultado: parseNum(get(C.resultado))
+    });
+  }
+  return out;
+}
+function parseApostas(rows){
+  const o = buildApostas(rows);
+  if (!o.length) throw new Error("0 apostas reconhecidas");
+  return o;
+}
+
+/* junta cada aposta real ao jogo da DB Oficial pelo ID */
+function joinBets(apRows, games){
+  const byId = new Map(games.map(g => [String(g.id), g]));
+  const bets = [];
+  for (const a of apRows){
+    const g = a.idJogo ? (byId.get(a.idJogo) || null) : null;
+    const data = a.data || (g && g.data) || null;
+    if (!data) continue;
+    const side = a.aposta || (g ? g.aposta : "");
+    if (!side) continue;
+    const odd = a.odd != null ? a.odd : (g ? g.oddAp : null);
+    let settled, won = null, profit = null;
+    if (g){
+      settled = !!g.vencedor;
+      if (settled){
+        won = norm(g.vencedor) === norm(side);
+        profit = a.resultado != null ? a.resultado : (won ? (odd ? a.stake * (odd - 1) : 0) : -a.stake);
+      }
+    } else {
+      settled = a.resultado != null;
+      if (settled){ profit = a.resultado; won = profit > 0; }
+    }
+    bets.push({
+      game: g, idJogo: a.idJogo, data, dk: dKey(data), mk: mKey(data),
+      torneio: (g && g.torneio) || a.torneio || "",
+      quadra: g ? g.quadra : "", j1: g ? g.j1 : "", j2: g ? g.j2 : "",
+      side, odd, stake: a.stake, casa: a.casa,
+      estrategia: a.estrategia || (g ? g.estrategia : "") || "",
+      favZebra: g ? g.favZebra : "",
+      settled, won, resultado: profit,
+      pModel: g ? sideProbG(g) : null
+    });
+  }
+  return bets;
+}
+
+/* se a aba Apostas não puder ser lida, cai para as recomendações com stake */
+function fallbackBets(games){
+  return games.filter(g => g.hasBet && g.stake).map(g => ({
+    game: g, idJogo: g.id, data: g.data, dk: g.dk, mk: g.mk,
+    torneio: g.torneio, quadra: g.quadra, j1: g.j1, j2: g.j2,
+    side: g.aposta, odd: g.oddAp, stake: g.stake, casa: "",
+    estrategia: g.estrategia, favZebra: g.favZebra,
+    settled: isSettled(g), won: betWon(g),
+    resultado: isSettled(g) ? betProfit(g) : null,
+    pModel: sideProbG(g)
+  }));
+}
+
 /* ================================================================
    STATE + FETCH
 ================================================================ */
-let DB = null, BANCA = null;
+let DB = null, BANCA = null, BETS = [], BETS_SRC = null;
 const charts = {};
 function makeChart(id, cfg){
   if (charts[id]) charts[id].destroy();
@@ -624,12 +757,15 @@ async function loadAll(){
   btn.classList.add("spin");
   document.getElementById("syncTitle").textContent = "Sincronizando…";
   try {
-    const [dbRes, bancaRes] = await Promise.all([
+    const [dbRes, apRes, bancaRes] = await Promise.all([
       fetchSheet(SHEET_DB, parseDB),
+      fetchSheet(SHEET_APOSTAS, parseApostas).catch(() => null),
       fetchSheet(SHEET_BANCA, parseBanca).catch(() => null)
     ]);
     DB = dbRes.parsed;
     BANCA = bancaRes ? bancaRes.parsed : [];
+    BETS = apRes ? joinBets(apRes.parsed, DB) : fallbackBets(DB);
+    BETS_SRC = apRes ? apRes.source : null;
     renderAll();
     const si = document.getElementById("srcInfo");
     if (si){
@@ -638,7 +774,9 @@ async function loadAll(){
         ? " \u00b7 \u26a0\ufe0f poucos jogos lidos \u2014 um filtro ativo na DB Oficial limita este caminho de leitura"
         : "";
       si.textContent = DB.length.toLocaleString("pt-BR") + " jogos \u00b7 " +
-        DB.filter(g => g.hasBet).length.toLocaleString("pt-BR") + " apostas \u00b7 DB via " + dbRes.source +
+        BETS.length.toLocaleString("pt-BR") + " apostas reais" +
+        (BETS_SRC ? " (aba Apostas via " + BETS_SRC + ")" : " (aba Apostas indispon\u00edvel \u2014 usando recomenda\u00e7\u00f5es)") +
+        " \u00b7 DB via " + dbRes.source +
         " \u00b7 Banca " + (bancaRes ? "via " + bancaRes.source : "indispon\u00edvel") + filtroAviso;
       si.title = (window.QC_DEBUG && window.QC_DEBUG.headerDB) ? "Cabe\u00e7alho: " + window.QC_DEBUG.headerDB.join(" | ") : "";
     }
@@ -670,6 +808,7 @@ function renderError(e){
   document.getElementById("hojeContent").innerHTML = html;
   document.getElementById("bancaContent").innerHTML = html;
   document.getElementById("statsContent").innerHTML = html;
+  document.getElementById("modeloContent").innerHTML = html;
 }
 
 /* ================================================================
@@ -705,54 +844,62 @@ function duelHTML(pModel, pMkt){
     '</div></div>';
 }
 
-function situacaoChip(g){
+function situacaoChip(g, rb){
+  if (rb){
+    if (rb.settled) return rb.won ? '<span class="chip won">Ganhou</span>' : '<span class="chip lost">Perdeu</span>';
+    return '<span class="chip bet-side">Apostada</span>';
+  }
   const s = norm(g.situacao);
-  if (s.includes("ganhou")) return '<span class="chip won">Ganhou</span>';
-  if (s.includes("perdeu")) return '<span class="chip lost">Perdeu</span>';
-  if (s.includes("falta"))  return '<span class="chip warn">Faltam dados</span>';
-  if (g.hasBet)             return '<span class="chip bet-side">Aposta ativa</span>';
+  if (s.includes("falta")) return '<span class="chip warn">Faltam dados</span>';
+  if (g.hasBet) return '<span class="chip rec">Recomendada · não registrada</span>';
   return '<span class="chip no-bet">Sem aposta</span>';
 }
 
-function matchCard(g, showDate){
-  const betOnJ1 = g.hasBet && norm(g.aposta) === norm(g.j1);
-  const betOnJ2 = g.hasBet && norm(g.aposta) === norm(g.j2);
-  const pModel = g.pAj != null ? g.pAj : (g.hasBet ? (betOnJ1 ? g.pvj1 : (g.pvj1 != null ? 1 - g.pvj1 : null)) : g.pvj1);
+function matchCard(g, showDate, rb){
+  const side = rb ? rb.side : g.aposta;
+  const betOnJ1 = !!side && norm(side) === norm(g.j1);
+  const betOnJ2 = !!side && norm(side) === norm(g.j2);
+  const pModel = sideProbG(g) != null ? sideProbG(g) : g.pvj1;
   let pMkt = g.pMkt;
   if (pMkt == null && g.odd1 && g.odd2){
     const i1 = 1 / g.odd1, i2 = 1 / g.odd2;
     const p1 = i1 / (i1 + i2);
-    pMkt = g.hasBet ? (betOnJ2 ? 1 - p1 : p1) : p1;
+    pMkt = side ? (betOnJ2 ? 1 - p1 : p1) : p1;
   }
-  const gain = (g.hasBet && g.stake && g.oddAp) ? g.stake * (g.oddAp - 1) : null;
-  const loss = (g.hasBet && g.stake) ? g.stake : null;
-  const ev = (g.hasBet && g.stake && g.oddAp && g.pUsada != null)
-    ? g.pUsada * g.stake * (g.oddAp - 1) - (1 - g.pUsada) * g.stake
-    : (gain != null && pModel != null ? pModel * gain - (1 - pModel) * loss : null);
+  const odd = rb ? rb.odd : g.oddAp;
+  const stake = rb ? rb.stake : g.stake;
+  const gain = (stake && odd) ? stake * (odd - 1) : null;
+  const loss = stake || null;
+  const pUsed = g.pUsada != null ? g.pUsada : pModel;
+  const ev = (stake && odd && pUsed != null)
+    ? pUsed * stake * (odd - 1) - (1 - pUsed) * stake : null;
   const wonName = norm(g.vencedor);
-  const pRow = (name, tag, odd, picked) =>
+  const pRow = (name, tag, o, picked) =>
     '<div class="player' + (picked ? " picked" : "") + (wonName && norm(name) === wonName ? " winner" : "") + '">' +
     '<span class="side-tag">' + tag + '</span>' + esc(name || "—") +
-    '</div><div class="player' + (picked ? " picked" : "") + '"><span class="odd">@ ' + fmtOdd(odd) + '</span></div>';
+    '</div><div class="player' + (picked ? " picked" : "") + '"><span class="odd">@ ' + fmtOdd(o) + '</span></div>';
 
-  return '<article class="match' + (g.hasBet ? " bet" : "") + '">' +
+  const showNums = rb || g.hasBet;
+  return '<article class="match' + (rb ? " bet" : (g.hasBet ? " rec" : "")) + '">' +
     '<div class="match-top">' +
       '<span class="chip tour">' + esc(g.torneio || "Torneio") + '</span>' +
       (g.round ? '<span class="chip surface">' + esc(g.round) + '</span>' : "") +
       (g.quadra ? '<span class="chip surface ' + surfaceClass(g.quadra) + '">' + esc(g.quadra) + '</span>' : "") +
-      situacaoChip(g) +
+      situacaoChip(g, rb) +
       '<span class="match-id">' + (showDate ? fmtD(g.data) + " · " : "") + "#" + esc(g.id) + '</span>' +
     '</div>' +
     '<div class="players">' + pRow(g.j1, "J1", g.odd1, betOnJ1) + pRow(g.j2, "J2", g.odd2, betOnJ2) + '</div>' +
     duelHTML(pModel, pMkt) +
-    (g.hasBet ?
+    (showNums ?
       '<div class="match-nums">' +
-        '<div class="mn"><small>Aposta</small><b>' + esc(g.aposta) + '</b></div>' +
-        '<div class="mn"><small>Estratégia</small><b style="font-family:Inter;font-size:12.5px">' + esc(g.estrategia || "—") + '</b></div>' +
-        '<div class="mn"><small>Stake</small><b>' + fmtBRL(g.stake) + '</b></div>' +
+        '<div class="mn"><small>' + (rb ? "Aposta" : "Recomendação") + '</small><b>' + esc(side || "—") + '</b></div>' +
+        '<div class="mn"><small>Estratégia</small><b style="font-family:Inter;font-size:12.5px">' + esc((rb && rb.estrategia) || g.estrategia || "—") + '</b></div>' +
+        '<div class="mn"><small>' + (rb ? "Odd real" : "Odd") + '</small><b>' + fmtOdd(odd) + '</b></div>' +
+        '<div class="mn"><small>' + (rb ? "Stake" : "Stake sugerido") + '</small><b>' + fmtBRL(stake) + '</b></div>' +
         '<div class="mn"><small>Se ganhar</small><b class="pos">' + fmtBRLs(gain) + '</b></div>' +
         '<div class="mn"><small>Se perder</small><b class="neg">' + (loss != null ? "\u2212" + fmtBRL(loss) : "—") + '</b></div>' +
         '<div class="mn"><small>Esperado (EV)</small><b class="' + cls(ev) + '">' + fmtBRLs(ev) + '</b></div>' +
+        (rb && rb.casa && rb.casa.length < 22 ? '<div class="mn"><small>Casa</small><b style="font-family:Inter;font-size:12.5px">' + esc(rb.casa) + '</b></div>' : "") +
       '</div>' : "") +
     '</article>';
 }
@@ -766,38 +913,46 @@ function renderHoje(){
   const todayGames = DB.filter(g => g.dk === tk);
   const openToday = todayGames.filter(g => !g.vencedor);
   const doneToday = todayGames.filter(g => !!g.vencedor);
-  const openBets = openToday.filter(g => g.hasBet && g.stake);
-  const pendPast = DB.filter(g => g.dk < tk && g.hasBet && !g.vencedor);
 
+  const betByGame = new Map();
+  for (const b of BETS) if (b.idJogo) betByGame.set(String(b.idJogo), b);
+
+  const openBets = BETS.filter(b => !b.settled && b.dk === tk);
   let staked = 0, gain = 0, ev = 0, evOk = 0;
-  for (const g of openBets){
-    staked += g.stake;
-    if (g.oddAp) gain += g.stake * (g.oddAp - 1);
-    const p = g.pUsada != null ? g.pUsada : g.pAj;
-    if (p != null && g.oddAp){ ev += p * g.stake * (g.oddAp - 1) - (1 - p) * g.stake; evOk++; }
+  for (const b of openBets){
+    staked += b.stake;
+    if (b.odd) gain += b.stake * (b.odd - 1);
+    const g = b.game;
+    const p = g && g.pUsada != null ? g.pUsada : b.pModel;
+    if (p != null && b.odd){ ev += p * b.stake * (b.odd - 1) - (1 - p) * b.stake; evOk++; }
   }
-  const doneBetsToday = todayGames.filter(g => isSettled(g));
-  const doneAgg = agg(doneBetsToday);
+  const doneBetsToday = BETS.filter(b => b.settled && b.dk === tk);
+  const doneAgg = aggB(doneBetsToday);
+
+  const recPend = openToday.filter(g => g.hasBet && !betByGame.has(String(g.id)));
+  const withBet = openToday.filter(g => betByGame.has(String(g.id)));
+  const noBet = openToday.filter(g => !g.hasBet && !betByGame.has(String(g.id)));
 
   let html =
   '<div class="kpis">' +
     '<div class="kpi hl"><div class="k-label">Em jogo hoje</div><div class="k-value">' + fmtBRL(staked) + '</div>' +
-      '<div class="k-sub">' + openBets.length + ' aposta' + (openBets.length === 1 ? "" : "s") + ' aberta' + (openBets.length === 1 ? "" : "s") + ' · ' + openToday.length + ' jogo' + (openToday.length === 1 ? "" : "s") + ' na grade</div></div>' +
-    '<div class="kpi"><div class="k-label">Ganho possível</div><div class="k-value pos">' + fmtBRLs(gain) + '</div><div class="k-sub">se todas as abertas ganharem</div></div>' +
-    '<div class="kpi"><div class="k-label">Perda possível</div><div class="k-value neg">' + (staked ? "\u2212" + fmtBRL(staked) : "R$ 0,00") + '</div><div class="k-sub">se todas as abertas perderem</div></div>' +
-    '<div class="kpi"><div class="k-label">Resultado esperado</div><div class="k-value ' + cls(ev) + '">' + fmtBRLs(evOk ? ev : null) + '</div><div class="k-sub">EV pelas probabilidades usadas (p Usada)</div></div>' +
+      '<div class="k-sub">' + openBets.length + ' aposta' + (openBets.length === 1 ? "" : "s") + ' registrada' + (openBets.length === 1 ? "" : "s") + ' · ' + openToday.length + ' jogo' + (openToday.length === 1 ? "" : "s") + ' na grade</div></div>' +
+    '<div class="kpi"><div class="k-label">Ganho possível</div><div class="k-value pos">' + fmtBRLs(gain) + '</div><div class="k-sub">se todas as registradas ganharem</div></div>' +
+    '<div class="kpi"><div class="k-label">Perda possível</div><div class="k-value neg">' + (staked ? "\u2212" + fmtBRL(staked) : "R$ 0,00") + '</div><div class="k-sub">se todas as registradas perderem</div></div>' +
+    '<div class="kpi"><div class="k-label">Resultado esperado</div><div class="k-value ' + cls(ev) + '">' + fmtBRLs(evOk ? ev : null) + '</div><div class="k-sub">EV das apostas registradas</div></div>' +
     '<div class="kpi"><div class="k-label">Já liquidado hoje</div><div class="k-value ' + cls(doneAgg.profit) + '">' + fmtBRLs(doneBetsToday.length ? doneAgg.profit : null) + '</div><div class="k-sub">' + doneAgg.n + ' aposta' + (doneAgg.n === 1 ? "" : "s") + ' encerrada' + (doneAgg.n === 1 ? "" : "s") + '</div></div>' +
   '</div>';
-
-  const betsOpen = openToday.filter(g => g.hasBet);
-  const noBet = openToday.filter(g => !g.hasBet);
 
   if (!todayGames.length){
     html += '<div class="state" style="margin-top:22px"><h3>Sem jogos cadastrados para hoje</h3><p>Cadastre a grade do dia na DB Oficial (bloco amarelo, colunas B–G) e volte aqui.</p></div>';
   } else {
-    if (betsOpen.length){
-      html += '<div class="section-label">Apostas em aberto</div>';
-      html += betsOpen.map(g => matchCard(g, false)).join("");
+    if (withBet.length){
+      html += '<div class="section-label">Apostas registradas</div>';
+      html += withBet.map(g => matchCard(g, false, betByGame.get(String(g.id)))).join("");
+    }
+    if (recPend.length){
+      html += '<div class="section-label">Recomendadas — ainda não registradas</div>';
+      html += recPend.map(g => matchCard(g, false, null)).join("");
     }
     if (noBet.length){
       html += '<div class="section-label">Grade do dia — sem aposta</div><div class="mini-list">';
@@ -811,18 +966,19 @@ function renderHoje(){
     if (doneToday.length){
       html += '<div class="section-label">Encerrados hoje</div><div class="mini-list">';
       html += doneToday.map(g => {
-        const w = betWon(g); const p = isSettled(g) ? betProfit(g) : null;
+        const b = betByGame.get(String(g.id));
         return '<div class="mini-row"><span class="who">' + esc(g.vencedor) + '</span>' +
         '<span class="meta">venceu ' + esc(norm(g.vencedor) === norm(g.j1) ? g.j2 : g.j1) + ' · ' + esc(g.torneio) + '</span>' +
-        '<span class="tail">' + (g.hasBet ? (w ? '<b class="pos">' : '<b class="neg">') + fmtBRLs(p) + '</b>' : 'sem aposta') + '</span></div>';
+        '<span class="tail">' + (b && b.settled ? (b.won ? '<b class="pos">' : '<b class="neg">') + fmtBRLs(b.resultado) + '</b>' : 'sem aposta') + '</span></div>';
       }).join("");
       html += '</div>';
     }
   }
 
+  const pendPast = BETS.filter(b => !b.settled && b.dk < tk && b.game);
   if (pendPast.length){
-    html += '<div class="section-label">Pendentes de dias anteriores</div>';
-    html += pendPast.slice(-6).map(g => matchCard(g, true)).join("");
+    html += '<div class="section-label">Apostas pendentes de dias anteriores</div>';
+    html += pendPast.slice(-6).map(b => matchCard(b.game, true, b)).join("");
   }
 
   document.getElementById("hojeContent").innerHTML = html;
@@ -834,9 +990,9 @@ function renderHoje(){
 function renderBanca(){
   const t = todayParts();
   const curM = t.y * 100 + t.mo;
-  const settled = DB.filter(isSettled).sort((a, b) => a.dk - b.dk);
-  const month = settled.filter(g => g.mk === curM);
-  const aM = agg(month), aG = agg(settled);
+  const settled = BETS.filter(b => b.settled).sort((a, b) => a.dk - b.dk);
+  const month = settled.filter(b => b.mk === curM);
+  const aM = aggB(month), aG = aggB(settled);
 
   const saldoRows = BANCA.filter(b => b.saldo != null && b.dk <= dKey(t));
   const saldoAtual = saldoRows.length ? saldoRows[saldoRows.length - 1].saldo : null;
@@ -876,7 +1032,7 @@ function renderBanca(){
   '<div class="section-label">Geral</div>' +
   '<div class="kpis">' +
     '<div class="kpi hl"><div class="k-label">Banca atual</div><div class="k-value">' + fmtBRL(saldoAtual) + '</div><div class="k-sub">' + (saldoAtual != null ? "aba Banca · conferir com a bet365" : "aba Banca indisponível") + '</div></div>' +
-    '<div class="kpi"><div class="k-label">Lucro total</div><div class="k-value ' + cls(aG.profit) + '">' + fmtBRLs(aG.profit) + '</div><div class="k-sub">' + fmtBRL(aG.staked) + ' apostados no histórico</div></div>' +
+    '<div class="kpi"><div class="k-label">Lucro total</div><div class="k-value ' + cls(aG.profit) + '">' + fmtBRLs(aG.profit) + '</div><div class="k-sub">' + fmtBRL(aG.staked) + ' apostados · aba Apostas</div></div>' +
     '<div class="kpi"><div class="k-label">ROI geral</div><div class="k-value ' + cls(aG.roi) + '">' + fmtPctS(aG.roi) + '</div><div class="k-sub">WR ' + fmtPct(aG.wr) + ' em ' + aG.n + ' apostas</div></div>' +
     '<div class="kpi"><div class="k-label">Aportes líquidos</div><div class="k-value">' + fmtBRL(BANCA.length ? aportes : null) + '</div><div class="k-sub">aportes − saques</div></div>' +
     '<div class="kpi"><div class="k-label">CAGR diário</div><div class="k-value ' + cls(cagrDia) + '">' + fmtPctS(cagrDia, 2) + '</div><div class="k-sub">' + (cagrMes != null ? "≈ " + fmtPctS(cagrMes, 1) + " ao mês · sem contar aportes" : "precisa da aba Banca") + '</div></div>' +
@@ -887,10 +1043,9 @@ function renderBanca(){
     '<div class="card"><h3>Crescimento composto<span class="hint">base 100 · sem aportes · CAGR diário ' + fmtPctS(cagrDia, 2) + '</span></h3><div class="chart-box"><canvas id="chCagr"></canvas></div></div>' +
     '<div class="card"><h3>Evolução mensal<span class="hint">aportes × lucro, empilhados</span></h3><div class="chart-box"><canvas id="chMensal"></canvas></div></div>' +
     '<div class="card"><h3>Últimas liquidadas</h3><div style="max-height:260px;overflow:auto"><table><thead><tr><th>Data</th><th>Aposta</th><th class="num">Odd</th><th class="num">R$</th></tr></thead><tbody>' +
-      settled.slice(-12).reverse().map(g => {
-        const p = betProfit(g);
-        return '<tr><td>' + fmtD(g.data) + '</td><td>' + esc(g.aposta) + '<div style="font-size:11px;color:var(--muted)">' + esc(g.torneio) + '</div></td>' +
-          '<td class="num">' + fmtOdd(g.oddAp) + '</td><td class="num ' + cls(p) + '">' + fmtBRLs(p) + '</td></tr>';
+      settled.slice(-12).reverse().map(b => {
+        return '<tr><td>' + fmtD(b.data) + '</td><td>' + esc(b.side) + '<div style="font-size:11px;color:var(--muted)">' + esc(b.torneio) + (b.casa && b.casa.length < 22 ? ' · ' + esc(b.casa) : '') + '</div></td>' +
+          '<td class="num">' + fmtOdd(b.odd) + '</td><td class="num ' + cls(b.resultado) + '">' + fmtBRLs(b.resultado) + '</td></tr>';
       }).join("") +
     '</tbody></table></div></div>' +
   '</div>';
@@ -904,7 +1059,7 @@ function renderBanca(){
     series = saldoRows.map(b => b.saldo);
   } else {
     let acc = 0;
-    for (const g of settled){ acc += betProfit(g); labels.push(fmtD(g.data)); series.push(acc); }
+    for (const b of settled){ acc += b.resultado || 0; labels.push(fmtD(b.data)); series.push(acc); }
   }
   makeChart("chEquity", {
     type: "line",
@@ -941,7 +1096,7 @@ function renderBanca(){
   });
 
   /* monthly chart: stacked aportes líquidos + lucro */
-  const lucroMes = new Map([...groupBy(settled, g => g.mk).entries()].map(([k, l]) => [k, agg(l).profit]));
+  const lucroMes = new Map([...groupBy(settled, b => b.mk).entries()].map(([k, l]) => [k, aggB(l).profit]));
   const aporteMes = new Map();
   for (const b of BANCA){
     const flow = (b.aporte || 0) - (b.saque || 0);
@@ -978,7 +1133,8 @@ function renderBanca(){
 ================================================================ */
 function tableAgg(map, label, opt){
   opt = opt || {};
-  let rows = [...map.entries()].map(([k, list]) => ({ k, a: agg(list) }));
+  const A = opt && opt.aggFn ? opt.aggFn : agg;
+  let rows = [...map.entries()].map(([k, list]) => ({ k, a: A(list) }));
   rows = rows.filter(r => r.a.n >= (opt.minN || 1));
   if (opt.sort === "n") rows.sort((x, y) => y.a.n - x.a.n);
   else if (opt.sort !== "none") rows.sort((x, y) => y.a.profit - x.a.profit);
@@ -993,101 +1149,163 @@ function tableAgg(map, label, opt){
   return opt.scroll ? '<div style="max-height:330px;overflow:auto">' + table + '</div>' : table;
 }
 
-function sideProb(g){
-  if (g.pAj != null) return g.pAj;
-  if (g.pUsada != null) return g.pUsada;
-  if (g.pvj1 != null && g.aposta) return norm(g.aposta) === norm(g.j2) ? 1 - g.pvj1 : g.pvj1;
-  return null;
+function oddBinsDef(){
+  return [
+    { k: "1,01–1,50", t: o => o < 1.5 },
+    { k: "1,50–2,00", t: o => o >= 1.5 && o < 2 },
+    { k: "2,00–2,50", t: o => o >= 2 && o < 2.5 },
+    { k: "2,50–3,00", t: o => o >= 2.5 && o < 3 },
+    { k: "3,00+",     t: o => o >= 3 }
+  ];
+}
+function pBinsDef(){
+  return [
+    { k: "até 45%", t: p => p < .45 },
+    { k: "45–55%", t: p => p >= .45 && p < .55 },
+    { k: "55–65%", t: p => p >= .55 && p < .65 },
+    { k: "65–75%", t: p => p >= .65 && p < .75 },
+    { k: "75–85%", t: p => p >= .75 && p < .85 },
+    { k: "85%+",   t: p => p >= .85 }
+  ];
+}
+function roiChart(id, entries, A){
+  const arr = entries.map(([k, l]) => ({ k, a: A(l) }));
+  makeChart(id, {
+    type: "bar",
+    data: { labels: arr.map(o => o.k),
+      datasets: [{ data: arr.map(o => o.a.roi != null ? o.a.roi * 100 : 0),
+        backgroundColor: arr.map(o => (o.a.roi || 0) >= 0 ? "#14683F" : "#D2492F"),
+        borderRadius: 6, maxBarThickness: 44 }]},
+    options: { responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false },
+        tooltip: { callbacks: { label: c => { const o = arr[c.dataIndex]; return "ROI " + fmtPctS(o.a.roi) + " · " + o.a.n + " apostas"; } } } },
+      scales: { x: { grid: { display: false }, ticks: { font: { size: 10 } } },
+                y: { ticks: { callback: v => v + "%", font: { size: 10 } }, grid: { color: "#EFF1EC" } } } }
+  });
 }
 
+/* -------- Estatísticas: apostas reais (aba Apostas) -------- */
 function renderStats(){
-  const settled = DB.filter(isSettled);
+  const settled = BETS.filter(b => b.settled);
   if (!settled.length){
     document.getElementById("statsContent").innerHTML =
-      '<div class="state"><h3>Ainda sem apostas liquidadas</h3><p>As estat\u00edsticas aparecem quando houver hist\u00f3rico com resultado.</p></div>';
+      '<div class="state"><h3>Ainda sem apostas liquidadas</h3><p>As estatísticas aparecem quando houver apostas com resultado na aba Apostas.</p></div>';
     return;
   }
-  const byEstr = groupBy(settled, g => g.estrategia || "(sem estrat\u00e9gia)");
+  const byEstr = groupBy(settled, b => b.estrategia || "(sem estratégia)");
+  const byFav  = groupBy(settled, b => b.favZebra || null);
+  const byQuad = groupBy(settled, b => b.quadra || null);
+  const byTour = groupBy(settled, b => b.torneio || null);
+  const byJog  = groupBy(settled, b => b.side || null);
+  const byCon  = groupBy(settled, b => {
+    if (!b.game || !b.side) return null;
+    return norm(b.side) === norm(b.j1) ? (b.j2 || null) : (b.j1 || null);
+  });
+  const mesMap = new Map([...groupBy(settled, b => b.mk).entries()]
+    .sort((a, b) => b[0] - a[0]).map(([k, l]) => [fmtMes(k), l]));
+  const oddEntries = oddBinsDef().map(x => [x.k, settled.filter(b => b.odd != null && x.t(b.odd))]).filter(e => e[1].length);
+  const pEntries = pBinsDef().map(x => [x.k, settled.filter(b => b.pModel != null && x.t(b.pModel))]).filter(e => e[1].length);
+  const withOdd = settled.filter(b => b.odd != null);
+  const opts = { aggFn: aggB };
+
+  let html =
+  '<div class="kpis">' +
+    '<div class="kpi"><div class="k-label">Apostas liquidadas</div><div class="k-value">' + settled.length + '</div><div class="k-sub">aba Apostas · o que moveu a banca</div></div>' +
+    '<div class="kpi"><div class="k-label">Odd média apostada</div><div class="k-value">' + fmtOdd(withOdd.length ? withOdd.reduce((s2, b) => s2 + b.odd, 0) / withOdd.length : null) + '</div><div class="k-sub">preço médio de entrada</div></div>' +
+    '<div class="kpi"><div class="k-label">Stake médio</div><div class="k-value">' + fmtBRL(aggB(settled).staked / settled.length) + '</div><div class="k-sub">por aposta</div></div>' +
+    '<div class="kpi"><div class="k-label">Lucro médio</div><div class="k-value ' + cls(aggB(settled).profit / settled.length) + '">' + fmtBRLs(aggB(settled).profit / settled.length) + '</div><div class="k-sub">por aposta liquidada</div></div>' +
+  '</div>' +
+  '<div class="grid-2" style="margin-top:22px">' +
+    '<div class="card"><h3>Por estratégia<span class="hint">Pró vs Contra-Modelo</span></h3>' + tableAgg(byEstr, "Estratégia", opts) + '</div>' +
+    '<div class="card"><h3>Favorito × Zebra</h3>' + (byFav.size ? tableAgg(byFav, "Perfil", opts) : '<p style="color:var(--muted);font-size:13px">Sem classificação Fav/Zebra nas apostas.</p>') + '</div>' +
+    '<div class="card"><h3>Por faixa de odd<span class="hint">odd realmente obtida</span></h3>' + tableAgg(new Map(oddEntries), "Odd", { aggFn: aggB, sort: "none" }) + '</div>' +
+    '<div class="card"><h3>Por probabilidade do modelo<span class="hint">prob. do lado apostado</span></h3>' + (pEntries.length ? tableAgg(new Map(pEntries), "Faixa", { aggFn: aggB, sort: "none" }) : '<p style="color:var(--muted);font-size:13px">Sem probabilidades vinculadas.</p>') + '</div>' +
+    '<div class="card"><h3>ROI por faixa de odd</h3><div class="chart-box"><canvas id="chOdds"></canvas></div></div>' +
+    '<div class="card"><h3>Por mês</h3>' + tableAgg(mesMap, "Mês", { aggFn: aggB, sort: "none", scroll: true }) + '</div>' +
+    '<div class="card"><h3>Por jogador apostado<span class="hint">a favor de quem apostamos</span></h3>' + tableAgg(byJog, "Jogador", { aggFn: aggB, sort: "n", scroll: true }) + '</div>' +
+    '<div class="card"><h3>Por jogador contra<span class="hint">contra quem apostamos</span></h3>' + tableAgg(byCon, "Jogador", { aggFn: aggB, sort: "n", scroll: true }) + '</div>' +
+    '<div class="card"><h3>Por quadra</h3>' + tableAgg(byQuad, "Quadra", opts) + '</div>' +
+    '<div class="card"><h3>Por torneio</h3>' + tableAgg(byTour, "Torneio", { aggFn: aggB, sort: "n", scroll: true }) + '</div>' +
+  '</div>';
+
+  document.getElementById("statsContent").innerHTML = html;
+  roiChart("chOdds", oddEntries, aggB);
+}
+
+/* -------- Modelo: todas as recomendações (DB Oficial) -------- */
+function renderModelo(){
+  const settled = DB.filter(isSettled);
+  if (!settled.length){
+    document.getElementById("modeloContent").innerHTML =
+      '<div class="state"><h3>Ainda sem recomendações liquidadas</h3><p>Esta aba analisa todas as recomendações da DB Oficial, apostadas ou não.</p></div>';
+    return;
+  }
+  const betIds = new Set(BETS.map(b => String(b.idJogo)).filter(Boolean));
+  const seguidas = settled.filter(g => betIds.has(String(g.id)));
+  const ader = settled.length ? seguidas.length / settled.length : null;
+
+  const aTeo = agg(settled);
+  const settledB = BETS.filter(b => b.settled);
+  const aReal = aggB(settledB);
+
+  const byEstr = groupBy(settled, g => g.estrategia || "(sem estratégia)");
   const byFav  = groupBy(settled, g => g.favZebra || null);
   const byQuad = groupBy(settled, g => g.quadra || null);
   const byTour = groupBy(settled, g => g.torneio || null);
   const byJog  = groupBy(settled, g => g.aposta || null);
   const byCon  = groupBy(settled, g => {
-    if (!g.aposta || (!g.j1 && !g.j2)) return null;
+    if (!g.aposta) return null;
     return norm(g.aposta) === norm(g.j1) ? (g.j2 || null) : (g.j1 || null);
   });
   const mesMap = new Map([...groupBy(settled, g => g.mk).entries()]
     .sort((a, b) => b[0] - a[0]).map(([k, l]) => [fmtMes(k), l]));
-
-  const oddBins = [
-    { k: "1,01\u20131,50", t: o => o < 1.5 },
-    { k: "1,50\u20132,00", t: o => o >= 1.5 && o < 2 },
-    { k: "2,00\u20132,50", t: o => o >= 2 && o < 2.5 },
-    { k: "2,50\u20133,00", t: o => o >= 2.5 && o < 3 },
-    { k: "3,00+",     t: o => o >= 3 }
-  ];
-  const oddEntries = oddBins.map(b => [b.k, settled.filter(g => g.oddAp != null && b.t(g.oddAp))]).filter(e => e[1].length);
-  const oddMap = new Map(oddEntries);
-  const oddAgg = oddEntries.map(([k, l]) => ({ k, a: agg(l) }));
-
-  const pBins = [
-    { k: "at\u00e9 45%", t: p => p < .45 },
-    { k: "45\u201355%", t: p => p >= .45 && p < .55 },
-    { k: "55\u201365%", t: p => p >= .55 && p < .65 },
-    { k: "65\u201375%", t: p => p >= .65 && p < .75 },
-    { k: "75\u201385%", t: p => p >= .75 && p < .85 },
-    { k: "85%+",   t: p => p >= .85 }
-  ];
-  const pMap = new Map(pBins.map(b => [b.k,
-    settled.filter(g => { const p = sideProb(g); return p != null && b.t(p); })]).filter(e => e[1].length));
+  const oddEntries = oddBinsDef().map(x => [x.k, settled.filter(g => g.oddAp != null && x.t(g.oddAp))]).filter(e => e[1].length);
+  const pEntries = pBinsDef().map(x => [x.k, settled.filter(g => { const p = sideProbG(g); return p != null && x.t(p); })]).filter(e => e[1].length);
 
   const briers = settled.map(g => g.brier).filter(v => v != null);
   const briersMkt = settled.map(g => g.brierMkt).filter(v => v != null);
   const brierAvg = briers.length ? briers.reduce((a, b) => a + b, 0) / briers.length : null;
   const brierMktAvg = briersMkt.length ? briersMkt.reduce((a, b) => a + b, 0) / briersMkt.length : null;
-  const withOdd = settled.filter(g => g.oddAp);
+
+  const cmpRow = (nome, a) =>
+    '<tr><td>' + nome + '</td><td class="num">' + a.n + '</td><td class="num">' + fmtPct(a.wr, 1) + '</td>' +
+    '<td class="num">' + fmtBRL(a.staked) + '</td><td class="num ' + cls(a.profit) + '">' + fmtBRLs(a.profit) + '</td>' +
+    '<td class="num ' + cls(a.roi) + '">' + fmtPctS(a.roi) + '</td></tr>';
 
   let html =
   '<div class="kpis">' +
-    '<div class="kpi"><div class="k-label">Apostas liquidadas</div><div class="k-value">' + settled.length + '</div><div class="k-sub">hist\u00f3rico completo</div></div>' +
-    '<div class="kpi"><div class="k-label">Odd m\u00e9dia apostada</div><div class="k-value">' + fmtOdd(withOdd.length ? withOdd.reduce((s2, g) => s2 + g.oddAp, 0) / withOdd.length : null) + '</div><div class="k-sub">pre\u00e7o m\u00e9dio de entrada</div></div>' +
-    '<div class="kpi"><div class="k-label">Stake m\u00e9dio</div><div class="k-value">' + fmtBRL(agg(settled).staked / settled.length) + '</div><div class="k-sub">por aposta</div></div>' +
+    '<div class="kpi"><div class="k-label">Recomendações liquidadas</div><div class="k-value">' + settled.length + '</div><div class="k-sub">' + DB.filter(g => g.hasBet).length + ' no total · ' + DB.length.toLocaleString("pt-BR") + ' jogos na base</div></div>' +
+    '<div class="kpi"><div class="k-label">Aderência</div><div class="k-value">' + fmtPct(ader) + '</div><div class="k-sub">recomendações que viraram aposta real</div></div>' +
+    '<div class="kpi"><div class="k-label">ROI teórico</div><div class="k-value ' + cls(aTeo.roi) + '">' + fmtPctS(aTeo.roi) + '</div><div class="k-sub">seguindo 100% da regra</div></div>' +
     (brierAvg != null ?
-    '<div class="kpi"><div class="k-label">Brier modelo' + (brierMktAvg != null ? " vs mercado" : "") + '</div><div class="k-value">' + brierAvg.toLocaleString("pt-BR", { maximumFractionDigits: 3 }) + (brierMktAvg != null ? ' <span style="font-size:15px;color:var(--muted)">/ ' + brierMktAvg.toLocaleString("pt-BR", { maximumFractionDigits: 3 }) + '</span>' : "") + '</div><div class="k-sub">menor \u00e9 melhor</div></div>' : "") +
+    '<div class="kpi"><div class="k-label">Brier modelo' + (brierMktAvg != null ? " vs mercado" : "") + '</div><div class="k-value">' + brierAvg.toLocaleString("pt-BR", { maximumFractionDigits: 3 }) + (brierMktAvg != null ? ' <span style="font-size:15px;color:var(--muted)">/ ' + brierMktAvg.toLocaleString("pt-BR", { maximumFractionDigits: 3 }) + '</span>' : "") + '</div><div class="k-sub">menor é melhor</div></div>' : "") +
   '</div>' +
-  '<div class="grid-2" style="margin-top:22px">' +
-    '<div class="card"><h3>Por estrat\u00e9gia<span class="hint">Pr\u00f3 vs Contra-Modelo</span></h3>' + tableAgg(byEstr, "Estrat\u00e9gia") + '</div>' +
-    '<div class="card"><h3>Favorito \u00d7 Zebra</h3>' + (byFav.size ? tableAgg(byFav, "Perfil") : '<p style="color:var(--muted);font-size:13px">Coluna Fav/Zebra vazia no hist\u00f3rico.</p>') + '</div>' +
-    '<div class="card"><h3>Por faixa de odd<span class="hint">N \u00b7 ganhas \u00b7 lucro</span></h3>' + tableAgg(oddMap, "Odd", { sort: "none" }) + '</div>' +
-    '<div class="card"><h3>Por probabilidade do modelo<span class="hint">prob. do lado apostado</span></h3>' + (pMap.size ? tableAgg(pMap, "Faixa", { sort: "none" }) : '<p style="color:var(--muted);font-size:13px">Sem probabilidades no hist\u00f3rico.</p>') + '</div>' +
-    '<div class="card"><h3>ROI por faixa de odd</h3><div class="chart-box"><canvas id="chOdds"></canvas></div></div>' +
-    '<div class="card"><h3>Por m\u00eas</h3>' + tableAgg(mesMap, "M\u00eas", { sort: "none", scroll: true }) + '</div>' +
-    '<div class="card"><h3>Por jogador apostado<span class="hint">a favor de quem apostamos</span></h3>' + tableAgg(byJog, "Jogador", { sort: "n", scroll: true }) + '</div>' +
-    '<div class="card"><h3>Por jogador contra<span class="hint">contra quem apostamos</span></h3>' + tableAgg(byCon, "Jogador", { sort: "n", scroll: true }) + '</div>' +
+  '<div class="card" style="margin-top:22px"><h3>Real × Teórico<span class="hint">aba Apostas vs seguir a regra à risca</span></h3>' +
+  '<table><thead><tr><th>Série</th><th class="num">N</th><th class="num">WR</th><th class="num">Apostado</th><th class="num">Lucro</th><th class="num">ROI</th></tr></thead><tbody>' +
+  cmpRow("Apostas reais", aReal) + cmpRow("Regra completa (teórico)", aTeo) +
+  '</tbody></table></div>' +
+  '<div class="grid-2" style="margin-top:14px">' +
+    '<div class="card"><h3>Por estratégia<span class="hint">Pró vs Contra-Modelo</span></h3>' + tableAgg(byEstr, "Estratégia") + '</div>' +
+    '<div class="card"><h3>Favorito × Zebra</h3>' + (byFav.size ? tableAgg(byFav, "Perfil") : '<p style="color:var(--muted);font-size:13px">Coluna Fav/Zebra vazia.</p>') + '</div>' +
+    '<div class="card"><h3>Por faixa de odd<span class="hint">odd recomendada</span></h3>' + tableAgg(new Map(oddEntries), "Odd", { sort: "none" }) + '</div>' +
+    '<div class="card"><h3>Por probabilidade do modelo</h3>' + (pEntries.length ? tableAgg(new Map(pEntries), "Faixa", { sort: "none" }) : '<p style="color:var(--muted);font-size:13px">Sem probabilidades no histórico.</p>') + '</div>' +
+    '<div class="card"><h3>ROI por faixa de odd</h3><div class="chart-box"><canvas id="chOddsMod"></canvas></div></div>' +
+    '<div class="card"><h3>Por mês</h3>' + tableAgg(mesMap, "Mês", { sort: "none", scroll: true }) + '</div>' +
+    '<div class="card"><h3>Por jogador recomendado</h3>' + tableAgg(byJog, "Jogador", { sort: "n", scroll: true }) + '</div>' +
+    '<div class="card"><h3>Por jogador contra</h3>' + tableAgg(byCon, "Jogador", { sort: "n", scroll: true }) + '</div>' +
     '<div class="card"><h3>Por quadra</h3>' + tableAgg(byQuad, "Quadra") + '</div>' +
     '<div class="card"><h3>Por torneio</h3>' + tableAgg(byTour, "Torneio", { sort: "n", scroll: true }) + '</div>' +
   '</div>';
 
-  document.getElementById("statsContent").innerHTML = html;
-
-  makeChart("chOdds", {
-    type: "bar",
-    data: { labels: oddAgg.map(o => o.k),
-      datasets: [{ data: oddAgg.map(o => o.a.roi != null ? o.a.roi * 100 : 0),
-        backgroundColor: oddAgg.map(o => (o.a.roi || 0) >= 0 ? "#14683F" : "#D2492F"),
-        borderRadius: 6, maxBarThickness: 44 }]},
-    options: { responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false },
-        tooltip: { callbacks: { label: c => { const o = oddAgg[c.dataIndex]; return "ROI " + fmtPctS(o.a.roi) + " \u00b7 " + o.a.n + " apostas"; } } } },
-      scales: { x: { grid: { display: false }, ticks: { font: { size: 10 } } },
-                y: { ticks: { callback: v => v + "%", font: { size: 10 } }, grid: { color: "#EFF1EC" } } } }
-  });
+  document.getElementById("modeloContent").innerHTML = html;
+  roiChart("chOddsMod", oddEntries, agg);
 }
 
 function renderAll(){
   renderHoje();
   renderBanca();
   renderStats();
+  renderModelo();
 }
 
 /* ================================================================
