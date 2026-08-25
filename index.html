@@ -336,9 +336,12 @@ const cls = v => v == null ? "" : (v >= 0 ? "pos" : "neg");
    HEADER MAPPING — DB Oficial
 ================================================================ */
 function findHeaderRow(rows){
-  for (let i = 0; i < Math.min(rows.length, 8); i++){
+  for (let i = 0; i < Math.min(rows.length, 12); i++){
     const cells = rows[i].map(norm);
-    if (cells.includes("id") && cells.some(c => c.startsWith("torneio"))) return i;
+    const hasId   = cells.some(c => /^id( |$)/.test(c));
+    const hasTour = cells.some(c => c.startsWith("torneio"));
+    const hasJog  = cells.some(c => c.startsWith("jogador"));
+    if ((hasId && hasTour) || (hasTour && hasJog)) return i;
   }
   return -1;
 }
@@ -350,7 +353,7 @@ function mapColumns(header){
     return i >= 0 ? i : fallback;
   };
   return {
-    id:        find(c => c === "id", 0),
+    id:        find(c => /^id( |$)/.test(c), 0),
     data:      find(c => c === "data", 1),
     torneio:   find(c => c.startsWith("torneio"), 2),
     round:     find(c => c === "round" || c === "rodada", 3),
@@ -515,12 +518,74 @@ function makeChart(id, cfg){
   charts[id] = new Chart(el, cfg);
 }
 
-async function fetchSheet(name){
-  const res = await fetch(csvUrl(name));
-  if (!res.ok) throw new Error("HTTP " + res.status + " ao ler a aba \"" + name + "\"");
+const GIDS = { "DB Oficial": "458750439" };
+
+async function fetchCsvUrl(url){
+  const res = await fetch(url);
+  if (!res.ok) throw new Error("HTTP " + res.status);
   const text = await res.text();
-  if (/^\s*</.test(text)) throw new Error("A planilha respondeu com HTML — provavelmente não está compartilhada como pública.");
+  if (/^\s*</.test(text)) throw new Error("resposta HTML (planilha não pública?)");
   return parseCSV(text);
+}
+
+function gvizToRows(resp){
+  const rows = [];
+  const t = (resp && resp.table) || {};
+  for (const r of (t.rows || [])){
+    const out = [];
+    for (const c of (r.c || [])){
+      if (!c || c.v == null){ out.push(""); continue; }
+      const v = c.v;
+      if (v instanceof Date){
+        out.push(String(v.getDate()).padStart(2,"0") + "/" +
+                 String(v.getMonth() + 1).padStart(2,"0") + "/" + v.getFullYear());
+      } else if (c.f != null){
+        out.push(String(c.f));
+      } else {
+        out.push(String(v));
+      }
+    }
+    rows.push(out);
+  }
+  return rows;
+}
+
+function fetchJsonp(name){
+  return new Promise((resolve, reject) => {
+    const cb = "__gviz" + Math.floor(Math.random() * 1e9);
+    const s = document.createElement("script");
+    const timer = setTimeout(() => { cleanup(); reject(new Error("tempo esgotado")); }, 15000);
+    function cleanup(){ clearTimeout(timer); try { delete window[cb]; } catch(e){} s.remove(); }
+    window[cb] = resp => {
+      cleanup();
+      if (!resp || resp.status === "error"){
+        const err = resp && resp.errors && resp.errors[0];
+        reject(new Error((err && (err.detailed_message || err.message)) || "erro gviz"));
+        return;
+      }
+      resolve(gvizToRows(resp));
+    };
+    s.onerror = () => { cleanup(); reject(new Error("script bloqueado")); };
+    s.src = "https://docs.google.com/spreadsheets/d/" + SHEET_ID +
+      "/gviz/tq?tqx=out:json;responseHandler:" + cb +
+      "&headers=0&sheet=" + encodeURIComponent(name) + "&_=" + Date.now();
+    document.head.appendChild(s);
+  });
+}
+
+async function fetchSheet(name){
+  const tries = [];
+  try { return await fetchCsvUrl(csvUrl(name)); }
+  catch (e){ tries.push("CSV: " + e.message); }
+  if (GIDS[name]){
+    try {
+      return await fetchCsvUrl("https://docs.google.com/spreadsheets/d/" + SHEET_ID +
+        "/export?format=csv&gid=" + GIDS[name] + "&_=" + Date.now());
+    } catch (e){ tries.push("export: " + e.message); }
+  }
+  try { return await fetchJsonp(name); }
+  catch (e){ tries.push("gviz: " + e.message); }
+  throw new Error('Aba "' + name + '": ' + tries.join(" · "));
 }
 
 async function loadAll(){
