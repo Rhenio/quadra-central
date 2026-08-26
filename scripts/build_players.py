@@ -40,6 +40,7 @@ import re
 import sys
 import time
 import unicodedata
+import urllib.error
 import urllib.request
 
 # ----------------------------------------------------------------------------
@@ -51,7 +52,13 @@ DAYS_AHEAD = int(os.environ.get("DAYS_AHEAD", "1"))
 TZ_OFFSET  = int(os.environ.get("TZ_OFFSET", "-3"))
 
 TA_BASE    = "https://www.tennisabstract.com/jsplayers/"
-UA         = "Mozilla/5.0 (compatible; apostas-site/1.0; uso pessoal, 1 req/2s)"
+BROWSER_HEADERS = {
+    "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                   "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"),
+    "Accept": "*/*",
+    "Accept-Language": "en-US,en;q=0.9,pt-BR;q=0.8",
+    "Referer": "https://www.tennisabstract.com/",
+}
 SLEEP_S    = 2.0          # pausa entre requisições ao TA
 TOP_N      = 3            # nº de melhores vitórias / piores derrotas
 
@@ -120,8 +127,8 @@ def slugify(name: str) -> str:
     parts = re.split(r"[\s\-]+", s.strip())
     return "".join(p[:1].upper() + p[1:].lower() for p in parts if p)
 
-def fetch(url: str, timeout=30):
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
+def fetch(url: str, timeout=30, headers=None):
+    req = urllib.request.Request(url, headers=headers or BROWSER_HEADERS)
     with urllib.request.urlopen(req, timeout=timeout) as r:
         return r.read().decode("utf-8", errors="replace")
 
@@ -199,11 +206,16 @@ def fetch_matchmx(slug: str, cache: dict):
         fname = slug + (".js" if tour == "atp" else "w.js")
         try:
             body = fetch(TA_BASE + fname)
+        except urllib.error.HTTPError as e:
+            log(f"    {fname}: HTTP {e.code} {e.reason}")
+            continue
         except Exception as e:
-            log(f"    {fname}: {e}")
+            log(f"    {fname}: {type(e).__name__}: {e}")
             continue
         m = re.search(r"var\s+matchmx\s*=\s*(\[\s*\[.*?\]\s*\])\s*;", body, re.S)
         if not m:
+            snippet = body[:180].replace("\n", " ")
+            log(f"    {fname}: baixado ({len(body)} bytes) mas sem 'var matchmx'. Início: {snippet!r}")
             continue
         txt = m.group(1)
         # o array JS usa aspas simples/duplas e null/true/false — literal_eval
