@@ -1,0 +1,44 @@
+# .github/workflows/ta_players.yml
+# Gera data/players.json com o resumo Tennis Abstract dos jogadores do dia.
+# Roda todo dia às 08:30 de Brasília (11:30 UTC) e sob demanda (botão Run workflow).
+
+name: Tennis Abstract players
+
+on:
+  schedule:
+    - cron: "30 11 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ta-players
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Gerar players.json
+        env:
+          SHEET_ID: "1otLNM8g0D3yp44DlUyq5IR8dLj0hI_DFdFo7hjQ3JUQ"
+          SHEET_TAB: "DB Oficial"
+          DAYS_AHEAD: "1"
+          TZ_OFFSET: "-3"
+        run: python scripts/build_players.py
+
+      - name: Commit se houver mudança
+        run: |
+          git config user.name  "ta-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/players.json data/ta_cache.json
+          git diff --cached --quiet && echo "sem mudanças" && exit 0
+          git commit -m "players.json $(date -u +%F)"
+          git push
