@@ -8,6 +8,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<link rel="stylesheet" href="assets/ta.css">
+<style>/* alinha o painel TA ao tema do site */
+:root{--ta-mut:var(--muted);--ta-line:var(--line);--ta-win:var(--win);--ta-loss:var(--loss);--ta-best:var(--win-bg)}
+.ta-details summary{font-family:'Inter',sans-serif}
+.ta-stats .ta-num{font-family:'IBM Plex Mono',monospace}
+</style>
+<script src="assets/ta.js"></script>
 <style>
 :root{
   --bg:#F3F5F0; --card:#FFFFFF; --ink:#101B14; --muted:#64716A; --line:#E4E9E1;
@@ -943,7 +950,7 @@ function matchCard(g, showDate, rb){
   const wonName = norm(g.vencedor);
   const pRow = (name, tag, o, picked) =>
     '<div class="player' + (picked ? " picked" : "") + (wonName && norm(name) === wonName ? " winner" : "") + '">' +
-    '<span class="side-tag">' + tag + '</span>' + esc(name || "—") +
+    '<span class="side-tag">' + tag + '</span><span data-player="' + esc(name || "") + '">' + esc(name || "—") + '</span>' +
     '</div><div class="player' + (picked ? " picked" : "") + '"><span class="odd">@ ' + fmtOdd(o) + '</span></div>';
 
   const showNums = rb || g.hasBet;
@@ -968,6 +975,7 @@ function matchCard(g, showDate, rb){
         '<div class="mn"><small>Esperado (EV)</small><b class="' + cls(ev) + '">' + fmtBRLs(ev) + '</b></div>' +
         (rb && rb.casa && rb.casa.length < 22 ? '<div class="mn"><small>Casa</small><b style="font-family:Inter;font-size:12.5px">' + esc(rb.casa) + '</b></div>' : "") +
       '</div>' : "") +
+    '<div class="ta-panel" data-match="' + esc(g.j1 || "") + '|' + esc(g.j2 || "") + '"></div>' +
     '</article>';
 }
 
@@ -1405,6 +1413,7 @@ function renderAll(){
   renderBanca();
   renderStats();
   renderModelo();
+  if (window.TA) TA.init();
 }
 
 /* ================================================================
