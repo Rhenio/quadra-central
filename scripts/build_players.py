@@ -95,26 +95,27 @@ COLMAP = {
     "orank":  12,   # ranking do adversário
 
     # estatísticas de saque do JOGADOR — validação SUAVE (desliga se não bater)
-    "aces":   19,
-    "dfs":    20,
-    "pts":    21,   # pontos de saque
-    "firsts": 22,   # 1º saque dentro
-    "fwon":   23,   # pontos ganhos no 1º
-    "swon":   24,   # pontos ganhos no 2º
-    "games":  25,   # games de saque
-    "saved":  26,   # break points salvos
-    "chances": 27,  # break points enfrentados
+    # (índices confirmados pelo dump de 26/08: [19]=flag, [20]=minutos, stats a partir de 21)
+    "aces":   21,
+    "dfs":    22,
+    "pts":    23,   # pontos de saque
+    "firsts": 24,   # 1º saque dentro
+    "fwon":   25,   # pontos ganhos no 1º
+    "swon":   26,   # pontos ganhos no 2º
+    "games":  27,   # games de saque
+    "saved":  28,   # break points salvos
+    "chances": 29,  # break points enfrentados
 
     # mesmas estatísticas do ADVERSÁRIO (para devolução)
-    "o_aces":   28,
-    "o_dfs":    29,
-    "o_pts":    30,
-    "o_firsts": 31,
-    "o_fwon":   32,
-    "o_swon":   33,
-    "o_games":  34,
-    "o_saved":  35,
-    "o_chances": 36,
+    "o_aces":   30,
+    "o_dfs":    31,
+    "o_pts":    32,
+    "o_firsts": 33,
+    "o_fwon":   34,
+    "o_swon":   35,
+    "o_games":  36,
+    "o_saved":  37,
+    "o_chances": 38,
 }
 
 SURF_PT = {"Hard": "Dura", "Clay": "Saibro", "Grass": "Grama", "Carpet": "Carpete"}
@@ -272,7 +273,6 @@ def validate_core(mx, who):
     checks = {
         "date":  lambda v: re.fullmatch(r"\d{8}", str(v)) is not None,
         "wl":    lambda v: str(v) in ("W", "L"),
-        "surf":  lambda v: str(v) in ("Hard", "Clay", "Grass", "Carpet", ""),
         "score": lambda v: re.search(r"\d", str(v)) is not None or "W/O" in str(v).upper(),
         "opp":   lambda v: re.search(r"[A-Za-z]", str(v)) is not None,
     }
