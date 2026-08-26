@@ -1,0 +1,8 @@
+{
+  "_comentario": "Nome exatamente como está na planilha -> slug do Tennis Abstract. Só precisa de entrada quando o padrão automático (CamelCase sem acentos/hífens/apóstrofos) não bate. 'tour' é opcional; o script descobre sozinho tentando ATP e depois WTA.",
+  "_exemplos": {
+    "Christopher O'Connell": { "slug": "ChristopherOconnell" },
+    "Alex De Minaur": { "slug": "AlexDeMinaur" },
+    "Botic Van De Zandschulp": { "slug": "BoticVanDeZandschulp" }
+  }
+}
