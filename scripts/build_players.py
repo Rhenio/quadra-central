@@ -352,9 +352,9 @@ def summarize(mx, year, with_stats):
     }
 
     if with_stats:
-        tot = {k: 0 for k in ("aces", "dfs", "pts", "firsts", "fwon", "swon", "saved",
-                              "chances", "o_aces", "o_pts", "o_firsts", "o_fwon",
-                              "o_swon", "o_saved", "o_chances")}
+        tot = {k: 0 for k in ("aces", "dfs", "pts", "firsts", "fwon", "swon", "games",
+                              "saved", "chances", "o_aces", "o_pts", "o_firsts", "o_fwon",
+                              "o_swon", "o_games", "o_saved", "o_chances")}
         n = 0
         for r in played:
             vals = {k: as_int(g(r, k)) for k in tot}
@@ -367,6 +367,8 @@ def summarize(mx, year, with_stats):
             n += 1
         if n and tot["pts"] and tot["o_pts"]:
             pct = lambda a, b: round(100 * a / b, 1) if b else None
+            quebras_sofridas = tot["chances"] - tot["saved"]
+            quebras_feitas   = tot["o_chances"] - tot["o_saved"]
             out["saque"] = {
                 "jogos_com_stats": n,
                 "aces_pct": pct(tot["aces"], tot["pts"]),
@@ -375,6 +377,7 @@ def summarize(mx, year, with_stats):
                 "1st_won_pct": pct(tot["fwon"], tot["firsts"]),
                 "2nd_won_pct": pct(tot["swon"], tot["pts"] - tot["firsts"]),
                 "spw_pct": pct(tot["fwon"] + tot["swon"], tot["pts"]),
+                "hold_pct": pct(tot["games"] - quebras_sofridas, tot["games"]),
                 "bp_salvos_pct": pct(tot["saved"], tot["chances"]),
             }
             out["devolucao"] = {
@@ -382,7 +385,8 @@ def summarize(mx, year, with_stats):
                 "vs_1st_pct": pct(tot["o_firsts"] - tot["o_fwon"], tot["o_firsts"]),
                 "vs_2nd_pct": pct((tot["o_pts"] - tot["o_firsts"]) - tot["o_swon"],
                                   tot["o_pts"] - tot["o_firsts"]),
-                "bp_convertidos_pct": pct(tot["o_chances"] - tot["o_saved"], tot["o_chances"]),
+                "brk_pct": pct(quebras_feitas, tot["o_games"]),
+                "bp_convertidos_pct": pct(quebras_feitas, tot["o_chances"]),
             }
     return out
 
@@ -419,13 +423,19 @@ def main():
             log("    NÃO ENCONTRADO no TA — adicione o slug correto em data/ta_apelidos.json")
             continue
         validate_core(mx, name)
+        datas = sorted(str(r[COLMAP["date"]]) for r in mx if len(r) > COLMAP["date"])
+        resumo = summarize(mx, year, with_stats=stats_ok(mx))
+        log(f"    ok ({tour}): {len(mx)} jogos no arquivo, de {datas[0]} a {datas[-1]}; "
+            f"{resumo['jogos']['v']}V-{resumo['jogos']['d']}D em {year}")
+        if resumo["jogos"]["v"] + resumo["jogos"]["d"] == 0:
+            log(f"    ATENÇÃO: nenhum jogo de {year} no arquivo — pode estar desatualizado no TA.")
         players[name] = {
             "slug": slug,
             "tour": tour,
             "ta_url": ("https://www.tennisabstract.com/cgi-bin/"
                        + ("player.cgi" if tour == "atp" else "wplayer.cgi")
                        + "?p=" + slug),
-            **summarize(mx, year, with_stats=stats_ok(mx)),
+            **resumo,
         }
         if players[name]["saque"] is None:
             log("    aviso: colunas de saque não validaram — painel sai sem stats de saque/devolução.")
