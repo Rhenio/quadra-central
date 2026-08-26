@@ -51,7 +51,16 @@ SHEET_TAB  = os.environ.get("SHEET_TAB", "DB Oficial")
 DAYS_AHEAD = int(os.environ.get("DAYS_AHEAD", "1"))
 TZ_OFFSET  = int(os.environ.get("TZ_OFFSET", "-3"))
 
-TA_BASE    = "https://www.tennisabstract.com/jsplayers/"
+# Padrões candidatos de URL do arquivo por jogador. O script descobre sozinho
+# qual funciona (sonda com um jogador conhecido) e grava no ta_cache.json.
+TA_PATTERNS = [
+    "https://www.tennisabstract.com/cgi-bin/jsmatches/{slug}.js",
+    "https://www.tennisabstract.com/jsmatches/{slug}.js",
+    "https://www.tennisabstract.com/jsplayers/{slug}.js",
+    "https://www.tennisabstract.com/cgi-bin/jsplayers/{slug}.js",
+]
+PROBE_ATP = "JannikSinner"   # jogador que certamente existe, para a sondagem
+PROBE_WTA = "IgaSwiatek"
 BROWSER_HEADERS = {
     "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                    "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"),
@@ -117,7 +126,7 @@ def log(msg):
     print(msg, flush=True)
 
 def today_local():
-    return (dt.datetime.utcnow() + dt.timedelta(hours=TZ_OFFSET)).date()
+    return (dt.datetime.now(dt.timezone.utc) + dt.timedelta(hours=TZ_OFFSET)).date()
 
 def slugify(name: str) -> str:
     """'Cristián O'Connell-Jr' -> 'CristianOconnellJr' (padrão de URL do TA)."""
@@ -194,43 +203,64 @@ def players_of_the_day():
     return wanted
 
 # ----------------------------------------------------------------------------
-# 2) download + parse do jsplayers
+# 2) download + parse do arquivo do jogador
 # ----------------------------------------------------------------------------
-def fetch_matchmx(slug: str, cache: dict):
-    """Baixa o arquivo do jogador. Tenta ATP (<Slug>.js) e WTA (<Slug>w.js),
-    na ordem indicada pelo cache. Devolve (matchmx, tour) ou (None, None)."""
+def try_url(url):
+    """Baixa a URL e devolve (matchmx|None, motivo)."""
+    try:
+        body = fetch(url)
+    except urllib.error.HTTPError as e:
+        return None, f"HTTP {e.code} {e.reason}"
+    except Exception as e:
+        return None, f"{type(e).__name__}: {e}"
+    m = re.search(r"var\s+matchmx\s*=\s*(\[\s*\[.*?\]\s*\])\s*;", body, re.S)
+    if not m:
+        snippet = body[:160].replace("\n", " ")
+        return None, f"baixado ({len(body)} bytes) mas sem 'var matchmx'. Início: {snippet!r}"
+    txt = m.group(1)
+    txt = re.sub(r"\bnull\b", "None", txt)
+    txt = re.sub(r"\btrue\b", "True", txt)
+    txt = re.sub(r"\bfalse\b", "False", txt)
+    try:
+        return ast.literal_eval(txt), "ok"
+    except (ValueError, SyntaxError) as e:
+        return None, f"matchmx encontrado mas não parseável ({e})"
+
+def discover_pattern(cache):
+    """Descobre qual padrão de URL serve os arquivos, sondando jogadores
+    conhecidos. Grava em cache['_pattern'] e devolve o padrão."""
+    if cache.get("_pattern") in TA_PATTERNS:
+        return cache["_pattern"]
+    log("Descobrindo o padrão de URL do TA...")
+    report = []
+    for pat in TA_PATTERNS:
+        for probe in (PROBE_ATP, PROBE_ATP + "w", PROBE_WTA, PROBE_WTA + "w"):
+            url = pat.format(slug=probe)
+            mx, why = try_url(url)
+            report.append(f"  {url} -> {why}")
+            log(report[-1])
+            time.sleep(1.0)
+            if mx:
+                cache["_pattern"] = pat
+                log(f"Padrão descoberto: {pat}")
+                return pat
+    log("\nERRO: nenhum padrão candidato serviu o matchmx. Resultados das sondagens acima.")
+    raise SystemExit("Não foi possível localizar os arquivos de jogador no Tennis Abstract. "
+                     "Envie o log acima para diagnóstico.")
+
+def fetch_matchmx(slug: str, cache: dict, pattern: str):
+    """Baixa o arquivo do jogador com o padrão descoberto. Tenta ATP (<Slug>)
+    e WTA (<Slug>w), na ordem indicada pelo cache. Devolve (matchmx, tour)."""
     order = ["atp", "wta"]
     if cache.get(slug) == "wta":
         order = ["wta", "atp"]
     for tour in order:
-        fname = slug + (".js" if tour == "atp" else "w.js")
-        try:
-            body = fetch(TA_BASE + fname)
-        except urllib.error.HTTPError as e:
-            log(f"    {fname}: HTTP {e.code} {e.reason}")
-            continue
-        except Exception as e:
-            log(f"    {fname}: {type(e).__name__}: {e}")
-            continue
-        m = re.search(r"var\s+matchmx\s*=\s*(\[\s*\[.*?\]\s*\])\s*;", body, re.S)
-        if not m:
-            snippet = body[:180].replace("\n", " ")
-            log(f"    {fname}: baixado ({len(body)} bytes) mas sem 'var matchmx'. Início: {snippet!r}")
-            continue
-        txt = m.group(1)
-        # o array JS usa aspas simples/duplas e null/true/false — literal_eval
-        # do Python aceita as aspas; só os tokens JS precisam de tradução.
-        txt = re.sub(r"\bnull\b", "None", txt)
-        txt = re.sub(r"\btrue\b", "True", txt)
-        txt = re.sub(r"\bfalse\b", "False", txt)
-        try:
-            mx = ast.literal_eval(txt)
-        except (ValueError, SyntaxError) as e:
-            log(f"    {fname}: matchmx encontrado mas não parseável ({e})")
-            continue
+        s = slug + ("" if tour == "atp" else "w")
+        mx, why = try_url(pattern.format(slug=s))
         if mx:
             cache[slug] = tour
             return mx, tour
+        log(f"    {s}: {why}")
     return None, None
 
 # ----------------------------------------------------------------------------
@@ -361,7 +391,8 @@ def summarize(mx, year, with_stats):
 # ----------------------------------------------------------------------------
 def main():
     if len(sys.argv) >= 3 and sys.argv[1] == "--dump":
-        mx, tour = fetch_matchmx(sys.argv[2], {})
+        c = {}
+        mx, tour = fetch_matchmx(sys.argv[2], c, discover_pattern(c))
         if not mx:
             raise SystemExit("Não consegui baixar o matchmx desse slug.")
         log(f"Tour detectado: {tour} — {len(mx)} jogos no arquivo.")
@@ -372,6 +403,7 @@ def main():
     cache    = load_json(CACHE_PATH, {})
     year     = today_local().year
 
+    pattern = discover_pattern(cache)
     wanted = players_of_the_day()
     log(f"{len(wanted)} jogador(es) com jogo em aberto entre hoje e hoje+{DAYS_AHEAD}.")
 
@@ -380,7 +412,7 @@ def main():
         ap = apelidos.get(name, {})
         slug = ap.get("slug") or slugify(name)
         log(f"  {name} -> {slug}")
-        mx, tour = fetch_matchmx(slug, cache)
+        mx, tour = fetch_matchmx(slug, cache, pattern)
         time.sleep(SLEEP_S)
         if not mx:
             falhas.append(name)
@@ -401,7 +433,7 @@ def main():
     os.makedirs(os.path.dirname(OUT_PATH), exist_ok=True)
     with open(OUT_PATH, "w", encoding="utf-8") as f:
         json.dump({
-            "gerado_em": dt.datetime.utcnow().isoformat(timespec="seconds") + "Z",
+            "gerado_em": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
             "ano": year,
             "falhas": falhas,
             "players": players,
