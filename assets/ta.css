@@ -1,0 +1,41 @@
+/* ta.css — estilos do painel Tennis Abstract. Herda fonte e cores do site;
+   só define o necessário. Ajuste as variáveis para casar com o seu tema. */
+:root {
+  --ta-mut: #6b7280;
+  --ta-line: #e5e7eb;
+  --ta-win: #166534;
+  --ta-loss: #b91c1c;
+  --ta-best: #dcfce7;
+}
+
+.ta-link { color: inherit; text-decoration: none; border-bottom: 1px dotted var(--ta-mut); }
+.ta-link:hover { border-bottom-style: solid; }
+
+.ta-details { margin-top: .75rem; border-top: 1px dashed var(--ta-line); padding-top: .5rem; }
+.ta-details summary { cursor: pointer; font-size: .8rem; letter-spacing: .04em;
+  text-transform: uppercase; color: var(--ta-mut); }
+.ta-details[open] summary { margin-bottom: .5rem; }
+
+.ta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 640px) { .ta-grid { grid-template-columns: 1fr; } }
+
+.ta-col h5 { margin: 0 0 .25rem; font-size: .95rem; }
+.ta-col p { margin: .15rem 0; font-size: .85rem; }
+.ta-col ul { margin: .1rem 0 .4rem; padding-left: 1rem; font-size: .8rem; }
+.ta-h { font-size: .7rem !important; letter-spacing: .05em; text-transform: uppercase;
+  color: var(--ta-mut); margin-top: .5rem !important; }
+.ta-mut { color: var(--ta-mut); font-weight: normal; }
+
+.ta-f { display: inline-block; width: 1.15rem; text-align: center; font-style: normal;
+  font-size: .7rem; font-weight: 700; border-radius: 3px; margin-right: 2px; }
+.ta-f-w { background: var(--ta-best); color: var(--ta-win); }
+.ta-f-l { background: #fee2e2; color: var(--ta-loss); }
+
+.ta-stats { width: 100%; margin-top: .75rem; border-collapse: collapse; font-size: .8rem; }
+.ta-stats caption { font-size: .7rem; letter-spacing: .05em; text-transform: uppercase;
+  color: var(--ta-mut); text-align: left; margin-bottom: .25rem; }
+.ta-stats th { font-weight: 500; text-align: center; padding: .2rem .4rem; }
+.ta-stats td { padding: .2rem .4rem; border-top: 1px solid var(--ta-line); }
+.ta-stats .ta-num { font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  text-align: center; width: 5.5rem; }
+.ta-stats .ta-best { background: var(--ta-best); border-radius: 3px; }
