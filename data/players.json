@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-08-26T20:12:47+00:00",
+ "gerado_em": "2026-08-26T20:38:44+00:00",
  "ano": 2026,
  "falhas": [
   "Coleman Wong",
@@ -110,12 +110,14 @@
     "1st_won_pct": 57.4,
     "2nd_won_pct": 43.9,
     "spw_pct": 53.3,
+    "hold_pct": 57.7,
     "bp_salvos_pct": 53.6
    },
    "devolucao": {
     "rpw_pct": 49.8,
     "vs_1st_pct": 45.7,
     "vs_2nd_pct": 57.0,
+    "brk_pct": 49.0,
     "bp_convertidos_pct": 53.0
    }
   },
@@ -210,12 +212,14 @@
     "1st_won_pct": 55.8,
     "2nd_won_pct": 38.3,
     "spw_pct": 50.0,
+    "hold_pct": 49.6,
     "bp_salvos_pct": 48.0
    },
    "devolucao": {
     "rpw_pct": 48.5,
     "vs_1st_pct": 42.0,
     "vs_2nd_pct": 61.0,
+    "brk_pct": 48.1,
     "bp_convertidos_pct": 43.8
    }
   },
@@ -314,12 +318,14 @@
     "1st_won_pct": 61.9,
     "2nd_won_pct": 42.3,
     "spw_pct": 55.1,
+    "hold_pct": 61.4,
     "bp_salvos_pct": 53.9
    },
    "devolucao": {
     "rpw_pct": 48.5,
     "vs_1st_pct": 42.4,
     "vs_2nd_pct": 58.4,
+    "brk_pct": 46.2,
     "bp_convertidos_pct": 51.7
    }
   },
@@ -410,12 +416,14 @@
     "1st_won_pct": 70.8,
     "2nd_won_pct": 52.0,
     "spw_pct": 61.8,
+    "hold_pct": 75.8,
     "bp_salvos_pct": 61.9
    },
    "devolucao": {
     "rpw_pct": 42.6,
     "vs_1st_pct": 38.7,
     "vs_2nd_pct": 49.6,
+    "brk_pct": 27.6,
     "bp_convertidos_pct": 38.6
    }
   },
@@ -510,12 +518,14 @@
     "1st_won_pct": 60.8,
     "2nd_won_pct": 49.2,
     "spw_pct": 56.9,
+    "hold_pct": 68.4,
     "bp_salvos_pct": 60.5
    },
    "devolucao": {
     "rpw_pct": 47.5,
     "vs_1st_pct": 40.1,
     "vs_2nd_pct": 58.2,
+    "brk_pct": 43.8,
     "bp_convertidos_pct": 45.9
    }
   },
@@ -614,12 +624,14 @@
     "1st_won_pct": 60.7,
     "2nd_won_pct": 44.9,
     "spw_pct": 53.9,
+    "hold_pct": 59.9,
     "bp_salvos_pct": 54.5
    },
    "devolucao": {
     "rpw_pct": 45.4,
     "vs_1st_pct": 39.5,
     "vs_2nd_pct": 55.1,
+    "brk_pct": 40.2,
     "bp_convertidos_pct": 48.7
    }
   },
@@ -994,12 +1006,14 @@
     "1st_won_pct": 63.0,
     "2nd_won_pct": 46.4,
     "spw_pct": 56.9,
+    "hold_pct": 66.8,
     "bp_salvos_pct": 52.0
    },
    "devolucao": {
     "rpw_pct": 43.1,
     "vs_1st_pct": 37.3,
     "vs_2nd_pct": 53.3,
+    "brk_pct": 33.7,
     "bp_convertidos_pct": 45.4
    }
   },
@@ -1098,12 +1112,14 @@
     "1st_won_pct": 65.0,
     "2nd_won_pct": 45.3,
     "spw_pct": 57.3,
+    "hold_pct": 66.7,
     "bp_salvos_pct": 56.0
    },
    "devolucao": {
     "rpw_pct": 48.0,
     "vs_1st_pct": 41.9,
     "vs_2nd_pct": 58.1,
+    "brk_pct": 45.6,
     "bp_convertidos_pct": 49.9
    }
   },
@@ -1202,12 +1218,14 @@
     "1st_won_pct": 53.4,
     "2nd_won_pct": 43.8,
     "spw_pct": 50.8,
+    "hold_pct": 51.6,
     "bp_salvos_pct": 48.3
    },
    "devolucao": {
     "rpw_pct": 46.8,
     "vs_1st_pct": 42.1,
     "vs_2nd_pct": 56.2,
+    "brk_pct": 43.1,
     "bp_convertidos_pct": 53.4
    }
   },
@@ -1306,12 +1324,14 @@
     "1st_won_pct": 56.1,
     "2nd_won_pct": 45.2,
     "spw_pct": 53.7,
+    "hold_pct": 58.8,
     "bp_salvos_pct": 51.0
    },
    "devolucao": {
     "rpw_pct": 44.4,
     "vs_1st_pct": 38.1,
     "vs_2nd_pct": 56.2,
+    "brk_pct": 37.8,
     "bp_convertidos_pct": 46.3
    }
   },
@@ -1410,12 +1430,14 @@
     "1st_won_pct": 60.4,
     "2nd_won_pct": 42.0,
     "spw_pct": 54.1,
+    "hold_pct": 60.3,
     "bp_salvos_pct": 55.2
    },
    "devolucao": {
     "rpw_pct": 46.9,
     "vs_1st_pct": 41.1,
     "vs_2nd_pct": 57.3,
+    "brk_pct": 42.1,
     "bp_convertidos_pct": 47.1
    }
   },
@@ -1510,12 +1532,14 @@
     "1st_won_pct": 69.5,
     "2nd_won_pct": 41.1,
     "spw_pct": 57.3,
+    "hold_pct": 67.1,
     "bp_salvos_pct": 56.9
    },
    "devolucao": {
     "rpw_pct": 42.7,
     "vs_1st_pct": 33.5,
     "vs_2nd_pct": 56.1,
+    "brk_pct": 32.1,
     "bp_convertidos_pct": 43.9
    }
   },
@@ -1614,12 +1638,14 @@
     "1st_won_pct": 61.9,
     "2nd_won_pct": 45.8,
     "spw_pct": 56.8,
+    "hold_pct": 65.7,
     "bp_salvos_pct": 54.5
    },
    "devolucao": {
     "rpw_pct": 46.1,
     "vs_1st_pct": 40.4,
     "vs_2nd_pct": 56.7,
+    "brk_pct": 42.2,
     "bp_convertidos_pct": 50.7
    }
   },
@@ -1718,12 +1744,14 @@
     "1st_won_pct": 53.5,
     "2nd_won_pct": 44.9,
     "spw_pct": 51.7,
+    "hold_pct": 54.3,
     "bp_salvos_pct": 48.3
    },
    "devolucao": {
     "rpw_pct": 50.6,
     "vs_1st_pct": 44.9,
     "vs_2nd_pct": 60.4,
+    "brk_pct": 51.7,
     "bp_convertidos_pct": 55.5
    }
   },
@@ -1822,12 +1850,14 @@
     "1st_won_pct": 53.9,
     "2nd_won_pct": 44.8,
     "spw_pct": 51.6,
+    "hold_pct": 55.2,
     "bp_salvos_pct": 52.5
    },
    "devolucao": {
     "rpw_pct": 49.2,
     "vs_1st_pct": 44.6,
     "vs_2nd_pct": 56.9,
+    "brk_pct": 48.3,
     "bp_convertidos_pct": 50.7
    }
   },
@@ -1926,12 +1956,14 @@
     "1st_won_pct": 58.7,
     "2nd_won_pct": 44.8,
     "spw_pct": 54.0,
+    "hold_pct": 59.3,
     "bp_salvos_pct": 50.1
    },
    "devolucao": {
     "rpw_pct": 47.9,
     "vs_1st_pct": 41.9,
     "vs_2nd_pct": 57.8,
+    "brk_pct": 45.7,
     "bp_convertidos_pct": 51.9
    }
   },
@@ -2030,12 +2062,14 @@
     "1st_won_pct": 62.2,
     "2nd_won_pct": 45.7,
     "spw_pct": 56.0,
+    "hold_pct": 65.7,
     "bp_salvos_pct": 56.6
    },
    "devolucao": {
     "rpw_pct": 48.7,
     "vs_1st_pct": 42.8,
     "vs_2nd_pct": 58.8,
+    "brk_pct": 45.2,
     "bp_convertidos_pct": 48.3
    }
   },
@@ -2134,12 +2168,14 @@
     "1st_won_pct": 73.7,
     "2nd_won_pct": 48.9,
     "spw_pct": 62.7,
+    "hold_pct": 78.2,
     "bp_salvos_pct": 63.1
    },
    "devolucao": {
     "rpw_pct": 38.0,
     "vs_1st_pct": 29.8,
     "vs_2nd_pct": 52.0,
+    "brk_pct": 22.1,
     "bp_convertidos_pct": 43.2
    }
   },
@@ -2230,12 +2266,14 @@
     "1st_won_pct": 59.8,
     "2nd_won_pct": 44.5,
     "spw_pct": 53.2,
+    "hold_pct": 59.9,
     "bp_salvos_pct": 55.4
    },
    "devolucao": {
     "rpw_pct": 50.3,
     "vs_1st_pct": 45.7,
     "vs_2nd_pct": 58.1,
+    "brk_pct": 51.9,
     "bp_convertidos_pct": 49.7
    }
   },
@@ -2334,12 +2372,14 @@
     "1st_won_pct": 67.9,
     "2nd_won_pct": 42.5,
     "spw_pct": 58.6,
+    "hold_pct": 67.9,
     "bp_salvos_pct": 54.4
    },
    "devolucao": {
     "rpw_pct": 42.6,
     "vs_1st_pct": 36.0,
     "vs_2nd_pct": 53.6,
+    "brk_pct": 31.4,
     "bp_convertidos_pct": 44.7
    }
   },
@@ -2438,12 +2478,14 @@
     "1st_won_pct": 64.6,
     "2nd_won_pct": 47.8,
     "spw_pct": 58.6,
+    "hold_pct": 69.6,
     "bp_salvos_pct": 58.0
    },
    "devolucao": {
     "rpw_pct": 47.9,
     "vs_1st_pct": 41.3,
     "vs_2nd_pct": 59.0,
+    "brk_pct": 44.6,
     "bp_convertidos_pct": 47.3
    }
   },
@@ -2542,12 +2584,14 @@
     "1st_won_pct": 65.7,
     "2nd_won_pct": 46.7,
     "spw_pct": 58.6,
+    "hold_pct": 70.6,
     "bp_salvos_pct": 57.8
    },
    "devolucao": {
     "rpw_pct": 46.7,
     "vs_1st_pct": 41.4,
     "vs_2nd_pct": 56.5,
+    "brk_pct": 43.1,
     "bp_convertidos_pct": 46.8
    }
   },
@@ -2650,12 +2694,14 @@
     "1st_won_pct": 61.8,
     "2nd_won_pct": 45.7,
     "spw_pct": 56.5,
+    "hold_pct": 64.4,
     "bp_salvos_pct": 55.2
    },
    "devolucao": {
     "rpw_pct": 43.0,
     "vs_1st_pct": 38.0,
     "vs_2nd_pct": 52.3,
+    "brk_pct": 35.3,
     "bp_convertidos_pct": 49.2
    }
   },
@@ -2802,12 +2848,14 @@
     "1st_won_pct": 69.3,
     "2nd_won_pct": 46.4,
     "spw_pct": 58.7,
+    "hold_pct": 69.8,
     "bp_salvos_pct": 55.8
    },
    "devolucao": {
     "rpw_pct": 43.4,
     "vs_1st_pct": 37.2,
     "vs_2nd_pct": 54.5,
+    "brk_pct": 35.2,
     "bp_convertidos_pct": 45.6
    }
   },
@@ -2906,12 +2954,14 @@
     "1st_won_pct": 65.2,
     "2nd_won_pct": 43.5,
     "spw_pct": 55.8,
+    "hold_pct": 64.3,
     "bp_salvos_pct": 58.6
    },
    "devolucao": {
     "rpw_pct": 44.4,
     "vs_1st_pct": 38.3,
     "vs_2nd_pct": 54.6,
+    "brk_pct": 37.3,
     "bp_convertidos_pct": 44.9
    }
   },
@@ -3010,12 +3060,14 @@
     "1st_won_pct": 65.7,
     "2nd_won_pct": 45.4,
     "spw_pct": 57.4,
+    "hold_pct": 67.6,
     "bp_salvos_pct": 55.4
    },
    "devolucao": {
     "rpw_pct": 41.9,
     "vs_1st_pct": 34.9,
     "vs_2nd_pct": 52.3,
+    "brk_pct": 30.5,
     "bp_convertidos_pct": 41.6
    }
   },
@@ -3114,12 +3166,14 @@
     "1st_won_pct": 68.9,
     "2nd_won_pct": 42.4,
     "spw_pct": 58.8,
+    "hold_pct": 71.9,
     "bp_salvos_pct": 56.7
    },
    "devolucao": {
     "rpw_pct": 41.7,
     "vs_1st_pct": 33.1,
     "vs_2nd_pct": 54.9,
+    "brk_pct": 29.6,
     "bp_convertidos_pct": 44.0
    }
   },
@@ -3218,12 +3272,14 @@
     "1st_won_pct": 58.8,
     "2nd_won_pct": 50.3,
     "spw_pct": 56.3,
+    "hold_pct": 63.1,
     "bp_salvos_pct": 52.9
    },
    "devolucao": {
     "rpw_pct": 50.3,
     "vs_1st_pct": 45.6,
     "vs_2nd_pct": 59.3,
+    "brk_pct": 51.1,
     "bp_convertidos_pct": 53.8
    }
   },
@@ -3322,12 +3378,14 @@
     "1st_won_pct": 68.7,
     "2nd_won_pct": 43.4,
     "spw_pct": 57.5,
+    "hold_pct": 67.5,
     "bp_salvos_pct": 55.4
    },
    "devolucao": {
     "rpw_pct": 41.3,
     "vs_1st_pct": 34.0,
     "vs_2nd_pct": 54.4,
+    "brk_pct": 30.7,
     "bp_convertidos_pct": 43.9
    }
   },
@@ -3355,7 +3413,7 @@
     "L",
     "W",
     "L",
-    "U",
+    "L",
     "W"
    ],
    "melhores_vitorias": [
@@ -3418,12 +3476,14 @@
     "1st_won_pct": 59.5,
     "2nd_won_pct": 48.0,
     "spw_pct": 55.5,
+    "hold_pct": 63.6,
     "bp_salvos_pct": 51.6
    },
    "devolucao": {
     "rpw_pct": 45.9,
     "vs_1st_pct": 41.0,
     "vs_2nd_pct": 55.0,
+    "brk_pct": 40.6,
     "bp_convertidos_pct": 49.5
    }
   },
@@ -3433,11 +3493,11 @@
    "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=TerezaValentova",
    "ano": 2026,
    "jogos": {
-    "v": 23,
+    "v": 24,
     "d": 19,
     "por_quadra": {
      "Dura": {
-      "v": 16,
+      "v": 17,
       "d": 12
      },
      "Saibro": {
@@ -3451,7 +3511,6 @@
     }
    },
    "forma_ult10": [
-    "W",
     "L",
     "W",
     "W",
@@ -3460,6 +3519,7 @@
     "L",
     "W",
     "U",
+    "W",
     "W"
    ],
    "melhores_vitorias": [
@@ -3522,12 +3582,14 @@
     "1st_won_pct": 63.3,
     "2nd_won_pct": 43.1,
     "spw_pct": 55.3,
+    "hold_pct": 63.0,
     "bp_salvos_pct": 54.9
    },
    "devolucao": {
     "rpw_pct": 46.3,
     "vs_1st_pct": 39.1,
     "vs_2nd_pct": 58.5,
+    "brk_pct": 40.4,
     "bp_convertidos_pct": 45.5
    }
   },
@@ -3626,12 +3688,14 @@
     "1st_won_pct": 61.7,
     "2nd_won_pct": 45.2,
     "spw_pct": 55.1,
+    "hold_pct": 61.6,
     "bp_salvos_pct": 54.8
    },
    "devolucao": {
     "rpw_pct": 48.8,
     "vs_1st_pct": 41.0,
     "vs_2nd_pct": 62.1,
+    "brk_pct": 46.6,
     "bp_convertidos_pct": 49.6
    }
   },
@@ -3726,12 +3790,14 @@
     "1st_won_pct": 64.0,
     "2nd_won_pct": 42.0,
     "spw_pct": 54.7,
+    "hold_pct": 60.2,
     "bp_salvos_pct": 56.4
    },
    "devolucao": {
     "rpw_pct": 40.5,
     "vs_1st_pct": 34.4,
     "vs_2nd_pct": 51.1,
+    "brk_pct": 25.2,
     "bp_convertidos_pct": 31.3
    }
   },
@@ -3826,12 +3892,14 @@
     "1st_won_pct": 61.7,
     "2nd_won_pct": 44.9,
     "spw_pct": 55.1,
+    "hold_pct": 62.8,
     "bp_salvos_pct": 50.7
    },
    "devolucao": {
     "rpw_pct": 47.0,
     "vs_1st_pct": 40.1,
     "vs_2nd_pct": 58.2,
+    "brk_pct": 41.8,
     "bp_convertidos_pct": 47.4
    }
   },
@@ -3926,12 +3994,14 @@
     "1st_won_pct": 66.0,
     "2nd_won_pct": 44.1,
     "spw_pct": 58.6,
+    "hold_pct": 70.4,
     "bp_salvos_pct": 57.0
    },
    "devolucao": {
     "rpw_pct": 46.1,
     "vs_1st_pct": 39.7,
     "vs_2nd_pct": 56.7,
+    "brk_pct": 41.3,
     "bp_convertidos_pct": 45.2
    }
   },
@@ -4030,12 +4100,14 @@
     "1st_won_pct": 62.2,
     "2nd_won_pct": 40.2,
     "spw_pct": 54.2,
+    "hold_pct": 60.4,
     "bp_salvos_pct": 57.6
    },
    "devolucao": {
     "rpw_pct": 45.6,
     "vs_1st_pct": 38.5,
     "vs_2nd_pct": 56.9,
+    "brk_pct": 39.0,
     "bp_convertidos_pct": 43.6
    }
   },
@@ -4130,12 +4202,14 @@
     "1st_won_pct": 58.5,
     "2nd_won_pct": 43.3,
     "spw_pct": 51.9,
+    "hold_pct": 53.5,
     "bp_salvos_pct": 56.3
    },
    "devolucao": {
     "rpw_pct": 46.8,
     "vs_1st_pct": 41.8,
     "vs_2nd_pct": 56.3,
+    "brk_pct": 43.3,
     "bp_convertidos_pct": 53.0
    }
   }
