@@ -71,14 +71,14 @@
     }).join("");
   }
 
-  function statRow(label, a, b) {
+  function statRow(label, a, b, lowerBetter) {
     var va = a == null ? "—" : a + "%";
     var vb = b == null ? "—" : b + "%";
-    var hiA = a != null && b != null && a > b ? " ta-best" : "";
-    var hiB = a != null && b != null && b > a ? " ta-best" : "";
-    return "<tr><td class='ta-num" + hiA + "'>" + va + "</td>" +
+    var aWins = a != null && b != null && (lowerBetter ? a < b : a > b);
+    var bWins = a != null && b != null && (lowerBetter ? b < a : b > a);
+    return "<tr><td class='ta-num" + (aWins ? " ta-best" : "") + "'>" + va + "</td>" +
            "<th>" + label + "</th>" +
-           "<td class='ta-num" + hiB + "'>" + vb + "</td></tr>";
+           "<td class='ta-num" + (bWins ? " ta-best" : "") + "'>" + vb + "</td></tr>";
   }
 
   function playerCol(name, p) {
@@ -111,10 +111,12 @@
           statRow("Pts no 1º saque", s1["1st_won_pct"], s2["1st_won_pct"]) +
           statRow("Pts no 2º saque", s1["2nd_won_pct"], s2["2nd_won_pct"]) +
           statRow("Pts de saque (total)", s1.spw_pct, s2.spw_pct) +
+          statRow("Games de saque vencidos", s1.hold_pct, s2.hold_pct) +
           statRow("Aces", s1.aces_pct, s2.aces_pct) +
-          statRow("Duplas faltas", s1.df_pct, s2.df_pct) +
+          statRow("Duplas faltas", s1.df_pct, s2.df_pct, true) +
           statRow("BPs salvos", s1.bp_salvos_pct, s2.bp_salvos_pct) +
           statRow("Pts de devolução", d1.rpw_pct, d2.rpw_pct) +
+          statRow("Games de devolução quebrados", d1.brk_pct, d2.brk_pct) +
           statRow("BPs convertidos", d1.bp_convertidos_pct, d2.bp_convertidos_pct) +
         "</tbody>" +
       "</table>"
