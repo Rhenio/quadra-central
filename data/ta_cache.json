@@ -1,5 +1,4 @@
 {
- "_pattern": "https://www.tennisabstract.com/jsmatches/{slug}.js",
  "AlevtinaIbragimova": "atp",
  "MariamBolkvadze": "atp",
  "ElenaPridankina": "atp",
@@ -96,5 +95,16 @@
  "JamesDuckworth": "atp",
  "DianeParry": "atp",
  "YuliiaStarodubtseva": "atp",
- "EliseMertens": "atp"
+ "EliseMertens": "atp",
+ "_templates": {
+  "atp": [
+   "https://www.tennisabstract.com/jsfrags/{slug}.js",
+   "https://www.tennisabstract.com/jsmatches/{slug}.js"
+  ],
+  "wta": [
+   "https://www.tennisabstract.com/jsfrags/{slug}.js",
+   "https://www.tennisabstract.com/jsmatches/{slug}.js",
+   "https://www.tennisabstract.com/jsmatches/{slug}w.js"
+  ]
+ }
 }
