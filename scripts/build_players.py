@@ -238,6 +238,8 @@ def try_url(url):
     return rows, f"ok [{nomes}]"
 
 
+_FRAG_HDR_LOGGED = False
+
 MESES = {m: i + 1 for i, m in enumerate(
     ["jan", "feb", "mar", "apr", "may", "jun",
      "jul", "aug", "sep", "oct", "nov", "dec"])}
@@ -289,12 +291,16 @@ def _frag_matches(body):
                         return i
             return None
 
+        global _FRAG_HDR_LOGGED
+        if not _FRAG_HDR_LOGGED:
+            _FRAG_HDR_LOGGED = True
+            log(f"    [frag] cabeçalho completo da tabela: {head}")
         c_date, c_score = col("date"), col("score")
         c_tour = col("tournament", "tourney", "event")
         c_surf, c_rd, c_vrk = col("surf"), col("rd", "round"), col("vrk", "vrank")
         pcts = {"aces_pct": col("a%"), "df_pct": col("df%"), "1st_in_pct": col("1stin"),
                 "1st_won_pct": col("1st%"), "2nd_won_pct": col("2nd%"),
-                "bp_salvos_pct": col("bpsvd", "bpsaved"), "rpw_pct": col("rpw")}
+                "bp_salvos_pct": col("bpsvd", "bpsaved", "bps"), "rpw_pct": col("rpw", "rtnpw", "rtn%")}
         parsed_antes = len(out)
         for tr in trs[1:]:
             cells = _cells(tr)
@@ -336,12 +342,25 @@ def _frag_matches(body):
                    "round": cells[c_rd] if c_rd is not None and c_rd < len(cells) else "",
                    "opp": opp, "orank": orank, "wl": wl, "stats": {}}
             for k, i in pcts.items():
-                if i is not None and i < len(cells):
-                    v = cells[i].replace("%", "").strip()
-                    try:
-                        rec["stats"][k] = float(v)
-                    except ValueError:
-                        pass
+                if i is None or i >= len(cells):
+                    continue
+                v = cells[i].strip()
+                fr = re.fullmatch(r"(\d+)\s*/\s*(\d+)", v)
+                if fr:
+                    a, b = int(fr.group(1)), int(fr.group(2))
+                    rec.setdefault("fracs", {})[k] = (a, b)
+                    if b:
+                        rec["stats"][k] = round(100 * a / b, 1)
+                    continue
+                try:
+                    rec["stats"][k] = float(v.replace("%", ""))
+                except ValueError:
+                    pass
+            st = rec["stats"]
+            if all(x in st for x in ("1st_in_pct", "1st_won_pct", "2nd_won_pct")):
+                fi = st["1st_in_pct"]
+                st["spw_pct"] = round((fi * st["1st_won_pct"]
+                                       + (100 - fi) * st["2nd_won_pct"]) / 100, 1)
             out.append(rec)
         if len(out) == parsed_antes and diag is None:
             diag = ("cabeçalho=" + repr(head[:14]) +
@@ -363,18 +382,24 @@ def _frag_to_row(rec):
     return r
 
 def _frag_stats_mean(recs, year):
-    """Média simples das porcentagens por jogo do ano (o frag não traz contagens)."""
-    ys = [r["stats"] for r in recs
+    """Agrega as stats por jogo do frag: porcentagens por média simples;
+    break points por soma de frações (salvos totais / enfrentados totais)."""
+    ys = [r for r in recs
           if str(r["date"]).startswith(str(year)) and r["stats"]
           and "W/O" not in str(r["score"]).upper()]
     if not ys:
         return None, None
-    mean = lambda k: (round(sum(d[k] for d in ys if k in d) / max(1, sum(1 for d in ys if k in d)), 1)
-                      if any(k in d for d in ys) else None)
-    saque = {"jogos_com_stats": len(ys), "aces_pct": mean("aces_pct"), "df_pct": mean("df_pct"),
+    stats = [r["stats"] for r in ys]
+    mean = lambda k: (round(sum(d[k] for d in stats if k in d)
+                            / max(1, sum(1 for d in stats if k in d)), 1)
+                      if any(k in d for d in stats) else None)
+    bp_a = sum(r.get("fracs", {}).get("bp_salvos_pct", (0, 0))[0] for r in ys)
+    bp_b = sum(r.get("fracs", {}).get("bp_salvos_pct", (0, 0))[1] for r in ys)
+    bp_salvos = round(100 * bp_a / bp_b, 1) if bp_b else mean("bp_salvos_pct")
+    saque = {"jogos_com_stats": len(stats), "aces_pct": mean("aces_pct"), "df_pct": mean("df_pct"),
              "1st_in_pct": mean("1st_in_pct"), "1st_won_pct": mean("1st_won_pct"),
-             "2nd_won_pct": mean("2nd_won_pct"), "spw_pct": None, "hold_pct": None,
-             "bp_salvos_pct": mean("bp_salvos_pct")}
+             "2nd_won_pct": mean("2nd_won_pct"), "spw_pct": mean("spw_pct"), "hold_pct": None,
+             "bp_salvos_pct": bp_salvos}
     devol = {"rpw_pct": mean("rpw_pct"), "vs_1st_pct": None, "vs_2nd_pct": None,
              "brk_pct": None, "bp_convertidos_pct": None}
     return saque, devol
