@@ -39,6 +39,7 @@ import os
 import re
 import sys
 import time
+import html as htmllib
 import unicodedata
 import urllib.error
 import urllib.request
@@ -236,27 +237,155 @@ def try_url(url):
     nomes = ", ".join(f"{n}({len(a)})" for n, a in arrays)
     return rows, f"ok [{nomes}]"
 
-def discover_templates(cache):
-    """Descobre os modelos de URL dos arquivos de dados perguntando à própria
-    página do jogador: baixa o player.cgi/wplayer.cgi de um jogador conhecido,
-    extrai todo caminho .js que contenha o nome dele e o transforma em modelo
-    com {slug}. Grava em cache['_templates']."""
-    tpls = cache.get("_templates")
-    if isinstance(tpls, dict) and tpls.get("atp"):
-        return tpls
-    tpls = {"atp": [], "wta": []}
-    fallback = "https://www.tennisabstract.com/jsmatches/{slug}.js"
-    for tour, cgi, probe in (("atp", "player.cgi", PROBE_ATP),
-                             ("wta", "wplayer.cgi", PROBE_WTA)):
+
+MESES = {m: i + 1 for i, m in enumerate(
+    ["jan", "feb", "mar", "apr", "may", "jun",
+     "jul", "aug", "sep", "oct", "nov", "dec"])}
+
+def _parse_date(s):
+    """Aceita 'yyyymmdd', 'dd-Mon-yyyy' (com hífens especiais) e 'yyyy-mm-dd'."""
+    t = str(s).strip()
+    for h in ("\u2011", "\u2010", "\u2012", "\u2013", "&#8209;"):
+        t = t.replace(h, "-")
+    if re.fullmatch(r"\d{8}", t):
+        return t
+    m = re.fullmatch(r"(\d{1,2})-([A-Za-z]{3,})-(\d{4})", t)
+    if m and m.group(2)[:3].lower() in MESES:
+        return f"{m.group(3)}{MESES[m.group(2)[:3].lower()]:02d}{int(m.group(1)):02d}"
+    m = re.fullmatch(r"(\d{4})-(\d{2})-(\d{2})", t)
+    if m:
+        return m.group(1) + m.group(2) + m.group(3)
+    return None
+
+def _cells(tr):
+    return [htmllib.unescape(re.sub(r"<[^>]+>", " ", c)).replace("\xa0", " ").strip()
+            for c in re.findall(r"<t[hd][^>]*>(.*?)</t[hd]>", tr, re.S | re.I)]
+
+def _frag_matches(body):
+    """Extrai partidas do HTML pré-renderizado (var player_frag = `...`).
+    Mapeia colunas pelo CABEÇALHO da tabela, não por posição. Devolve
+    (lista de dicts, diagnostico) — diagnostico preenchido se nada parseou."""
+    m = re.search(r"var\s+player_frag\s*=\s*`(.*)`", body, re.S)
+    if not m:
+        return [], None
+    doc = m.group(1)
+    out, diag = [], None
+    for tbl in re.findall(r"<table.*?</table>", doc, re.S | re.I):
+        trs = re.findall(r"<tr[^>]*>.*?</tr>", tbl, re.S | re.I)
+        if len(trs) < 2:
+            continue
+        head = [h.lower() for h in _cells(trs[0])]
+        if not any("date" in h for h in head) or not any("score" in h for h in head):
+            continue
+
+        def col(*names):
+            for n in names:
+                for i, h in enumerate(head):
+                    if h == n:
+                        return i
+            for n in names:
+                for i, h in enumerate(head):
+                    if n in h:
+                        return i
+            return None
+
+        c_date, c_score = col("date"), col("score")
+        c_tour = col("tournament", "tourney", "event")
+        c_surf, c_rd, c_vrk = col("surf"), col("rd", "round"), col("vrk", "vrank")
+        pcts = {"aces_pct": col("a%"), "df_pct": col("df%"), "1st_in_pct": col("1stin"),
+                "1st_won_pct": col("1st%"), "2nd_won_pct": col("2nd%"),
+                "bp_salvos_pct": col("bpsvd", "bpsaved"), "rpw_pct": col("rpw")}
+        parsed_antes = len(out)
+        for tr in trs[1:]:
+            cells = _cells(tr)
+            if c_date is None or c_date >= len(cells):
+                continue
+            d = _parse_date(cells[c_date])
+            if not d:
+                continue
+            wl = opp = None
+            orank = ""
+            for c in cells:
+                mm = re.match(r"^(d|l)\.\s*(.+)$", c, re.I)
+                if mm:
+                    wl = "W" if mm.group(1).lower() == "d" else "L"
+                    resto = mm.group(2)
+                    rks = re.findall(r"[\[(](\d+)[\])]", resto)
+                    orank = rks[-1] if rks else ""
+                    opp = re.sub(r"[\[(][^\])]*[\])]", "", resto)
+                    opp = re.sub(r"\s+", " ", opp).strip()
+                    break
+            if wl is None or not opp:
+                continue
+            rec = {"date": d,
+                   "score": cells[c_score] if c_score is not None and c_score < len(cells) else "",
+                   "tourney": cells[c_tour] if c_tour is not None and c_tour < len(cells) else "",
+                   "surf": cells[c_surf] if c_surf is not None and c_surf < len(cells) else "",
+                   "round": cells[c_rd] if c_rd is not None and c_rd < len(cells) else "",
+                   "opp": opp, "orank": orank, "wl": wl, "stats": {}}
+            for k, i in pcts.items():
+                if i is not None and i < len(cells):
+                    v = cells[i].replace("%", "").strip()
+                    try:
+                        rec["stats"][k] = float(v)
+                    except ValueError:
+                        pass
+            out.append(rec)
+        if len(out) == parsed_antes and diag is None:
+            diag = ("cabeçalho=" + repr(head[:14]) +
+                    " | 1ª linha=" + repr(_cells(trs[1])[:14] if len(trs) > 1 else []))
+    if not out and diag is None:
+        diag = "frag presente mas nenhuma tabela com Date+Score"
+    return out, diag
+
+def _frag_to_row(rec):
+    r = [""] * 44
+    r[COLMAP["date"]] = rec["date"]
+    r[COLMAP["tourney"]] = rec["tourney"]
+    r[COLMAP["surf"]] = rec["surf"]
+    r[COLMAP["wl"]] = rec["wl"]
+    r[COLMAP["round"]] = rec["round"]
+    r[COLMAP["score"]] = rec["score"]
+    r[COLMAP["opp"]] = rec["opp"]
+    r[COLMAP["orank"]] = rec["orank"]
+    return r
+
+def _frag_stats_mean(recs, year):
+    """Média simples das porcentagens por jogo do ano (o frag não traz contagens)."""
+    ys = [r["stats"] for r in recs
+          if str(r["date"]).startswith(str(year)) and r["stats"]
+          and "W/O" not in str(r["score"]).upper()]
+    if not ys:
+        return None, None
+    mean = lambda k: (round(sum(d[k] for d in ys if k in d) / max(1, sum(1 for d in ys if k in d)), 1)
+                      if any(k in d for d in ys) else None)
+    saque = {"jogos_com_stats": len(ys), "aces_pct": mean("aces_pct"), "df_pct": mean("df_pct"),
+             "1st_in_pct": mean("1st_in_pct"), "1st_won_pct": mean("1st_won_pct"),
+             "2nd_won_pct": mean("2nd_won_pct"), "spw_pct": None, "hold_pct": None,
+             "bp_salvos_pct": mean("bp_salvos_pct")}
+    devol = {"rpw_pct": mean("rpw_pct"), "vs_1st_pct": None, "vs_2nd_pct": None,
+             "brk_pct": None, "bp_convertidos_pct": None}
+    return saque, devol
+
+def discover_sources(cache):
+    """Descobre os arquivos de dados perguntando à página oficial do jogador
+    e devolve uma lista única de modelos de URL, na ordem de preferência:
+    matchmx (contagens brutas) antes do fragmento HTML."""
+    src = cache.get("_sources")
+    if isinstance(src, list) and src:
+        return src
+    cache.pop("_templates", None)
+    cache.pop("_pattern", None)
+    descobertos = []
+    for cgi, probe in (("player.cgi", PROBE_ATP), ("wplayer.cgi", PROBE_WTA)):
         url = f"https://www.tennisabstract.com/cgi-bin/{cgi}?p={probe}"
-        log(f"Descobrindo fontes de dados ({tour}) em {url} ...")
+        log(f"Descobrindo fontes de dados em {url} ...")
         try:
-            html = fetch(url)
+            page = fetch(url)
         except Exception as e:
-            log(f"  página inacessível ({e}); usando padrão conhecido.")
-            html = ""
-        found = set(re.findall(rf"[\"'=/ ]([^\"'<> ]*{probe}[A-Za-z0-9_]*\.js)", html))
-        for f in sorted(found):
+            log(f"  página inacessível ({e})")
+            continue
+        for f in sorted(set(re.findall(rf"[\"'=/ ]([^\"'<> ]*{probe}[A-Za-z0-9_]*\.js)", page))):
             if f.startswith("http"):
                 absu = f
             elif f.startswith("//"):
@@ -266,49 +395,80 @@ def discover_templates(cache):
             else:
                 absu = "https://www.tennisabstract.com/" + f.lstrip("./")
             tpl = absu.replace(probe, "{slug}")
-            if tpl not in tpls[tour]:
-                tpls[tour].append(tpl)
+            if tpl not in descobertos:
+                descobertos.append(tpl)
                 log(f"  fonte: {tpl}")
-        # o padrão que já sabemos funcionar entra sempre como garantia
-        fb = fallback if tour == "atp" else fallback.replace("{slug}", "{slug}w")
-        for cand in (fallback, fb):
-            if cand not in tpls[tour]:
-                tpls[tour].append(cand)
         time.sleep(1.0)
-    cache["_templates"] = tpls
-    return tpls
+    fixos = ["https://www.tennisabstract.com/jsmatches/{slug}.js",
+             "https://www.tennisabstract.com/jsmatches/{slug}w.js"]
+    src = fixos + [t for t in descobertos if t not in fixos]
+    cache["_sources"] = src
+    return src
 
-def fetch_matchmx(slug: str, cache: dict, templates: dict):
-    """Baixa TODAS as fontes conhecidas do jogador e funde as partidas,
-    removendo duplicatas. Tenta o tour indicado pelo cache primeiro."""
-    order = ["atp", "wta"]
-    if cache.get(slug) == "wta":
-        order = ["wta", "atp"]
-    for tour in order:
-        merged, seen, motivos = [], set(), []
-        for tpl in templates.get(tour, []):
-            rows, why = try_url(tpl.format(slug=slug))
-            motivos.append(f"{tpl.format(slug=slug).rsplit('/',1)[-1]}: {why}")
+def fetch_player(slug: str, sources: list):
+    """Baixa todas as fontes do jogador; funde linhas de matchmx e partidas do
+    fragmento HTML (sem duplicar); devolve (rows, frag_recs, tour, motivos)."""
+    rows, frag_recs, motivos = [], [], []
+    seen = set()
+    tour = None
+
+    def key(date, opp, score):
+        return (str(date), re.sub(r"\D", "", str(score)),
+                str(opp).split()[-1].lower() if str(opp).split() else "")
+
+    for tpl in sources:
+        url = tpl.format(slug=slug)
+        try:
+            body = fetch(url)
+        except urllib.error.HTTPError as e:
+            motivos.append(f"{url.rsplit('/', 1)[-1]}: HTTP {e.code}")
             time.sleep(SLEEP_S)
-            if not rows:
-                continue
-            for r in rows:
-                if not r:
-                    continue
-                key = (str(r[0]), str(r[COLMAP["opp"]]) if len(r) > COLMAP["opp"] else "",
-                       str(r[COLMAP["score"]]) if len(r) > COLMAP["score"] else "")
-                if key in seen:
-                    continue
-                seen.add(key)
-                merged.append(r)
-        if merged:
-            cache[slug] = tour
-            log("    " + " | ".join(motivos))
-            return merged, tour
-        if tour == order[-1]:
-            for m in motivos:
-                log(f"    {m}")
-    return None, None
+            continue
+        except Exception as e:
+            motivos.append(f"{url.rsplit('/', 1)[-1]}: {type(e).__name__}")
+            time.sleep(SLEEP_S)
+            continue
+        if tour is None:
+            head = body[:4000]
+            if "wplayer.cgi" in head:
+                tour = "wta"
+            elif "player.cgi" in head:
+                tour = "atp"
+        arrays = _match_arrays(body)
+        if arrays:
+            n_novos = 0
+            for _, arr in arrays:
+                for r in arr:
+                    if not r or len(r) <= COLMAP["score"]:
+                        continue
+                    k = key(r[COLMAP["date"]] if len(r) > COLMAP["date"] else r[0],
+                            r[COLMAP["opp"]] if len(r) > COLMAP["opp"] else "",
+                            r[COLMAP["score"]])
+                    if k in seen:
+                        continue
+                    seen.add(k)
+                    rows.append(r)
+                    n_novos += 1
+            motivos.append(f"{url.rsplit('/', 1)[-1]}: matchmx {n_novos} jogos")
+        else:
+            recs, diag = _frag_matches(body)
+            if recs:
+                n_novos = 0
+                for rec in recs:
+                    k = key(rec["date"], rec["opp"], rec["score"])
+                    if k in seen:
+                        continue
+                    seen.add(k)
+                    rows.append(_frag_to_row(rec))
+                    frag_recs.append(rec)
+                    n_novos += 1
+                motivos.append(f"{url.rsplit('/', 1)[-1]}: frag {n_novos} jogos")
+            elif diag:
+                motivos.append(f"{url.rsplit('/', 1)[-1]}: FRAG NÃO PARSEADO -> {diag}")
+            else:
+                motivos.append(f"{url.rsplit('/', 1)[-1]}: sem dados")
+        time.sleep(SLEEP_S)
+    return rows, frag_recs, (tour or "atp"), motivos
 
 # ----------------------------------------------------------------------------
 # 3) validação do COLMAP
@@ -442,19 +602,20 @@ def summarize(mx, year, with_stats):
 def main():
     if len(sys.argv) >= 3 and sys.argv[1] == "--dump":
         c = {}
-        mx, tour = fetch_matchmx(sys.argv[2], c, discover_templates(c))
-        if not mx:
-            raise SystemExit("Não consegui baixar o matchmx desse slug.")
-        log(f"Tour detectado: {tour} — {len(mx)} jogos no arquivo.")
-        dump_row(mx[0])
+        rows, frags, tour, motivos = fetch_player(sys.argv[2], discover_sources(c))
+        for m in motivos:
+            log("  " + m)
+        if not rows:
+            raise SystemExit("Nenhuma fonte devolveu jogos para esse slug.")
+        log(f"Tour: {tour} — {len(rows)} jogos fundidos.")
+        dump_row(rows[0])
         return
 
     apelidos = load_json(APELIDOS_PATH, {})
     cache    = load_json(CACHE_PATH, {})
     year     = today_local().year
 
-    cache.pop("_pattern", None)   # formato antigo do cache
-    templates = discover_templates(cache)
+    sources = discover_sources(cache)
     wanted = players_of_the_day()
     log(f"{len(wanted)} jogador(es) com jogo em aberto entre hoje e hoje+{DAYS_AHEAD}.")
 
@@ -463,18 +624,27 @@ def main():
         ap = apelidos.get(name, {})
         slug = ap.get("slug") or slugify(name)
         log(f"  {name} -> {slug}")
-        mx, tour = fetch_matchmx(slug, cache, templates)
-        if not mx:
+        rows, frags, tour, motivos = fetch_player(slug, sources)
+        cache[name] = tour
+        if not rows:
             falhas.append(name)
+            for mo in motivos:
+                log(f"    {mo}")
             log("    NÃO ENCONTRADO no TA — adicione o slug correto em data/ta_apelidos.json")
             continue
-        validate_core(mx, name)
-        datas = sorted(str(r[COLMAP["date"]]) for r in mx if len(r) > COLMAP["date"])
-        resumo = summarize(mx, year, with_stats=stats_ok(mx))
-        log(f"    ok ({tour}): {len(mx)} jogos no arquivo, de {datas[0]} a {datas[-1]}; "
-            f"{resumo['jogos']['v']}V-{resumo['jogos']['d']}D em {year}")
-        if resumo["jogos"]["v"] + resumo["jogos"]["d"] == 0:
-            log(f"    ATENÇÃO: nenhum jogo de {year} no arquivo — pode estar desatualizado no TA.")
+        log("    " + " | ".join(motivos))
+        validate_core(rows, name)
+        datas = sorted(str(r[COLMAP["date"]]) for r in rows if len(r) > COLMAP["date"])
+        resumo = summarize(rows, year, with_stats=stats_ok(rows))
+        origem_stats = "matchmx"
+        if resumo["saque"] is None and frags:
+            sq, dv = _frag_stats_mean(frags, year)
+            if sq:
+                resumo["saque"], resumo["devolucao"] = sq, dv
+                origem_stats = "frag (média por jogo)"
+        log(f"    ok ({tour}): {len(rows)} jogos fundidos, de {datas[0]} a {datas[-1]}; "
+            f"{resumo['jogos']['v']}V-{resumo['jogos']['d']}D em {year}; "
+            f"stats: {origem_stats if resumo['saque'] else 'indisponíveis'}")
         players[name] = {
             "slug": slug,
             "tour": tour,
@@ -483,8 +653,6 @@ def main():
                        + "?p=" + slug),
             **resumo,
         }
-        if players[name]["saque"] is None:
-            log("    aviso: colunas de saque não validaram — painel sai sem stats de saque/devolução.")
 
     os.makedirs(os.path.dirname(OUT_PATH), exist_ok=True)
     with open(OUT_PATH, "w", encoding="utf-8") as f:
