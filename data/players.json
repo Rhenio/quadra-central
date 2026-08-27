@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-08-27T11:20:52+00:00",
+ "gerado_em": "2026-08-27T12:23:49+00:00",
  "ano": 2026,
  "falhas": [
   "Toby Samuel",
@@ -27,8 +27,8 @@
  "players": {
   "Julieta Pareja": {
    "slug": "JulietaPareja",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=JulietaPareja",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=JulietaPareja",
    "ano": 2026,
    "jogos": {
     "v": 14,
@@ -129,8 +129,8 @@
   },
   "Lucrezia Stefanini": {
    "slug": "LucreziaStefanini",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=LucreziaStefanini",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=LucreziaStefanini",
    "ano": 2026,
    "jogos": {
     "v": 23,
@@ -267,8 +267,8 @@
   },
   "Polina Iatcenko": {
    "slug": "PolinaIatcenko",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=PolinaIatcenko",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=PolinaIatcenko",
    "ano": 2026,
    "jogos": {
     "v": 20,
@@ -373,8 +373,8 @@
   },
   "Andrea Lazaro Garcia": {
    "slug": "AndreaLazaroGarcia",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=AndreaLazaroGarcia",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=AndreaLazaroGarcia",
    "ano": 2026,
    "jogos": {
     "v": 25,
@@ -479,8 +479,8 @@
   },
   "Ekaterine Gorgodze": {
    "slug": "EkaterineGorgodze",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=EkaterineGorgodze",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=EkaterineGorgodze",
    "ano": 2026,
    "jogos": {
     "v": 25,
@@ -585,8 +585,8 @@
   },
   "Qinwen Zheng": {
    "slug": "QinwenZheng",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=QinwenZheng",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=QinwenZheng",
    "ano": 2026,
    "jogos": {
     "v": 11,
@@ -691,8 +691,8 @@
   },
   "Elena Pridankina": {
    "slug": "ElenaPridankina",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=ElenaPridankina",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=ElenaPridankina",
    "ano": 2026,
    "jogos": {
     "v": 25,
@@ -845,8 +845,8 @@
   },
   "Mariam Bolkvadze": {
    "slug": "MariamBolkvadze",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=MariamBolkvadze",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=MariamBolkvadze",
    "ano": 2026,
    "jogos": {
     "v": 9,
@@ -947,8 +947,8 @@
   },
   "Anouk Koevermans": {
    "slug": "AnoukKoevermans",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=AnoukKoevermans",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=AnoukKoevermans",
    "ano": 2026,
    "jogos": {
     "v": 17,
@@ -1069,8 +1069,8 @@
   },
   "Carson Branstine": {
    "slug": "CarsonBranstine",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=CarsonBranstine",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=CarsonBranstine",
    "ano": 2026,
    "jogos": {
     "v": 1,
@@ -1136,8 +1136,8 @@
   },
   "Robin Montgomery": {
    "slug": "RobinMontgomery",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=RobinMontgomery",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=RobinMontgomery",
    "ano": 2026,
    "jogos": {
     "v": 15,
@@ -1274,8 +1274,8 @@
   },
   "Fiona Crawley": {
    "slug": "FionaCrawley",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=FionaCrawley",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=FionaCrawley",
    "ano": 2026,
    "jogos": {
     "v": 18,
@@ -1380,8 +1380,8 @@
   },
   "Julia Grabher": {
    "slug": "JuliaGrabher",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=JuliaGrabher",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=JuliaGrabher",
    "ano": 2026,
    "jogos": {
     "v": 20,
@@ -1486,8 +1486,8 @@
   },
   "Tamara Zidansek": {
    "slug": "TamaraZidansek",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=TamaraZidansek",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=TamaraZidansek",
    "ano": 2026,
    "jogos": {
     "v": 23,
@@ -1596,8 +1596,8 @@
   },
   "Bianca Andreescu": {
    "slug": "BiancaAndreescu",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=BiancaAndreescu",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=BiancaAndreescu",
    "ano": 2026,
    "jogos": {
     "v": 21,
@@ -1706,8 +1706,8 @@
   },
   "Yue Yuan": {
    "slug": "YueYuan",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=YueYuan",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=YueYuan",
    "ano": 2026,
    "jogos": {
     "v": 20,
@@ -1812,8 +1812,8 @@
   },
   "Mary Stoiana": {
    "slug": "MaryStoiana",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=MaryStoiana",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=MaryStoiana",
    "ano": 2026,
    "jogos": {
     "v": 33,
@@ -1934,8 +1934,8 @@
   },
   "Mia Ristic": {
    "slug": "MiaRistic",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=MiaRistic",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=MiaRistic",
    "ano": 2026,
    "jogos": {
     "v": 32,
@@ -2036,8 +2036,8 @@
   },
   "Himeno Sakatsume": {
    "slug": "HimenoSakatsume",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=HimenoSakatsume",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=HimenoSakatsume",
    "ano": 2026,
    "jogos": {
     "v": 25,
@@ -2146,8 +2146,8 @@
   },
   "Susan Bandecchi": {
    "slug": "SusanBandecchi",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=SusanBandecchi",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=SusanBandecchi",
    "ano": 2026,
    "jogos": {
     "v": 30,
@@ -2256,8 +2256,8 @@
   },
   "Arantxa Rus": {
    "slug": "ArantxaRus",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=ArantxaRus",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=ArantxaRus",
    "ano": 2026,
    "jogos": {
     "v": 15,
@@ -2362,8 +2362,8 @@
   },
   "Lucie Havlickova": {
    "slug": "LucieHavlickova",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=LucieHavlickova",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=LucieHavlickova",
    "ano": 2026,
    "jogos": {
     "v": 16,
@@ -2468,8 +2468,8 @@
   },
   "Nao Hibino": {
    "slug": "NaoHibino",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=NaoHibino",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=NaoHibino",
    "ano": 2026,
    "jogos": {
     "v": 21,
@@ -2574,8 +2574,8 @@
   },
   "Heather Watson": {
    "slug": "HeatherWatson",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=HeatherWatson",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=HeatherWatson",
    "ano": 2026,
    "jogos": {
     "v": 9,
@@ -2676,8 +2676,8 @@
   },
   "Harriet Dart": {
    "slug": "HarrietDart",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=HarrietDart",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=HarrietDart",
    "ano": 2026,
    "jogos": {
     "v": 26,
@@ -2818,8 +2818,8 @@
   },
   "Kylie Collins": {
    "slug": "KylieCollins",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=KylieCollins",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=KylieCollins",
    "ano": 2026,
    "jogos": {
     "v": 20,
@@ -2924,8 +2924,8 @@
   },
   "Tereza Valentova": {
    "slug": "TerezaValentova",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=TerezaValentova",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=TerezaValentova",
    "ano": 2026,
    "jogos": {
     "v": 24,
@@ -3046,8 +3046,8 @@
   },
   "Francesca Jones": {
    "slug": "FrancescaJones",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=FrancescaJones",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=FrancescaJones",
    "ano": 2026,
    "jogos": {
     "v": 24,
@@ -3152,8 +3152,8 @@
   },
   "Joanna Garland": {
    "slug": "JoannaGarland",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=JoannaGarland",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=JoannaGarland",
    "ano": 2026,
    "jogos": {
     "v": 9,
@@ -3274,8 +3274,8 @@
   },
   "Kristina Liutova": {
    "slug": "KristinaLiutova",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=KristinaLiutova",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=KristinaLiutova",
    "ano": 2026,
    "jogos": {
     "v": 26,
@@ -3376,8 +3376,8 @@
   },
   "Martyna Kubka": {
    "slug": "MartynaKubka",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=MartynaKubka",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=MartynaKubka",
    "ano": 2026,
    "jogos": {
     "v": 35,
@@ -3486,8 +3486,8 @@
   },
   "Darja Semenistaja": {
    "slug": "DarjaSemenistaja",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=DarjaSemenistaja",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=DarjaSemenistaja",
    "ano": 2026,
    "jogos": {
     "v": 21,
@@ -3592,8 +3592,8 @@
   },
   "Storm Hunter": {
    "slug": "StormHunter",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=StormHunter",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=StormHunter",
    "ano": 2026,
    "jogos": {
     "v": 14,
@@ -3698,8 +3698,8 @@
   },
   "Elvina Kalieva": {
    "slug": "ElvinaKalieva",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=ElvinaKalieva",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=ElvinaKalieva",
    "ano": 2026,
    "jogos": {
     "v": 27,
@@ -3804,8 +3804,8 @@
   },
   "Vendula Valdmannova": {
    "slug": "VendulaValdmannova",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=VendulaValdmannova",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=VendulaValdmannova",
    "ano": 2026,
    "jogos": {
     "v": 36,
@@ -3974,8 +3974,8 @@
   },
   "Alycia Parks": {
    "slug": "AlyciaParks",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=AlyciaParks",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=AlyciaParks",
    "ano": 2026,
    "jogos": {
     "v": 25,
@@ -4080,8 +4080,8 @@
   },
   "Ann Li": {
    "slug": "AnnLi",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=AnnLi",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=AnnLi",
    "ano": 2026,
    "jogos": {
     "v": 20,
@@ -4186,8 +4186,8 @@
   },
   "Mananchaya Sawangkaew": {
    "slug": "MananchayaSawangkaew",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=MananchayaSawangkaew",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=MananchayaSawangkaew",
    "ano": 2026,
    "jogos": {
     "v": 44,
@@ -4288,8 +4288,8 @@
   },
   "Katie Volynets": {
    "slug": "KatieVolynets",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=KatieVolynets",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=KatieVolynets",
    "ano": 2026,
    "jogos": {
     "v": 34,
@@ -4394,8 +4394,8 @@
   },
   "Darja Vidmanova": {
    "slug": "DarjaVidmanova",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=DarjaVidmanova",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=DarjaVidmanova",
    "ano": 2026,
    "jogos": {
     "v": 36,
@@ -4500,8 +4500,8 @@
   },
   "Nikola Bartunkova": {
    "slug": "NikolaBartunkova",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=NikolaBartunkova",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=NikolaBartunkova",
    "ano": 2026,
    "jogos": {
     "v": 31,
@@ -4654,8 +4654,8 @@
   },
   "Clara Tauson": {
    "slug": "ClaraTauson",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=ClaraTauson",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=ClaraTauson",
    "ano": 2026,
    "jogos": {
     "v": 16,
@@ -4760,8 +4760,8 @@
   },
   "Diane Parry": {
    "slug": "DianeParry",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=DianeParry",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=DianeParry",
    "ano": 2026,
    "jogos": {
     "v": 27,
@@ -4866,8 +4866,8 @@
   },
   "Yuliia Starodubtseva": {
    "slug": "YuliiaStarodubtseva",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=YuliiaStarodubtseva",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=YuliiaStarodubtseva",
    "ano": 2026,
    "jogos": {
     "v": 27,
@@ -4972,8 +4972,8 @@
   },
   "Elise Mertens": {
    "slug": "EliseMertens",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=EliseMertens",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=EliseMertens",
    "ano": 2026,
    "jogos": {
     "v": 26,
