@@ -303,20 +303,32 @@ def _frag_matches(body):
             d = _parse_date(cells[c_date])
             if not d:
                 continue
-            wl = opp = None
-            orank = ""
+            # célula do confronto: "Vencedor d. Perdedor" (jogos futuros usam "vs")
+            conf = None
             for c in cells:
-                mm = re.match(r"^(d|l)\.\s*(.+)$", c, re.I)
-                if mm:
-                    wl = "W" if mm.group(1).lower() == "d" else "L"
-                    resto = mm.group(2)
-                    rks = re.findall(r"[\[(](\d+)[\])]", resto)
-                    orank = rks[-1] if rks else ""
-                    opp = re.sub(r"[\[(][^\])]*[\])]", "", resto)
-                    opp = re.sub(r"\s+", " ", opp).strip()
+                if re.search(r"(?:^|\s)d\.\s", c) or re.search(r"(?:^|\s)vs\s", c):
+                    conf = re.sub(r"\s+", " ", c).strip()
                     break
-            if wl is None or not opp:
+            if not conf or " d. " not in f" {conf} ":
+                continue  # sem resultado (jogo futuro "vs") ou linha sem confronto
+            left, right = re.split(r"(?:^|\s)d\.\s", " " + conf, maxsplit=1)
+            tag = r"\[[A-Z]{3}\]"
+            l_has, r_has = bool(re.search(tag, left)), bool(re.search(tag, right))
+            if l_has == r_has:
+                continue  # ambíguo — não arrisca
+            # o lado COM a tag de país é o adversário; o jogador é o lado sem tag
+            if r_has:
+                wl, opp_side = "W", right   # jogador (sem tag) venceu, à esquerda do d.
+            else:
+                wl, opp_side = "L", left    # adversário venceu
+            opp = re.sub(tag, "", opp_side)
+            opp = re.sub(r"\([^)]*\)", "", opp)       # remove seed/entry: (7), (Q), (WC)...
+            opp = re.sub(r"\s+", " ", opp).strip()
+            if not opp:
                 continue
+            orank = ""
+            if c_vrk is not None and c_vrk < len(cells) and cells[c_vrk].strip().isdigit():
+                orank = cells[c_vrk].strip()
             rec = {"date": d,
                    "score": cells[c_score] if c_score is not None and c_score < len(cells) else "",
                    "tourney": cells[c_tour] if c_tour is not None and c_tour < len(cells) else "",
