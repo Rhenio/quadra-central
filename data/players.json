@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-08-27T12:52:03+00:00",
+ "gerado_em": "2026-08-27T14:27:01+00:00",
  "ano": 2026,
  "falhas": [
   "Gabriela Knutson",
@@ -100,9 +100,9 @@
     "1st_in_pct": 63.3,
     "1st_won_pct": 75.9,
     "2nd_won_pct": 51.2,
-    "spw_pct": null,
+    "spw_pct": 66.7,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 60.0
    },
    "devolucao": {
     "rpw_pct": null,
@@ -202,9 +202,9 @@
     "1st_in_pct": 61.1,
     "1st_won_pct": 70.9,
     "2nd_won_pct": 50.1,
-    "spw_pct": null,
+    "spw_pct": 62.9,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 58.4
    },
    "devolucao": {
     "rpw_pct": null,
@@ -512,9 +512,9 @@
     "1st_in_pct": 62.8,
     "1st_won_pct": 77.4,
     "2nd_won_pct": 57.2,
-    "spw_pct": null,
+    "spw_pct": 69.7,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 62.0
    },
    "devolucao": {
     "rpw_pct": null,
@@ -618,9 +618,9 @@
     "1st_in_pct": 61.5,
     "1st_won_pct": 66.8,
     "2nd_won_pct": 50.0,
-    "spw_pct": null,
+    "spw_pct": 60.3,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 62.4
    },
    "devolucao": {
     "rpw_pct": null,
@@ -1250,9 +1250,9 @@
     "1st_in_pct": 58.8,
     "1st_won_pct": 72.5,
     "2nd_won_pct": 48.1,
-    "spw_pct": null,
+    "spw_pct": 62.4,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 52.2
    },
    "devolucao": {
     "rpw_pct": null,
@@ -1356,9 +1356,9 @@
     "1st_in_pct": 59.1,
     "1st_won_pct": 72.3,
     "2nd_won_pct": 52.9,
-    "spw_pct": null,
+    "spw_pct": 64.1,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 61.4
    },
    "devolucao": {
     "rpw_pct": null,
@@ -1458,9 +1458,9 @@
     "1st_in_pct": 57.3,
     "1st_won_pct": 77.8,
     "2nd_won_pct": 51.8,
-    "spw_pct": null,
+    "spw_pct": 66.8,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 63.5
    },
    "devolucao": {
     "rpw_pct": null,
@@ -1564,9 +1564,9 @@
     "1st_in_pct": 64.5,
     "1st_won_pct": 70.1,
     "2nd_won_pct": 52.4,
-    "spw_pct": null,
+    "spw_pct": 64.0,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 58.7
    },
    "devolucao": {
     "rpw_pct": null,
@@ -1870,9 +1870,9 @@
     "1st_in_pct": 57.3,
     "1st_won_pct": 67.9,
     "2nd_won_pct": 46.1,
-    "spw_pct": null,
+    "spw_pct": 58.5,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 60.9
    },
    "devolucao": {
     "rpw_pct": null,
@@ -2165,9 +2165,9 @@
     "1st_in_pct": 58.5,
     "1st_won_pct": 79.7,
     "2nd_won_pct": 54.0,
-    "spw_pct": null,
+    "spw_pct": 69.0,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 70.7
    },
    "devolucao": {
     "rpw_pct": null,
@@ -2271,9 +2271,9 @@
     "1st_in_pct": 59.4,
     "1st_won_pct": 76.5,
     "2nd_won_pct": 50.6,
-    "spw_pct": null,
+    "spw_pct": 65.9,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 51.1
    },
    "devolucao": {
     "rpw_pct": null,
@@ -2373,9 +2373,9 @@
     "1st_in_pct": 62.9,
     "1st_won_pct": 66.3,
     "2nd_won_pct": 50.7,
-    "spw_pct": null,
+    "spw_pct": 60.4,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 58.6
    },
    "devolucao": {
     "rpw_pct": null,
@@ -2479,9 +2479,9 @@
     "1st_in_pct": 55.4,
     "1st_won_pct": 65.7,
     "2nd_won_pct": 47.7,
-    "spw_pct": null,
+    "spw_pct": 57.9,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 56.4
    },
    "devolucao": {
     "rpw_pct": null,
@@ -3017,9 +3017,9 @@
     "1st_in_pct": 60.0,
     "1st_won_pct": 73.8,
     "2nd_won_pct": 50.6,
-    "spw_pct": null,
+    "spw_pct": 64.4,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 62.9
    },
    "devolucao": {
     "rpw_pct": null,
@@ -3119,9 +3119,9 @@
     "1st_in_pct": 56.2,
     "1st_won_pct": 68.1,
     "2nd_won_pct": 49.2,
-    "spw_pct": null,
+    "spw_pct": 59.7,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 60.8
    },
    "devolucao": {
     "rpw_pct": null,
@@ -3437,9 +3437,9 @@
     "1st_in_pct": 56.9,
     "1st_won_pct": 66.3,
     "2nd_won_pct": 49.0,
-    "spw_pct": null,
+    "spw_pct": 59.2,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 55.2
    },
    "devolucao": {
     "rpw_pct": null,
@@ -3543,9 +3543,9 @@
     "1st_in_pct": 62.5,
     "1st_won_pct": 65.9,
     "2nd_won_pct": 49.5,
-    "spw_pct": null,
+    "spw_pct": 59.8,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 55.9
    },
    "devolucao": {
     "rpw_pct": null,
@@ -4073,9 +4073,9 @@
     "1st_in_pct": 48.3,
     "1st_won_pct": 71.0,
     "2nd_won_pct": 45.5,
-    "spw_pct": null,
+    "spw_pct": 57.9,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 58.8
    },
    "devolucao": {
     "rpw_pct": null,
@@ -4171,9 +4171,9 @@
     "1st_in_pct": 64.0,
     "1st_won_pct": 67.3,
     "2nd_won_pct": 54.7,
-    "spw_pct": null,
+    "spw_pct": 62.6,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 60.3
    },
    "devolucao": {
     "rpw_pct": null,
@@ -4701,9 +4701,9 @@
     "1st_in_pct": 59.5,
     "1st_won_pct": 69.6,
     "2nd_won_pct": 60.6,
-    "spw_pct": null,
+    "spw_pct": 65.8,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 67.8
    },
    "devolucao": {
     "rpw_pct": null,
@@ -4807,9 +4807,9 @@
     "1st_in_pct": 57.2,
     "1st_won_pct": 76.3,
     "2nd_won_pct": 55.2,
-    "spw_pct": null,
+    "spw_pct": 67.1,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 67.1
    },
    "devolucao": {
     "rpw_pct": null,
@@ -4913,9 +4913,9 @@
     "1st_in_pct": 64.0,
     "1st_won_pct": 76.8,
     "2nd_won_pct": 51.4,
-    "spw_pct": null,
+    "spw_pct": 67.8,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 73.3
    },
    "devolucao": {
     "rpw_pct": null,
@@ -5019,9 +5019,9 @@
     "1st_in_pct": 68.8,
     "1st_won_pct": 66.9,
     "2nd_won_pct": 49.1,
-    "spw_pct": null,
+    "spw_pct": 61.6,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 52.4
    },
    "devolucao": {
     "rpw_pct": null,
@@ -5337,9 +5337,9 @@
     "1st_in_pct": 64.6,
     "1st_won_pct": 73.0,
     "2nd_won_pct": 50.2,
-    "spw_pct": null,
+    "spw_pct": 64.8,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 54.3
    },
    "devolucao": {
     "rpw_pct": null,
@@ -5443,9 +5443,9 @@
     "1st_in_pct": 57.6,
     "1st_won_pct": 72.7,
     "2nd_won_pct": 54.8,
-    "spw_pct": null,
+    "spw_pct": 64.9,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 64.7
    },
    "devolucao": {
     "rpw_pct": null,
@@ -5757,9 +5757,9 @@
     "1st_in_pct": 60.5,
     "1st_won_pct": 67.6,
     "2nd_won_pct": 53.3,
-    "spw_pct": null,
+    "spw_pct": 61.0,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 45.3
    },
    "devolucao": {
     "rpw_pct": null,
@@ -5863,9 +5863,9 @@
     "1st_in_pct": 58.5,
     "1st_won_pct": 71.2,
     "2nd_won_pct": 50.7,
-    "spw_pct": null,
+    "spw_pct": 63.0,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 56.7
    },
    "devolucao": {
     "rpw_pct": null,
@@ -6605,9 +6605,9 @@
     "1st_in_pct": 51.7,
     "1st_won_pct": 69.7,
     "2nd_won_pct": 53.0,
-    "spw_pct": null,
+    "spw_pct": 61.9,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 63.9
    },
    "devolucao": {
     "rpw_pct": null,
@@ -6711,9 +6711,9 @@
     "1st_in_pct": 60.6,
     "1st_won_pct": 68.3,
     "2nd_won_pct": 49.5,
-    "spw_pct": null,
+    "spw_pct": 60.9,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 60.6
    },
    "devolucao": {
     "rpw_pct": null,
@@ -6817,9 +6817,9 @@
     "1st_in_pct": 59.4,
     "1st_won_pct": 71.1,
     "2nd_won_pct": 54.9,
-    "spw_pct": null,
+    "spw_pct": 64.5,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 64.9
    },
    "devolucao": {
     "rpw_pct": null,
@@ -6919,9 +6919,9 @@
     "1st_in_pct": 62.7,
     "1st_won_pct": 73.7,
     "2nd_won_pct": 49.9,
-    "spw_pct": null,
+    "spw_pct": 64.6,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 62.0
    },
    "devolucao": {
     "rpw_pct": null,
@@ -7025,9 +7025,9 @@
     "1st_in_pct": 59.7,
     "1st_won_pct": 71.3,
     "2nd_won_pct": 45.2,
-    "spw_pct": null,
+    "spw_pct": 60.8,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 61.3
    },
    "devolucao": {
     "rpw_pct": null,
@@ -7131,9 +7131,9 @@
     "1st_in_pct": 51.0,
     "1st_won_pct": 77.3,
     "2nd_won_pct": 50.8,
-    "spw_pct": null,
+    "spw_pct": 64.2,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 61.8
    },
    "devolucao": {
     "rpw_pct": null,
@@ -7237,9 +7237,9 @@
     "1st_in_pct": 57.8,
     "1st_won_pct": 70.8,
     "2nd_won_pct": 54.3,
-    "spw_pct": null,
+    "spw_pct": 63.8,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 58.5
    },
    "devolucao": {
     "rpw_pct": null,
@@ -7971,9 +7971,9 @@
     "1st_in_pct": 62.6,
     "1st_won_pct": 71.6,
     "2nd_won_pct": 54.8,
-    "spw_pct": null,
+    "spw_pct": 65.5,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 60.5
    },
    "devolucao": {
     "rpw_pct": null,
@@ -7989,7 +7989,7 @@
    "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=AleksandarKovacevic",
    "ano": 2026,
    "jogos": {
-    "v": 8,
+    "v": 9,
     "d": 11,
     "por_quadra": {
      "Saibro": {
@@ -8001,19 +8001,19 @@
       "d": 5
      },
      "Dura": {
-      "v": 3,
+      "v": 4,
       "d": 3
      }
     }
    },
    "forma_ult10": [
-    "L",
     "W",
     "L",
     "L",
     "L",
     "L",
     "L",
+    "W",
     "W",
     "W",
     "W"
@@ -8071,15 +8071,15 @@
     }
    ],
    "saque": {
-    "jogos_com_stats": 18,
-    "aces_pct": 9.6,
+    "jogos_com_stats": 19,
+    "aces_pct": 10.0,
     "df_pct": 5.2,
-    "1st_in_pct": 58.2,
-    "1st_won_pct": 75.2,
-    "2nd_won_pct": 48.7,
-    "spw_pct": null,
+    "1st_in_pct": 58.5,
+    "1st_won_pct": 75.8,
+    "2nd_won_pct": 48.6,
+    "spw_pct": 64.6,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 61.2
    },
    "devolucao": {
     "rpw_pct": null,
@@ -8183,9 +8183,9 @@
     "1st_in_pct": 65.7,
     "1st_won_pct": 71.5,
     "2nd_won_pct": 50.8,
-    "spw_pct": null,
+    "spw_pct": 64.3,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 64.0
    },
    "devolucao": {
     "rpw_pct": null,
@@ -8201,7 +8201,7 @@
    "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=JamesDuckworth",
    "ano": 2026,
    "jogos": {
-    "v": 10,
+    "v": 11,
     "d": 11,
     "por_quadra": {
      "Saibro": {
@@ -8213,19 +8213,19 @@
       "d": 4
      },
      "Dura": {
-      "v": 5,
+      "v": 6,
       "d": 3
      }
     }
    },
    "forma_ult10": [
-    "L",
     "W",
     "L",
     "W",
     "L",
     "W",
     "L",
+    "W",
     "W",
     "W",
     "W"
@@ -8283,15 +8283,15 @@
     }
    ],
    "saque": {
-    "jogos_com_stats": 19,
-    "aces_pct": 8.5,
-    "df_pct": 5.1,
-    "1st_in_pct": 51.9,
-    "1st_won_pct": 77.0,
-    "2nd_won_pct": 51.9,
-    "spw_pct": null,
+    "jogos_com_stats": 20,
+    "aces_pct": 8.6,
+    "df_pct": 4.9,
+    "1st_in_pct": 52.3,
+    "1st_won_pct": 76.6,
+    "2nd_won_pct": 53.0,
+    "spw_pct": 65.2,
     "hold_pct": null,
-    "bp_salvos_pct": null
+    "bp_salvos_pct": 70.1
    },
    "devolucao": {
     "rpw_pct": null,
