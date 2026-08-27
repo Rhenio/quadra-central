@@ -51,15 +51,7 @@ SHEET_TAB  = os.environ.get("SHEET_TAB", "DB Oficial")
 DAYS_AHEAD = int(os.environ.get("DAYS_AHEAD", "1"))
 TZ_OFFSET  = int(os.environ.get("TZ_OFFSET", "-3"))
 
-# Padrões candidatos de URL do arquivo por jogador. O script descobre sozinho
-# qual funciona (sonda com um jogador conhecido) e grava no ta_cache.json.
-TA_PATTERNS = [
-    "https://www.tennisabstract.com/cgi-bin/jsmatches/{slug}.js",
-    "https://www.tennisabstract.com/jsmatches/{slug}.js",
-    "https://www.tennisabstract.com/jsplayers/{slug}.js",
-    "https://www.tennisabstract.com/cgi-bin/jsplayers/{slug}.js",
-]
-PROBE_ATP = "JannikSinner"   # jogador que certamente existe, para a sondagem
+PROBE_ATP = "JannikSinner"   # jogadores-sonda para descobrir as fontes
 PROBE_WTA = "IgaSwiatek"
 BROWSER_HEADERS = {
     "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -206,62 +198,116 @@ def players_of_the_day():
 # ----------------------------------------------------------------------------
 # 2) download + parse do arquivo do jogador
 # ----------------------------------------------------------------------------
+def _match_arrays(body):
+    """Extrai TODOS os arrays JS do arquivo cujas linhas parecem partidas
+    (data yyyymmdd na 1ª coluna). O TA pode separar carreira e temporada
+    atual em arrays distintos (ex.: matchmx e outro irmão)."""
+    out = []
+    for name, txt in re.findall(r"var\s+(\w+)\s*=\s*(\[\s*\[.*?\]\s*\])\s*;", body, re.S):
+        t = re.sub(r"\bnull\b", "None", txt)
+        t = re.sub(r"\btrue\b", "True", t)
+        t = re.sub(r"\bfalse\b", "False", t)
+        try:
+            arr = ast.literal_eval(t)
+        except (ValueError, SyntaxError):
+            continue
+        if not (arr and isinstance(arr[0], (list, tuple))):
+            continue
+        sample = arr[: min(len(arr), 40)]
+        datelike = sum(1 for r in sample
+                       if r and re.fullmatch(r"\d{8}", str(r[0]) if r else ""))
+        if datelike / len(sample) >= 0.8:
+            out.append((name, arr))
+    return out
+
 def try_url(url):
-    """Baixa a URL e devolve (matchmx|None, motivo)."""
+    """Baixa a URL e devolve (linhas_de_partida|None, motivo)."""
     try:
         body = fetch(url)
     except urllib.error.HTTPError as e:
         return None, f"HTTP {e.code} {e.reason}"
     except Exception as e:
         return None, f"{type(e).__name__}: {e}"
-    m = re.search(r"var\s+matchmx\s*=\s*(\[\s*\[.*?\]\s*\])\s*;", body, re.S)
-    if not m:
+    arrays = _match_arrays(body)
+    if not arrays:
         snippet = body[:160].replace("\n", " ")
-        return None, f"baixado ({len(body)} bytes) mas sem 'var matchmx'. Início: {snippet!r}"
-    txt = m.group(1)
-    txt = re.sub(r"\bnull\b", "None", txt)
-    txt = re.sub(r"\btrue\b", "True", txt)
-    txt = re.sub(r"\bfalse\b", "False", txt)
-    try:
-        return ast.literal_eval(txt), "ok"
-    except (ValueError, SyntaxError) as e:
-        return None, f"matchmx encontrado mas não parseável ({e})"
+        return None, f"baixado ({len(body)} bytes) sem array de partidas. Início: {snippet!r}"
+    rows = [r for _, arr in arrays for r in arr]
+    nomes = ", ".join(f"{n}({len(a)})" for n, a in arrays)
+    return rows, f"ok [{nomes}]"
 
-def discover_pattern(cache):
-    """Descobre qual padrão de URL serve os arquivos, sondando jogadores
-    conhecidos. Grava em cache['_pattern'] e devolve o padrão."""
-    if cache.get("_pattern") in TA_PATTERNS:
-        return cache["_pattern"]
-    log("Descobrindo o padrão de URL do TA...")
-    report = []
-    for pat in TA_PATTERNS:
-        for probe in (PROBE_ATP, PROBE_ATP + "w", PROBE_WTA, PROBE_WTA + "w"):
-            url = pat.format(slug=probe)
-            mx, why = try_url(url)
-            report.append(f"  {url} -> {why}")
-            log(report[-1])
-            time.sleep(1.0)
-            if mx:
-                cache["_pattern"] = pat
-                log(f"Padrão descoberto: {pat}")
-                return pat
-    log("\nERRO: nenhum padrão candidato serviu o matchmx. Resultados das sondagens acima.")
-    raise SystemExit("Não foi possível localizar os arquivos de jogador no Tennis Abstract. "
-                     "Envie o log acima para diagnóstico.")
+def discover_templates(cache):
+    """Descobre os modelos de URL dos arquivos de dados perguntando à própria
+    página do jogador: baixa o player.cgi/wplayer.cgi de um jogador conhecido,
+    extrai todo caminho .js que contenha o nome dele e o transforma em modelo
+    com {slug}. Grava em cache['_templates']."""
+    tpls = cache.get("_templates")
+    if isinstance(tpls, dict) and tpls.get("atp"):
+        return tpls
+    tpls = {"atp": [], "wta": []}
+    fallback = "https://www.tennisabstract.com/jsmatches/{slug}.js"
+    for tour, cgi, probe in (("atp", "player.cgi", PROBE_ATP),
+                             ("wta", "wplayer.cgi", PROBE_WTA)):
+        url = f"https://www.tennisabstract.com/cgi-bin/{cgi}?p={probe}"
+        log(f"Descobrindo fontes de dados ({tour}) em {url} ...")
+        try:
+            html = fetch(url)
+        except Exception as e:
+            log(f"  página inacessível ({e}); usando padrão conhecido.")
+            html = ""
+        found = set(re.findall(rf"[\"'=/ ]([^\"'<> ]*{probe}[A-Za-z0-9_]*\.js)", html))
+        for f in sorted(found):
+            if f.startswith("http"):
+                absu = f
+            elif f.startswith("//"):
+                absu = "https:" + f
+            elif f.startswith("/"):
+                absu = "https://www.tennisabstract.com" + f
+            else:
+                absu = "https://www.tennisabstract.com/" + f.lstrip("./")
+            tpl = absu.replace(probe, "{slug}")
+            if tpl not in tpls[tour]:
+                tpls[tour].append(tpl)
+                log(f"  fonte: {tpl}")
+        # o padrão que já sabemos funcionar entra sempre como garantia
+        fb = fallback if tour == "atp" else fallback.replace("{slug}", "{slug}w")
+        for cand in (fallback, fb):
+            if cand not in tpls[tour]:
+                tpls[tour].append(cand)
+        time.sleep(1.0)
+    cache["_templates"] = tpls
+    return tpls
 
-def fetch_matchmx(slug: str, cache: dict, pattern: str):
-    """Baixa o arquivo do jogador com o padrão descoberto. Tenta ATP (<Slug>)
-    e WTA (<Slug>w), na ordem indicada pelo cache. Devolve (matchmx, tour)."""
+def fetch_matchmx(slug: str, cache: dict, templates: dict):
+    """Baixa TODAS as fontes conhecidas do jogador e funde as partidas,
+    removendo duplicatas. Tenta o tour indicado pelo cache primeiro."""
     order = ["atp", "wta"]
     if cache.get(slug) == "wta":
         order = ["wta", "atp"]
     for tour in order:
-        s = slug + ("" if tour == "atp" else "w")
-        mx, why = try_url(pattern.format(slug=s))
-        if mx:
+        merged, seen, motivos = [], set(), []
+        for tpl in templates.get(tour, []):
+            rows, why = try_url(tpl.format(slug=slug))
+            motivos.append(f"{tpl.format(slug=slug).rsplit('/',1)[-1]}: {why}")
+            time.sleep(SLEEP_S)
+            if not rows:
+                continue
+            for r in rows:
+                if not r:
+                    continue
+                key = (str(r[0]), str(r[COLMAP["opp"]]) if len(r) > COLMAP["opp"] else "",
+                       str(r[COLMAP["score"]]) if len(r) > COLMAP["score"] else "")
+                if key in seen:
+                    continue
+                seen.add(key)
+                merged.append(r)
+        if merged:
             cache[slug] = tour
-            return mx, tour
-        log(f"    {s}: {why}")
+            log("    " + " | ".join(motivos))
+            return merged, tour
+        if tour == order[-1]:
+            for m in motivos:
+                log(f"    {m}")
     return None, None
 
 # ----------------------------------------------------------------------------
@@ -396,7 +442,7 @@ def summarize(mx, year, with_stats):
 def main():
     if len(sys.argv) >= 3 and sys.argv[1] == "--dump":
         c = {}
-        mx, tour = fetch_matchmx(sys.argv[2], c, discover_pattern(c))
+        mx, tour = fetch_matchmx(sys.argv[2], c, discover_templates(c))
         if not mx:
             raise SystemExit("Não consegui baixar o matchmx desse slug.")
         log(f"Tour detectado: {tour} — {len(mx)} jogos no arquivo.")
@@ -407,7 +453,8 @@ def main():
     cache    = load_json(CACHE_PATH, {})
     year     = today_local().year
 
-    pattern = discover_pattern(cache)
+    cache.pop("_pattern", None)   # formato antigo do cache
+    templates = discover_templates(cache)
     wanted = players_of_the_day()
     log(f"{len(wanted)} jogador(es) com jogo em aberto entre hoje e hoje+{DAYS_AHEAD}.")
 
@@ -416,8 +463,7 @@ def main():
         ap = apelidos.get(name, {})
         slug = ap.get("slug") or slugify(name)
         log(f"  {name} -> {slug}")
-        mx, tour = fetch_matchmx(slug, cache, pattern)
-        time.sleep(SLEEP_S)
+        mx, tour = fetch_matchmx(slug, cache, templates)
         if not mx:
             falhas.append(name)
             log("    NÃO ENCONTRADO no TA — adicione o slug correto em data/ta_apelidos.json")
