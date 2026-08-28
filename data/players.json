@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-08-28T18:33:57+00:00",
+ "gerado_em": "2026-08-28T21:29:51+00:00",
  "ano": 2026,
  "falhas": [],
  "players": {
@@ -1178,25 +1178,28 @@
    "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=EliseMertens",
    "ano": 2026,
    "jogos": {
-    "v": 13,
-    "d": 8,
+    "v": 27,
+    "d": 17,
     "por_quadra": {
+     "Dura": {
+      "v": 14,
+      "d": 9
+     },
+     "?": {
+      "v": 1,
+      "d": 0
+     },
      "Saibro": {
-      "v": 3,
-      "d": 2
+      "v": 5,
+      "d": 4
      },
      "Grama": {
       "v": 7,
       "d": 4
-     },
-     "Dura": {
-      "v": 3,
-      "d": 2
      }
     }
    },
    "forma_ult10": [
-    "L",
     "W",
     "W",
     "W",
@@ -1204,6 +1207,7 @@
     "L",
     "W",
     "L",
+    "U",
     "W",
     "W"
    ],
@@ -1225,15 +1229,23 @@
      "placar": "4-6 7-6(5) 6-3"
     },
     {
-     "data": "29/06",
-     "torneio": "Wimbledon",
-     "round": "R16",
-     "adversario": "Marie Bouzkova",
-     "rank_adv": 23,
-     "placar": "6-4 6-4"
+     "data": "05/01",
+     "torneio": "United Cup",
+     "round": "RR",
+     "adversario": "Victoria Mboko",
+     "rank_adv": 18,
+     "placar": "6-3 3-6 6-3"
     }
    ],
    "piores_derrotas": [
+    {
+     "data": "21/04",
+     "torneio": "Madrid",
+     "round": "R32",
+     "adversario": "Karolina Pliskova",
+     "rank_adv": 197,
+     "placar": "7-5 2-6 7-6(3)"
+    },
     {
      "data": "25/05",
      "torneio": "Roland Garros",
@@ -1249,33 +1261,25 @@
      "adversario": "Elena Gabriela Ruse",
      "rank_adv": 88,
      "placar": "6-3 6-3"
-    },
-    {
-     "data": "13/08",
-     "torneio": "Cincinnati",
-     "round": "R64",
-     "adversario": "Diane Parry",
-     "rank_adv": 66,
-     "placar": "2-6 6-2 6-2"
     }
    ],
    "saque": {
-    "jogos_com_stats": 19,
-    "aces_pct": 7.2,
-    "df_pct": 7.8,
-    "1st_in_pct": 56.3,
-    "1st_won_pct": 71.2,
-    "2nd_won_pct": 43.9,
-    "spw_pct": 59.4,
-    "hold_pct": null,
-    "bp_salvos_pct": 62.3
+    "jogos_com_stats": 36,
+    "aces_pct": 6.7,
+    "df_pct": 7.0,
+    "1st_in_pct": 58.0,
+    "1st_won_pct": 70.5,
+    "2nd_won_pct": 45.0,
+    "spw_pct": 59.8,
+    "hold_pct": 72.8,
+    "bp_salvos_pct": 58.3
    },
    "devolucao": {
-    "rpw_pct": null,
-    "vs_1st_pct": null,
-    "vs_2nd_pct": null,
-    "brk_pct": null,
-    "bp_convertidos_pct": null
+    "rpw_pct": 44.3,
+    "vs_1st_pct": 36.6,
+    "vs_2nd_pct": 55.4,
+    "brk_pct": 37.1,
+    "bp_convertidos_pct": 47.4
    },
    "_atualizado": "2026-08-28"
   }
