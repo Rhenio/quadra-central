@@ -272,7 +272,9 @@ const SHEET_APOSTAS = "Apostas";
 const SHEET_BANCA = "Banca";
 const TZ = "America/Sao_Paulo";
 const REFRESH_MS = 10 * 60 * 1000;
-const SHEET_LIVE = "Livescore";      /* aba escrita pelo Apps Script (opcional) */
+/* Cole aqui a URL /exec do Web App de livescore (vazio = recurso desligado): */
+const LIVE_URL = "https://script.google.com/macros/s/AKfycbwRtdG6jQT8ioO7RLcJ8kq_wWNX12MhR26h1bLBb1j4CZRGx7VjoEwkqqfYABch-t5z/exec";
+const LIVE_MS = 3 * 60 * 1000;        /* frequência de atualização do placar */
 let LIVE = new Map();                 /* "j1|j2" normalizado -> {status, placar} */
 function liveKey(a, b){ return norm(a) + "|" + norm(b); }
 
@@ -838,24 +840,22 @@ function parseDB(rows){
   return games;
 }
 
-function parseLive(rows){
-  const map = new Map();
-  if (!rows || rows.length < 2) return map;
-  const hi = rows.findIndex(r => r.some(c => norm(c) === "j1" || norm(c) === "jogador 1"));
-  if (hi < 0) return map;
-  const head = rows[hi].map(norm);
-  const col = names => { for (const n of names){ const i = head.indexOf(n); if (i >= 0) return i; } return -1; };
-  const cJ1 = col(["j1","jogador 1"]), cJ2 = col(["j2","jogador 2"]);
-  const cSt = col(["status"]), cPl = col(["placar","score"]);
-  if (cJ1 < 0 || cJ2 < 0) return map;
-  for (const r of rows.slice(hi + 1)){
-    const j1 = r[cJ1], j2 = r[cJ2];
-    if (!j1 || !j2) continue;
-    const rec = { status: norm(cSt >= 0 ? r[cSt] : ""), placar: (cPl >= 0 ? r[cPl] : "") || "" };
-    map.set(liveKey(j1, j2), rec);
-    map.set(liveKey(j2, j1), rec);
-  }
-  return map;
+async function refreshLive(){
+  if (!LIVE_URL) return;
+  try {
+    const r = await fetch(LIVE_URL + (LIVE_URL.includes("?") ? "&" : "?") + "_=" + Date.now());
+    if (!r.ok) return;
+    const j = await r.json();
+    const map = new Map();
+    for (const g of (j.jogos || [])){
+      if (!g.j1 || !g.j2) continue;
+      const rec = { status: norm(g.status), placar: g.placar || "" };
+      map.set(liveKey(g.j1, g.j2), rec);
+      map.set(liveKey(g.j2, g.j1), rec);
+    }
+    LIVE = map;
+    if (typeof DB !== "undefined" && DB) { renderHoje(); if (window.TA) TA.init(); }
+  } catch (e) { /* site segue normal sem live */ }
 }
 
 function liveChip(g){
@@ -880,14 +880,12 @@ async function loadAll(){
   btn.classList.add("spin");
   document.getElementById("syncTitle").textContent = "Sincronizando…";
   try {
-    const [dbRes, apRes, bancaRes, liveRes] = await Promise.all([
+    const [dbRes, apRes, bancaRes] = await Promise.all([
       fetchSheet(SHEET_DB, parseDB),
       fetchSheet(SHEET_APOSTAS, parseApostas).catch(() => null),
-      fetchSheet(SHEET_BANCA, parseBanca).catch(() => null),
-      fetchSheet(SHEET_LIVE, parseLive).catch(() => null)
+      fetchSheet(SHEET_BANCA, parseBanca).catch(() => null)
     ]);
     DB = dbRes.parsed;
-    LIVE = liveRes ? liveRes.parsed : new Map();
     BANCA = bancaRes ? bancaRes.parsed : [];
     BETS = apRes ? joinBets(apRes.parsed, DB) : fallbackBets(DB);
     BETS_SRC = apRes ? apRes.source : null;
@@ -1535,6 +1533,7 @@ document.getElementById("btnRefresh").addEventListener("click", loadAll);
   }
 })();
 setInterval(loadAll, REFRESH_MS);
+if (LIVE_URL){ refreshLive(); setInterval(refreshLive, LIVE_MS); }
 loadAll();
 </script>
 </body>
