@@ -56,6 +56,10 @@ button{font-family:inherit;cursor:pointer}
 
 /* ---------- layout ---------- */
 .wrap{max-width:1160px;margin:0 auto;padding:26px 20px 80px}
+.chip.live{background:#FDECEC;color:#B91C1C;display:inline-flex;align-items:center;gap:6px}
+.chip.live i{width:7px;height:7px;border-radius:50%;background:#DC2626;animation:livePulse 1.2s infinite}
+@keyframes livePulse{0%,100%{opacity:1}50%{opacity:.35}}
+.chip.score{background:#EEF1EB;color:#374151;font-family:'IBM Plex Mono',monospace}
 .page{display:none}
 .page.active{display:block;animation:fade .25s ease}
 @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
@@ -175,6 +179,7 @@ td.num,th.num{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:1
     </div>
     <nav class="tabs" role="tablist">
       <button class="tab active" data-page="hoje" role="tab">Hoje</button>
+      <button class="tab" data-page="historico" role="tab">Histórico</button>
       <button class="tab" data-page="banca" role="tab">Banca</button>
       <button class="tab" data-page="stats" role="tab">Estatísticas</button>
       <button class="tab" data-page="modelo" role="tab">Modelo</button>
@@ -203,6 +208,17 @@ td.num,th.num{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:1
     </div>
     <div id="hojeContent">
       <div class="state"><div class="loading-court"></div>Carregando a planilha…</div>
+    </div>
+  </section>
+
+  <!-- ============ HISTÓRICO ============ -->
+  <section class="page" id="page-historico">
+    <div class="page-head">
+      <h2>Histórico de apostas</h2>
+      <input type="date" id="histDate" class="date-chip" style="border:1px solid var(--line);background:#fff;cursor:pointer">
+    </div>
+    <div id="histContent">
+      <div class="state">Escolha uma data para ver as apostas do dia.</div>
     </div>
   </section>
 
@@ -256,6 +272,9 @@ const SHEET_APOSTAS = "Apostas";
 const SHEET_BANCA = "Banca";
 const TZ = "America/Sao_Paulo";
 const REFRESH_MS = 10 * 60 * 1000;
+const SHEET_LIVE = "Livescore";      /* aba escrita pelo Apps Script (opcional) */
+let LIVE = new Map();                 /* "j1|j2" normalizado -> {status, placar} */
+function liveKey(a, b){ return norm(a) + "|" + norm(b); }
 
 document.getElementById("sheetLink").href =
   "https://docs.google.com/spreadsheets/d/" + SHEET_ID + "/edit";
@@ -819,6 +838,37 @@ function parseDB(rows){
   return games;
 }
 
+function parseLive(rows){
+  const map = new Map();
+  if (!rows || rows.length < 2) return map;
+  const hi = rows.findIndex(r => r.some(c => norm(c) === "j1" || norm(c) === "jogador 1"));
+  if (hi < 0) return map;
+  const head = rows[hi].map(norm);
+  const col = names => { for (const n of names){ const i = head.indexOf(n); if (i >= 0) return i; } return -1; };
+  const cJ1 = col(["j1","jogador 1"]), cJ2 = col(["j2","jogador 2"]);
+  const cSt = col(["status"]), cPl = col(["placar","score"]);
+  if (cJ1 < 0 || cJ2 < 0) return map;
+  for (const r of rows.slice(hi + 1)){
+    const j1 = r[cJ1], j2 = r[cJ2];
+    if (!j1 || !j2) continue;
+    const rec = { status: norm(cSt >= 0 ? r[cSt] : ""), placar: (cPl >= 0 ? r[cPl] : "") || "" };
+    map.set(liveKey(j1, j2), rec);
+    map.set(liveKey(j2, j1), rec);
+  }
+  return map;
+}
+
+function liveChip(g){
+  const rec = LIVE.get(liveKey(g.j1, g.j2));
+  if (!rec || g.vencedor) return "";
+  const aoVivo = rec.status.includes("prog") || rec.status.includes("live") ||
+                 rec.status.includes("inplay") || rec.status.includes("andamento");
+  if (aoVivo) return '<span class="chip live"><i></i>AO VIVO' + (rec.placar ? " · " + esc(rec.placar) : "") + '</span>';
+  if (rec.status.includes("finish") || rec.status.includes("ended") || rec.status.includes("encerr"))
+    return rec.placar ? '<span class="chip score">Final · ' + esc(rec.placar) + '</span>' : "";
+  return "";
+}
+
 function parseBanca(rows){
   const out = buildBanca(rows);
   if (!out.length) throw new Error("0 linhas com data reconhecidas");
@@ -830,12 +880,14 @@ async function loadAll(){
   btn.classList.add("spin");
   document.getElementById("syncTitle").textContent = "Sincronizando…";
   try {
-    const [dbRes, apRes, bancaRes] = await Promise.all([
+    const [dbRes, apRes, bancaRes, liveRes] = await Promise.all([
       fetchSheet(SHEET_DB, parseDB),
       fetchSheet(SHEET_APOSTAS, parseApostas).catch(() => null),
-      fetchSheet(SHEET_BANCA, parseBanca).catch(() => null)
+      fetchSheet(SHEET_BANCA, parseBanca).catch(() => null),
+      fetchSheet(SHEET_LIVE, parseLive).catch(() => null)
     ]);
     DB = dbRes.parsed;
+    LIVE = liveRes ? liveRes.parsed : new Map();
     BANCA = bancaRes ? bancaRes.parsed : [];
     BETS = apRes ? joinBets(apRes.parsed, DB) : fallbackBets(DB);
     BETS_SRC = apRes ? apRes.source : null;
@@ -959,7 +1011,7 @@ function matchCard(g, showDate, rb){
       '<span class="chip tour">' + esc(g.torneio || "Torneio") + '</span>' +
       (g.round ? '<span class="chip surface">' + esc(g.round) + '</span>' : "") +
       (g.quadra ? '<span class="chip surface ' + surfaceClass(g.quadra) + '">' + esc(g.quadra) + '</span>' : "") +
-      situacaoChip(g, rb) +
+      situacaoChip(g, rb) + liveChip(g) +
       '<span class="match-id">' + (showDate ? fmtD(g.data) + " · " : "") + "#" + esc(g.id) + '</span>' +
     '</div>' +
     '<div class="players">' + pRow(g.j1, "J1", g.odd1, betOnJ1) + pRow(g.j2, "J2", g.odd2, betOnJ2) + '</div>' +
@@ -1408,11 +1460,57 @@ function renderModelo(){
   roiChart("chOddsMod", oddEntries, agg);
 }
 
+function renderHistorico(){
+  const el = document.getElementById("histContent");
+  const inp = document.getElementById("histDate");
+  if (!el || !inp) return;
+  if (!inp.value){
+    el.innerHTML = '<div class="state">Escolha uma data acima para ver as apostas do dia.</div>';
+    return;
+  }
+  const [y, mo, d] = inp.value.split("-").map(Number);
+  const dk = dKey({ y, mo, d });
+
+  const bets = BETS.filter(b => b.dk === dk && b.game);
+  const semJogo = BETS.filter(b => b.dk === dk && !b.game);
+  if (!bets.length && !semJogo.length){
+    el.innerHTML = '<div class="state">Nenhuma aposta registrada em ' +
+      String(d).padStart(2,"0") + "/" + String(mo).padStart(2,"0") + "/" + y + '.</div>';
+    return;
+  }
+
+  let staked = 0, profit = 0, wins = 0, nSet = 0;
+  for (const b of bets.concat(semJogo)){
+    staked += b.stake || 0;
+    if (b.settled){ nSet++; if (b.won) wins++; if (b.resultado != null) profit += b.resultado; }
+  }
+  const roi = staked > 0 ? profit / staked : null;
+
+  let html =
+    '<div class="kpis">' +
+      '<div class="kpi"><div class="k-label">Apostas no dia</div><div class="k-value">' + (bets.length + semJogo.length) + '</div><div class="k-sub">' + fmtBRL(staked) + ' apostados</div></div>' +
+      '<div class="kpi"><div class="k-label">Acertos</div><div class="k-value">' + (nSet ? wins + "/" + nSet : "—") + '</div><div class="k-sub">apostas liquidadas</div></div>' +
+      '<div class="kpi"><div class="k-label">Resultado</div><div class="k-value ' + cls(profit) + '">' + (nSet ? fmtBRLs(profit) : "—") + '</div><div class="k-sub">' + (roi != null && nSet ? "ROI " + fmtPctS(roi) : "") + '</div></div>' +
+    '</div>';
+
+  html += bets.map(b => matchCard(b.game, false, b)).join("");
+  if (semJogo.length){
+    html += '<div class="card" style="margin-top:14px"><h3>Apostas sem jogo vinculado</h3>' +
+      semJogo.map(b => '<div class="row-line">' + esc(b.side || "—") + " @ " + fmtOdd(b.odd) +
+        " · " + fmtBRL(b.stake) +
+        (b.settled ? ' · <b class="' + (b.won ? "pos" : "neg") + '">' + fmtBRLs(b.resultado) + "</b>" : "") +
+        '</div>').join("") + '</div>';
+  }
+  el.innerHTML = html;
+  if (window.TA) TA.init(el);
+}
+
 function renderAll(){
   renderHoje();
   renderBanca();
   renderStats();
   renderModelo();
+  renderHistorico();
   if (window.TA) TA.init();
 }
 
@@ -1428,6 +1526,14 @@ document.querySelectorAll(".tab").forEach(btn => {
   });
 });
 document.getElementById("btnRefresh").addEventListener("click", loadAll);
+(function(){
+  const inp = document.getElementById("histDate");
+  if (inp){
+    const ontem = new Date(Date.now() - 864e5);
+    inp.value = new Intl.DateTimeFormat("en-CA", { timeZone: TZ }).format(ontem);
+    inp.addEventListener("change", renderHistorico);
+  }
+})();
 setInterval(loadAll, REFRESH_MS);
 loadAll();
 </script>
