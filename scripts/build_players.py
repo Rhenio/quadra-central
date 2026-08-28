@@ -691,6 +691,21 @@ def main():
             **resumo,
         }
 
+    # cumulativo: mantém jogadores de dias anteriores (até 30 dias) para a aba Histórico
+    hoje_s = today_local().isoformat()
+    for p in players.values():
+        p["_atualizado"] = hoje_s
+    antigos = load_json(OUT_PATH, {}).get("players", {})
+    limite = (today_local() - dt.timedelta(days=30)).isoformat()
+    mantidos = 0
+    for nome, p in antigos.items():
+        if nome in players:
+            continue
+        if str(p.get("_atualizado", "")) >= limite:
+            players[nome] = p
+            mantidos += 1
+    log(f"{mantidos} jogador(es) de dias anteriores mantidos no players.json (janela de 30 dias).")
+
     os.makedirs(os.path.dirname(OUT_PATH), exist_ok=True)
     with open(OUT_PATH, "w", encoding="utf-8") as f:
         json.dump({
