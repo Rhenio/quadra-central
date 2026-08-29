@@ -50,6 +50,7 @@ import urllib.request
 SHEET_ID   = os.environ.get("SHEET_ID", "1otLNM8g0D3yp44DlUyq5IR8dLj0hI_DFdFo7hjQ3JUQ")
 SHEET_TAB  = os.environ.get("SHEET_TAB", "DB Oficial")
 DAYS_AHEAD = int(os.environ.get("DAYS_AHEAD", "1"))
+DAYS_BACK  = int(os.environ.get("DAYS_BACK", "3"))   # retro: placares p/ o Histórico
 TZ_OFFSET  = int(os.environ.get("TZ_OFFSET", "-3"))
 
 PROBE_ATP = "JannikSinner"   # jogadores-sonda para descobrir as fontes
@@ -179,8 +180,10 @@ def players_of_the_day():
     c_data, c_j1, c_j2 = col("data"), col("jogador 1", "j1"), col("jogador 2", "j2")
     c_win, c_tour = col("vencedor"), col("torneio")
 
-    lo, hi = today_local(), today_local() + dt.timedelta(days=DAYS_AHEAD)
-    wanted, seen = [], set()
+    hoje = today_local()
+    lo, hi = hoje, hoje + dt.timedelta(days=DAYS_AHEAD)
+    retro_lo = hoje - dt.timedelta(days=DAYS_BACK)
+    wanted = {}   # nome -> {"tourney":..., "ate": None (sempre buscar) | date do jogo mais recente}
     for r in rows[header_i + 1:]:
         if len(r) <= max(c_data, c_j1, c_j2, c_win):
             continue
@@ -188,13 +191,19 @@ def players_of_the_day():
         if not m:
             continue
         d = dt.date(int(m.group(3)), int(m.group(2)), int(m.group(1)))
-        if not (lo <= d <= hi) or r[c_win].strip():
+        aberto = lo <= d <= hi and not r[c_win].strip()
+        retro  = retro_lo <= d < hoje                      # jogos passados: queremos o placar
+        if not (aberto or retro):
             continue
         for name in (r[c_j1].strip(), r[c_j2].strip()):
-            if name and name not in seen:
-                seen.add(name)
-                wanted.append((name, r[c_tour].strip()))
-    return wanted
+            if not name:
+                continue
+            w = wanted.setdefault(name, {"tourney": r[c_tour].strip(), "ate": d})
+            if aberto:
+                w["ate"] = None                            # jogo em aberto: busca sempre
+            elif w["ate"] is not None and d > w["ate"]:
+                w["ate"] = d
+    return [(n, w["tourney"], w["ate"]) for n, w in wanted.items()]
 
 # ----------------------------------------------------------------------------
 # 2) download + parse do arquivo do jogador
@@ -655,14 +664,21 @@ def main():
 
     apelidos = load_json(APELIDOS_PATH, {})
     cache    = load_json(CACHE_PATH, {})
+    antigos  = load_json(OUT_PATH, {}).get("players", {})
     year     = today_local().year
 
     sources = discover_sources(cache)
     wanted = players_of_the_day()
-    log(f"{len(wanted)} jogador(es) com jogo em aberto entre hoje e hoje+{DAYS_AHEAD}.")
+    abertos = sum(1 for _, _, ate in wanted if ate is None)
+    log(f"{len(wanted)} jogador(es): {abertos} com jogo em aberto, "
+        f"{len(wanted) - abertos} retroativos (últimos {DAYS_BACK} dias, p/ placares).")
 
     players, falhas = {}, []
-    for name, tourney in wanted:
+    for name, tourney, ate in wanted:
+        if ate is not None:
+            ex = antigos.get(name)
+            if ex and ex.get("jogos_recentes") and str(ex.get("_atualizado", "")) > ate.isoformat():
+                continue   # retroativo já coberto por uma busca posterior ao jogo
         ap = apelidos.get(name, {})
         slug = ap.get("slug") or slugify(name)
         log(f"  {name} -> {slug}")
@@ -700,7 +716,6 @@ def main():
     hoje_s = today_local().isoformat()
     for p in players.values():
         p["_atualizado"] = hoje_s
-    antigos = load_json(OUT_PATH, {}).get("players", {})
     limite = (today_local() - dt.timedelta(days=30)).isoformat()
     mantidos = 0
     for nome, p in antigos.items():
