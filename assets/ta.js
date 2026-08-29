@@ -141,13 +141,48 @@
   }
 
   /* ---- API --------------------------------------------------------------- */
+  function taToks(n){
+    var p = String(n).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9 ]/g, " ").split(" ").filter(function (x) { return x.length > 1; });
+    if (!p.length) return [];
+    var longest = p.reduce(function (a, b) { return b.length > a.length ? b : a; });
+    var out = [p[p.length - 1]];
+    if (out.indexOf(longest) < 0) out.push(longest);
+    return out;
+  }
+  function taDia(ymd){
+    return Date.UTC(+String(ymd).slice(0, 4), +String(ymd).slice(4, 6) - 1, +String(ymd).slice(6, 8)) / 864e5;
+  }
+  function taPlacar(n1, n2, ymd){
+    if (!cache || !cache.players || !ymd) return null;
+    var alvoDia = taDia(ymd);
+    var tentativas = [[n1, n2], [n2, n1]];
+    for (var t = 0; t < 2; t++){
+      var p = cache.players[tentativas[t][0]];
+      if (!p || !p.jogos_recentes) continue;
+      var alvo = taToks(tentativas[t][1]);
+      for (var i = p.jogos_recentes.length - 1; i >= 0; i--){
+        var m = p.jogos_recentes[i];                 // [data, adversario, placar, wl]
+        if (Math.abs(taDia(m[0]) - alvoDia) > 1) continue;
+        var to = taToks(m[1]);
+        var casa = alvo.some(function (a) { return to.indexOf(a) >= 0; });
+        if (casa && m[2] && m[2].indexOf("W/O") < 0) return m[2];
+      }
+    }
+    return null;
+  }
+
   window.TA = {
+    placar: taPlacar,
     init: function (root) {
       if (cache) { linkNames(root); renderPanels(root); return; }
       fetch(DATA_URL, { cache: "no-store" })
         .then(function (r) { return r.ok ? r.json() : { players: {} }; })
         .catch(function () { return { players: {} }; })
-        .then(function (j) { cache = j; linkNames(root); renderPanels(root); });
+        .then(function (j) {
+          cache = j; linkNames(root); renderPanels(root);
+          document.dispatchEvent(new CustomEvent("ta-ready"));
+        });
     },
     url: taUrl,
   };
