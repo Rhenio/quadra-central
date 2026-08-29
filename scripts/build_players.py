@@ -584,10 +584,15 @@ def summarize(mx, year, with_stats):
     losses = sorted((r for r in played if g(r, "wl") == "L" and as_int(g(r, "orank"))),
                     key=lambda r: -as_int(g(r, "orank")))[:TOP_N]
 
+    corte = (today_local() - dt.timedelta(days=45)).strftime("%Y%m%d")
+    recentes = [[str(g(r, "date")), str(g(r, "opp")), str(g(r, "score")), str(g(r, "wl"))]
+                for r in played if str(g(r, "date")) >= corte][-40:]
+
     out = {
         "ano": year,
         "jogos": {"v": w, "d": l, "por_quadra": {k: {"v": a, "d": b} for k, (a, b) in by_surf.items()}},
         "forma_ult10": [str(g(r, "wl")) for r in played[-10:]],
+        "jogos_recentes": recentes,
         "melhores_vitorias": [fmt(r) for r in wins],
         "piores_derrotas": [fmt(r) for r in losses],
         "saque": None,
