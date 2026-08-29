@@ -156,6 +156,7 @@
   function taPlacar(n1, n2, ymd){
     if (!cache || !cache.players || !ymd) return null;
     var alvoDia = taDia(ymd);
+    var melhor = null, melhorDist = 99;
     var tentativas = [[n1, n2], [n2, n1]];
     for (var t = 0; t < 2; t++){
       var p = cache.players[tentativas[t][0]];
@@ -163,13 +164,20 @@
       var alvo = taToks(tentativas[t][1]);
       for (var i = p.jogos_recentes.length - 1; i >= 0; i--){
         var m = p.jogos_recentes[i];                 // [data, adversario, placar, wl]
-        if (Math.abs(taDia(m[0]) - alvoDia) > 1) continue;
+        // matchmx (WTA) carimba os jogos com a data de INÍCIO do torneio:
+        // janela de 15 dias antes cobre até a final de um Grand Slam
+        // (o candidato de menor distância vence, então torneios anteriores
+        // contra a mesma adversária não vazam)
+        var delta = alvoDia - taDia(m[0]);
+        if (delta < -1 || delta > 15) continue;
+        if (!m[2] || m[2].indexOf("W/O") >= 0) continue;
         var to = taToks(m[1]);
-        var casa = alvo.some(function (a) { return to.indexOf(a) >= 0; });
-        if (casa && m[2] && m[2].indexOf("W/O") < 0) return m[2];
+        if (!alvo.some(function (a) { return to.indexOf(a) >= 0; })) continue;
+        var dist = Math.abs(delta);
+        if (dist < melhorDist){ melhorDist = dist; melhor = m[2]; }
       }
     }
-    return null;
+    return melhor;
   }
 
   window.TA = {
