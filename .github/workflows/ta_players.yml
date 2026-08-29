@@ -6,7 +6,8 @@ name: Tennis Abstract players
 
 on:
   schedule:
-    - cron: "30 11 * * *"
+    - cron: "30 11 * * *"   # 08:30 Brasília — jogadores do dia
+    - cron: "0 15 * * *"    # 12:00 Brasília — TA já tem os resultados da véspera
   workflow_dispatch:
 
 permissions:
