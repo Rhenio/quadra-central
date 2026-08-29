@@ -60,6 +60,7 @@ button{font-family:inherit;cursor:pointer}
 .chip.live i{width:7px;height:7px;border-radius:50%;background:#DC2626;animation:livePulse 1.2s infinite}
 @keyframes livePulse{0%,100%{opacity:1}50%{opacity:.35}}
 .chip.score{background:#EEF1EB;color:#374151;font-family:'IBM Plex Mono',monospace}
+.chip.hora{background:#F4F4F0;color:#6b7280;font-family:'IBM Plex Mono',monospace}
 .page{display:none}
 .page.active{display:block;animation:fade .25s ease}
 @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
@@ -276,6 +277,7 @@ const REFRESH_MS = 10 * 60 * 1000;
 const LIVE_URL = "https://script.google.com/macros/s/AKfycbwRtdG6jQT8ioO7RLcJ8kq_wWNX12MhR26h1bLBb1j4CZRGx7VjoEwkqqfYABch-t5z/exec";
 const LIVE_MS = 3 * 60 * 1000;        /* frequência de atualização do placar */
 let LIVE = new Map();                 /* "j1|j2" normalizado -> {status, placar} */
+let HORARIOS = new Map();             /* "j1|j2" normalizado -> "HH:MM" (Brasília) */
 function liveKey(a, b){ return norm(a) + "|" + norm(b); }
 function liveTokens(n){                       /* última palavra + palavra mais longa */
   const p = norm(n).replace(/[^a-z0-9 ]/g, " ").split(" ").filter(Boolean);
@@ -873,13 +875,18 @@ function taChip(g){
   return p ? '<span class="chip score">' + esc(p) + '</span>' : "";
 }
 
-function liveChip(g){
-  let rec = LIVE.get(liveKey(g.j1, g.j2));
+function buscaPorNomes(map, j1, j2){
+  let rec = map.get(liveKey(j1, j2));
   if (!rec)
-    outer: for (const ka of liveTokens(g.j1)) for (const kb of liveTokens(g.j2)){
-      rec = LIVE.get("~" + ka + "|" + kb);
+    outer: for (const ka of liveTokens(j1)) for (const kb of liveTokens(j2)){
+      rec = map.get("~" + ka + "|" + kb);
       if (rec) break outer;
     }
+  return rec || null;
+}
+
+function liveChip(g){
+  const rec = buscaPorNomes(LIVE, g.j1, g.j2);
   if (!rec || g.vencedor) return "";
   const st = (rec.status || "").replace(/[^a-z0-9]/g, "");
   const pend = ["pending","notstarted","scheduled","prematch","upcoming","postponed","delayed","cancel","tba"];
@@ -888,6 +895,39 @@ function liveChip(g){
   if (fim.some(p => st.includes(p)))
     return rec.placar ? '<span class="chip score">Final · ' + esc(rec.placar) + '</span>' : "";
   return '<span class="chip live"><i></i>AO VIVO' + (rec.placar ? " · " + esc(rec.placar) : "") + '</span>';
+}
+
+function parseHorarios(rows){
+  const map = new Map();
+  if (!rows || rows.length < 2) return map;
+  const hi = rows.findIndex(r => r.some(c => {
+    const n = norm(c); return n === "jogador 1" || n === "j1";
+  }));
+  if (hi < 0) return map;
+  const head = rows[hi].map(norm);
+  const col = names => { for (const n of names){ const i = head.indexOf(n); if (i >= 0) return i; } return -1; };
+  const cJ1 = col(["jogador 1","j1"]), cJ2 = col(["jogador 2","j2"]), cDt = col(["data","date"]);
+  if (cJ1 < 0 || cJ2 < 0 || cDt < 0) return map;
+  for (const r of rows.slice(hi + 1)){
+    const j1 = r[cJ1], j2 = r[cJ2];
+    if (!j1 || !j2) continue;
+    const m = String(r[cDt] || "").match(/(\d{1,2}):(\d{2})/);   // planilha já em Brasília
+    if (!m) continue;
+    const hora = m[1].padStart(2, "0") + ":" + m[2];
+    map.set(liveKey(j1, j2), hora);
+    map.set(liveKey(j2, j1), hora);
+    for (const [a, b] of [[j1, j2], [j2, j1]])
+      for (const ka of liveTokens(a)) for (const kb of liveTokens(b))
+        map.set("~" + ka + "|" + kb, hora);
+  }
+  return map;
+}
+
+function horaChip(g){
+  if (g.vencedor) return "";
+  if (buscaPorNomes(LIVE, g.j1, g.j2)) return "";   // ao vivo/encerrado: o outro chip assume
+  const h = buscaPorNomes(HORARIOS, g.j1, g.j2);
+  return h ? '<span class="chip hora">🕐 ' + h + '</span>' : "";
 }
 
 function parseBanca(rows){
@@ -901,12 +941,14 @@ async function loadAll(){
   btn.classList.add("spin");
   document.getElementById("syncTitle").textContent = "Sincronizando…";
   try {
-    const [dbRes, apRes, bancaRes] = await Promise.all([
+    const [dbRes, apRes, bancaRes, horaRes] = await Promise.all([
       fetchSheet(SHEET_DB, parseDB),
       fetchSheet(SHEET_APOSTAS, parseApostas).catch(() => null),
-      fetchSheet(SHEET_BANCA, parseBanca).catch(() => null)
+      fetchSheet(SHEET_BANCA, parseBanca).catch(() => null),
+      fetchSheet("Odds365", parseHorarios).catch(() => null)
     ]);
     DB = dbRes.parsed;
+    HORARIOS = horaRes ? horaRes.parsed : new Map();
     BANCA = bancaRes ? bancaRes.parsed : [];
     BETS = apRes ? joinBets(apRes.parsed, DB) : fallbackBets(DB);
     BETS_SRC = apRes ? apRes.source : null;
@@ -1030,7 +1072,7 @@ function matchCard(g, showDate, rb){
       '<span class="chip tour">' + esc(g.torneio || "Torneio") + '</span>' +
       (g.round ? '<span class="chip surface">' + esc(g.round) + '</span>' : "") +
       (g.quadra ? '<span class="chip surface ' + surfaceClass(g.quadra) + '">' + esc(g.quadra) + '</span>' : "") +
-      situacaoChip(g, rb) + liveChip(g) + taChip(g) +
+      situacaoChip(g, rb) + liveChip(g) + taChip(g) + horaChip(g) +
       '<span class="match-id">' + (showDate ? fmtD(g.data) + " · " : "") + "#" + esc(g.id) + '</span>' +
     '</div>' +
     '<div class="players">' + pRow(g.j1, "J1", g.odd1, betOnJ1) + pRow(g.j2, "J2", g.odd2, betOnJ2) + '</div>' +
