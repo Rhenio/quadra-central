@@ -847,11 +847,14 @@ async function refreshLive(){
     if (!r.ok) return;
     const j = await r.json();
     const map = new Map();
+    const last = n => { const p = norm(n).split(" ").filter(Boolean); return p.length ? p[p.length - 1] : ""; };
     for (const g of (j.jogos || [])){
       if (!g.j1 || !g.j2) continue;
       const rec = { status: norm(g.status), placar: g.placar || "" };
       map.set(liveKey(g.j1, g.j2), rec);
       map.set(liveKey(g.j2, g.j1), rec);
+      const l1 = last(g.j1), l2 = last(g.j2);           // fallback por sobrenome
+      if (l1 && l2){ map.set("~" + l1 + "|" + l2, rec); map.set("~" + l2 + "|" + l1, rec); }
     }
     LIVE = map;
     if (typeof DB !== "undefined" && DB) { renderHoje(); if (window.TA) TA.init(); }
@@ -859,14 +862,17 @@ async function refreshLive(){
 }
 
 function liveChip(g){
-  const rec = LIVE.get(liveKey(g.j1, g.j2));
+  const last = n => { const p = norm(n).split(" ").filter(Boolean); return p.length ? p[p.length - 1] : ""; };
+  let rec = LIVE.get(liveKey(g.j1, g.j2));
+  if (!rec) rec = LIVE.get("~" + last(g.j1) + "|" + last(g.j2));
   if (!rec || g.vencedor) return "";
-  const aoVivo = rec.status.includes("prog") || rec.status.includes("live") ||
-                 rec.status.includes("inplay") || rec.status.includes("andamento");
-  if (aoVivo) return '<span class="chip live"><i></i>AO VIVO' + (rec.placar ? " · " + esc(rec.placar) : "") + '</span>';
-  if (rec.status.includes("finish") || rec.status.includes("ended") || rec.status.includes("encerr"))
+  const st = (rec.status || "").replace(/[^a-z0-9]/g, "");
+  const pend = ["pending","notstarted","scheduled","prematch","upcoming","postponed","delayed","cancel","tba"];
+  const fim  = ["finish","ended","settled","complete","closed","ft","encerr"];
+  if (pend.some(p => st.includes(p))) return "";
+  if (fim.some(p => st.includes(p)))
     return rec.placar ? '<span class="chip score">Final · ' + esc(rec.placar) + '</span>' : "";
-  return "";
+  return '<span class="chip live"><i></i>AO VIVO' + (rec.placar ? " · " + esc(rec.placar) : "") + '</span>';
 }
 
 function parseBanca(rows){
