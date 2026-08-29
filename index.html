@@ -867,6 +867,12 @@ async function refreshLive(){
   } catch (e) { /* site segue normal sem live */ }
 }
 
+function taChip(g){
+  if (!g.vencedor || !window.TA || !TA.placar) return "";
+  const p = TA.placar(g.j1, g.j2, g.dk);
+  return p ? '<span class="chip score">' + esc(p) + '</span>' : "";
+}
+
 function liveChip(g){
   let rec = LIVE.get(liveKey(g.j1, g.j2));
   if (!rec)
@@ -1024,7 +1030,7 @@ function matchCard(g, showDate, rb){
       '<span class="chip tour">' + esc(g.torneio || "Torneio") + '</span>' +
       (g.round ? '<span class="chip surface">' + esc(g.round) + '</span>' : "") +
       (g.quadra ? '<span class="chip surface ' + surfaceClass(g.quadra) + '">' + esc(g.quadra) + '</span>' : "") +
-      situacaoChip(g, rb) + liveChip(g) +
+      situacaoChip(g, rb) + liveChip(g) + taChip(g) +
       '<span class="match-id">' + (showDate ? fmtD(g.data) + " · " : "") + "#" + esc(g.id) + '</span>' +
     '</div>' +
     '<div class="players">' + pRow(g.j1, "J1", g.odd1, betOnJ1) + pRow(g.j2, "J2", g.odd2, betOnJ2) + '</div>' +
@@ -1547,6 +1553,11 @@ document.getElementById("btnRefresh").addEventListener("click", loadAll);
     inp.addEventListener("change", renderHistorico);
   }
 })();
+document.addEventListener("ta-ready", () => {
+  if (typeof DB === "undefined" || !DB) return;
+  renderHoje(); renderHistorico();
+  if (window.TA) TA.init();
+});
 setInterval(loadAll, REFRESH_MS);
 if (LIVE_URL){ refreshLive(); setInterval(refreshLive, LIVE_MS); }
 loadAll();
