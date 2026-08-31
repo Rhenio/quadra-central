@@ -1,0 +1,32 @@
+{
+  "name": "Quadra Central",
+  "short_name": "Quadra Central",
+  "description": "Dashboard de análise e acompanhamento de tênis ATP e WTA",
+  "start_url": "/quadra-central/",
+  "scope": "/quadra-central/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F3F5F0",
+  "theme_color": "#0C4A2C",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
