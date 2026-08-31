@@ -207,6 +207,16 @@ td.num,th.num{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:1
   .ta-stats .ta-num{width:4.2rem}
 }
 </style>
+
+<!-- ========== PWA ========== -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0C4A2C">
+<!-- iOS (Safari ignora o manifest; usa estas tags) -->
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Quadra Central">
+<!-- ========================= -->
 </head>
 <body>
 
@@ -1644,5 +1654,17 @@ setInterval(loadAll, REFRESH_MS);
 if (LIVE_URL){ refreshLive(); setInterval(refreshLive, LIVE_MS); }
 loadAll();
 </script>
+
+<!-- ========== PWA: registro do service worker ========== -->
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("sw.js").catch((e) => {
+      console.warn("Service worker não registrado:", e);
+    });
+  });
+}
+</script>
+<!-- ===================================================== -->
 </body>
 </html>
