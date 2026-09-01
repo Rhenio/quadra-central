@@ -1,6 +1,204 @@
 {
  "gerado_em": "2026-09-01",
  "jogadores": {
+  "Carlos Alcaraz": {
+   "status": "amarelo",
+   "status_auto": "verde",
+   "sinais_auto": [],
+   "ultimo_jogo": null,
+   "dias_sem_jogar": null,
+   "area": "punho direito",
+   "resumo": "Defende o título após confirmar retorno de lesão no punho direito na preparação para o US Open.",
+   "eventos": [
+    {
+     "data": "2026-08-20",
+     "tipo": "retorno",
+     "torneio": "—",
+     "area": "punho dir.",
+     "nota": "Retorno confirmado para a defesa do título."
+    }
+   ]
+  },
+  "Belinda Bencic": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-13"
+    }
+   ],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 1,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Eva Lys": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-02"
+    }
+   ],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 1,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Tristan Schoolkate": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-03"
+    }
+   ],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 1,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Zsombor Piros": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-10"
+    }
+   ],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 1,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Elena Rybakina": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-13"
+    }
+   ],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 1,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Camilo Ugo Carabelli": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-18"
+    }
+   ],
+   "ultimo_jogo": "2026-08-18",
+   "dias_sem_jogar": 14,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Carlos Taberner": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-10"
+    }
+   ],
+   "ultimo_jogo": "2026-08-10",
+   "dias_sem_jogar": 22,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Jelena Ostapenko": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-02"
+    }
+   ],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 1,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Alex Molcan": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-03"
+    }
+   ],
+   "ultimo_jogo": "2026-08-03",
+   "dias_sem_jogar": 29,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Zachary Svajda": {
+   "status": "amarelo",
+   "status_auto": "amarelo",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-07-27"
+    }
+   ],
+   "ultimo_jogo": "2026-08-13",
+   "dias_sem_jogar": 19,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Mayar Sherif": {
+   "status": "amarelo",
+   "status_auto": "amarelo",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-07-20"
+    }
+   ],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 1,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Francesca Jones": {
+   "status": "amarelo",
+   "status_auto": "amarelo",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-07-27"
+    }
+   ],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 1,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
   "Marton Fucsovics": {
    "status": "vermelho",
    "status_auto": "vermelho",
@@ -155,24 +353,6 @@
    "area": "",
    "resumo": "",
    "eventos": []
-  },
-  "Carlos Alcaraz": {
-   "status": "amarelo",
-   "status_auto": "verde",
-   "sinais_auto": [],
-   "ultimo_jogo": null,
-   "dias_sem_jogar": null,
-   "area": "punho direito",
-   "resumo": "Defende o título após confirmar retorno de lesão no punho direito na preparação para o US Open.",
-   "eventos": [
-    {
-     "data": "2026-08-20",
-     "tipo": "retorno",
-     "torneio": "—",
-     "area": "punho dir.",
-     "nota": "Retorno confirmado para a defesa do título."
-    }
-   ]
   },
   "Ashlyn Krueger": {
    "status": "amarelo",
@@ -441,126 +621,6 @@
    "resumo": "",
    "eventos": []
   },
-  "Belinda Bencic": {
-   "status": "vermelho",
-   "status_auto": "vermelho",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-08-13"
-    }
-   ],
-   "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 1,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Eva Lys": {
-   "status": "vermelho",
-   "status_auto": "vermelho",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-08-02"
-    }
-   ],
-   "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 1,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Tristan Schoolkate": {
-   "status": "vermelho",
-   "status_auto": "vermelho",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-08-03"
-    }
-   ],
-   "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 1,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Zsombor Piros": {
-   "status": "vermelho",
-   "status_auto": "vermelho",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-08-10"
-    }
-   ],
-   "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 1,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Elena Rybakina": {
-   "status": "vermelho",
-   "status_auto": "vermelho",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-08-13"
-    }
-   ],
-   "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 1,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Camilo Ugo Carabelli": {
-   "status": "vermelho",
-   "status_auto": "vermelho",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-08-18"
-    }
-   ],
-   "ultimo_jogo": "2026-08-18",
-   "dias_sem_jogar": 14,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Carlos Taberner": {
-   "status": "vermelho",
-   "status_auto": "vermelho",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-08-10"
-    }
-   ],
-   "ultimo_jogo": "2026-08-10",
-   "dias_sem_jogar": 22,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Jelena Ostapenko": {
-   "status": "vermelho",
-   "status_auto": "vermelho",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-08-02"
-    }
-   ],
-   "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 1,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
   "Thanasi Kokkinakis": {
    "status": "vermelho",
    "status_auto": "vermelho",
@@ -572,66 +632,6 @@
    ],
    "ultimo_jogo": "2026-08-13",
    "dias_sem_jogar": 19,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Alex Molcan": {
-   "status": "vermelho",
-   "status_auto": "vermelho",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-08-03"
-    }
-   ],
-   "ultimo_jogo": "2026-08-03",
-   "dias_sem_jogar": 29,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Zachary Svajda": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-07-27"
-    }
-   ],
-   "ultimo_jogo": "2026-08-13",
-   "dias_sem_jogar": 19,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Mayar Sherif": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-07-20"
-    }
-   ],
-   "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 1,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Francesca Jones": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-07-27"
-    }
-   ],
-   "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 1,
    "area": "",
    "resumo": "",
    "eventos": []
