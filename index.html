@@ -54,6 +54,34 @@ button{font-family:inherit;cursor:pointer}
 .btn-refresh svg{transition:transform .5s}
 .btn-refresh.spin svg{transform:rotate(360deg)}
 
+/* ---------- lesões ---------- */
+.les-sub{color:var(--muted);font-size:13px;max-width:66ch;margin-bottom:14px;line-height:1.55}
+.les-filtros{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
+.les-filtros button{border:1px solid var(--line);background:var(--card);color:var(--muted);
+  padding:6px 14px;border-radius:999px;font-size:12.5px;font-weight:600;transition:all .15s}
+.les-filtros button:hover{color:var(--ink)}
+.les-filtros button.on{background:var(--grass-deep);border-color:var(--grass-deep);color:#fff}
+.les-lista{display:flex;flex-direction:column;gap:8px;max-width:760px}
+.les-card{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--les);
+  border-radius:var(--radius);box-shadow:var(--shadow);padding:11px 14px;cursor:pointer}
+.les-card[data-s="vermelho"]{--les:var(--loss)}
+.les-card[data-s="amarelo"]{--les:var(--warn)}
+.les-card[data-s="verde"]{--les:var(--win)}
+.les-l1{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.les-nome{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px}
+.les-area{font-size:12.5px;color:var(--muted)}
+.les-dias{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted);white-space:nowrap}
+.les-auto{font-size:10.5px;font-weight:600;color:var(--warn);background:var(--warn-bg);
+  border-radius:5px;padding:1px 6px;white-space:nowrap}
+.les-resumo{font-size:13px;margin-top:5px;line-height:1.5;max-width:68ch}
+.les-tl{display:none;margin-top:8px;padding:0;list-style:none;font-size:12.5px}
+.les-card.aberto .les-tl{display:block}
+.les-tl li{padding:5px 0;border-top:1px dashed var(--line)}
+.les-tl time{font-family:'IBM Plex Mono',monospace;color:var(--muted);margin-right:8px;font-size:11.5px}
+.les-badge{display:inline-block;width:8px;height:8px;border-radius:50%;margin-left:6px;flex:none;vertical-align:baseline}
+.les-badge.vermelho{background:var(--loss);box-shadow:0 0 0 2px var(--loss-bg)}
+.les-badge.amarelo{background:var(--warn);box-shadow:0 0 0 2px var(--warn-bg)}
+
 /* ---------- layout ---------- */
 .wrap{max-width:1160px;margin:0 auto;padding:26px 20px 80px}
 .chip.live{background:#FDECEC;color:#B91C1C;display:inline-flex;align-items:center;gap:6px}
@@ -234,6 +262,7 @@ td.num,th.num{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:1
       <button class="tab" data-page="banca" role="tab">Banca</button>
       <button class="tab" data-page="stats" role="tab">Estatísticas</button>
       <button class="tab" data-page="modelo" role="tab">Modelo</button>
+      <button class="tab" data-page="lesoes" role="tab">Lesões</button>
     </nav>
     <div class="sync">
       <span class="dot" id="statusDot"></span>
@@ -303,6 +332,27 @@ td.num,th.num{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:1
     </div>
     <div id="modeloContent">
       <div class="state"><div class="loading-court"></div>Carregando a planilha…</div>
+    </div>
+  </section>
+
+  <!-- ============ LESÕES ============ -->
+  <section class="page" id="page-lesoes">
+    <div class="page-head">
+      <h2>Lesões</h2>
+      <span class="date-chip" id="lesChip">registro do ano</span>
+    </div>
+    <p class="les-sub">Semáforo físico dos jogadores acompanhados: registro editorial (pesquisa) +
+    sinais automáticos (RET, W.O. e buracos no calendário). Vermelho: ocorrência ativa ou abandono
+    em até 30 dias. Amarelo: até 90 dias, retorno de afastamento longo ou condição crônica.
+    Sem registro = verde. O ponto ao lado do nome na aba Hoje vem daqui.</p>
+    <div class="les-filtros" id="lesFiltros">
+      <button data-f="todos" class="on">Todos</button>
+      <button data-f="vermelho">Vermelhos</button>
+      <button data-f="amarelo">Amarelos</button>
+      <button data-f="auto">Sinal automático</button>
+    </div>
+    <div id="lesLista" class="les-lista">
+      <div class="state"><div class="loading-court"></div>Carregando registro…</div>
     </div>
   </section>
 
@@ -1666,5 +1716,117 @@ if ("serviceWorker" in navigator) {
 }
 </script>
 <!-- ===================================================== -->
+<script>
+/* ================= LESÕES ================= */
+const QCLesoes = (function(){
+  let DADOS = null;
+  const ORDEM = {vermelho:0, amarelo:1, verde:2};
+
+  function lnorm(s){return norm(s||"");} /* reaproveita o norm() do site */
+
+  async function carregar(){
+    // consolidado (camadas 1+2) primeiro; sem ele, só o editorial
+    for (const url of ["data/lesoes_status.json", "data/lesoes.json"]){
+      try{
+        const r = await fetch(url + "?t=" + Date.now());
+        if (r.ok) return await r.json();
+      }catch(e){}
+    }
+    return null;
+  }
+
+  function reg(nome){
+    if (!DADOS) return null;
+    const alvo = lnorm(nome);
+    for (const n of Object.keys(DADOS.jogadores))
+      if (lnorm(n) === alvo) return DADOS.jogadores[n];
+    return null;
+  }
+
+  function render(filtro){
+    const alvo = document.getElementById("lesLista");
+    if (!alvo) return;
+    if (!DADOS){
+      alvo.innerHTML = '<div class="state">Registro indisponível — confira se data/lesoes.json está publicado.</div>';
+      return;
+    }
+    const nomes = Object.keys(DADOS.jogadores).sort((a,b)=>{
+      const ja = DADOS.jogadores[a], jb = DADOS.jogadores[b];
+      return (ORDEM[ja.status]-ORDEM[jb.status]) || a.localeCompare(b);
+    });
+    let html = "";
+    for (const n of nomes){
+      const j = DADOS.jogadores[n];
+      const temAuto = (j.sinais_auto||[]).length > 0;
+      if (filtro==="vermelho" && j.status!=="vermelho") continue;
+      if (filtro==="amarelo" && j.status!=="amarelo") continue;
+      if (filtro==="auto" && !temAuto) continue;
+      const dias = (j.dias_sem_jogar!=null) ? j.dias_sem_jogar + " d sem jogar" : "";
+      let tl = "";
+      for (const e of (j.eventos||[]).slice().reverse())
+        tl += "<li><time>" + esc(e.data||"") + "</time><b>" + esc(e.tipo||"") + "</b> · " +
+              esc(e.torneio||"") + (e.nota ? " — " + esc(e.nota) : "") + "</li>";
+      for (const s of (j.sinais_auto||[]))
+        tl += "<li><time>" + esc(s.data||"") + "</time><b>" + esc(s.tipo) + "</b> · sinal automático" +
+              (s.dias ? " — " + s.dias + " dias sem jogar" : "") + "</li>";
+      html += '<article class="les-card" data-s="' + j.status + '" tabindex="0">' +
+        '<div class="les-l1"><span class="les-nome">' + esc(n) + '</span>' +
+        '<span class="les-area">' + esc(j.area||"") + '</span>' +
+        (temAuto ? '<span class="les-auto">auto</span>' : "") +
+        '<span class="les-dias">' + dias + '</span></div>' +
+        (j.resumo ? '<p class="les-resumo">' + esc(j.resumo) + '</p>' : "") +
+        (tl ? '<ul class="les-tl">' + tl + '</ul>' : "") + '</article>';
+    }
+    alvo.innerHTML = html || '<div class="state">Nenhum jogador neste filtro.</div>';
+    const chip = document.getElementById("lesChip");
+    if (chip && DADOS.gerado_em) chip.textContent = "gerado em " + DADOS.gerado_em;
+    else if (chip && DADOS.atualizado_em) chip.textContent = "editorial de " + DADOS.atualizado_em;
+  }
+
+  /* badge nos nomes da aba Hoje (e onde mais houver data-player) */
+  function decorar(raiz){
+    if (!DADOS) return;
+    (raiz || document).querySelectorAll("[data-player]:not([data-les])").forEach(el => {
+      el.dataset.les = "1";
+      const r = reg(el.dataset.player);
+      if (!r || r.status === "verde") return;
+      const b = document.createElement("span");
+      b.className = "les-badge " + r.status;
+      b.title = (r.area ? r.area + " — " : "") + (r.resumo || "registro de lesão");
+      el.appendChild(b);
+    });
+  }
+
+  const obs = new MutationObserver(() => decorar());
+
+  async function init(){
+    DADOS = await carregar();
+    render("todos");
+    decorar();
+    obs.observe(document.querySelector("main.wrap") || document.body,
+                {childList:true, subtree:true});
+  }
+
+  document.addEventListener("click", ev => {
+    const c = ev.target.closest && ev.target.closest(".les-card");
+    if (c){ c.classList.toggle("aberto"); return; }
+    const f = ev.target.closest && ev.target.closest("#lesFiltros button");
+    if (f){
+      document.querySelectorAll("#lesFiltros button").forEach(b => b.classList.remove("on"));
+      f.classList.add("on");
+      render(f.dataset.f);
+    }
+  });
+  document.addEventListener("keydown", ev => {
+    if ((ev.key === "Enter" || ev.key === " ") && ev.target.classList &&
+        ev.target.classList.contains("les-card")){
+      ev.preventDefault(); ev.target.classList.toggle("aberto");
+    }
+  });
+
+  init();
+  return {status: n => { const r = reg(n); return r ? r.status : "verde"; }, decorar, render};
+})();
+</script>
 </body>
 </html>
