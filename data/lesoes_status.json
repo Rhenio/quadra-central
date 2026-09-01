@@ -1,6 +1,231 @@
 {
  "gerado_em": "2026-09-01",
  "jogadores": {
+  "Belinda Bencic": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-13"
+    }
+   ],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 1,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Eva Lys": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-02"
+    }
+   ],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 1,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Tristan Schoolkate": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-03"
+    }
+   ],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 1,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Zsombor Piros": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-10"
+    }
+   ],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 1,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Elena Rybakina": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-13"
+    }
+   ],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 1,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Casper Ruud": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-13"
+    }
+   ],
+   "ultimo_jogo": "2026-08-13",
+   "dias_sem_jogar": 19,
+   "area": "costas",
+   "resumo": "RET em Cincinnati (16/08) e desistência do US Open minutos antes da estreia; movimentação limitada nos treinos.",
+   "eventos": [
+    {
+     "data": "2026-08-16",
+     "tipo": "ret",
+     "torneio": "Cincinnati R2",
+     "area": "costas",
+     "nota": "Abandonou contra O'Connell em 7-5 1-2."
+    },
+    {
+     "data": "2026-08-30",
+     "tipo": "desistencia_torneio",
+     "torneio": "US Open",
+     "area": "costas",
+     "nota": "Saiu na véspera do jogo; lucky loser entrou no lugar."
+    }
+   ]
+  },
+  "Camilo Ugo Carabelli": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-18"
+    }
+   ],
+   "ultimo_jogo": "2026-08-18",
+   "dias_sem_jogar": 14,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Carlos Taberner": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-10"
+    }
+   ],
+   "ultimo_jogo": "2026-08-10",
+   "dias_sem_jogar": 22,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Jelena Ostapenko": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-02"
+    }
+   ],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 1,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Thanasi Kokkinakis": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-02"
+    }
+   ],
+   "ultimo_jogo": "2026-08-13",
+   "dias_sem_jogar": 19,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Alex Molcan": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-03"
+    }
+   ],
+   "ultimo_jogo": "2026-08-03",
+   "dias_sem_jogar": 29,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Zachary Svajda": {
+   "status": "amarelo",
+   "status_auto": "amarelo",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-07-27"
+    }
+   ],
+   "ultimo_jogo": "2026-08-13",
+   "dias_sem_jogar": 19,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Mayar Sherif": {
+   "status": "amarelo",
+   "status_auto": "amarelo",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-07-20"
+    }
+   ],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 1,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Francesca Jones": {
+   "status": "amarelo",
+   "status_auto": "amarelo",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-07-27"
+    }
+   ],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 1,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
   "Toby Samuel": {
    "status": "amarelo",
    "status_auto": "amarelo",
@@ -307,31 +532,6 @@
      "torneio": "US Open",
      "area": "joelho dir.",
      "nota": "Anúncio oficial do torneio."
-    }
-   ]
-  },
-  "Casper Ruud": {
-   "status": "vermelho",
-   "status_auto": null,
-   "sinais_auto": [],
-   "ultimo_jogo": null,
-   "dias_sem_jogar": null,
-   "area": "costas",
-   "resumo": "RET em Cincinnati (16/08) e desistência do US Open minutos antes da estreia; movimentação limitada nos treinos.",
-   "eventos": [
-    {
-     "data": "2026-08-16",
-     "tipo": "ret",
-     "torneio": "Cincinnati R2",
-     "area": "costas",
-     "nota": "Abandonou contra O'Connell em 7-5 1-2."
-    },
-    {
-     "data": "2026-08-30",
-     "tipo": "desistencia_torneio",
-     "torneio": "US Open",
-     "area": "costas",
-     "nota": "Saiu na véspera do jogo; lucky loser entrou no lugar."
     }
    ]
   },
