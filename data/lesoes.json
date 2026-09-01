@@ -1,0 +1,114 @@
+{
+  "versao": 1,
+  "atualizado_em": "2026-09-01",
+  "criterios": {
+    "vermelho": "RET/W.O. nos últimos 30 dias, desistência do torneio, ou lesão anunciada sem retorno confirmado",
+    "amarelo": "RET/W.O. entre 30 e 90 dias, retorno recente de afastamento longo, ou condição crônica ativa",
+    "verde": "sem ocorrências nos últimos 90 dias (jogadores ausentes deste arquivo = verde por omissão)"
+  },
+  "jogadores": {
+    "Matteo Berrettini": {
+      "status": "amarelo",
+      "area": "quadril esquerdo (crônico)",
+      "resumo": "Diagnóstico de dor crônica no quadril em jul/2026; abandonou o QF de Roland Garros e sentiu de novo em 5 sets em Wimbledon. Risco elevado em melhor de 5.",
+      "eventos": [
+        {"data": "2026-06-03", "tipo": "ret", "torneio": "Roland Garros QF", "area": "quadril esq.", "nota": "Abandonou contra Arnaldi no 2º set."},
+        {"data": "2026-07-04", "tipo": "alerta", "torneio": "Wimbledon R3", "area": "quadril esq.", "nota": "Dor reativou no 5º set contra Dimitrov; perdeu fisicamente."},
+        {"data": "2026-07-07", "tipo": "anuncio", "torneio": "—", "area": "quadril esq.", "nota": "Diagnóstico de dor crônica; pulou Gstaad e Kitzbühel para chegar ao US swing."}
+      ]
+    },
+    "Grigor Dimitrov": {
+      "status": "amarelo",
+      "area": "peitoral (histórico) / condicionamento",
+      "resumo": "Voltou de lesão no peitoral (RET em Wimbledon 2025 vencendo Sinner por 2 sets); caiu para fora do top 100 pela primeira vez desde 2012 e entrou no US Open via quali.",
+      "eventos": [
+        {"data": "2025-07-07", "tipo": "ret", "torneio": "Wimbledon R4", "area": "peitoral", "nota": "Abandonou liderando Sinner 6-3 7-5 2-2; perdeu o US Open 2025."},
+        {"data": "2026-08-27", "tipo": "retorno", "torneio": "US Open Quali", "area": "—", "nota": "Entrou no quadro principal com 2 vitórias + W.O. de Virtanen no Q3."}
+      ]
+    },
+    "Qinwen Zheng": {
+      "status": "amarelo",
+      "area": "cotovelo direito (cirurgia 2025) / punho",
+      "resumo": "Cirurgia no cotovelo em jul/2025, perdeu US Open 2025 e AO 2026; voltou em fev/2026 (12-13 no ano, ranking ~121). Passou pelo quali e diz estar sem dor.",
+      "eventos": [
+        {"data": "2025-07-20", "tipo": "anuncio", "torneio": "—", "area": "cotovelo dir.", "nota": "Cirurgia artroscópica após Wimbledon; tentou voltar em Pequim (RET vs Noskova) e parou até fevereiro."},
+        {"data": "2026-01-08", "tipo": "desistencia_torneio", "torneio": "Australian Open", "area": "cotovelo dir.", "nota": "Desistiu por condição física."},
+        {"data": "2026-08-28", "tipo": "retorno", "torneio": "US Open Quali", "area": "—", "nota": "Qualificou-se vencendo Pridankina; declarou estar sem dor no cotovelo e punho."}
+      ]
+    },
+    "Hubert Hurkacz": {
+      "status": "amarelo",
+      "area": "joelho direito (2 cirurgias) / costas + abdômen",
+      "resumo": "Duas cirurgias no joelho desde Wimbledon 2024; abandonou o R4 de Wimbledon 2026 (costas/abdômen) vencendo por 2 sets. Em Cincinnati declarou nível em ascensão.",
+      "eventos": [
+        {"data": "2025-07-15", "tipo": "anuncio", "torneio": "—", "area": "joelho dir.", "nota": "Artroscopia; encerrou a temporada 2025 para reabilitar."},
+        {"data": "2026-07-06", "tipo": "ret", "torneio": "Wimbledon R4", "area": "costas/abdômen", "nota": "Abandonou contra Struff após liderar por 2 sets a 0."}
+      ]
+    },
+    "Carlos Alcaraz": {
+      "status": "amarelo",
+      "area": "punho direito",
+      "resumo": "Defende o título após confirmar retorno de lesão no punho direito na preparação para o US Open.",
+      "eventos": [
+        {"data": "2026-08-20", "tipo": "retorno", "torneio": "—", "area": "punho dir.", "nota": "Retorno confirmado para a defesa do título."}
+      ]
+    },
+    "Tomas Machac": {
+      "status": "amarelo",
+      "area": "condicionamento (temporada minada por lesões)",
+      "resumo": "Temporada 2026 marcada por lesões; queda de 22 para 58 no ranking, 3 derrotas seguidas antes do US Open. Eliminado no R1 por qualifier em sets diretos.",
+      "eventos": [
+        {"data": "2026-08-30", "tipo": "derrota_alerta", "torneio": "US Open R1", "area": "condicionamento", "nota": "Perdeu 6-2 6-3 6-2 para Toby Samuel; imprensa cita temporada 'injury-hit'."}
+      ]
+    },
+    "Jannik Sinner": {
+      "status": "vermelho",
+      "area": "joelho direito",
+      "resumo": "Desistiu do US Open 2026 por lesão no joelho direito.",
+      "eventos": [
+        {"data": "2026-08-21", "tipo": "desistencia_torneio", "torneio": "US Open", "area": "joelho dir.", "nota": "Anúncio oficial do torneio."}
+      ]
+    },
+    "Casper Ruud": {
+      "status": "vermelho",
+      "area": "costas",
+      "resumo": "RET em Cincinnati (16/08) e desistência do US Open minutos antes da estreia; movimentação limitada nos treinos.",
+      "eventos": [
+        {"data": "2026-08-16", "tipo": "ret", "torneio": "Cincinnati R2", "area": "costas", "nota": "Abandonou contra O'Connell em 7-5 1-2."},
+        {"data": "2026-08-30", "tipo": "desistencia_torneio", "torneio": "US Open", "area": "costas", "nota": "Saiu na véspera do jogo; lucky loser entrou no lugar."}
+      ]
+    },
+    "Marin Cilic": {
+      "status": "vermelho",
+      "area": "não especificada",
+      "resumo": "Desistiu do US Open após o início do torneio; perdeu 3 dos últimos 4 US Opens.",
+      "eventos": [
+        {"data": "2026-08-30", "tipo": "desistencia_torneio", "torneio": "US Open", "area": "—", "nota": "Substituído pelo lucky loser Otto Virtanen."}
+      ]
+    },
+    "Alejandro Davidovich Fokina": {
+      "status": "vermelho",
+      "area": "costas (persistente)",
+      "resumo": "Fora do US Open por dor persistente nas costas; sem jogos desde o Croatia Open em julho.",
+      "eventos": [
+        {"data": "2026-08-20", "tipo": "desistencia_torneio", "torneio": "US Open", "area": "costas", "nota": "Sem competir desde julho."}
+      ]
+    },
+    "Emma Raducanu": {
+      "status": "vermelho",
+      "area": "perna (fratura por estresse)",
+      "resumo": "Fora do US Open por fratura por estresse na perna; já havia perdido Wimbledon.",
+      "eventos": [
+        {"data": "2026-08-15", "tipo": "desistencia_torneio", "torneio": "US Open", "area": "perna", "nota": "Retorno em 2026 incerto."}
+      ]
+    },
+    "Victoria Mboko": {
+      "status": "vermelho",
+      "area": "joelho",
+      "resumo": "Fora do US Open: joelho lesionado em queda no HSBC Championships (junho) sem recuperação completa; perdeu a grama e o Canadá.",
+      "eventos": [
+        {"data": "2026-08-10", "tipo": "desistencia_torneio", "torneio": "US Open", "area": "joelho", "nota": "Fora da entry list."}
+      ]
+    }
+  }
+}
