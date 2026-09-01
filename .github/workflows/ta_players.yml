@@ -1,5 +1,6 @@
 # .github/workflows/ta_players.yml
-# Gera data/players.json com o resumo Tennis Abstract dos jogadores do dia.
+# Gera data/players.json com o resumo Tennis Abstract dos jogadores do dia
+# e, em seguida, data/lesoes_status.json (semáforo de lesões, camadas 1+2).
 # Roda todo dia às 08:30 de Brasília (11:30 UTC) e sob demanda (botão Run workflow).
 
 name: Tennis Abstract players
@@ -35,11 +36,14 @@ jobs:
           TZ_OFFSET: "-3"
         run: python scripts/build_players.py
 
+      - name: Gerar lesoes_status.json (semáforo de lesões)
+        run: python scripts/lesoes_auto.py
+
       - name: Commit se houver mudança
         run: |
           git config user.name  "ta-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/players.json data/ta_cache.json
+          git add data/players.json data/ta_cache.json data/lesoes_status.json
           git diff --cached --quiet && echo "sem mudanças" && exit 0
           git commit -m "players.json $(date -u +%F)"
           git push
