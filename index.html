@@ -81,6 +81,11 @@ button{font-family:inherit;cursor:pointer}
 .les-badge{display:inline-block;width:8px;height:8px;border-radius:50%;margin-left:6px;flex:none;vertical-align:baseline}
 .les-badge.vermelho{background:var(--loss);box-shadow:0 0 0 2px var(--loss-bg)}
 .les-badge.amarelo{background:var(--warn);box-shadow:0 0 0 2px var(--warn-bg)}
+.chip.les{font-weight:700;display:inline-flex;align-items:center;gap:5px}
+.chip.les i{width:7px;height:7px;border-radius:50%;background:currentColor;flex:none}
+.chip.les.amarelo{background:var(--warn-bg);color:var(--warn)}
+.chip.les.vermelho{background:var(--loss-bg);color:var(--loss)}
+.chip.les.adv{background:transparent;border:1px dashed currentColor}
 
 /* ---------- layout ---------- */
 .wrap{max-width:1160px;margin:0 auto;padding:26px 20px 80px}
@@ -1797,12 +1802,36 @@ const QCLesoes = (function(){
     });
   }
 
-  const obs = new MutationObserver(() => decorar());
+  /* chips de lesão nos cartões com aposta: "lesão" = lado apostado no registro
+     (atenção) · "adv. lesão" = adversário no registro (pode ser bom para nós) */
+  function chipar(raiz){
+    if (!DADOS) return;
+    (raiz || document).querySelectorAll("article.match.bet:not([data-les-chip]), article.match.rec:not([data-les-chip])").forEach(art => {
+      art.dataset.lesChip = "1";
+      const topo = art.querySelector(".match-top");
+      if (!topo) return;
+      const ancora = topo.querySelector(".match-id");
+      art.querySelectorAll(".players [data-player]").forEach(el => {
+        const r = reg(el.dataset.player);
+        if (!r || r.status === "verde") return;
+        const apostado = !!el.closest(".player.picked");
+        const chip = document.createElement("span");
+        chip.className = "chip les " + r.status + (apostado ? "" : " adv");
+        chip.innerHTML = "<i></i>" + (apostado ? "lesão" : "adv. lesão");
+        chip.title = el.dataset.player + (r.area ? " — " + r.area : "") +
+                     (r.resumo ? " · " + r.resumo : "");
+        topo.insertBefore(chip, ancora || null);
+      });
+    });
+  }
+
+  const obs = new MutationObserver(() => { decorar(); chipar(); });
 
   async function init(){
     DADOS = await carregar();
     render("todos");
     decorar();
+    chipar();
     obs.observe(document.querySelector("main.wrap") || document.body,
                 {childList:true, subtree:true});
   }
