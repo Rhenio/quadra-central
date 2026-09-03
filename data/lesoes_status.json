@@ -33,39 +33,6 @@
     }
    ]
   },
-  "Anna Kalinskaya": {
-   "status": "vermelho",
-   "status_auto": "vermelho",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-08-13"
-    }
-   ],
-   "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 3,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Carlos Alcaraz": {
-   "status": "amarelo",
-   "status_auto": "verde",
-   "sinais_auto": [],
-   "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 3,
-   "area": "punho direito",
-   "resumo": "Defende o título após confirmar retorno de lesão no punho direito na preparação para o US Open.",
-   "eventos": [
-    {
-     "data": "2026-08-20",
-     "tipo": "retorno",
-     "torneio": "—",
-     "area": "punho dir.",
-     "nota": "Retorno confirmado para a defesa do título."
-    }
-   ]
-  },
   "Maria Timofeeva": {
    "status": "vermelho",
    "status_auto": "vermelho",
@@ -73,21 +40,6 @@
     {
      "tipo": "ret",
      "data": "2026-08-13"
-    }
-   ],
-   "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 3,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "James Duckworth": {
-   "status": "vermelho",
-   "status_auto": "vermelho",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-08-23"
     }
    ],
    "ultimo_jogo": "2026-08-31",
@@ -111,94 +63,7 @@
    "resumo": "",
    "eventos": []
   },
-  "Hubert Hurkacz": {
-   "status": "amarelo",
-   "status_auto": "verde",
-   "sinais_auto": [],
-   "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 3,
-   "area": "joelho direito (2 cirurgias) / costas + abdômen",
-   "resumo": "Duas cirurgias no joelho desde Wimbledon 2024; abandonou o R4 de Wimbledon 2026 (costas/abdômen) vencendo por 2 sets. Em Cincinnati declarou nível em ascensão.",
-   "eventos": [
-    {
-     "data": "2025-07-15",
-     "tipo": "anuncio",
-     "torneio": "—",
-     "area": "joelho dir.",
-     "nota": "Artroscopia; encerrou a temporada 2025 para reabilitar."
-    },
-    {
-     "data": "2026-07-06",
-     "tipo": "ret",
-     "torneio": "Wimbledon R4",
-     "area": "costas/abdômen",
-     "nota": "Abandonou contra Struff após liderar por 2 sets a 0."
-    }
-   ]
-  },
-  "Matteo Berrettini": {
-   "status": "amarelo",
-   "status_auto": "verde",
-   "sinais_auto": [],
-   "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 3,
-   "area": "quadril esquerdo (crônico)",
-   "resumo": "Diagnóstico de dor crônica no quadril em jul/2026; abandonou o QF de Roland Garros e sentiu de novo em 5 sets em Wimbledon. Risco elevado em melhor de 5.",
-   "eventos": [
-    {
-     "data": "2026-06-03",
-     "tipo": "ret",
-     "torneio": "Roland Garros QF",
-     "area": "quadril esq.",
-     "nota": "Abandonou contra Arnaldi no 2º set."
-    },
-    {
-     "data": "2026-07-04",
-     "tipo": "alerta",
-     "torneio": "Wimbledon R3",
-     "area": "quadril esq.",
-     "nota": "Dor reativou no 5º set contra Dimitrov; perdeu fisicamente."
-    },
-    {
-     "data": "2026-07-07",
-     "tipo": "anuncio",
-     "torneio": "—",
-     "area": "quadril esq.",
-     "nota": "Diagnóstico de dor crônica; pulou Gstaad e Kitzbühel para chegar ao US swing."
-    }
-   ]
-  },
   "Katerina Siniakova": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-08-02"
-    }
-   ],
-   "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 3,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Alexei Popyrin": {
-   "status": "vermelho",
-   "status_auto": "vermelho",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-08-18"
-    }
-   ],
-   "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 3,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Frances Tiafoe": {
    "status": "amarelo",
    "status_auto": "amarelo",
    "sinais_auto": [
@@ -280,6 +145,141 @@
     {
      "tipo": "ret",
      "data": "2026-07-27"
+    }
+   ],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 3,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Anna Kalinskaya": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-13"
+    }
+   ],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 3,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Carlos Alcaraz": {
+   "status": "amarelo",
+   "status_auto": "verde",
+   "sinais_auto": [],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 3,
+   "area": "punho direito",
+   "resumo": "Defende o título após confirmar retorno de lesão no punho direito na preparação para o US Open.",
+   "eventos": [
+    {
+     "data": "2026-08-20",
+     "tipo": "retorno",
+     "torneio": "—",
+     "area": "punho dir.",
+     "nota": "Retorno confirmado para a defesa do título."
+    }
+   ]
+  },
+  "James Duckworth": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-23"
+    }
+   ],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 3,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Hubert Hurkacz": {
+   "status": "amarelo",
+   "status_auto": "verde",
+   "sinais_auto": [],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 3,
+   "area": "joelho direito (2 cirurgias) / costas + abdômen",
+   "resumo": "Duas cirurgias no joelho desde Wimbledon 2024; abandonou o R4 de Wimbledon 2026 (costas/abdômen) vencendo por 2 sets. Em Cincinnati declarou nível em ascensão.",
+   "eventos": [
+    {
+     "data": "2025-07-15",
+     "tipo": "anuncio",
+     "torneio": "—",
+     "area": "joelho dir.",
+     "nota": "Artroscopia; encerrou a temporada 2025 para reabilitar."
+    },
+    {
+     "data": "2026-07-06",
+     "tipo": "ret",
+     "torneio": "Wimbledon R4",
+     "area": "costas/abdômen",
+     "nota": "Abandonou contra Struff após liderar por 2 sets a 0."
+    }
+   ]
+  },
+  "Matteo Berrettini": {
+   "status": "amarelo",
+   "status_auto": "verde",
+   "sinais_auto": [],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 3,
+   "area": "quadril esquerdo (crônico)",
+   "resumo": "Diagnóstico de dor crônica no quadril em jul/2026; abandonou o QF de Roland Garros e sentiu de novo em 5 sets em Wimbledon. Risco elevado em melhor de 5.",
+   "eventos": [
+    {
+     "data": "2026-06-03",
+     "tipo": "ret",
+     "torneio": "Roland Garros QF",
+     "area": "quadril esq.",
+     "nota": "Abandonou contra Arnaldi no 2º set."
+    },
+    {
+     "data": "2026-07-04",
+     "tipo": "alerta",
+     "torneio": "Wimbledon R3",
+     "area": "quadril esq.",
+     "nota": "Dor reativou no 5º set contra Dimitrov; perdeu fisicamente."
+    },
+    {
+     "data": "2026-07-07",
+     "tipo": "anuncio",
+     "torneio": "—",
+     "area": "quadril esq.",
+     "nota": "Diagnóstico de dor crônica; pulou Gstaad e Kitzbühel para chegar ao US swing."
+    }
+   ]
+  },
+  "Alexei Popyrin": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-18"
+    }
+   ],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 3,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Frances Tiafoe": {
+   "status": "amarelo",
+   "status_auto": "amarelo",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-02"
     }
    ],
    "ultimo_jogo": "2026-08-31",
