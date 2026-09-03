@@ -1,13 +1,14 @@
-/* Quadra Central — Service Worker
- * Estratégia:
- *  - index.html: network-first (sempre tenta a versão nova; cache só como fallback offline)
- *  - ícones/manifest: cache-first (mudam raramente)
- *  - QUALQUER requisição cross-origin (Apps Script, odds, proxy CORS, Tennis Abstract,
- *    players.json via raw etc.): NÃO intercepta — passa direto pela rede.
- *    Isso garante que scores ao vivo e odds nunca fiquem presos em cache velho.
+/* Quadra Central — Service Worker v2
+ * CORREÇÃO da v1: a v1 aplicava cache-first a TODOS os arquivos same-origin,
+ * o que congelava data/players.json e assets/ta.js na versão do primeiro acesso.
+ * Agora:
+ *  - cache-first: SOMENTE icons/ e manifest.json (imutáveis na prática)
+ *  - network-first: todo o resto same-origin (index.html, data/*, assets/*)
+ *    → sempre busca a versão nova; cache é apenas fallback offline
+ *  - cross-origin (Apps Script, odds, Tennis Abstract): não intercepta
  */
 
-const CACHE = "quadra-central-v1"; // ↑ incremente (v2, v3...) ao mudar o SW
+const CACHE = "quadra-central-v2"; // ← v2 força a limpeza do cache velho da v1
 
 const SHELL = [
   "./",
@@ -33,39 +34,43 @@ self.addEventListener("activate", (event) => {
   );
 });
 
+// Só ícones e manifest podem ser cache-first
+function isImmutable(url) {
+  return url.pathname.includes("/icons/") || url.pathname.endsWith("manifest.json");
+}
+
 self.addEventListener("fetch", (event) => {
   const url = new URL(event.request.url);
 
-  // Só intercepta o que é do próprio site (GitHub Pages).
-  // Apps Script, APIs de odds, Tennis Abstract etc. passam direto.
-  if (url.origin !== self.location.origin) return;
+  if (url.origin !== self.location.origin) return; // APIs externas: rede direto
   if (event.request.method !== "GET") return;
 
-  // Navegação / index.html → network-first
-  if (event.request.mode === "navigate" || url.pathname.endsWith("index.html")) {
+  if (isImmutable(url)) {
+    // cache-first
     event.respondWith(
-      fetch(event.request)
-        .then((resp) => {
-          const copy = resp.clone();
-          caches.open(CACHE).then((c) => c.put(event.request, copy));
-          return resp;
-        })
-        .catch(() => caches.match(event.request).then((r) => r || caches.match("./index.html")))
+      caches.match(event.request).then(
+        (cached) =>
+          cached ||
+          fetch(event.request).then((resp) => {
+            const copy = resp.clone();
+            caches.open(CACHE).then((c) => c.put(event.request, copy));
+            return resp;
+          })
+      )
     );
     return;
   }
 
-  // Demais assets do site (ícones, manifest) → cache-first
+  // network-first para tudo o mais (index, data/*.json, assets/*)
   event.respondWith(
-    caches.match(event.request).then((cached) => {
-      return (
-        cached ||
-        fetch(event.request).then((resp) => {
-          const copy = resp.clone();
-          caches.open(CACHE).then((c) => c.put(event.request, copy));
-          return resp;
-        })
-      );
-    })
+    fetch(event.request)
+      .then((resp) => {
+        const copy = resp.clone();
+        caches.open(CACHE).then((c) => c.put(event.request, copy));
+        return resp;
+      })
+      .catch(() =>
+        caches.match(event.request).then((r) => r || caches.match("./index.html"))
+      )
   );
 });
