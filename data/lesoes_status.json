@@ -1,81 +1,6 @@
 {
  "gerado_em": "2026-09-04",
  "jogadores": {
-  "Eva Lys": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-08-02"
-    }
-   ],
-   "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 4,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Tristan Schoolkate": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-08-03"
-    }
-   ],
-   "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 4,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Elena Rybakina": {
-   "status": "vermelho",
-   "status_auto": "vermelho",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-08-13"
-    }
-   ],
-   "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 4,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Zachary Svajda": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-07-27"
-    }
-   ],
-   "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 4,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Francesca Jones": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-07-27"
-    }
-   ],
-   "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 4,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
   "Anna Kalinskaya": {
    "status": "vermelho",
    "status_auto": "vermelho",
@@ -153,6 +78,81 @@
      "nota": "Retorno confirmado para a defesa do título."
     }
    ]
+  },
+  "Eva Lys": {
+   "status": "amarelo",
+   "status_auto": "amarelo",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-02"
+    }
+   ],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 4,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Tristan Schoolkate": {
+   "status": "amarelo",
+   "status_auto": "amarelo",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-03"
+    }
+   ],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 4,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Elena Rybakina": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-13"
+    }
+   ],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 4,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Zachary Svajda": {
+   "status": "amarelo",
+   "status_auto": "amarelo",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-07-27"
+    }
+   ],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 4,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Francesca Jones": {
+   "status": "amarelo",
+   "status_auto": "amarelo",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-07-27"
+    }
+   ],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 4,
+   "area": "",
+   "resumo": "",
+   "eventos": []
   },
   "Luciano Darderi": {
    "status": "amarelo",
