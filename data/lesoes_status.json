@@ -1,6 +1,68 @@
 {
  "gerado_em": "2026-09-05",
  "jogadores": {
+  "Luciano Darderi": {
+   "status": "amarelo",
+   "status_auto": "amarelo",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-07-27"
+    }
+   ],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 5,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Qinwen Zheng": {
+   "status": "amarelo",
+   "status_auto": "verde",
+   "sinais_auto": [],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 5,
+   "area": "cotovelo direito (cirurgia 2025) / punho",
+   "resumo": "Cirurgia no cotovelo em jul/2025, perdeu US Open 2025 e AO 2026; voltou em fev/2026 (12-13 no ano, ranking ~121). Passou pelo quali e diz estar sem dor.",
+   "eventos": [
+    {
+     "data": "2025-07-20",
+     "tipo": "anuncio",
+     "torneio": "—",
+     "area": "cotovelo dir.",
+     "nota": "Cirurgia artroscópica após Wimbledon; tentou voltar em Pequim (RET vs Noskova) e parou até fevereiro."
+    },
+    {
+     "data": "2026-01-08",
+     "tipo": "desistencia_torneio",
+     "torneio": "Australian Open",
+     "area": "cotovelo dir.",
+     "nota": "Desistiu por condição física."
+    },
+    {
+     "data": "2026-08-28",
+     "tipo": "retorno",
+     "torneio": "US Open Quali",
+     "area": "—",
+     "nota": "Qualificou-se vencendo Pridankina; declarou estar sem dor no cotovelo e punho."
+    }
+   ]
+  },
+  "Elena Rybakina": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-13"
+    }
+   ],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 5,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
   "Anna Kalinskaya": {
    "status": "vermelho",
    "status_auto": "vermelho",
@@ -78,68 +140,6 @@
      "nota": "Retorno confirmado para a defesa do título."
     }
    ]
-  },
-  "Luciano Darderi": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-07-27"
-    }
-   ],
-   "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 5,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Qinwen Zheng": {
-   "status": "amarelo",
-   "status_auto": "verde",
-   "sinais_auto": [],
-   "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 5,
-   "area": "cotovelo direito (cirurgia 2025) / punho",
-   "resumo": "Cirurgia no cotovelo em jul/2025, perdeu US Open 2025 e AO 2026; voltou em fev/2026 (12-13 no ano, ranking ~121). Passou pelo quali e diz estar sem dor.",
-   "eventos": [
-    {
-     "data": "2025-07-20",
-     "tipo": "anuncio",
-     "torneio": "—",
-     "area": "cotovelo dir.",
-     "nota": "Cirurgia artroscópica após Wimbledon; tentou voltar em Pequim (RET vs Noskova) e parou até fevereiro."
-    },
-    {
-     "data": "2026-01-08",
-     "tipo": "desistencia_torneio",
-     "torneio": "Australian Open",
-     "area": "cotovelo dir.",
-     "nota": "Desistiu por condição física."
-    },
-    {
-     "data": "2026-08-28",
-     "tipo": "retorno",
-     "torneio": "US Open Quali",
-     "area": "—",
-     "nota": "Qualificou-se vencendo Pridankina; declarou estar sem dor no cotovelo e punho."
-    }
-   ]
-  },
-  "Elena Rybakina": {
-   "status": "vermelho",
-   "status_auto": "vermelho",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-08-13"
-    }
-   ],
-   "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 5,
-   "area": "",
-   "resumo": "",
-   "eventos": []
   },
   "Eva Lys": {
    "status": "amarelo",
