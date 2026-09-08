@@ -1,6 +1,39 @@
 {
  "gerado_em": "2026-09-08",
  "jogadores": {
+  "Carlos Alcaraz": {
+   "status": "amarelo",
+   "status_auto": "verde",
+   "sinais_auto": [],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 8,
+   "area": "punho direito",
+   "resumo": "Defende o título após confirmar retorno de lesão no punho direito na preparação para o US Open.",
+   "eventos": [
+    {
+     "data": "2026-08-20",
+     "tipo": "retorno",
+     "torneio": "—",
+     "area": "punho dir.",
+     "nota": "Retorno confirmado para a defesa do título."
+    }
+   ]
+  },
+  "Frances Tiafoe": {
+   "status": "amarelo",
+   "status_auto": "amarelo",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-02"
+    }
+   ],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 8,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
   "Qinwen Zheng": {
    "status": "amarelo",
    "status_auto": "verde",
@@ -55,39 +88,6 @@
     {
      "tipo": "ret",
      "data": "2026-07-27"
-    }
-   ],
-   "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 8,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Carlos Alcaraz": {
-   "status": "amarelo",
-   "status_auto": "verde",
-   "sinais_auto": [],
-   "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 8,
-   "area": "punho direito",
-   "resumo": "Defende o título após confirmar retorno de lesão no punho direito na preparação para o US Open.",
-   "eventos": [
-    {
-     "data": "2026-08-20",
-     "tipo": "retorno",
-     "torneio": "—",
-     "area": "punho dir.",
-     "nota": "Retorno confirmado para a defesa do título."
-    }
-   ]
-  },
-  "Frances Tiafoe": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-08-02"
     }
    ],
    "ultimo_jogo": "2026-08-31",
