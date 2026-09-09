@@ -1,6 +1,21 @@
 {
  "gerado_em": "2026-09-09",
  "jogadores": {
+  "Anastasiya Soboleva": {
+   "status": "amarelo",
+   "status_auto": "amarelo",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-07-27"
+    }
+   ],
+   "ultimo_jogo": "2026-09-07",
+   "dias_sem_jogar": 2,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
   "Carlos Alcaraz": {
    "status": "amarelo",
    "status_auto": "verde",
@@ -77,21 +92,6 @@
    ],
    "ultimo_jogo": "2026-08-31",
    "dias_sem_jogar": 9,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Anastasiya Soboleva": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-07-27"
-    }
-   ],
-   "ultimo_jogo": "2026-09-07",
-   "dias_sem_jogar": 2,
    "area": "",
    "resumo": "",
    "eventos": []
