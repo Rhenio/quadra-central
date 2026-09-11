@@ -1,8 +1,686 @@
 {
- "gerado_em": "2026-09-11T15:10:49+00:00",
+ "gerado_em": "2026-09-11T18:19:54+00:00",
  "ano": 2026,
  "falhas": [],
  "players": {
+  "Frances Tiafoe": {
+   "slug": "FrancesTiafoe",
+   "tour": "atp",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=FrancesTiafoe",
+   "ano": 2026,
+   "jogos": {
+    "v": 18,
+    "d": 5,
+    "por_quadra": {
+     "Dura": {
+      "v": 11,
+      "d": 4
+     },
+     "Grama": {
+      "v": 7,
+      "d": 1
+     }
+    }
+   },
+   "forma_ult10": [
+    "W",
+    "W",
+    "W",
+    "W",
+    "W",
+    "W",
+    "W",
+    "W",
+    "W",
+    "W"
+   ],
+   "jogos_recentes": [
+    [
+     "20260802",
+     "Arthur Rinderknech",
+     "6-2 2-0 RET",
+     "L"
+    ],
+    [
+     "20260802",
+     "Marin Cilic",
+     "5-7 6-2 6-2",
+     "W"
+    ],
+    [
+     "20260813",
+     "Arthur Fils",
+     "6-3 1-6 6-0",
+     "L"
+    ],
+    [
+     "20260813",
+     "Brandon Nakashima",
+     "7-5 6-3",
+     "W"
+    ],
+    [
+     "20260813",
+     "Lorenzo Musetti",
+     "7-6(2) 7-5",
+     "W"
+    ],
+    [
+     "20260813",
+     "Felix Auger Aliassime",
+     "6-3 6-4",
+     "W"
+    ],
+    [
+     "20260813",
+     "Learner Tien",
+     "6-4 4-6 6-4",
+     "W"
+    ],
+    [
+     "20260813",
+     "Lorenzo Sonego",
+     "6-3 6-4",
+     "W"
+    ],
+    [
+     "20260831",
+     "Alex Michelsen",
+     "5-7 3-6 7-5 6-3 7-6(6)",
+     "W"
+    ],
+    [
+     "20260831",
+     "Daniil Medvedev",
+     "7-6(1) 6-4 7-6(6)",
+     "W"
+    ],
+    [
+     "20260831",
+     "Valentin Vacherot",
+     "6-4 6-2 6-4",
+     "W"
+    ],
+    [
+     "20260831",
+     "Rei Sakamoto",
+     "6-3 7-6(2) 7-5",
+     "W"
+    ],
+    [
+     "20260831",
+     "Martin Damm",
+     "6-4 4-6 3-6 6-3 6-4",
+     "W"
+    ]
+   ],
+   "melhores_vitorias": [
+    {
+     "data": "15/06",
+     "torneio": "Halle",
+     "round": "QF",
+     "adversario": "Felix Auger Aliassime",
+     "rank_adv": 4,
+     "placar": "3-6 6-3 7-6(12)"
+    },
+    {
+     "data": "13/08",
+     "torneio": "Cincinnati Masters",
+     "round": "R16",
+     "adversario": "Felix Auger Aliassime",
+     "rank_adv": 4,
+     "placar": "6-3 6-4"
+    },
+    {
+     "data": "31/08",
+     "torneio": "US Open",
+     "round": "R16",
+     "adversario": "Daniil Medvedev",
+     "rank_adv": 8,
+     "placar": "7-6(1) 6-4 7-6(6)"
+    }
+   ],
+   "piores_derrotas": [
+    {
+     "data": "27/07",
+     "torneio": "Washington",
+     "round": "R32",
+     "adversario": "Terence Atmane",
+     "rank_adv": 56,
+     "placar": "4-6 6-3 6-4"
+    },
+    {
+     "data": "02/08",
+     "torneio": "Canada Masters",
+     "round": "R32",
+     "adversario": "Arthur Rinderknech",
+     "rank_adv": 29,
+     "placar": "6-2 2-0 RET"
+    },
+    {
+     "data": "13/08",
+     "torneio": "Cincinnati Masters",
+     "round": "F",
+     "adversario": "Arthur Fils",
+     "rank_adv": 21,
+     "placar": "6-3 1-6 6-0"
+    }
+   ],
+   "saque": {
+    "jogos_com_stats": 18,
+    "aces_pct": 7.8,
+    "df_pct": 3.0,
+    "1st_in_pct": 56.7,
+    "1st_won_pct": 76.8,
+    "2nd_won_pct": 56.2,
+    "spw_pct": 68.0,
+    "hold_pct": null,
+    "bp_salvos_pct": 71.8
+   },
+   "devolucao": {
+    "rpw_pct": null,
+    "vs_1st_pct": null,
+    "vs_2nd_pct": null,
+    "brk_pct": null,
+    "bp_convertidos_pct": null
+   },
+   "_atualizado": "2026-09-11"
+  },
+  "Ben Shelton": {
+   "slug": "BenShelton",
+   "tour": "atp",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=BenShelton",
+   "ano": 2026,
+   "jogos": {
+    "v": 18,
+    "d": 4,
+    "por_quadra": {
+     "Dura": {
+      "v": 14,
+      "d": 2
+     },
+     "Saibro": {
+      "v": 1,
+      "d": 0
+     },
+     "Grama": {
+      "v": 3,
+      "d": 2
+     }
+    }
+   },
+   "forma_ult10": [
+    "W",
+    "W",
+    "W",
+    "W",
+    "L",
+    "W",
+    "W",
+    "W",
+    "W",
+    "W"
+   ],
+   "jogos_recentes": [
+    [
+     "20260802",
+     "Brandon Nakashima",
+     "6-3 7-6(4)",
+     "W"
+    ],
+    [
+     "20260802",
+     "Learner Tien",
+     "6-2 6-3",
+     "W"
+    ],
+    [
+     "20260802",
+     "Jakub Mensik",
+     "6-3 6-1",
+     "W"
+    ],
+    [
+     "20260802",
+     "Joao Fonseca",
+     "6-3 7-6(3)",
+     "W"
+    ],
+    [
+     "20260802",
+     "Zizou Bergs",
+     "6-3 6-2",
+     "W"
+    ],
+    [
+     "20260802",
+     "Jenson Brooksby",
+     "6-3 7-5",
+     "W"
+    ],
+    [
+     "20260813",
+     "Jaime Faria",
+     "6-4 6-4",
+     "L"
+    ],
+    [
+     "20260831",
+     "Carlos Alcaraz",
+     "6-7(5) 6-1 6-3 1-6 7-6(7)",
+     "W"
+    ],
+    [
+     "20260831",
+     "Stefanos Tsitsipas",
+     "6-2 6-3 6-4",
+     "W"
+    ],
+    [
+     "20260831",
+     "Denis Shapovalov",
+     "7-6(3) 6-7(5) 6-3 6-4",
+     "W"
+    ],
+    [
+     "20260831",
+     "Hubert Hurkacz",
+     "6-3 5-7 7-6(3) 7-5",
+     "W"
+    ],
+    [
+     "20260831",
+     "Tallon Griekspoor",
+     "1-6 6-1 7-6(3) 6-2",
+     "W"
+    ]
+   ],
+   "melhores_vitorias": [
+    {
+     "data": "31/08",
+     "torneio": "US Open",
+     "round": "QF",
+     "adversario": "Carlos Alcaraz",
+     "rank_adv": 3,
+     "placar": "6-7(5) 6-1 6-3 1-6 7-6(7)"
+    },
+    {
+     "data": "09/02",
+     "torneio": "Dallas",
+     "round": "F",
+     "adversario": "Taylor Fritz",
+     "rank_adv": 7,
+     "placar": "3-6 6-3 7-5"
+    },
+    {
+     "data": "08/06",
+     "torneio": "Stuttgart",
+     "round": "F",
+     "adversario": "Taylor Fritz",
+     "rank_adv": 9,
+     "placar": "6-4 2-6 6-4"
+    }
+   ],
+   "piores_derrotas": [
+    {
+     "data": "29/06",
+     "torneio": "Wimbledon",
+     "round": "R128",
+     "adversario": "Otto Virtanen",
+     "rank_adv": 140,
+     "placar": "6-4 3-6 6-7(8) 6-2 7-6(9)"
+    },
+    {
+     "data": "13/08",
+     "torneio": "Cincinnati Masters",
+     "round": "R64",
+     "adversario": "Jaime Faria",
+     "rank_adv": 79,
+     "placar": "6-4 6-4"
+    },
+    {
+     "data": "27/07",
+     "torneio": "Washington",
+     "round": "QF",
+     "adversario": "Alejandro Tabilo",
+     "rank_adv": 30,
+     "placar": "4-6 7-5 6-4"
+    }
+   ],
+   "saque": {
+    "jogos_com_stats": 17,
+    "aces_pct": 9.8,
+    "df_pct": 3.4,
+    "1st_in_pct": 66.6,
+    "1st_won_pct": 78.5,
+    "2nd_won_pct": 55.5,
+    "spw_pct": 70.7,
+    "hold_pct": null,
+    "bp_salvos_pct": 70.9
+   },
+   "devolucao": {
+    "rpw_pct": null,
+    "vs_1st_pct": null,
+    "vs_2nd_pct": null,
+    "brk_pct": null,
+    "bp_convertidos_pct": null
+   },
+   "_atualizado": "2026-09-11"
+  },
+  "Karen Khachanov": {
+   "slug": "KarenKhachanov",
+   "tour": "atp",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=KarenKhachanov",
+   "ano": 2026,
+   "jogos": {
+    "v": 13,
+    "d": 8,
+    "por_quadra": {
+     "Saibro": {
+      "v": 6,
+      "d": 3
+     },
+     "Grama": {
+      "v": 2,
+      "d": 2
+     },
+     "Dura": {
+      "v": 5,
+      "d": 3
+     }
+    }
+   },
+   "forma_ult10": [
+    "W",
+    "W",
+    "L",
+    "L",
+    "L",
+    "W",
+    "W",
+    "W",
+    "W",
+    "W"
+   ],
+   "jogos_recentes": [
+    [
+     "20260802",
+     "Terence Atmane",
+     "6-4 7-6(3)",
+     "L"
+    ],
+    [
+     "20260813",
+     "Aleksandar Kovacevic",
+     "5-7 6-3 7-6(2)",
+     "L"
+    ],
+    [
+     "20260831",
+     "Alexander Blockx",
+     "6-2 7-5 3-2 RET",
+     "W"
+    ],
+    [
+     "20260831",
+     "Learner Tien",
+     "7-5 4-6 6-7(6) 6-1 6-4",
+     "W"
+    ],
+    [
+     "20260831",
+     "Benjamin Bonzi",
+     "6-3 6-2 6-4",
+     "W"
+    ],
+    [
+     "20260831",
+     "Felix Auger Aliassime",
+     "6-7(5) 6-3 6-2 6-2",
+     "W"
+    ],
+    [
+     "20260831",
+     "Roman Andres Burruchaga",
+     "6-3 6-0 6-1",
+     "W"
+    ]
+   ],
+   "melhores_vitorias": [
+    {
+     "data": "31/08",
+     "torneio": "US Open",
+     "round": "R64",
+     "adversario": "Felix Auger Aliassime",
+     "rank_adv": 4,
+     "placar": "6-7(5) 6-3 6-2 6-2"
+    },
+    {
+     "data": "31/08",
+     "torneio": "US Open",
+     "round": "R16",
+     "adversario": "Learner Tien",
+     "rank_adv": 15,
+     "placar": "7-5 4-6 6-7(6) 6-1 6-4"
+    },
+    {
+     "data": "31/08",
+     "torneio": "US Open",
+     "round": "QF",
+     "adversario": "Alexander Blockx",
+     "rank_adv": 34,
+     "placar": "6-2 7-5 3-2 RET"
+    }
+   ],
+   "piores_derrotas": [
+    {
+     "data": "27/07",
+     "torneio": "Los Cabos",
+     "round": "R16",
+     "adversario": "Bernard Tomic",
+     "rank_adv": 171,
+     "placar": "6-2 6-4"
+    },
+    {
+     "data": "25/05",
+     "torneio": "Roland Garros",
+     "round": "R32",
+     "adversario": "Jesper De Jong",
+     "rank_adv": 106,
+     "placar": "7-5 5-7 6-2 6-7(2) 6-2"
+    },
+    {
+     "data": "13/08",
+     "torneio": "Cincinnati Masters",
+     "round": "R128",
+     "adversario": "Aleksandar Kovacevic",
+     "rank_adv": 96,
+     "placar": "5-7 6-3 7-6(2)"
+    }
+   ],
+   "saque": {
+    "jogos_com_stats": 13,
+    "aces_pct": 7.8,
+    "df_pct": 2.5,
+    "1st_in_pct": 62.3,
+    "1st_won_pct": 72.6,
+    "2nd_won_pct": 53.5,
+    "spw_pct": 65.3,
+    "hold_pct": null,
+    "bp_salvos_pct": 72.4
+   },
+   "devolucao": {
+    "rpw_pct": null,
+    "vs_1st_pct": null,
+    "vs_2nd_pct": null,
+    "brk_pct": null,
+    "bp_convertidos_pct": null
+   },
+   "_atualizado": "2026-09-11"
+  },
+  "Alexander Zverev": {
+   "slug": "AlexanderZverev",
+   "tour": "atp",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=AlexanderZverev",
+   "ano": 2026,
+   "jogos": {
+    "v": 17,
+    "d": 5,
+    "por_quadra": {
+     "Saibro": {
+      "v": 1,
+      "d": 1
+     },
+     "Grama": {
+      "v": 9,
+      "d": 2
+     },
+     "Dura": {
+      "v": 7,
+      "d": 2
+     }
+    }
+   },
+   "forma_ult10": [
+    "W",
+    "L",
+    "L",
+    "W",
+    "W",
+    "W",
+    "W",
+    "W",
+    "W",
+    "W"
+   ],
+   "jogos_recentes": [
+    [
+     "20260802",
+     "Tallon Griekspoor",
+     "6-7(3) 6-2 6-4",
+     "L"
+    ],
+    [
+     "20260813",
+     "Tommy Paul",
+     "4-6 7-6(6) 6-4",
+     "L"
+    ],
+    [
+     "20260813",
+     "Terence Atmane",
+     "7-6(4) 7-6(6)",
+     "W"
+    ],
+    [
+     "20260813",
+     "Cameron Norrie",
+     "3-6 6-3 6-3",
+     "W"
+    ],
+    [
+     "20260831",
+     "Botic Van De Zandschulp",
+     "6-2 7-5 6-1",
+     "W"
+    ],
+    [
+     "20260831",
+     "Luciano Darderi",
+     "6-2 6-2 7-6(3)",
+     "W"
+    ],
+    [
+     "20260831",
+     "Alejandro Tabilo",
+     "6-2 7-6(2) 6-2",
+     "W"
+    ],
+    [
+     "20260831",
+     "Quentin Halys",
+     "6-4 4-6 7-6(3) 6-7(3) 6-3",
+     "W"
+    ],
+    [
+     "20260831",
+     "Lorenzo Sonego",
+     "6-4 3-6 6-7(7) 7-5 6-4",
+     "W"
+    ]
+   ],
+   "melhores_vitorias": [
+    {
+     "data": "29/06",
+     "torneio": "Wimbledon",
+     "round": "QF",
+     "adversario": "Taylor Fritz",
+     "rank_adv": 7,
+     "placar": "6-4 6-4 6-2"
+    },
+    {
+     "data": "25/05",
+     "torneio": "Roland Garros",
+     "round": "F",
+     "adversario": "Flavio Cobolli",
+     "rank_adv": 14,
+     "placar": "6-1 4-6 6-4 6-7(5) 6-1"
+    },
+    {
+     "data": "29/06",
+     "torneio": "Wimbledon",
+     "round": "R16",
+     "adversario": "Jiri Lehecka",
+     "rank_adv": 14,
+     "placar": "6-4 7-5 3-6 7-6(6)"
+    }
+   ],
+   "piores_derrotas": [
+    {
+     "data": "02/08",
+     "torneio": "Canada Masters",
+     "round": "R64",
+     "adversario": "Tallon Griekspoor",
+     "rank_adv": 69,
+     "placar": "6-7(3) 6-2 6-4"
+    },
+    {
+     "data": "13/08",
+     "torneio": "Cincinnati Masters",
+     "round": "R16",
+     "adversario": "Tommy Paul",
+     "rank_adv": 24,
+     "placar": "4-6 7-6(6) 6-4"
+    },
+    {
+     "data": "15/06",
+     "torneio": "Halle",
+     "round": "SF",
+     "adversario": "Taylor Fritz",
+     "rank_adv": 9,
+     "placar": "6-7(4) 6-4 7-5"
+    }
+   ],
+   "saque": {
+    "jogos_com_stats": 16,
+    "aces_pct": 14.2,
+    "df_pct": 3.3,
+    "1st_in_pct": 71.0,
+    "1st_won_pct": 78.8,
+    "2nd_won_pct": 57.2,
+    "spw_pct": 72.3,
+    "hold_pct": null,
+    "bp_salvos_pct": 59.6
+   },
+   "devolucao": {
+    "rpw_pct": null,
+    "vs_1st_pct": null,
+    "vs_2nd_pct": null,
+    "brk_pct": null,
+    "bp_convertidos_pct": null
+   },
+   "_atualizado": "2026-09-11"
+  },
   "Aryna Sabalenka": {
    "slug": "ArynaSabalenka",
    "tour": "wta",
@@ -187,189 +865,6 @@
     "vs_2nd_pct": 56.6,
     "brk_pct": 36.1,
     "bp_convertidos_pct": 43.0
-   },
-   "_atualizado": "2026-09-11"
-  },
-  "Frances Tiafoe": {
-   "slug": "FrancesTiafoe",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=FrancesTiafoe",
-   "ano": 2026,
-   "jogos": {
-    "v": 18,
-    "d": 5,
-    "por_quadra": {
-     "Dura": {
-      "v": 11,
-      "d": 4
-     },
-     "Grama": {
-      "v": 7,
-      "d": 1
-     }
-    }
-   },
-   "forma_ult10": [
-    "W",
-    "W",
-    "W",
-    "W",
-    "W",
-    "W",
-    "W",
-    "W",
-    "W",
-    "W"
-   ],
-   "jogos_recentes": [
-    [
-     "20260802",
-     "Arthur Rinderknech",
-     "6-2 2-0 RET",
-     "L"
-    ],
-    [
-     "20260802",
-     "Marin Cilic",
-     "5-7 6-2 6-2",
-     "W"
-    ],
-    [
-     "20260813",
-     "Arthur Fils",
-     "6-3 1-6 6-0",
-     "L"
-    ],
-    [
-     "20260813",
-     "Brandon Nakashima",
-     "7-5 6-3",
-     "W"
-    ],
-    [
-     "20260813",
-     "Lorenzo Musetti",
-     "7-6(2) 7-5",
-     "W"
-    ],
-    [
-     "20260813",
-     "Felix Auger Aliassime",
-     "6-3 6-4",
-     "W"
-    ],
-    [
-     "20260813",
-     "Learner Tien",
-     "6-4 4-6 6-4",
-     "W"
-    ],
-    [
-     "20260813",
-     "Lorenzo Sonego",
-     "6-3 6-4",
-     "W"
-    ],
-    [
-     "20260831",
-     "Alex Michelsen",
-     "5-7 3-6 7-5 6-3 7-6(6)",
-     "W"
-    ],
-    [
-     "20260831",
-     "Daniil Medvedev",
-     "7-6(1) 6-4 7-6(6)",
-     "W"
-    ],
-    [
-     "20260831",
-     "Valentin Vacherot",
-     "6-4 6-2 6-4",
-     "W"
-    ],
-    [
-     "20260831",
-     "Rei Sakamoto",
-     "6-3 7-6(2) 7-5",
-     "W"
-    ],
-    [
-     "20260831",
-     "Martin Damm",
-     "6-4 4-6 3-6 6-3 6-4",
-     "W"
-    ]
-   ],
-   "melhores_vitorias": [
-    {
-     "data": "15/06",
-     "torneio": "Halle",
-     "round": "QF",
-     "adversario": "Felix Auger Aliassime",
-     "rank_adv": 4,
-     "placar": "3-6 6-3 7-6(12)"
-    },
-    {
-     "data": "13/08",
-     "torneio": "Cincinnati Masters",
-     "round": "R16",
-     "adversario": "Felix Auger Aliassime",
-     "rank_adv": 4,
-     "placar": "6-3 6-4"
-    },
-    {
-     "data": "31/08",
-     "torneio": "US Open",
-     "round": "R16",
-     "adversario": "Daniil Medvedev",
-     "rank_adv": 8,
-     "placar": "7-6(1) 6-4 7-6(6)"
-    }
-   ],
-   "piores_derrotas": [
-    {
-     "data": "27/07",
-     "torneio": "Washington",
-     "round": "R32",
-     "adversario": "Terence Atmane",
-     "rank_adv": 56,
-     "placar": "4-6 6-3 6-4"
-    },
-    {
-     "data": "02/08",
-     "torneio": "Canada Masters",
-     "round": "R32",
-     "adversario": "Arthur Rinderknech",
-     "rank_adv": 29,
-     "placar": "6-2 2-0 RET"
-    },
-    {
-     "data": "13/08",
-     "torneio": "Cincinnati Masters",
-     "round": "F",
-     "adversario": "Arthur Fils",
-     "rank_adv": 21,
-     "placar": "6-3 1-6 6-0"
-    }
-   ],
-   "saque": {
-    "jogos_com_stats": 18,
-    "aces_pct": 7.8,
-    "df_pct": 3.0,
-    "1st_in_pct": 56.7,
-    "1st_won_pct": 76.8,
-    "2nd_won_pct": 56.2,
-    "spw_pct": 68.0,
-    "hold_pct": null,
-    "bp_salvos_pct": 71.8
-   },
-   "devolucao": {
-    "rpw_pct": null,
-    "vs_1st_pct": null,
-    "vs_2nd_pct": null,
-    "brk_pct": null,
-    "bp_convertidos_pct": null
    },
    "_atualizado": "2026-09-11"
   },
@@ -569,187 +1064,6 @@
     "vs_2nd_pct": 56.0,
     "brk_pct": 37.9,
     "bp_convertidos_pct": 43.4
-   },
-   "_atualizado": "2026-09-11"
-  },
-  "Ben Shelton": {
-   "slug": "BenShelton",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=BenShelton",
-   "ano": 2026,
-   "jogos": {
-    "v": 18,
-    "d": 4,
-    "por_quadra": {
-     "Dura": {
-      "v": 14,
-      "d": 2
-     },
-     "Saibro": {
-      "v": 1,
-      "d": 0
-     },
-     "Grama": {
-      "v": 3,
-      "d": 2
-     }
-    }
-   },
-   "forma_ult10": [
-    "W",
-    "W",
-    "W",
-    "W",
-    "L",
-    "W",
-    "W",
-    "W",
-    "W",
-    "W"
-   ],
-   "jogos_recentes": [
-    [
-     "20260802",
-     "Brandon Nakashima",
-     "6-3 7-6(4)",
-     "W"
-    ],
-    [
-     "20260802",
-     "Learner Tien",
-     "6-2 6-3",
-     "W"
-    ],
-    [
-     "20260802",
-     "Jakub Mensik",
-     "6-3 6-1",
-     "W"
-    ],
-    [
-     "20260802",
-     "Joao Fonseca",
-     "6-3 7-6(3)",
-     "W"
-    ],
-    [
-     "20260802",
-     "Zizou Bergs",
-     "6-3 6-2",
-     "W"
-    ],
-    [
-     "20260802",
-     "Jenson Brooksby",
-     "6-3 7-5",
-     "W"
-    ],
-    [
-     "20260813",
-     "Jaime Faria",
-     "6-4 6-4",
-     "L"
-    ],
-    [
-     "20260831",
-     "Carlos Alcaraz",
-     "6-7(5) 6-1 6-3 1-6 7-6(7)",
-     "W"
-    ],
-    [
-     "20260831",
-     "Stefanos Tsitsipas",
-     "6-2 6-3 6-4",
-     "W"
-    ],
-    [
-     "20260831",
-     "Denis Shapovalov",
-     "7-6(3) 6-7(5) 6-3 6-4",
-     "W"
-    ],
-    [
-     "20260831",
-     "Hubert Hurkacz",
-     "6-3 5-7 7-6(3) 7-5",
-     "W"
-    ],
-    [
-     "20260831",
-     "Tallon Griekspoor",
-     "1-6 6-1 7-6(3) 6-2",
-     "W"
-    ]
-   ],
-   "melhores_vitorias": [
-    {
-     "data": "31/08",
-     "torneio": "US Open",
-     "round": "QF",
-     "adversario": "Carlos Alcaraz",
-     "rank_adv": 3,
-     "placar": "6-7(5) 6-1 6-3 1-6 7-6(7)"
-    },
-    {
-     "data": "09/02",
-     "torneio": "Dallas",
-     "round": "F",
-     "adversario": "Taylor Fritz",
-     "rank_adv": 7,
-     "placar": "3-6 6-3 7-5"
-    },
-    {
-     "data": "08/06",
-     "torneio": "Stuttgart",
-     "round": "F",
-     "adversario": "Taylor Fritz",
-     "rank_adv": 9,
-     "placar": "6-4 2-6 6-4"
-    }
-   ],
-   "piores_derrotas": [
-    {
-     "data": "29/06",
-     "torneio": "Wimbledon",
-     "round": "R128",
-     "adversario": "Otto Virtanen",
-     "rank_adv": 140,
-     "placar": "6-4 3-6 6-7(8) 6-2 7-6(9)"
-    },
-    {
-     "data": "13/08",
-     "torneio": "Cincinnati Masters",
-     "round": "R64",
-     "adversario": "Jaime Faria",
-     "rank_adv": 79,
-     "placar": "6-4 6-4"
-    },
-    {
-     "data": "27/07",
-     "torneio": "Washington",
-     "round": "QF",
-     "adversario": "Alejandro Tabilo",
-     "rank_adv": 30,
-     "placar": "4-6 7-5 6-4"
-    }
-   ],
-   "saque": {
-    "jogos_com_stats": 17,
-    "aces_pct": 9.8,
-    "df_pct": 3.4,
-    "1st_in_pct": 66.6,
-    "1st_won_pct": 78.5,
-    "2nd_won_pct": 55.5,
-    "spw_pct": 70.7,
-    "hold_pct": null,
-    "bp_salvos_pct": 70.9
-   },
-   "devolucao": {
-    "rpw_pct": null,
-    "vs_1st_pct": null,
-    "vs_2nd_pct": null,
-    "brk_pct": null,
-    "bp_convertidos_pct": null
    },
    "_atualizado": "2026-09-11"
   },
@@ -1305,320 +1619,6 @@
     "vs_2nd_pct": 56.4,
     "brk_pct": 43.3,
     "bp_convertidos_pct": 45.4
-   },
-   "_atualizado": "2026-09-11"
-  },
-  "Karen Khachanov": {
-   "slug": "KarenKhachanov",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=KarenKhachanov",
-   "ano": 2026,
-   "jogos": {
-    "v": 13,
-    "d": 8,
-    "por_quadra": {
-     "Saibro": {
-      "v": 6,
-      "d": 3
-     },
-     "Grama": {
-      "v": 2,
-      "d": 2
-     },
-     "Dura": {
-      "v": 5,
-      "d": 3
-     }
-    }
-   },
-   "forma_ult10": [
-    "W",
-    "W",
-    "L",
-    "L",
-    "L",
-    "W",
-    "W",
-    "W",
-    "W",
-    "W"
-   ],
-   "jogos_recentes": [
-    [
-     "20260802",
-     "Terence Atmane",
-     "6-4 7-6(3)",
-     "L"
-    ],
-    [
-     "20260813",
-     "Aleksandar Kovacevic",
-     "5-7 6-3 7-6(2)",
-     "L"
-    ],
-    [
-     "20260831",
-     "Alexander Blockx",
-     "6-2 7-5 3-2 RET",
-     "W"
-    ],
-    [
-     "20260831",
-     "Learner Tien",
-     "7-5 4-6 6-7(6) 6-1 6-4",
-     "W"
-    ],
-    [
-     "20260831",
-     "Benjamin Bonzi",
-     "6-3 6-2 6-4",
-     "W"
-    ],
-    [
-     "20260831",
-     "Felix Auger Aliassime",
-     "6-7(5) 6-3 6-2 6-2",
-     "W"
-    ],
-    [
-     "20260831",
-     "Roman Andres Burruchaga",
-     "6-3 6-0 6-1",
-     "W"
-    ]
-   ],
-   "melhores_vitorias": [
-    {
-     "data": "31/08",
-     "torneio": "US Open",
-     "round": "R64",
-     "adversario": "Felix Auger Aliassime",
-     "rank_adv": 4,
-     "placar": "6-7(5) 6-3 6-2 6-2"
-    },
-    {
-     "data": "31/08",
-     "torneio": "US Open",
-     "round": "R16",
-     "adversario": "Learner Tien",
-     "rank_adv": 15,
-     "placar": "7-5 4-6 6-7(6) 6-1 6-4"
-    },
-    {
-     "data": "31/08",
-     "torneio": "US Open",
-     "round": "QF",
-     "adversario": "Alexander Blockx",
-     "rank_adv": 34,
-     "placar": "6-2 7-5 3-2 RET"
-    }
-   ],
-   "piores_derrotas": [
-    {
-     "data": "27/07",
-     "torneio": "Los Cabos",
-     "round": "R16",
-     "adversario": "Bernard Tomic",
-     "rank_adv": 171,
-     "placar": "6-2 6-4"
-    },
-    {
-     "data": "25/05",
-     "torneio": "Roland Garros",
-     "round": "R32",
-     "adversario": "Jesper De Jong",
-     "rank_adv": 106,
-     "placar": "7-5 5-7 6-2 6-7(2) 6-2"
-    },
-    {
-     "data": "13/08",
-     "torneio": "Cincinnati Masters",
-     "round": "R128",
-     "adversario": "Aleksandar Kovacevic",
-     "rank_adv": 96,
-     "placar": "5-7 6-3 7-6(2)"
-    }
-   ],
-   "saque": {
-    "jogos_com_stats": 13,
-    "aces_pct": 7.8,
-    "df_pct": 2.5,
-    "1st_in_pct": 62.3,
-    "1st_won_pct": 72.6,
-    "2nd_won_pct": 53.5,
-    "spw_pct": 65.3,
-    "hold_pct": null,
-    "bp_salvos_pct": 72.4
-   },
-   "devolucao": {
-    "rpw_pct": null,
-    "vs_1st_pct": null,
-    "vs_2nd_pct": null,
-    "brk_pct": null,
-    "bp_convertidos_pct": null
-   },
-   "_atualizado": "2026-09-11"
-  },
-  "Alexander Zverev": {
-   "slug": "AlexanderZverev",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=AlexanderZverev",
-   "ano": 2026,
-   "jogos": {
-    "v": 17,
-    "d": 5,
-    "por_quadra": {
-     "Saibro": {
-      "v": 1,
-      "d": 1
-     },
-     "Grama": {
-      "v": 9,
-      "d": 2
-     },
-     "Dura": {
-      "v": 7,
-      "d": 2
-     }
-    }
-   },
-   "forma_ult10": [
-    "W",
-    "L",
-    "L",
-    "W",
-    "W",
-    "W",
-    "W",
-    "W",
-    "W",
-    "W"
-   ],
-   "jogos_recentes": [
-    [
-     "20260802",
-     "Tallon Griekspoor",
-     "6-7(3) 6-2 6-4",
-     "L"
-    ],
-    [
-     "20260813",
-     "Tommy Paul",
-     "4-6 7-6(6) 6-4",
-     "L"
-    ],
-    [
-     "20260813",
-     "Terence Atmane",
-     "7-6(4) 7-6(6)",
-     "W"
-    ],
-    [
-     "20260813",
-     "Cameron Norrie",
-     "3-6 6-3 6-3",
-     "W"
-    ],
-    [
-     "20260831",
-     "Botic Van De Zandschulp",
-     "6-2 7-5 6-1",
-     "W"
-    ],
-    [
-     "20260831",
-     "Luciano Darderi",
-     "6-2 6-2 7-6(3)",
-     "W"
-    ],
-    [
-     "20260831",
-     "Alejandro Tabilo",
-     "6-2 7-6(2) 6-2",
-     "W"
-    ],
-    [
-     "20260831",
-     "Quentin Halys",
-     "6-4 4-6 7-6(3) 6-7(3) 6-3",
-     "W"
-    ],
-    [
-     "20260831",
-     "Lorenzo Sonego",
-     "6-4 3-6 6-7(7) 7-5 6-4",
-     "W"
-    ]
-   ],
-   "melhores_vitorias": [
-    {
-     "data": "29/06",
-     "torneio": "Wimbledon",
-     "round": "QF",
-     "adversario": "Taylor Fritz",
-     "rank_adv": 7,
-     "placar": "6-4 6-4 6-2"
-    },
-    {
-     "data": "25/05",
-     "torneio": "Roland Garros",
-     "round": "F",
-     "adversario": "Flavio Cobolli",
-     "rank_adv": 14,
-     "placar": "6-1 4-6 6-4 6-7(5) 6-1"
-    },
-    {
-     "data": "29/06",
-     "torneio": "Wimbledon",
-     "round": "R16",
-     "adversario": "Jiri Lehecka",
-     "rank_adv": 14,
-     "placar": "6-4 7-5 3-6 7-6(6)"
-    }
-   ],
-   "piores_derrotas": [
-    {
-     "data": "02/08",
-     "torneio": "Canada Masters",
-     "round": "R64",
-     "adversario": "Tallon Griekspoor",
-     "rank_adv": 69,
-     "placar": "6-7(3) 6-2 6-4"
-    },
-    {
-     "data": "13/08",
-     "torneio": "Cincinnati Masters",
-     "round": "R16",
-     "adversario": "Tommy Paul",
-     "rank_adv": 24,
-     "placar": "4-6 7-6(6) 6-4"
-    },
-    {
-     "data": "15/06",
-     "torneio": "Halle",
-     "round": "SF",
-     "adversario": "Taylor Fritz",
-     "rank_adv": 9,
-     "placar": "6-7(4) 6-4 7-5"
-    }
-   ],
-   "saque": {
-    "jogos_com_stats": 16,
-    "aces_pct": 14.2,
-    "df_pct": 3.3,
-    "1st_in_pct": 71.0,
-    "1st_won_pct": 78.8,
-    "2nd_won_pct": 57.2,
-    "spw_pct": 72.3,
-    "hold_pct": null,
-    "bp_salvos_pct": 59.6
-   },
-   "devolucao": {
-    "rpw_pct": null,
-    "vs_1st_pct": null,
-    "vs_2nd_pct": null,
-    "brk_pct": null,
-    "bp_convertidos_pct": null
    },
    "_atualizado": "2026-09-11"
   },
