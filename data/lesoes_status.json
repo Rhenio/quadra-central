@@ -16,21 +16,6 @@
    "resumo": "",
    "eventos": []
   },
-  "Frances Tiafoe": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-08-02"
-    }
-   ],
-   "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 12,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
   "Victoria Bosio": {
    "status": "amarelo",
    "status_auto": "amarelo",
@@ -91,6 +76,21 @@
    ],
    "ultimo_jogo": "2026-08-10",
    "dias_sem_jogar": 33,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Frances Tiafoe": {
+   "status": "amarelo",
+   "status_auto": "amarelo",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-02"
+    }
+   ],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 12,
    "area": "",
    "resumo": "",
    "eventos": []
