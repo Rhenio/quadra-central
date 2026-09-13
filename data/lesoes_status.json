@@ -1,21 +1,6 @@
 {
  "gerado_em": "2026-09-13",
  "jogadores": {
-  "Elena Rybakina": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-08-13"
-    }
-   ],
-   "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 13,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
   "Victoria Bosio": {
    "status": "amarelo",
    "status_auto": "amarelo",
@@ -44,38 +29,6 @@
    ],
    "ultimo_jogo": "2026-08-03",
    "dias_sem_jogar": 41,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Fernanda Labrana": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-08-03",
-     "dias": 41
-    }
-   ],
-   "ultimo_jogo": "2026-08-03",
-   "dias_sem_jogar": 41,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Alana Smith": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-08-10",
-     "dias": 34
-    }
-   ],
-   "ultimo_jogo": "2026-08-10",
-   "dias_sem_jogar": 34,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -203,6 +156,53 @@
    ],
    "ultimo_jogo": "2026-08-31",
    "dias_sem_jogar": 13,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Elena Rybakina": {
+   "status": "amarelo",
+   "status_auto": "amarelo",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-13"
+    }
+   ],
+   "ultimo_jogo": "2026-08-31",
+   "dias_sem_jogar": 13,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Fernanda Labrana": {
+   "status": "amarelo",
+   "status_auto": "amarelo",
+   "sinais_auto": [
+    {
+     "tipo": "gap",
+     "data": "2026-08-03",
+     "dias": 41
+    }
+   ],
+   "ultimo_jogo": "2026-08-03",
+   "dias_sem_jogar": 41,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Alana Smith": {
+   "status": "amarelo",
+   "status_auto": "amarelo",
+   "sinais_auto": [
+    {
+     "tipo": "gap",
+     "data": "2026-08-10",
+     "dias": 34
+    }
+   ],
+   "ultimo_jogo": "2026-08-10",
+   "dias_sem_jogar": 34,
    "area": "",
    "resumo": "",
    "eventos": []
