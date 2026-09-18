@@ -1,21 +1,6 @@
 {
  "gerado_em": "2026-09-18",
  "jogadores": {
-  "Alice Tubello": {
-   "status": "vermelho",
-   "status_auto": "vermelho",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-08-31"
-    }
-   ],
-   "ultimo_jogo": "2026-09-14",
-   "dias_sem_jogar": 4,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
   "Haruka Kaji": {
    "status": "amarelo",
    "status_auto": "amarelo",
@@ -76,6 +61,21 @@
    ],
    "ultimo_jogo": "2026-08-17",
    "dias_sem_jogar": 32,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Alice Tubello": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-31"
+    }
+   ],
+   "ultimo_jogo": "2026-09-14",
+   "dias_sem_jogar": 4,
    "area": "",
    "resumo": "",
    "eventos": []
