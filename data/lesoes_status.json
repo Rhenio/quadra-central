@@ -1,53 +1,6 @@
 {
  "gerado_em": "2026-09-21",
  "jogadores": {
-  "Elena Gabriela Ruse": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-08-13"
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 0,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Valentina Steiner": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-08-17",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-08-17",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Sahaja Yamalapalli": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-08-17",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-08-17",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
   "Naiktha Bains": {
    "status": "amarelo",
    "status_auto": "amarelo",
@@ -76,22 +29,6 @@
    ],
    "ultimo_jogo": "2026-08-17",
    "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Celia Cervino Ruiz": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-08-10",
-     "dias": 42
-    }
-   ],
-   "ultimo_jogo": "2026-08-10",
-   "dias_sem_jogar": 42,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -152,6 +89,21 @@
    ],
    "ultimo_jogo": "2026-09-14",
    "dias_sem_jogar": 7,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Elena Gabriela Ruse": {
+   "status": "amarelo",
+   "status_auto": "amarelo",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-13"
+    }
+   ],
+   "ultimo_jogo": "2026-09-21",
+   "dias_sem_jogar": 0,
    "area": "",
    "resumo": "",
    "eventos": []
