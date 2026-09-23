@@ -1,51 +1,6 @@
 {
  "gerado_em": "2026-09-23",
  "jogadores": {
-  "Omar Jasika": {
-   "status": "vermelho",
-   "status_auto": "vermelho",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-09-14"
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 0,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Elias Ymer": {
-   "status": "vermelho",
-   "status_auto": "vermelho",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-08-31"
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 0,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Luca Castelnuovo": {
-   "status": "vermelho",
-   "status_auto": "vermelho",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-08-31"
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 0,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
   "Nikoloz Basilashvili": {
    "status": "vermelho",
    "status_auto": "vermelho",
@@ -117,6 +72,51 @@
    ],
    "ultimo_jogo": "2026-09-21",
    "dias_sem_jogar": 2,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Omar Jasika": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-09-14"
+    }
+   ],
+   "ultimo_jogo": "2026-09-23",
+   "dias_sem_jogar": 0,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Elias Ymer": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-31"
+    }
+   ],
+   "ultimo_jogo": "2026-09-23",
+   "dias_sem_jogar": 0,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Luca Castelnuovo": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-31"
+    }
+   ],
+   "ultimo_jogo": "2026-09-23",
+   "dias_sem_jogar": 0,
    "area": "",
    "resumo": "",
    "eventos": []
