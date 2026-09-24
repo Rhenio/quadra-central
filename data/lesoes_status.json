@@ -16,6 +16,36 @@
    "resumo": "",
    "eventos": []
   },
+  "Maria Timofeeva": {
+   "status": "amarelo",
+   "status_auto": "amarelo",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-13"
+    }
+   ],
+   "ultimo_jogo": "2026-09-21",
+   "dias_sem_jogar": 3,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Elena-Gabriela Ruse": {
+   "status": "amarelo",
+   "status_auto": "amarelo",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-13"
+    }
+   ],
+   "ultimo_jogo": "2026-09-21",
+   "dias_sem_jogar": 3,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
   "Camilo Ugo Carabelli": {
    "status": "amarelo",
    "status_auto": "amarelo",
@@ -57,21 +87,6 @@
    ],
    "ultimo_jogo": "2026-09-23",
    "dias_sem_jogar": 1,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Maria Timofeeva": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-08-13"
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 3,
    "area": "",
    "resumo": "",
    "eventos": []
