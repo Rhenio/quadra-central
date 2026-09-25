@@ -1,36 +1,6 @@
 {
  "gerado_em": "2026-09-25",
  "jogadores": {
-  "Nikoloz Basilashvili": {
-   "status": "vermelho",
-   "status_auto": "vermelho",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-09-14"
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 2,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Alice Tubello": {
-   "status": "vermelho",
-   "status_auto": "vermelho",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-08-31"
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 4,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
   "Maria Timofeeva": {
    "status": "amarelo",
    "status_auto": "amarelo",
@@ -103,6 +73,52 @@
      "nota": "Sem competir desde julho."
     }
    ]
+  },
+  "Polina Leykina": {
+   "status": "amarelo",
+   "status_auto": "amarelo",
+   "sinais_auto": [
+    {
+     "tipo": "gap",
+     "data": "2026-08-17",
+     "dias": 39
+    }
+   ],
+   "ultimo_jogo": "2026-08-17",
+   "dias_sem_jogar": 39,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Nikoloz Basilashvili": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-09-14"
+    }
+   ],
+   "ultimo_jogo": "2026-09-23",
+   "dias_sem_jogar": 2,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
+  "Alice Tubello": {
+   "status": "vermelho",
+   "status_auto": "vermelho",
+   "sinais_auto": [
+    {
+     "tipo": "ret",
+     "data": "2026-08-31"
+    }
+   ],
+   "ultimo_jogo": "2026-09-21",
+   "dias_sem_jogar": 4,
+   "area": "",
+   "resumo": "",
+   "eventos": []
   },
   "Camilo Ugo Carabelli": {
    "status": "amarelo",
