@@ -16,6 +16,65 @@
    "resumo": "",
    "eventos": []
   },
+  "Hubert Hurkacz": {
+   "status": "amarelo",
+   "status_auto": "verde",
+   "sinais_auto": [],
+   "ultimo_jogo": "2026-09-23",
+   "dias_sem_jogar": 3,
+   "area": "joelho direito (2 cirurgias) / costas + abdômen",
+   "resumo": "RET no R4 de Wimbledon (06/07, costas/abdômen) ainda dentro da janela de 90 dias. Jogou Cincinnati e US Open (perdeu para Shelton no R2) sem novo abandono. Vira verde em 04/10 se nada mudar.",
+   "eventos": [
+    {
+     "data": "2025-07-15",
+     "tipo": "anuncio",
+     "torneio": "—",
+     "area": "joelho dir.",
+     "nota": "Artroscopia; encerrou a temporada 2025."
+    },
+    {
+     "data": "2026-07-06",
+     "tipo": "ret",
+     "torneio": "Wimbledon R4",
+     "area": "costas/abdômen",
+     "nota": "Abandonou contra Struff após liderar por 2 sets a 0."
+    }
+   ]
+  },
+  "Alejandro Davidovich Fokina": {
+   "status": "vermelho",
+   "status_auto": "verde",
+   "sinais_auto": [],
+   "ultimo_jogo": "2026-09-23",
+   "dias_sem_jogar": 3,
+   "area": "costas (persistente)",
+   "resumo": "Fora do US Open por dor persistente nas costas; sem jogos desde julho e sem retorno anunciado.",
+   "eventos": [
+    {
+     "data": "2026-08-20",
+     "tipo": "desistencia_torneio",
+     "torneio": "US Open",
+     "area": "costas",
+     "nota": "Sem competir desde julho."
+    }
+   ]
+  },
+  "Polina Leykina": {
+   "status": "amarelo",
+   "status_auto": "amarelo",
+   "sinais_auto": [
+    {
+     "tipo": "gap",
+     "data": "2026-08-17",
+     "dias": 40
+    }
+   ],
+   "ultimo_jogo": "2026-08-17",
+   "dias_sem_jogar": 40,
+   "area": "",
+   "resumo": "",
+   "eventos": []
+  },
   "Alina Korneeva": {
    "status": "vermelho",
    "status_auto": "vermelho",
@@ -57,65 +116,6 @@
    ],
    "ultimo_jogo": "2026-09-21",
    "dias_sem_jogar": 5,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Hubert Hurkacz": {
-   "status": "amarelo",
-   "status_auto": "verde",
-   "sinais_auto": [],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 3,
-   "area": "joelho direito (2 cirurgias) / costas + abdômen",
-   "resumo": "RET no R4 de Wimbledon (06/07, costas/abdômen) ainda dentro da janela de 90 dias. Jogou Cincinnati e US Open (perdeu para Shelton no R2) sem novo abandono. Vira verde em 04/10 se nada mudar.",
-   "eventos": [
-    {
-     "data": "2025-07-15",
-     "tipo": "anuncio",
-     "torneio": "—",
-     "area": "joelho dir.",
-     "nota": "Artroscopia; encerrou a temporada 2025."
-    },
-    {
-     "data": "2026-07-06",
-     "tipo": "ret",
-     "torneio": "Wimbledon R4",
-     "area": "costas/abdômen",
-     "nota": "Abandonou contra Struff após liderar por 2 sets a 0."
-    }
-   ]
-  },
-  "Alejandro Davidovich Fokina": {
-   "status": "vermelho",
-   "status_auto": "verde",
-   "sinais_auto": [],
-   "ultimo_jogo": null,
-   "dias_sem_jogar": null,
-   "area": "costas (persistente)",
-   "resumo": "Fora do US Open por dor persistente nas costas; sem jogos desde julho e sem retorno anunciado.",
-   "eventos": [
-    {
-     "data": "2026-08-20",
-     "tipo": "desistencia_torneio",
-     "torneio": "US Open",
-     "area": "costas",
-     "nota": "Sem competir desde julho."
-    }
-   ]
-  },
-  "Polina Leykina": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-08-17",
-     "dias": 40
-    }
-   ],
-   "ultimo_jogo": "2026-08-17",
-   "dias_sem_jogar": 40,
    "area": "",
    "resumo": "",
    "eventos": []
