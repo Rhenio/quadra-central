@@ -1,27 +1,169 @@
 {
- "gerado_em": "2026-09-26T18:32:14+00:00",
+ "gerado_em": "2026-09-27T15:47:40+00:00",
  "ano": 2026,
- "falhas": [
-  "Xinyu Wang",
-  "Martin Damm Jr"
- ],
+ "falhas": [],
  "players": {
-  "Hugo Gaston": {
-   "slug": "HugoGaston",
+  "Jenson Brooksby": {
+   "slug": "JensonBrooksby",
    "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=HugoGaston",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=JensonBrooksby",
    "ano": 2026,
    "jogos": {
-    "v": 14,
-    "d": 7,
+    "v": 10,
+    "d": 9,
     "por_quadra": {
-     "Saibro": {
-      "v": 7,
-      "d": 3
+     "Grama": {
+      "v": 4,
+      "d": 4
      },
      "Dura": {
-      "v": 7,
-      "d": 4
+      "v": 6,
+      "d": 5
+     }
+    }
+   },
+   "forma_ult10": [
+    "W",
+    "W",
+    "L",
+    "W",
+    "L",
+    "L",
+    "W",
+    "L",
+    "W",
+    "W"
+   ],
+   "jogos_recentes": [
+    [
+     "20260813",
+     "Jaime Faria",
+     "6-3 6-2",
+     "L"
+    ],
+    [
+     "20260823",
+     "Stefanos Tsitsipas",
+     "6-4 7-6(6)",
+     "L"
+    ],
+    [
+     "20260823",
+     "Giovanni Mpetshi Perricard",
+     "6-3 6-2",
+     "W"
+    ],
+    [
+     "20260831",
+     "Jaime Faria",
+     "6-3 7-6(4) 4-6 1-6 6-2",
+     "L"
+    ],
+    [
+     "20260923",
+     "Lorenzo Sonego",
+     "5-7 7-5 6-2",
+     "W"
+    ],
+    [
+     "20260923",
+     "Sebastian Baez",
+     "7-5 7-5",
+     "W"
+    ]
+   ],
+   "melhores_vitorias": [
+    {
+     "data": "29/06",
+     "torneio": "Wimbledon",
+     "round": "R64",
+     "adversario": "Ignacio Buse",
+     "rank_adv": 34,
+     "placar": "6-2 6-2 6-3"
+    },
+    {
+     "data": "23/09",
+     "torneio": "Chengdu",
+     "round": "R32",
+     "adversario": "Sebastian Baez",
+     "rank_adv": 51,
+     "placar": "7-5 7-5"
+    },
+    {
+     "data": "27/07",
+     "torneio": "Los Cabos",
+     "round": "R32",
+     "adversario": "Corentin Moutet",
+     "rank_adv": 57,
+     "placar": "6-4 6-4"
+    }
+   ],
+   "piores_derrotas": [
+    {
+     "data": "08/06",
+     "torneio": "s Hertogenbosch",
+     "round": "R32",
+     "adversario": "Zhizhen Zhang",
+     "rank_adv": 214,
+     "placar": "7-6(4) 5-7 6-1"
+    },
+    {
+     "data": "27/07",
+     "torneio": "Los Cabos",
+     "round": "QF",
+     "adversario": "Coleman Wong",
+     "rank_adv": 108,
+     "placar": "6-1 7-5"
+    },
+    {
+     "data": "13/08",
+     "torneio": "Cincinnati Masters",
+     "round": "R128",
+     "adversario": "Jaime Faria",
+     "rank_adv": 79,
+     "placar": "6-3 6-2"
+    }
+   ],
+   "saque": {
+    "jogos_com_stats": 19,
+    "aces_pct": 5.3,
+    "df_pct": 1.2,
+    "1st_in_pct": 68.1,
+    "1st_won_pct": 70.8,
+    "2nd_won_pct": 53.1,
+    "spw_pct": 65.1,
+    "hold_pct": null,
+    "bp_salvos_pct": 58.2
+   },
+   "devolucao": {
+    "rpw_pct": null,
+    "vs_1st_pct": null,
+    "vs_2nd_pct": null,
+    "brk_pct": null,
+    "bp_convertidos_pct": null
+   },
+   "_atualizado": "2026-09-27"
+  },
+  "Nikoloz Basilashvili": {
+   "slug": "NikolozBasilashvili",
+   "tour": "atp",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=NikolozBasilashvili",
+   "ano": 2026,
+   "jogos": {
+    "v": 8,
+    "d": 10,
+    "por_quadra": {
+     "Grama": {
+      "v": 2,
+      "d": 2
+     },
+     "Saibro": {
+      "v": 2,
+      "d": 5
+     },
+     "Dura": {
+      "v": 4,
+      "d": 3
      }
     }
    },
@@ -29,9 +171,9 @@
     "L",
     "L",
     "W",
-    "W",
     "L",
-    "W",
+    "L",
+    "L",
     "W",
     "W",
     "W",
@@ -40,125 +182,107 @@
    "jogos_recentes": [
     [
      "20260813",
-     "Nicolai Budkov Kjaer",
-     "6-2 3-6 6-4",
-     "L"
-    ],
-    [
-     "20260818",
-     "Luca Van Assche",
-     "6-4 6-4",
-     "L"
-    ],
-    [
-     "20260818",
-     "Jesper De Jong",
-     "7-6(2) 6-1",
-     "W"
-    ],
-    [
-     "20260818",
-     "Alexei Popyrin",
-     "5-2 RET",
-     "W"
-    ],
-    [
-     "20260831",
-     "Daniil Medvedev",
-     "6-4 6-2 6-4",
-     "L"
-    ],
-    [
-     "20260831",
-     "Colton Smith",
-     "1-6 6-4 6-2",
-     "W"
-    ],
-    [
-     "20260831",
-     "Andre Ilagan",
-     "6-1 6-3",
-     "W"
-    ],
-    [
-     "20260831",
-     "Guido Ivan Justo",
-     "7-5 6-3",
-     "W"
-    ],
-    [
-     "20260923",
      "Jaime Faria",
-     "4-6 7-6(5) 6-4",
+     "6-4 6-4",
+     "L"
+    ],
+    [
+     "20260831",
+     "Seong Chan Hong",
+     "6-3 7-6(1)",
+     "L"
+    ],
+    [
+     "20260914",
+     "Naoya Honda",
+     "2-6 7-6(6) 0-0 RET",
+     "L"
+    ],
+    [
+     "20260923",
+     "Botic Van De Zandschulp",
+     "6-4 7-5",
      "W"
     ],
     [
      "20260923",
-     "Sho Shimabukuro",
-     "6-4 6-4",
+     "Miomir Kecmanovic",
+     "7-6(3) 6-4",
+     "W"
+    ],
+    [
+     "20260923",
+     "Federico Cina",
+     "6-3 6-2",
+     "W"
+    ],
+    [
+     "20260923",
+     "Hanlei Lu",
+     "6-2 6-0",
      "W"
     ]
    ],
    "melhores_vitorias": [
     {
      "data": "23/09",
-     "torneio": "Hangzhou",
+     "torneio": "Chengdu",
      "round": "R16",
-     "adversario": "Jaime Faria",
-     "rank_adv": 68,
-     "placar": "4-6 7-6(5) 6-4"
-    },
-    {
-     "data": "20/07",
-     "torneio": "Estoril",
-     "round": "R32",
-     "adversario": "Damir Dzumhur",
-     "rank_adv": 87,
-     "placar": "5-0 RET"
+     "adversario": "Botic Van De Zandschulp",
+     "rank_adv": 40,
+     "placar": "6-4 7-5"
     },
     {
      "data": "23/09",
-     "torneio": "Hangzhou",
+     "torneio": "Chengdu",
      "round": "R32",
-     "adversario": "Sho Shimabukuro",
-     "rank_adv": 93,
+     "adversario": "Miomir Kecmanovic",
+     "rank_adv": 60,
+     "placar": "7-6(3) 6-4"
+    },
+    {
+     "data": "15/06",
+     "torneio": "Halle",
+     "round": "Q2",
+     "adversario": "Lorenzo Sonego",
+     "rank_adv": 65,
      "placar": "6-4 6-4"
     }
    ],
    "piores_derrotas": [
     {
-     "data": "02/08",
-     "torneio": "Canada Masters",
-     "round": "Q1",
-     "adversario": "Duncan Chan",
-     "rank_adv": 606,
-     "placar": "2-6 7-5 6-3"
+     "data": "14/09",
+     "torneio": "Guangzhou Huangpu CH",
+     "round": "R32",
+     "adversario": "Naoya Honda",
+     "rank_adv": 656,
+     "placar": "2-6 7-6(6) 0-0 RET"
     },
     {
-     "data": "13/08",
-     "torneio": "Cincinnati Masters",
-     "round": "Q1",
-     "adversario": "Nicolai Budkov Kjaer",
-     "rank_adv": 155,
-     "placar": "6-2 3-6 6-4"
+     "data": "20/07",
+     "torneio": "Estoril",
+     "round": "R32",
+     "adversario": "Tiago Torres",
+     "rank_adv": 427,
+     "placar": "6-4 6-2"
     },
     {
-     "data": "06/07",
-     "torneio": "Braunschweig CH",
-     "round": "F",
-     "adversario": "Jan Choinski",
-     "rank_adv": 100,
-     "placar": "4-6 6-0 6-4"
+     "data": "27/07",
+     "torneio": "San Marino CH",
+     "round": "R16",
+     "adversario": "Mili Poljicak",
+     "rank_adv": 352,
+     "placar": "6-7(8) 6-3 6-4"
     }
    ],
    "saque": {
-    "jogos_com_stats": 21,
-    "aces_pct": 3.6,
-    "df_pct": 2.7,
-    "1st_in_pct": 51.2,
-    "1st_won_pct": 71.7,
-    "2nd_won_pct": 54.7,
-    "spw_pct": 63.4,
+    "jogos_com_stats": 17,
+    "aces_pct": 10.0,
+    "df_pct": 6.9,
+    "1st_in_pct": 53.9,
+    "1st_won_pct": 76.2,
+    "2nd_won_pct": 49.8,
+    "spw_pct": 63.7,
     "hold_pct": null,
     "bp_salvos_pct": 63.1
    },
@@ -169,7 +293,1647 @@
     "brk_pct": null,
     "bp_convertidos_pct": null
    },
-   "_atualizado": "2026-09-26"
+   "_atualizado": "2026-09-27"
+  },
+  "Fabian Marozsan": {
+   "slug": "FabianMarozsan",
+   "tour": "atp",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=FabianMarozsan",
+   "ano": 2026,
+   "jogos": {
+    "v": 10,
+    "d": 8,
+    "por_quadra": {
+     "Grama": {
+      "v": 5,
+      "d": 4
+     },
+     "Dura": {
+      "v": 5,
+      "d": 4
+     }
+    }
+   },
+   "forma_ult10": [
+    "W",
+    "L",
+    "W",
+    "L",
+    "L",
+    "W",
+    "W",
+    "L",
+    "W",
+    "W"
+   ],
+   "jogos_recentes": [
+    [
+     "20260813",
+     "Michael Zheng",
+     "3-6 6-1 7-6(1)",
+     "L"
+    ],
+    [
+     "20260823",
+     "James Duckworth",
+     "6-7(4) 6-2 6-4",
+     "L"
+    ],
+    [
+     "20260823",
+     "Martin Damm",
+     "2-6 6-3 6-3",
+     "W"
+    ],
+    [
+     "20260823",
+     "Miomir Kecmanovic",
+     "6-3 6-4",
+     "W"
+    ],
+    [
+     "20260831",
+     "Michael Zheng",
+     "6-4 6-4 6-2",
+     "L"
+    ],
+    [
+     "20260923",
+     "Taro Daniel",
+     "6-7(2) 7-5 7-6(1)",
+     "W"
+    ],
+    [
+     "20260923",
+     "Alex Bolt",
+     "6-4 6-2",
+     "W"
+    ]
+   ],
+   "melhores_vitorias": [
+    {
+     "data": "21/06",
+     "torneio": "Mallorca",
+     "round": "R16",
+     "adversario": "Alejandro Tabilo",
+     "rank_adv": 33,
+     "placar": "6-2 6-3"
+    },
+    {
+     "data": "15/06",
+     "torneio": "Halle",
+     "round": "R32",
+     "adversario": "Miomir Kecmanovic",
+     "rank_adv": 50,
+     "placar": "6-3 3-6 6-4"
+    },
+    {
+     "data": "21/06",
+     "torneio": "Mallorca",
+     "round": "QF",
+     "adversario": "Miomir Kecmanovic",
+     "rank_adv": 51,
+     "placar": "6-4 6-3"
+    }
+   ],
+   "piores_derrotas": [
+    {
+     "data": "08/06",
+     "torneio": "Stuttgart",
+     "round": "R32",
+     "adversario": "Gauthier Onclin",
+     "rank_adv": 186,
+     "placar": "7-6(6) 6-3"
+    },
+    {
+     "data": "13/08",
+     "torneio": "Cincinnati Masters",
+     "round": "R128",
+     "adversario": "Michael Zheng",
+     "rank_adv": 110,
+     "placar": "3-6 6-1 7-6(1)"
+    },
+    {
+     "data": "31/08",
+     "torneio": "US Open",
+     "round": "R128",
+     "adversario": "Michael Zheng",
+     "rank_adv": 107,
+     "placar": "6-4 6-4 6-2"
+    }
+   ],
+   "saque": {
+    "jogos_com_stats": 18,
+    "aces_pct": 7.6,
+    "df_pct": 3.0,
+    "1st_in_pct": 64.8,
+    "1st_won_pct": 70.8,
+    "2nd_won_pct": 53.2,
+    "spw_pct": 64.6,
+    "hold_pct": null,
+    "bp_salvos_pct": 62.6
+   },
+   "devolucao": {
+    "rpw_pct": null,
+    "vs_1st_pct": null,
+    "vs_2nd_pct": null,
+    "brk_pct": null,
+    "bp_convertidos_pct": null
+   },
+   "_atualizado": "2026-09-27"
+  },
+  "Kyrian Jacquet": {
+   "slug": "KyrianJacquet",
+   "tour": "atp",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=KyrianJacquet",
+   "ano": 2026,
+   "jogos": {
+    "v": 13,
+    "d": 8,
+    "por_quadra": {
+     "Dura": {
+      "v": 7,
+      "d": 4
+     },
+     "Grama": {
+      "v": 4,
+      "d": 1
+     },
+     "Saibro": {
+      "v": 2,
+      "d": 3
+     }
+    }
+   },
+   "forma_ult10": [
+    "L",
+    "W",
+    "L",
+    "W",
+    "W",
+    "L",
+    "L",
+    "W",
+    "W",
+    "W"
+   ],
+   "jogos_recentes": [
+    [
+     "20260813",
+     "Adolfo Daniel Vallejo",
+     "6-2 6-4",
+     "L"
+    ],
+    [
+     "20260813",
+     "Nicolai Budkov Kjaer",
+     "7-5 6-4",
+     "W"
+    ],
+    [
+     "20260813",
+     "Billy Harris",
+     "6-2 6-1",
+     "W"
+    ],
+    [
+     "20260818",
+     "Aleksandar Vukic",
+     "7-6(5) 6-1",
+     "L"
+    ],
+    [
+     "20260831",
+     "Aziz Dougaz",
+     "6-4 4-6 6-4",
+     "L"
+    ],
+    [
+     "20260831",
+     "Lautaro Midon",
+     "6-4 6-3",
+     "W"
+    ],
+    [
+     "20260923",
+     "Tomas Martin Etcheverry",
+     "6-2 6-3",
+     "W"
+    ],
+    [
+     "20260923",
+     "Aleksandar Vukic",
+     "7-6(5) 3-6 6-3",
+     "W"
+    ]
+   ],
+   "melhores_vitorias": [
+    {
+     "data": "23/09",
+     "torneio": "Hangzhou",
+     "round": "R16",
+     "adversario": "Tomas Martin Etcheverry",
+     "rank_adv": 30,
+     "placar": "6-2 6-3"
+    },
+    {
+     "data": "20/07",
+     "torneio": "Estoril",
+     "round": "R32",
+     "adversario": "Daniel Merida Aguilar",
+     "rank_adv": 59,
+     "placar": "1-6 6-1 7-5"
+    },
+    {
+     "data": "02/08",
+     "torneio": "Canada Masters",
+     "round": "Q1",
+     "adversario": "Alexander Shevchenko",
+     "rank_adv": 89,
+     "placar": "4-6 6-4 6-3"
+    }
+   ],
+   "piores_derrotas": [
+    {
+     "data": "31/08",
+     "torneio": "US Open",
+     "round": "Q2",
+     "adversario": "Aziz Dougaz",
+     "rank_adv": 524,
+     "placar": "6-4 4-6 6-4"
+    },
+    {
+     "data": "20/07",
+     "torneio": "Estoril",
+     "round": "Q2",
+     "adversario": "Taro Daniel",
+     "rank_adv": 192,
+     "placar": "6-4 3-6 6-3"
+    },
+    {
+     "data": "02/08",
+     "torneio": "Canada Masters",
+     "round": "R128",
+     "adversario": "Gabriel Diallo",
+     "rank_adv": 108,
+     "placar": "6-7(1) 6-3 6-2"
+    }
+   ],
+   "saque": {
+    "jogos_com_stats": 18,
+    "aces_pct": 7.0,
+    "df_pct": 5.1,
+    "1st_in_pct": 52.6,
+    "1st_won_pct": 71.2,
+    "2nd_won_pct": 51.4,
+    "spw_pct": 61.8,
+    "hold_pct": null,
+    "bp_salvos_pct": 61.4
+   },
+   "devolucao": {
+    "rpw_pct": null,
+    "vs_1st_pct": null,
+    "vs_2nd_pct": null,
+    "brk_pct": null,
+    "bp_convertidos_pct": null
+   },
+   "_atualizado": "2026-09-27"
+  },
+  "Jiaqi Wang": {
+   "slug": "JiaqiWang",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=JiaqiWang",
+   "ano": 2026,
+   "jogos": {
+    "v": 24,
+    "d": 17,
+    "por_quadra": {
+     "Dura": {
+      "v": 22,
+      "d": 14
+     },
+     "Saibro": {
+      "v": 2,
+      "d": 3
+     }
+    }
+   },
+   "forma_ult10": [
+    "W",
+    "W",
+    "W",
+    "L",
+    "W",
+    "W",
+    "W",
+    "L",
+    "W",
+    "L"
+   ],
+   "jogos_recentes": [
+    [
+     "20260921",
+     "Anastasia Kulikova",
+     "6-4 7-5",
+     "L"
+    ]
+   ],
+   "melhores_vitorias": [
+    {
+     "data": "25/05",
+     "torneio": "W35 Wuning",
+     "round": "QF",
+     "adversario": "Zhuoxuan Bai",
+     "rank_adv": 260,
+     "placar": "3-3 RET"
+    },
+    {
+     "data": "15/06",
+     "torneio": "W35 Zhengzhou",
+     "round": "QF",
+     "adversario": "Han Shi",
+     "rank_adv": 316,
+     "placar": "6-1 6-3"
+    },
+    {
+     "data": "15/06",
+     "torneio": "W35 Zhengzhou",
+     "round": "SF",
+     "adversario": "Daria Khomutsianskaya",
+     "rank_adv": 335,
+     "placar": "6-0 6-4"
+    }
+   ],
+   "piores_derrotas": [
+    {
+     "data": "02/02",
+     "torneio": "W15 Monastir",
+     "round": "R16",
+     "adversario": "Dunja Maric",
+     "rank_adv": 905,
+     "placar": "6-3 6-1"
+    },
+    {
+     "data": "18/05",
+     "torneio": "W35 Wuning",
+     "round": "R32",
+     "adversario": "Shiyu Ye",
+     "rank_adv": 792,
+     "placar": "6-4 6-2"
+    },
+    {
+     "data": "15/06",
+     "torneio": "W35 Zhengzhou",
+     "round": "F",
+     "adversario": "Evialina Laskevich",
+     "rank_adv": 789,
+     "placar": "6-1 6-4"
+    }
+   ],
+   "saque": {
+    "jogos_com_stats": 41,
+    "aces_pct": 1.7,
+    "df_pct": 2.0,
+    "1st_in_pct": 62.6,
+    "1st_won_pct": 60.9,
+    "2nd_won_pct": 48.7,
+    "spw_pct": 56.3,
+    "hold_pct": 63.6,
+    "bp_salvos_pct": 52.7
+   },
+   "devolucao": {
+    "rpw_pct": 47.2,
+    "vs_1st_pct": 40.1,
+    "vs_2nd_pct": 58.0,
+    "brk_pct": 42.6,
+    "bp_convertidos_pct": 52.5
+   },
+   "_atualizado": "2026-09-27"
+  },
+  "Wushuang Zheng": {
+   "slug": "WushuangZheng",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=WushuangZheng",
+   "ano": 2026,
+   "jogos": {
+    "v": 9,
+    "d": 16,
+    "por_quadra": {
+     "Dura": {
+      "v": 4,
+      "d": 12
+     },
+     "Saibro": {
+      "v": 5,
+      "d": 3
+     },
+     "Carpete": {
+      "v": 0,
+      "d": 1
+     }
+    }
+   },
+   "forma_ult10": [
+    "W",
+    "L",
+    "W",
+    "L",
+    "L",
+    "L",
+    "W",
+    "L",
+    "L",
+    "W"
+   ],
+   "jogos_recentes": [],
+   "melhores_vitorias": [
+    {
+     "data": "27/04",
+     "torneio": "Huzhou 125",
+     "round": "R32",
+     "adversario": "Ye Xin Ma",
+     "rank_adv": 175,
+     "placar": "6-3 6-4"
+    },
+    {
+     "data": "06/04",
+     "torneio": "W35 Anning",
+     "round": "QF",
+     "adversario": "Yidi Yang",
+     "rank_adv": 312,
+     "placar": "6-4 6-4"
+    },
+    {
+     "data": "27/04",
+     "torneio": "Huzhou 125",
+     "round": "R16",
+     "adversario": "Sijia Wei",
+     "rank_adv": 382,
+     "placar": "4-3 RET"
+    }
+   ],
+   "piores_derrotas": [
+    {
+     "data": "09/03",
+     "torneio": "W15 Maanshan",
+     "round": "R32",
+     "adversario": "Jiayi Wang",
+     "rank_adv": 740,
+     "placar": "6-0 7-5"
+    },
+    {
+     "data": "01/06",
+     "torneio": "W50 Wuning",
+     "round": "R16",
+     "adversario": "Jiayi Wang",
+     "rank_adv": 574,
+     "placar": "4-6 6-1 6-1"
+    },
+    {
+     "data": "22/06",
+     "torneio": "W15 Maanshan",
+     "round": "R16",
+     "adversario": "Jiayi Wang",
+     "rank_adv": 545,
+     "placar": "6-0 4-6 6-2"
+    }
+   ],
+   "saque": {
+    "jogos_com_stats": 25,
+    "aces_pct": 0.6,
+    "df_pct": 3.1,
+    "1st_in_pct": 66.7,
+    "1st_won_pct": 55.9,
+    "2nd_won_pct": 43.1,
+    "spw_pct": 51.6,
+    "hold_pct": 53.5,
+    "bp_salvos_pct": 50.0
+   },
+   "devolucao": {
+    "rpw_pct": 43.3,
+    "vs_1st_pct": 36.7,
+    "vs_2nd_pct": 54.1,
+    "brk_pct": 35.4,
+    "bp_convertidos_pct": 49.2
+   },
+   "_atualizado": "2026-09-27"
+  },
+  "Alexandre Muller": {
+   "slug": "AlexandreMuller",
+   "tour": "atp",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=AlexandreMuller",
+   "ano": 2026,
+   "jogos": {
+    "v": 8,
+    "d": 9,
+    "por_quadra": {
+     "Saibro": {
+      "v": 2,
+      "d": 5
+     },
+     "Grama": {
+      "v": 0,
+      "d": 1
+     },
+     "Dura": {
+      "v": 6,
+      "d": 3
+     }
+    }
+   },
+   "forma_ult10": [
+    "L",
+    "L",
+    "L",
+    "W",
+    "L",
+    "W",
+    "W",
+    "W",
+    "W",
+    "W"
+   ],
+   "jogos_recentes": [
+    [
+     "20260818",
+     "Coleman Wong",
+     "6-2 6-2",
+     "L"
+    ],
+    [
+     "20260831",
+     "Rei Sakamoto",
+     "6-3 6-3",
+     "L"
+    ],
+    [
+     "20260831",
+     "Laslo Djere",
+     "7-5 6-0",
+     "W"
+    ],
+    [
+     "20260901",
+     "Felix Balshaw",
+     "7-5 6-2",
+     "L"
+    ],
+    [
+     "20260901",
+     "Ziga Sesko",
+     "6-4 6-2",
+     "W"
+    ],
+    [
+     "20260923",
+     "Federico Cina",
+     "7-6(3) 6-1",
+     "W"
+    ],
+    [
+     "20260923",
+     "Moise Kouame",
+     "6-4 6-0",
+     "W"
+    ],
+    [
+     "20260923",
+     "Petr Bar Biryukov",
+     "6-4 6-4",
+     "W"
+    ],
+    [
+     "20260923",
+     "Luka Pavlovic",
+     "6-4 6-7(6) 6-3",
+     "W"
+    ]
+   ],
+   "melhores_vitorias": [
+    {
+     "data": "23/09",
+     "torneio": "Chengdu",
+     "round": "R16",
+     "adversario": "Federico Cina",
+     "rank_adv": 170,
+     "placar": "7-6(3) 6-1"
+    },
+    {
+     "data": "27/07",
+     "torneio": "San Marino CH",
+     "round": "R16",
+     "adversario": "Marco Cecchinato",
+     "rank_adv": 174,
+     "placar": "4-6 6-2 7-5"
+    },
+    {
+     "data": "23/09",
+     "torneio": "Chengdu",
+     "round": "R32",
+     "adversario": "Moise Kouame",
+     "rank_adv": 191,
+     "placar": "6-4 6-0"
+    }
+   ],
+   "piores_derrotas": [
+    {
+     "data": "27/07",
+     "torneio": "San Marino CH",
+     "round": "QF",
+     "adversario": "Mili Poljicak",
+     "rank_adv": 352,
+     "placar": "7-6(3) 6-7(4) 7-5"
+    },
+    {
+     "data": "01/09",
+     "torneio": "Manacor CH",
+     "round": "R16",
+     "adversario": "Felix Balshaw",
+     "rank_adv": 252,
+     "placar": "7-5 6-2"
+    },
+    {
+     "data": "03/08",
+     "torneio": "Hagen CH",
+     "round": "R32",
+     "adversario": "Guy Den Ouden",
+     "rank_adv": 222,
+     "placar": "7-5 6-2"
+    }
+   ],
+   "saque": {
+    "jogos_com_stats": 16,
+    "aces_pct": 5.7,
+    "df_pct": 3.4,
+    "1st_in_pct": 62.5,
+    "1st_won_pct": 70.5,
+    "2nd_won_pct": 51.7,
+    "spw_pct": 63.6,
+    "hold_pct": null,
+    "bp_salvos_pct": 66.7
+   },
+   "devolucao": {
+    "rpw_pct": null,
+    "vs_1st_pct": null,
+    "vs_2nd_pct": null,
+    "brk_pct": null,
+    "bp_convertidos_pct": null
+   },
+   "_atualizado": "2026-09-27"
+  },
+  "Alejandro Davidovich Fokina": {
+   "slug": "AlejandroDavidovichFokina",
+   "tour": "atp",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=AlejandroDavidovichFokina",
+   "ano": 2026,
+   "jogos": {
+    "v": 13,
+    "d": 6,
+    "por_quadra": {
+     "Saibro": {
+      "v": 3,
+      "d": 3
+     },
+     "Grama": {
+      "v": 9,
+      "d": 3
+     },
+     "Dura": {
+      "v": 1,
+      "d": 0
+     }
+    }
+   },
+   "forma_ult10": [
+    "W",
+    "W",
+    "W",
+    "L",
+    "W",
+    "W",
+    "W",
+    "L",
+    "W",
+    "W"
+   ],
+   "jogos_recentes": [
+    [
+     "20260923",
+     "Juan Manuel Cerundolo",
+     "6-4 6-4",
+     "W"
+    ]
+   ],
+   "melhores_vitorias": [
+    {
+     "data": "15/06",
+     "torneio": "Queen's Club",
+     "round": "R32",
+     "adversario": "Cameron Norrie",
+     "rank_adv": 29,
+     "placar": "7-6(6) 6-2"
+    },
+    {
+     "data": "17/05",
+     "torneio": "Hamburg",
+     "round": "R32",
+     "adversario": "Corentin Moutet",
+     "rank_adv": 32,
+     "placar": "6-4 6-4"
+    },
+    {
+     "data": "15/06",
+     "torneio": "Queen's Club",
+     "round": "R16",
+     "adversario": "Corentin Moutet",
+     "rank_adv": 36,
+     "placar": "6-4 6-3"
+    }
+   ],
+   "piores_derrotas": [
+    {
+     "data": "13/07",
+     "torneio": "Umag",
+     "round": "QF",
+     "adversario": "Alex Molcan",
+     "rank_adv": 101,
+     "placar": "3-6 6-1 6-2"
+    },
+    {
+     "data": "08/06",
+     "torneio": "Stuttgart",
+     "round": "R32",
+     "adversario": "Mattia Bellucci",
+     "rank_adv": 78,
+     "placar": "6-2 6-7(5) 6-1"
+    },
+    {
+     "data": "25/05",
+     "torneio": "Roland Garros",
+     "round": "R64",
+     "adversario": "Thiago Agustin Tirante",
+     "rank_adv": 60,
+     "placar": "4-6 7-6(4) 6-1 6-3"
+    }
+   ],
+   "saque": {
+    "jogos_com_stats": 17,
+    "aces_pct": 6.6,
+    "df_pct": 1.6,
+    "1st_in_pct": 66.7,
+    "1st_won_pct": 73.1,
+    "2nd_won_pct": 60.5,
+    "spw_pct": 68.7,
+    "hold_pct": null,
+    "bp_salvos_pct": 70.2
+   },
+   "devolucao": {
+    "rpw_pct": null,
+    "vs_1st_pct": null,
+    "vs_2nd_pct": null,
+    "brk_pct": null,
+    "bp_convertidos_pct": null
+   },
+   "_atualizado": "2026-09-27"
+  },
+  "Maya Joint": {
+   "slug": "MayaJoint",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=MayaJoint",
+   "ano": 2026,
+   "jogos": {
+    "v": 15,
+    "d": 23,
+    "por_quadra": {
+     "Dura": {
+      "v": 13,
+      "d": 15
+     },
+     "Saibro": {
+      "v": 1,
+      "d": 5
+     },
+     "Grama": {
+      "v": 1,
+      "d": 3
+     }
+    }
+   },
+   "forma_ult10": [
+    "L",
+    "W",
+    "W",
+    "L",
+    "W",
+    "U",
+    "W",
+    "W",
+    "W",
+    "W"
+   ],
+   "jogos_recentes": [
+    [
+     "20260813",
+     "Tamara Korpatsch",
+     "0-6 6-3 6-4",
+     "L"
+    ],
+    [
+     "20260823",
+     "Panna Udvardy",
+     "7-6(5) 6-1",
+     "L"
+    ],
+    [
+     "20260823",
+     "Jessica Hinojosa Gomez",
+     "6-4 6-2",
+     "W"
+    ],
+    [
+     "20260823",
+     "Yulia Putintseva",
+     "0-6 6-3 6-1",
+     "W"
+    ],
+    [
+     "20260831",
+     "Elina Svitolina",
+     "6-2 6-7(6) 6-4",
+     "L"
+    ],
+    [
+     "20260831",
+     "Liudmila Samsonova",
+     "3-6 6-2 6-2",
+     "W"
+    ],
+    [
+     "20260921",
+     "Kimberly Birrell",
+     "",
+     "U"
+    ],
+    [
+     "20260921",
+     "Lanlana Tararudee",
+     "6-4 6-3",
+     "W"
+    ],
+    [
+     "20260921",
+     "Dayeon Back",
+     "6-2 6-1",
+     "W"
+    ],
+    [
+     "20260921",
+     "Xinxin Yao",
+     "2-6 7-6(7) 6-3",
+     "W"
+    ],
+    [
+     "20260921",
+     "Alina Korneeva",
+     "6-2 1-0 RET",
+     "W"
+    ]
+   ],
+   "melhores_vitorias": [
+    {
+     "data": "02/08",
+     "torneio": "Toronto",
+     "round": "R64",
+     "adversario": "Sorana Cirstea",
+     "rank_adv": 18,
+     "placar": "6-4 6-4"
+    },
+    {
+     "data": "12/01",
+     "torneio": "Adelaide",
+     "round": "R32",
+     "adversario": "Sofia Kenin",
+     "rank_adv": 28,
+     "placar": "7-6(3) 6-4"
+    },
+    {
+     "data": "31/08",
+     "torneio": "US Open",
+     "round": "R128",
+     "adversario": "Liudmila Samsonova",
+     "rank_adv": 47,
+     "placar": "3-6 6-2 6-2"
+    }
+   ],
+   "piores_derrotas": [
+    {
+     "data": "02/06",
+     "torneio": "Makarska 125",
+     "round": "R16",
+     "adversario": "Yasmine Kabbaj",
+     "rank_adv": 297,
+     "placar": "6-3 6-4"
+    },
+    {
+     "data": "11/05",
+     "torneio": "Paris 125",
+     "round": "R32",
+     "adversario": "Chloe Paquet",
+     "rank_adv": 277,
+     "placar": "5-7 6-0 6-3"
+    },
+    {
+     "data": "27/07",
+     "torneio": "Memphis",
+     "round": "R16",
+     "adversario": "Kristina Liutova",
+     "rank_adv": 229,
+     "placar": "3-6 6-3 6-3"
+    }
+   ],
+   "saque": {
+    "jogos_com_stats": 32,
+    "aces_pct": 2.7,
+    "df_pct": 4.4,
+    "1st_in_pct": 62.9,
+    "1st_won_pct": 58.3,
+    "2nd_won_pct": 47.3,
+    "spw_pct": 54.2,
+    "hold_pct": 60.3,
+    "bp_salvos_pct": 57.2
+   },
+   "devolucao": {
+    "rpw_pct": 43.5,
+    "vs_1st_pct": 35.8,
+    "vs_2nd_pct": 55.4,
+    "brk_pct": 34.0,
+    "bp_convertidos_pct": 49.6
+   },
+   "_atualizado": "2026-09-27"
+  },
+  "Kimberly Birrell": {
+   "slug": "KimberlyBirrell",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=KimberlyBirrell",
+   "ano": 2026,
+   "jogos": {
+    "v": 27,
+    "d": 25,
+    "por_quadra": {
+     "Dura": {
+      "v": 21,
+      "d": 15
+     },
+     "?": {
+      "v": 0,
+      "d": 1
+     },
+     "Saibro": {
+      "v": 1,
+      "d": 4
+     },
+     "Grama": {
+      "v": 5,
+      "d": 5
+     }
+    }
+   },
+   "forma_ult10": [
+    "L",
+    "L",
+    "L",
+    "L",
+    "W",
+    "U",
+    "W",
+    "W",
+    "W",
+    "W"
+   ],
+   "jogos_recentes": [
+    [
+     "20260813",
+     "Kamilla Rakhimova",
+     "6-2 6-2",
+     "L"
+    ],
+    [
+     "20260823",
+     "Darja Vidmanova",
+     "7-6(2) 6-3",
+     "L"
+    ],
+    [
+     "20260831",
+     "Ekaterina Alexandrova",
+     "6-1 2-6 6-3",
+     "L"
+    ],
+    [
+     "20260831",
+     "Petra Marcinko",
+     "3-6 7-6(4) 6-3",
+     "W"
+    ],
+    [
+     "20260921",
+     "Maya Joint",
+     "",
+     "U"
+    ],
+    [
+     "20260921",
+     "Katie Volynets",
+     "2-6 6-2 7-5",
+     "W"
+    ],
+    [
+     "20260921",
+     "Ye Xin Ma",
+     "7-5 6-3",
+     "W"
+    ],
+    [
+     "20260921",
+     "Tamara Zidansek",
+     "7-6(2) 6-4",
+     "W"
+    ],
+    [
+     "20260921",
+     "Anna Bondar",
+     "7-5 2-6 6-1",
+     "W"
+    ]
+   ],
+   "melhores_vitorias": [
+    {
+     "data": "25/05",
+     "torneio": "Roland Garros",
+     "round": "R128",
+     "adversario": "Jessica Pegula",
+     "rank_adv": 5,
+     "placar": "1-6 6-3 6-3"
+    },
+    {
+     "data": "12/01",
+     "torneio": "Adelaide",
+     "round": "QF",
+     "adversario": "Jaqueline Cristian",
+     "rank_adv": 37,
+     "placar": "5-7 6-1 7-5"
+    },
+    {
+     "data": "22/06",
+     "torneio": "Eastbourne",
+     "round": "R32",
+     "adversario": "Barbora Krejcikova",
+     "rank_adv": 37,
+     "placar": "6-3 7-6(6)"
+    }
+   ],
+   "piores_derrotas": [
+    {
+     "data": "27/07",
+     "torneio": "Memphis",
+     "round": "R32",
+     "adversario": "Ye Xin Ma",
+     "rank_adv": 194,
+     "placar": "7-6(2) 6-4"
+    },
+    {
+     "data": "10/04",
+     "torneio": "BJK Cup Qualifiers",
+     "round": "RR",
+     "adversario": "Harriet Dart",
+     "rank_adv": 173,
+     "placar": "4-6 6-3 6-3"
+    },
+    {
+     "data": "19/01",
+     "torneio": "Australian Open",
+     "round": "R128",
+     "adversario": "Maddison Inglis",
+     "rank_adv": 168,
+     "placar": "7-6(6) 6-7(9) 6-4"
+    }
+   ],
+   "saque": {
+    "jogos_com_stats": 46,
+    "aces_pct": 2.7,
+    "df_pct": 7.5,
+    "1st_in_pct": 63.8,
+    "1st_won_pct": 63.7,
+    "2nd_won_pct": 42.4,
+    "spw_pct": 56.0,
+    "hold_pct": 65.4,
+    "bp_salvos_pct": 53.5
+   },
+   "devolucao": {
+    "rpw_pct": 43.7,
+    "vs_1st_pct": 37.1,
+    "vs_2nd_pct": 54.1,
+    "brk_pct": 35.9,
+    "bp_convertidos_pct": 49.3
+   },
+   "_atualizado": "2026-09-27"
+  },
+  "Maria Timofeeva": {
+   "slug": "MariaTimofeeva",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=MariaTimofeeva",
+   "ano": 2026,
+   "jogos": {
+    "v": 36,
+    "d": 18,
+    "por_quadra": {
+     "Dura": {
+      "v": 14,
+      "d": 11
+     },
+     "Saibro": {
+      "v": 18,
+      "d": 5
+     },
+     "Grama": {
+      "v": 4,
+      "d": 2
+     }
+    }
+   },
+   "forma_ult10": [
+    "W",
+    "W",
+    "W",
+    "L",
+    "W",
+    "U",
+    "W",
+    "W",
+    "W",
+    "W"
+   ],
+   "jogos_recentes": [
+    [
+     "20260813",
+     "Xiyu Wang",
+     "6-0 3-0 RET",
+     "L"
+    ],
+    [
+     "20260823",
+     "Lanlana Tararudee",
+     "7-6(5) 2-6 7-6(4)",
+     "W"
+    ],
+    [
+     "20260823",
+     "Kamilla Rakhimova",
+     "3-6 6-3 7-6(1)",
+     "W"
+    ],
+    [
+     "20260823",
+     "Shuai Zhang",
+     "6-1 6-3",
+     "W"
+    ],
+    [
+     "20260831",
+     "Elise Mertens",
+     "6-2 7-6(5)",
+     "L"
+    ],
+    [
+     "20260831",
+     "Tamara Zidansek",
+     "6-3 7-5",
+     "W"
+    ],
+    [
+     "20260921",
+     "Reese Brantmeier",
+     "",
+     "U"
+    ],
+    [
+     "20260921",
+     "Gabriela Andrea Knutson",
+     "6-1 6-2",
+     "W"
+    ],
+    [
+     "20260921",
+     "Kajsa Rinaldo Persson",
+     "6-3 6-0",
+     "W"
+    ],
+    [
+     "20260921",
+     "Sofia Johnson",
+     "6-4 6-2",
+     "W"
+    ],
+    [
+     "20260921",
+     "Mia Pohankova",
+     "6-2 6-7(3) 6-3",
+     "W"
+    ]
+   ],
+   "melhores_vitorias": [
+    {
+     "data": "23/08",
+     "torneio": "Monterrey",
+     "round": "R32",
+     "adversario": "Shuai Zhang",
+     "rank_adv": 53,
+     "placar": "6-1 6-3"
+    },
+    {
+     "data": "04/01",
+     "torneio": "Brisbane",
+     "round": "Q1",
+     "adversario": "Antonia Ruzic",
+     "rank_adv": 70,
+     "placar": "7-5 6-4"
+    },
+    {
+     "data": "23/08",
+     "torneio": "Monterrey",
+     "round": "Q1",
+     "adversario": "Lanlana Tararudee",
+     "rank_adv": 72,
+     "placar": "7-6(5) 2-6 7-6(4)"
+    }
+   ],
+   "piores_derrotas": [
+    {
+     "data": "27/04",
+     "torneio": "W100 Wiesbaden",
+     "round": "R32",
+     "adversario": "Tessa Johanna Brockmann",
+     "rank_adv": 268,
+     "placar": "7-6(5) 6-2"
+    },
+    {
+     "data": "19/01",
+     "torneio": "Australian Open",
+     "round": "Q1",
+     "adversario": "Mai Hontama",
+     "rank_adv": 244,
+     "placar": "1-6 6-4 7-5"
+    },
+    {
+     "data": "13/04",
+     "torneio": "Rouen",
+     "round": "Q2",
+     "adversario": "Chloe Paquet",
+     "rank_adv": 241,
+     "placar": "6-3 7-6(5)"
+    }
+   ],
+   "saque": {
+    "jogos_com_stats": 48,
+    "aces_pct": 2.8,
+    "df_pct": 4.5,
+    "1st_in_pct": 65.0,
+    "1st_won_pct": 61.0,
+    "2nd_won_pct": 47.0,
+    "spw_pct": 56.1,
+    "hold_pct": 65.5,
+    "bp_salvos_pct": 57.3
+   },
+   "devolucao": {
+    "rpw_pct": 48.4,
+    "vs_1st_pct": 43.5,
+    "vs_2nd_pct": 56.3,
+    "brk_pct": 45.3,
+    "bp_convertidos_pct": 51.1
+   },
+   "_atualizado": "2026-09-27"
+  },
+  "Reese Brantmeier": {
+   "slug": "ReeseBrantmeier",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=ReeseBrantmeier",
+   "ano": 2026,
+   "jogos": {
+    "v": 19,
+    "d": 9,
+    "por_quadra": {
+     "Dura": {
+      "v": 18,
+      "d": 8
+     },
+     "Grama": {
+      "v": 1,
+      "d": 1
+     }
+    }
+   },
+   "forma_ult10": [
+    "L",
+    "L",
+    "W",
+    "U",
+    "W",
+    "W",
+    "W",
+    "W",
+    "W",
+    "W"
+   ],
+   "jogos_recentes": [
+    [
+     "20260831",
+     "Oleksandra Oliynykova",
+     "6-4 6-4",
+     "L"
+    ],
+    [
+     "20260914",
+     "Kylie Collins",
+     "7-5 6-3",
+     "L"
+    ],
+    [
+     "20260914",
+     "Oceane Dodin",
+     "6-4 5-7 6-4",
+     "W"
+    ],
+    [
+     "20260921",
+     "Maria Timofeeva",
+     "",
+     "U"
+    ],
+    [
+     "20260921",
+     "Angelina Voloshchuk",
+     "6-3 6-2",
+     "W"
+    ],
+    [
+     "20260921",
+     "Naiktha Bains",
+     "6-4 6-4",
+     "W"
+    ],
+    [
+     "20260921",
+     "Erika Andreeva",
+     "6-3 7-6(5)",
+     "W"
+    ],
+    [
+     "20260921",
+     "Sinja Kraus",
+     "6-3 6-0",
+     "W"
+    ],
+    [
+     "20260921",
+     "Jasmijn Gimbrere",
+     "6-1 6-0",
+     "W"
+    ],
+    [
+     "20260921",
+     "Sofia Johnson",
+     "6-3 6-4",
+     "W"
+    ]
+   ],
+   "melhores_vitorias": [
+    {
+     "data": "21/09",
+     "torneio": "WTA Porto 125",
+     "round": "SF",
+     "adversario": "Sinja Kraus",
+     "rank_adv": 95,
+     "placar": "6-3 6-0"
+    },
+    {
+     "data": "03/08",
+     "torneio": "W100 Landisville PA",
+     "round": "R16",
+     "adversario": "Elizabeth Mandlik",
+     "rank_adv": 178,
+     "placar": "6-3 6-4"
+    },
+    {
+     "data": "01/06",
+     "torneio": "W100 Sumter SC",
+     "round": "SF",
+     "adversario": "Cadence Brace",
+     "rank_adv": 202,
+     "placar": "7-6(5) 2-6 6-3"
+    }
+   ],
+   "piores_derrotas": [
+    {
+     "data": "14/09",
+     "torneio": "Caldas Da Rainha 125",
+     "round": "Q2",
+     "adversario": "Kylie Collins",
+     "rank_adv": 364,
+     "placar": "7-5 6-3"
+    },
+    {
+     "data": "01/06",
+     "torneio": "W100 Sumter SC",
+     "round": "F",
+     "adversario": "Kristina Liutova",
+     "rank_adv": 312,
+     "placar": "6-4 6-3"
+    },
+    {
+     "data": "27/07",
+     "torneio": "Memphis",
+     "round": "R32",
+     "adversario": "Iryna Shymanovich",
+     "rank_adv": 205,
+     "placar": "6-4 6-3"
+    }
+   ],
+   "saque": {
+    "jogos_com_stats": 27,
+    "aces_pct": 6.3,
+    "df_pct": 3.2,
+    "1st_in_pct": 61.6,
+    "1st_won_pct": 70.1,
+    "2nd_won_pct": 48.4,
+    "spw_pct": 61.8,
+    "hold_pct": 75.6,
+    "bp_salvos_pct": 58.2
+   },
+   "devolucao": {
+    "rpw_pct": 45.3,
+    "vs_1st_pct": 39.0,
+    "vs_2nd_pct": 55.6,
+    "brk_pct": 37.7,
+    "bp_convertidos_pct": 43.5
+   },
+   "_atualizado": "2026-09-27"
+  },
+  "Daniil Medvedev": {
+   "slug": "DaniilMedvedev",
+   "tour": "atp",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=DaniilMedvedev",
+   "ano": 2026,
+   "jogos": {
+    "v": 12,
+    "d": 9,
+    "por_quadra": {
+     "Dura": {
+      "v": 6,
+      "d": 5
+     },
+     "Saibro": {
+      "v": 0,
+      "d": 1
+     },
+     "Grama": {
+      "v": 6,
+      "d": 3
+     }
+    }
+   },
+   "forma_ult10": [
+    "W",
+    "L",
+    "L",
+    "W",
+    "L",
+    "L",
+    "W",
+    "W",
+    "W",
+    "W"
+   ],
+   "jogos_recentes": [
+    [
+     "20260813",
+     "Brandon Nakashima",
+     "6-7(3) 7-6(4) 6-1",
+     "L"
+    ],
+    [
+     "20260813",
+     "Marco Trungelliti",
+     "6-4 7-5",
+     "W"
+    ],
+    [
+     "20260823",
+     "Martin Damm",
+     "7-5 6-3",
+     "L"
+    ],
+    [
+     "20260831",
+     "Frances Tiafoe",
+     "7-6(1) 6-4 7-6(6)",
+     "L"
+    ],
+    [
+     "20260831",
+     "Arthur Rinderknech",
+     "6-4 6-4 6-4",
+     "W"
+    ],
+    [
+     "20260831",
+     "Sebastian Gorzny",
+     "6-1 6-3 7-5",
+     "W"
+    ],
+    [
+     "20260831",
+     "Hugo Gaston",
+     "6-4 6-2 6-4",
+     "W"
+    ],
+    [
+     "20260923",
+     "Valentin Royer",
+     "7-6(6) 6-3",
+     "W"
+    ]
+   ],
+   "melhores_vitorias": [
+    {
+     "data": "31/08",
+     "torneio": "US Open",
+     "round": "R32",
+     "adversario": "Arthur Rinderknech",
+     "rank_adv": 29,
+     "placar": "6-4 6-4 6-4"
+    },
+    {
+     "data": "15/06",
+     "torneio": "Halle",
+     "round": "R32",
+     "adversario": "Tomas Martin Etcheverry",
+     "rank_adv": 30,
+     "placar": "6-3 6-4"
+    },
+    {
+     "data": "04/01",
+     "torneio": "Brisbane",
+     "round": "F",
+     "adversario": "Brandon Nakashima",
+     "rank_adv": 33,
+     "placar": "6-2 7-6(1)"
+    }
+   ],
+   "piores_derrotas": [
+    {
+     "data": "25/05",
+     "torneio": "Roland Garros",
+     "round": "R128",
+     "adversario": "Adam Walton",
+     "rank_adv": 97,
+     "placar": "6-2 1-6 6-1 1-6 6-4"
+    },
+    {
+     "data": "23/08",
+     "torneio": "Winston-Salem",
+     "round": "R32",
+     "adversario": "Martin Damm",
+     "rank_adv": 92,
+     "placar": "7-5 6-3"
+    },
+    {
+     "data": "15/06",
+     "torneio": "Halle",
+     "round": "QF",
+     "adversario": "Daniel Altmaier",
+     "rank_adv": 81,
+     "placar": "6-4 6-7(6) 6-4"
+    }
+   ],
+   "saque": {
+    "jogos_com_stats": 20,
+    "aces_pct": 12.1,
+    "df_pct": 6.0,
+    "1st_in_pct": 59.9,
+    "1st_won_pct": 77.1,
+    "2nd_won_pct": 50.6,
+    "spw_pct": 66.4,
+    "hold_pct": null,
+    "bp_salvos_pct": 62.7
+   },
+   "devolucao": {
+    "rpw_pct": null,
+    "vs_1st_pct": null,
+    "vs_2nd_pct": null,
+    "brk_pct": null,
+    "bp_convertidos_pct": null
+   },
+   "_atualizado": "2026-09-27"
   },
   "Coleman Wong": {
    "slug": "ColemanWong",
@@ -342,39 +2106,619 @@
     "brk_pct": null,
     "bp_convertidos_pct": null
    },
-   "_atualizado": "2026-09-26"
+   "_atualizado": "2026-09-27"
   },
-  "Kyrian Jacquet": {
-   "slug": "KyrianJacquet",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=KyrianJacquet",
+  "Viktoria Hruncakova": {
+   "slug": "ViktoriaHruncakova",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=ViktoriaHruncakova",
    "ano": 2026,
    "jogos": {
-    "v": 13,
-    "d": 8,
+    "v": 25,
+    "d": 23,
     "por_quadra": {
      "Dura": {
-      "v": 7,
-      "d": 4
-     },
-     "Grama": {
-      "v": 4,
-      "d": 1
+      "v": 15,
+      "d": 17
      },
      "Saibro": {
       "v": 2,
-      "d": 3
+      "d": 2
+     },
+     "Grama": {
+      "v": 1,
+      "d": 2
+     },
+     "Carpete": {
+      "v": 7,
+      "d": 2
      }
     }
    },
    "forma_ult10": [
     "L",
     "W",
+    "W",
+    "W",
+    "L",
+    "L",
+    "W",
+    "L",
+    "W",
+    "L"
+   ],
+   "jogos_recentes": [
+    [
+     "20260831",
+     "Susan Bandecchi",
+     "6-3 6-2",
+     "L"
+    ],
+    [
+     "20260831",
+     "Julia Riera",
+     "6-3 6-4",
+     "W"
+    ],
+    [
+     "20260914",
+     "Susan Bandecchi",
+     "6-3 6-2",
+     "L"
+    ],
+    [
+     "20260914",
+     "Erika Andreeva",
+     "6-7(4) 6-4 6-4",
+     "W"
+    ],
+    [
+     "20260921",
+     "Polina Iatcenko",
+     "4-6 6-3 6-3",
+     "L"
+    ]
+   ],
+   "melhores_vitorias": [
+    {
+     "data": "31/08",
+     "torneio": "US Open",
+     "round": "Q1",
+     "adversario": "Julia Riera",
+     "rank_adv": 147,
+     "placar": "6-3 6-4"
+    },
+    {
+     "data": "25/05",
+     "torneio": "Roland Garros",
+     "round": "Q2",
+     "adversario": "Bianca Andreescu",
+     "rank_adv": 159,
+     "placar": "6-7(2) 6-4 6-4"
+    },
+    {
+     "data": "26/01",
+     "torneio": "W100 Fujairah",
+     "round": "R32",
+     "adversario": "Ekaterine Gorgodze",
+     "rank_adv": 169,
+     "placar": "6-2 6-2"
+    }
+   ],
+   "piores_derrotas": [
+    {
+     "data": "27/04",
+     "torneio": "W35 Nottingham",
+     "round": "R32",
+     "adversario": "Ruby Cooling",
+     "rank_adv": 978,
+     "placar": "6-3 4-6 6-3"
+    },
+    {
+     "data": "08/06",
+     "torneio": "W50 Guimaraes",
+     "round": "R32",
+     "adversario": "Lauryn John Baptiste",
+     "rank_adv": 909,
+     "placar": "7-5 6-2"
+    },
+    {
+     "data": "27/07",
+     "torneio": "W50 Dublin",
+     "round": "SF",
+     "adversario": "Amelia Rajecki",
+     "rank_adv": 508,
+     "placar": "6-4 7-5"
+    }
+   ],
+   "saque": {
+    "jogos_com_stats": 43,
+    "aces_pct": 10.1,
+    "df_pct": 6.3,
+    "1st_in_pct": 59.9,
+    "1st_won_pct": 70.4,
+    "2nd_won_pct": 45.2,
+    "spw_pct": 60.3,
+    "hold_pct": 73.7,
+    "bp_salvos_pct": 61.1
+   },
+   "devolucao": {
+    "rpw_pct": 41.3,
+    "vs_1st_pct": 32.4,
+    "vs_2nd_pct": 55.3,
+    "brk_pct": 31.2,
+    "bp_convertidos_pct": 43.4
+   },
+   "_atualizado": "2026-09-27"
+  },
+  "Anastasia Tikhonova": {
+   "slug": "AnastasiaTikhonova",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=AnastasiaTikhonova",
+   "ano": 2026,
+   "jogos": {
+    "v": 14,
+    "d": 25,
+    "por_quadra": {
+     "Dura": {
+      "v": 5,
+      "d": 11
+     },
+     "Saibro": {
+      "v": 6,
+      "d": 13
+     },
+     "Grama": {
+      "v": 3,
+      "d": 1
+     }
+    }
+   },
+   "forma_ult10": [
+    "W",
+    "L",
+    "W",
     "L",
     "W",
     "W",
     "L",
     "L",
+    "W",
+    "L"
+   ],
+   "jogos_recentes": [
+    [
+     "20260817",
+     "Nastasja Schunk",
+     "6-3 6-2",
+     "L"
+    ],
+    [
+     "20260817",
+     "Ane Mintegi Del Olmo",
+     "6-4 6-0",
+     "W"
+    ],
+    [
+     "20260907",
+     "Elsa Jacquemot",
+     "6-7(5) 6-1 6-1",
+     "L"
+    ],
+    [
+     "20260907",
+     "Nao Hibino",
+     "6-4 6-4",
+     "W"
+    ],
+    [
+     "20260907",
+     "Darja Semenistaja",
+     "6-4 4-6 7-5",
+     "W"
+    ],
+    [
+     "20260914",
+     "Kaitlin Quevedo",
+     "6-0 6-2",
+     "L"
+    ],
+    [
+     "20260914",
+     "Whitney Osuigwe",
+     "6-2 6-2",
+     "L"
+    ],
+    [
+     "20260914",
+     "Maria Florencia Urrutia",
+     "6-2 6-1",
+     "W"
+    ],
+    [
+     "20260921",
+     "Anastasia Gasanova",
+     "6-2 6-4",
+     "L"
+    ]
+   ],
+   "melhores_vitorias": [
+    {
+     "data": "07/09",
+     "torneio": "Barranquilla 125",
+     "round": "R32",
+     "adversario": "Darja Semenistaja",
+     "rank_adv": 109,
+     "placar": "6-4 4-6 7-5"
+    },
+    {
+     "data": "30/03",
+     "torneio": "Bogota",
+     "round": "Q2",
+     "adversario": "Marina Bassols Ribera",
+     "rank_adv": 203,
+     "placar": "6-1 4-6 6-3"
+    },
+    {
+     "data": "07/09",
+     "torneio": "Barranquilla 125",
+     "round": "R16",
+     "adversario": "Nao Hibino",
+     "rank_adv": 228,
+     "placar": "6-4 6-4"
+    }
+   ],
+   "piores_derrotas": [
+    {
+     "data": "03/08",
+     "torneio": "W75 Leipzig",
+     "round": "R32",
+     "adversario": "Lola Giza",
+     "rank_adv": 1055,
+     "placar": "6-2 7-5"
+    },
+    {
+     "data": "10/08",
+     "torneio": "W50 Hamburg",
+     "round": "R16",
+     "adversario": "Ruth Roura Llaverias",
+     "rank_adv": 641,
+     "placar": "6-3 6-0"
+    },
+    {
+     "data": "06/04",
+     "torneio": "W35 Boca Raton FL",
+     "round": "R32",
+     "adversario": "Madison Sieg",
+     "rank_adv": 487,
+     "placar": "6-3 6-2"
+    }
+   ],
+   "saque": {
+    "jogos_com_stats": 39,
+    "aces_pct": 4.8,
+    "df_pct": 7.5,
+    "1st_in_pct": 51.5,
+    "1st_won_pct": 64.5,
+    "2nd_won_pct": 46.5,
+    "spw_pct": 55.8,
+    "hold_pct": 62.3,
+    "bp_salvos_pct": 53.2
+   },
+   "devolucao": {
+    "rpw_pct": 42.2,
+    "vs_1st_pct": 36.2,
+    "vs_2nd_pct": 52.3,
+    "brk_pct": 30.2,
+    "bp_convertidos_pct": 43.2
+   },
+   "_atualizado": "2026-09-27"
+  },
+  "Fiona Crawley": {
+   "slug": "FionaCrawley",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=FionaCrawley",
+   "ano": 2026,
+   "jogos": {
+    "v": 18,
+    "d": 10,
+    "por_quadra": {
+     "Dura": {
+      "v": 15,
+      "d": 8
+     },
+     "Saibro": {
+      "v": 1,
+      "d": 1
+     },
+     "Grama": {
+      "v": 2,
+      "d": 1
+     }
+    }
+   },
+   "forma_ult10": [
+    "L",
+    "W",
+    "W",
+    "W",
+    "L",
+    "W",
+    "L",
+    "W",
+    "W",
+    "L"
+   ],
+   "jogos_recentes": [
+    [
+     "20260823",
+     "Julia Grabher",
+     "6-4 6-3",
+     "L"
+    ],
+    [
+     "20260823",
+     "Ekaterina Ovcharenko",
+     "6-4 6-3",
+     "W"
+    ],
+    [
+     "20260823",
+     "Simona Waltert",
+     "7-5 6-3",
+     "W"
+    ],
+    [
+     "20260921",
+     "Carole Monnet",
+     "6-1 7-6(4)",
+     "L"
+    ]
+   ],
+   "melhores_vitorias": [
+    {
+     "data": "23/08",
+     "torneio": "Philadelphia 125",
+     "round": "R32",
+     "adversario": "Simona Waltert",
+     "rank_adv": 85,
+     "placar": "7-5 6-3"
+    },
+    {
+     "data": "29/06",
+     "torneio": "Wimbledon",
+     "round": "Q1",
+     "adversario": "Himeno Sakatsume",
+     "rank_adv": 123,
+     "placar": "7-5 4-6 7-6(8)"
+    },
+    {
+     "data": "20/07",
+     "torneio": "W100 Evansville IN",
+     "round": "R32",
+     "adversario": "Himeno Sakatsume",
+     "rank_adv": 132,
+     "placar": "5-7 6-1 6-1"
+    }
+   ],
+   "piores_derrotas": [
+    {
+     "data": "13/04",
+     "torneio": "W35 Zephyrhills FL",
+     "round": "R16",
+     "adversario": "Daria Egorova",
+     "rank_adv": 633,
+     "placar": "7-5 6-2"
+    },
+    {
+     "data": "23/02",
+     "torneio": "W75 Porto",
+     "round": "QF",
+     "adversario": "Martyna Kubka",
+     "rank_adv": 305,
+     "placar": "6-4 6-1"
+    },
+    {
+     "data": "20/07",
+     "torneio": "W100 Evansville IN",
+     "round": "R16",
+     "adversario": "Yuki Naito",
+     "rank_adv": 298,
+     "placar": "6-4 6-7(5) 6-1"
+    }
+   ],
+   "saque": {
+    "jogos_com_stats": 25,
+    "aces_pct": 1.2,
+    "df_pct": 5.8,
+    "1st_in_pct": 59.7,
+    "1st_won_pct": 61.2,
+    "2nd_won_pct": 44.7,
+    "spw_pct": 54.6,
+    "hold_pct": 59.7,
+    "bp_salvos_pct": 52.2
+   },
+   "devolucao": {
+    "rpw_pct": 48.9,
+    "vs_1st_pct": 40.9,
+    "vs_2nd_pct": 61.6,
+    "brk_pct": 46.7,
+    "bp_convertidos_pct": 49.4
+   },
+   "_atualizado": "2026-09-27"
+  },
+  "Lois Boisson": {
+   "slug": "LoisBoisson",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=LoisBoisson",
+   "ano": 2026,
+   "jogos": {
+    "v": 3,
+    "d": 12,
+    "por_quadra": {
+     "Saibro": {
+      "v": 1,
+      "d": 5
+     },
+     "Grama": {
+      "v": 0,
+      "d": 2
+     },
+     "Dura": {
+      "v": 2,
+      "d": 5
+     }
+    }
+   },
+   "forma_ult10": [
+    "L",
+    "L",
+    "L",
+    "L",
+    "L",
+    "W",
+    "W",
+    "L",
+    "L",
+    "L"
+   ],
+   "jogos_recentes": [
+    [
+     "20260813",
+     "Diane Parry",
+     "4-6 6-4 6-3",
+     "L"
+    ],
+    [
+     "20260813",
+     "Ashlyn Krueger",
+     "6-3 6-2",
+     "W"
+    ],
+    [
+     "20260813",
+     "Belinda Bencic",
+     "6-3 0-0 RET",
+     "W"
+    ],
+    [
+     "20260823",
+     "Capucine Jauffret",
+     "6-1 0-0 RET",
+     "L"
+    ],
+    [
+     "20260831",
+     "Emma Navarro",
+     "7-6(6) 6-7(1) 6-3",
+     "L"
+    ],
+    [
+     "20260913",
+     "Panna Udvardy",
+     "6-4 6-7(6) 6-2",
+     "L"
+    ]
+   ],
+   "melhores_vitorias": [
+    {
+     "data": "13/08",
+     "torneio": "Cincinnati",
+     "round": "R64",
+     "adversario": "Belinda Bencic",
+     "rank_adv": 12,
+     "placar": "6-3 0-0 RET"
+    },
+    {
+     "data": "17/05",
+     "torneio": "Strasbourg",
+     "round": "R32",
+     "adversario": "Xin Yu Wang",
+     "rank_adv": 32,
+     "placar": "6-3 7-6(4)"
+    },
+    {
+     "data": "13/08",
+     "torneio": "Cincinnati",
+     "round": "R128",
+     "adversario": "Ashlyn Krueger",
+     "rank_adv": 56,
+     "placar": "6-3 6-2"
+    }
+   ],
+   "piores_derrotas": [
+    {
+     "data": "23/08",
+     "torneio": "Philadelphia 125",
+     "round": "R32",
+     "adversario": "Capucine Jauffret",
+     "rank_adv": 847,
+     "placar": "6-1 0-0 RET"
+    },
+    {
+     "data": "11/05",
+     "torneio": "Parma 125",
+     "round": "R32",
+     "adversario": "Dominika Salkova",
+     "rank_adv": 117,
+     "placar": "6-7(5) 6-1 6-2"
+    },
+    {
+     "data": "13/09",
+     "torneio": "Guadalajara",
+     "round": "R32",
+     "adversario": "Panna Udvardy",
+     "rank_adv": 83,
+     "placar": "6-4 6-7(6) 6-2"
+    }
+   ],
+   "saque": {
+    "jogos_com_stats": 14,
+    "aces_pct": 6.2,
+    "df_pct": 6.2,
+    "1st_in_pct": 62.1,
+    "1st_won_pct": 67.8,
+    "2nd_won_pct": 41.6,
+    "spw_pct": 57.8,
+    "hold_pct": 67.9,
+    "bp_salvos_pct": 58.3
+   },
+   "devolucao": {
+    "rpw_pct": 37.0,
+    "vs_1st_pct": 31.9,
+    "vs_2nd_pct": 45.6,
+    "brk_pct": 17.8,
+    "bp_convertidos_pct": 31.8
+   },
+   "_atualizado": "2026-09-27"
+  },
+  "Hugo Gaston": {
+   "slug": "HugoGaston",
+   "tour": "atp",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=HugoGaston",
+   "ano": 2026,
+   "jogos": {
+    "v": 14,
+    "d": 7,
+    "por_quadra": {
+     "Saibro": {
+      "v": 7,
+      "d": 3
+     },
+     "Dura": {
+      "v": 7,
+      "d": 4
+     }
+    }
+   },
+   "forma_ult10": [
+    "L",
+    "L",
+    "W",
+    "W",
+    "L",
+    "W",
+    "W",
     "W",
     "W",
     "W"
@@ -382,50 +2726,62 @@
    "jogos_recentes": [
     [
      "20260813",
-     "Adolfo Daniel Vallejo",
-     "6-2 6-4",
+     "Nicolai Budkov Kjaer",
+     "6-2 3-6 6-4",
      "L"
     ],
     [
-     "20260813",
-     "Nicolai Budkov Kjaer",
-     "7-5 6-4",
-     "W"
+     "20260818",
+     "Luca Van Assche",
+     "6-4 6-4",
+     "L"
     ],
     [
-     "20260813",
-     "Billy Harris",
-     "6-2 6-1",
+     "20260818",
+     "Jesper De Jong",
+     "7-6(2) 6-1",
      "W"
     ],
     [
      "20260818",
-     "Aleksandar Vukic",
-     "7-6(5) 6-1",
+     "Alexei Popyrin",
+     "5-2 RET",
+     "W"
+    ],
+    [
+     "20260831",
+     "Daniil Medvedev",
+     "6-4 6-2 6-4",
      "L"
     ],
     [
      "20260831",
-     "Aziz Dougaz",
-     "6-4 4-6 6-4",
-     "L"
+     "Colton Smith",
+     "1-6 6-4 6-2",
+     "W"
     ],
     [
      "20260831",
-     "Lautaro Midon",
-     "6-4 6-3",
+     "Andre Ilagan",
+     "6-1 6-3",
+     "W"
+    ],
+    [
+     "20260831",
+     "Guido Ivan Justo",
+     "7-5 6-3",
      "W"
     ],
     [
      "20260923",
-     "Tomas Martin Etcheverry",
-     "6-2 6-3",
+     "Jaime Faria",
+     "4-6 7-6(5) 6-4",
      "W"
     ],
     [
      "20260923",
-     "Aleksandar Vukic",
-     "7-6(5) 3-6 6-3",
+     "Sho Shimabukuro",
+     "6-4 6-4",
      "W"
     ]
    ],
@@ -434,63 +2790,63 @@
      "data": "23/09",
      "torneio": "Hangzhou",
      "round": "R16",
-     "adversario": "Tomas Martin Etcheverry",
-     "rank_adv": 30,
-     "placar": "6-2 6-3"
+     "adversario": "Jaime Faria",
+     "rank_adv": 68,
+     "placar": "4-6 7-6(5) 6-4"
     },
     {
      "data": "20/07",
      "torneio": "Estoril",
      "round": "R32",
-     "adversario": "Daniel Merida Aguilar",
-     "rank_adv": 59,
-     "placar": "1-6 6-1 7-5"
+     "adversario": "Damir Dzumhur",
+     "rank_adv": 87,
+     "placar": "5-0 RET"
     },
     {
-     "data": "02/08",
-     "torneio": "Canada Masters",
-     "round": "Q1",
-     "adversario": "Alexander Shevchenko",
-     "rank_adv": 89,
-     "placar": "4-6 6-4 6-3"
+     "data": "23/09",
+     "torneio": "Hangzhou",
+     "round": "R32",
+     "adversario": "Sho Shimabukuro",
+     "rank_adv": 93,
+     "placar": "6-4 6-4"
     }
    ],
    "piores_derrotas": [
     {
-     "data": "31/08",
-     "torneio": "US Open",
-     "round": "Q2",
-     "adversario": "Aziz Dougaz",
-     "rank_adv": 524,
-     "placar": "6-4 4-6 6-4"
-    },
-    {
-     "data": "20/07",
-     "torneio": "Estoril",
-     "round": "Q2",
-     "adversario": "Taro Daniel",
-     "rank_adv": 192,
-     "placar": "6-4 3-6 6-3"
-    },
-    {
      "data": "02/08",
      "torneio": "Canada Masters",
-     "round": "R128",
-     "adversario": "Gabriel Diallo",
-     "rank_adv": 108,
-     "placar": "6-7(1) 6-3 6-2"
+     "round": "Q1",
+     "adversario": "Duncan Chan",
+     "rank_adv": 606,
+     "placar": "2-6 7-5 6-3"
+    },
+    {
+     "data": "13/08",
+     "torneio": "Cincinnati Masters",
+     "round": "Q1",
+     "adversario": "Nicolai Budkov Kjaer",
+     "rank_adv": 155,
+     "placar": "6-2 3-6 6-4"
+    },
+    {
+     "data": "06/07",
+     "torneio": "Braunschweig CH",
+     "round": "F",
+     "adversario": "Jan Choinski",
+     "rank_adv": 100,
+     "placar": "4-6 6-0 6-4"
     }
    ],
    "saque": {
-    "jogos_com_stats": 18,
-    "aces_pct": 7.0,
-    "df_pct": 5.1,
-    "1st_in_pct": 52.6,
-    "1st_won_pct": 71.2,
-    "2nd_won_pct": 51.4,
-    "spw_pct": 61.8,
+    "jogos_com_stats": 21,
+    "aces_pct": 3.6,
+    "df_pct": 2.7,
+    "1st_in_pct": 51.2,
+    "1st_won_pct": 71.7,
+    "2nd_won_pct": 54.7,
+    "spw_pct": 63.4,
     "hold_pct": null,
-    "bp_salvos_pct": 61.4
+    "bp_salvos_pct": 63.1
    },
    "devolucao": {
     "rpw_pct": null,
@@ -942,147 +3298,6 @@
     "spw_pct": 61.3,
     "hold_pct": null,
     "bp_salvos_pct": 52.2
-   },
-   "devolucao": {
-    "rpw_pct": null,
-    "vs_1st_pct": null,
-    "vs_2nd_pct": null,
-    "brk_pct": null,
-    "bp_convertidos_pct": null
-   },
-   "_atualizado": "2026-09-26"
-  },
-  "Jenson Brooksby": {
-   "slug": "JensonBrooksby",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=JensonBrooksby",
-   "ano": 2026,
-   "jogos": {
-    "v": 10,
-    "d": 9,
-    "por_quadra": {
-     "Grama": {
-      "v": 4,
-      "d": 4
-     },
-     "Dura": {
-      "v": 6,
-      "d": 5
-     }
-    }
-   },
-   "forma_ult10": [
-    "W",
-    "W",
-    "L",
-    "W",
-    "L",
-    "L",
-    "W",
-    "L",
-    "W",
-    "W"
-   ],
-   "jogos_recentes": [
-    [
-     "20260813",
-     "Jaime Faria",
-     "6-3 6-2",
-     "L"
-    ],
-    [
-     "20260823",
-     "Stefanos Tsitsipas",
-     "6-4 7-6(6)",
-     "L"
-    ],
-    [
-     "20260823",
-     "Giovanni Mpetshi Perricard",
-     "6-3 6-2",
-     "W"
-    ],
-    [
-     "20260831",
-     "Jaime Faria",
-     "6-3 7-6(4) 4-6 1-6 6-2",
-     "L"
-    ],
-    [
-     "20260923",
-     "Lorenzo Sonego",
-     "5-7 7-5 6-2",
-     "W"
-    ],
-    [
-     "20260923",
-     "Sebastian Baez",
-     "7-5 7-5",
-     "W"
-    ]
-   ],
-   "melhores_vitorias": [
-    {
-     "data": "29/06",
-     "torneio": "Wimbledon",
-     "round": "R64",
-     "adversario": "Ignacio Buse",
-     "rank_adv": 34,
-     "placar": "6-2 6-2 6-3"
-    },
-    {
-     "data": "23/09",
-     "torneio": "Chengdu",
-     "round": "R32",
-     "adversario": "Sebastian Baez",
-     "rank_adv": 51,
-     "placar": "7-5 7-5"
-    },
-    {
-     "data": "27/07",
-     "torneio": "Los Cabos",
-     "round": "R32",
-     "adversario": "Corentin Moutet",
-     "rank_adv": 57,
-     "placar": "6-4 6-4"
-    }
-   ],
-   "piores_derrotas": [
-    {
-     "data": "08/06",
-     "torneio": "s Hertogenbosch",
-     "round": "R32",
-     "adversario": "Zhizhen Zhang",
-     "rank_adv": 214,
-     "placar": "7-6(4) 5-7 6-1"
-    },
-    {
-     "data": "27/07",
-     "torneio": "Los Cabos",
-     "round": "QF",
-     "adversario": "Coleman Wong",
-     "rank_adv": 108,
-     "placar": "6-1 7-5"
-    },
-    {
-     "data": "13/08",
-     "torneio": "Cincinnati Masters",
-     "round": "R128",
-     "adversario": "Jaime Faria",
-     "rank_adv": 79,
-     "placar": "6-3 6-2"
-    }
-   ],
-   "saque": {
-    "jogos_com_stats": 19,
-    "aces_pct": 5.3,
-    "df_pct": 1.2,
-    "1st_in_pct": 68.1,
-    "1st_won_pct": 70.8,
-    "2nd_won_pct": 53.1,
-    "spw_pct": 65.1,
-    "hold_pct": null,
-    "bp_salvos_pct": 58.2
    },
    "devolucao": {
     "rpw_pct": null,
@@ -1600,169 +3815,6 @@
    },
    "_atualizado": "2026-09-26"
   },
-  "Alexandre Muller": {
-   "slug": "AlexandreMuller",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=AlexandreMuller",
-   "ano": 2026,
-   "jogos": {
-    "v": 8,
-    "d": 9,
-    "por_quadra": {
-     "Saibro": {
-      "v": 2,
-      "d": 5
-     },
-     "Grama": {
-      "v": 0,
-      "d": 1
-     },
-     "Dura": {
-      "v": 6,
-      "d": 3
-     }
-    }
-   },
-   "forma_ult10": [
-    "L",
-    "L",
-    "L",
-    "W",
-    "L",
-    "W",
-    "W",
-    "W",
-    "W",
-    "W"
-   ],
-   "jogos_recentes": [
-    [
-     "20260818",
-     "Coleman Wong",
-     "6-2 6-2",
-     "L"
-    ],
-    [
-     "20260831",
-     "Rei Sakamoto",
-     "6-3 6-3",
-     "L"
-    ],
-    [
-     "20260831",
-     "Laslo Djere",
-     "7-5 6-0",
-     "W"
-    ],
-    [
-     "20260901",
-     "Felix Balshaw",
-     "7-5 6-2",
-     "L"
-    ],
-    [
-     "20260901",
-     "Ziga Sesko",
-     "6-4 6-2",
-     "W"
-    ],
-    [
-     "20260923",
-     "Federico Cina",
-     "7-6(3) 6-1",
-     "W"
-    ],
-    [
-     "20260923",
-     "Moise Kouame",
-     "6-4 6-0",
-     "W"
-    ],
-    [
-     "20260923",
-     "Petr Bar Biryukov",
-     "6-4 6-4",
-     "W"
-    ],
-    [
-     "20260923",
-     "Luka Pavlovic",
-     "6-4 6-7(6) 6-3",
-     "W"
-    ]
-   ],
-   "melhores_vitorias": [
-    {
-     "data": "23/09",
-     "torneio": "Chengdu",
-     "round": "R16",
-     "adversario": "Federico Cina",
-     "rank_adv": 170,
-     "placar": "7-6(3) 6-1"
-    },
-    {
-     "data": "27/07",
-     "torneio": "San Marino CH",
-     "round": "R16",
-     "adversario": "Marco Cecchinato",
-     "rank_adv": 174,
-     "placar": "4-6 6-2 7-5"
-    },
-    {
-     "data": "23/09",
-     "torneio": "Chengdu",
-     "round": "R32",
-     "adversario": "Moise Kouame",
-     "rank_adv": 191,
-     "placar": "6-4 6-0"
-    }
-   ],
-   "piores_derrotas": [
-    {
-     "data": "27/07",
-     "torneio": "San Marino CH",
-     "round": "QF",
-     "adversario": "Mili Poljicak",
-     "rank_adv": 352,
-     "placar": "7-6(3) 6-7(4) 7-5"
-    },
-    {
-     "data": "01/09",
-     "torneio": "Manacor CH",
-     "round": "R16",
-     "adversario": "Felix Balshaw",
-     "rank_adv": 252,
-     "placar": "7-5 6-2"
-    },
-    {
-     "data": "03/08",
-     "torneio": "Hagen CH",
-     "round": "R32",
-     "adversario": "Guy Den Ouden",
-     "rank_adv": 222,
-     "placar": "7-5 6-2"
-    }
-   ],
-   "saque": {
-    "jogos_com_stats": 16,
-    "aces_pct": 5.7,
-    "df_pct": 3.4,
-    "1st_in_pct": 62.5,
-    "1st_won_pct": 70.5,
-    "2nd_won_pct": 51.7,
-    "spw_pct": 63.6,
-    "hold_pct": null,
-    "bp_salvos_pct": 66.7
-   },
-   "devolucao": {
-    "rpw_pct": null,
-    "vs_1st_pct": null,
-    "vs_2nd_pct": null,
-    "brk_pct": null,
-    "bp_convertidos_pct": null
-   },
-   "_atualizado": "2026-09-26"
-  },
   "Maja Chwalinska": {
    "slug": "MajaChwalinska",
    "tour": "wta",
@@ -1917,157 +3969,6 @@
     "vs_2nd_pct": 58.5,
     "brk_pct": 49.5,
     "bp_convertidos_pct": 54.6
-   },
-   "_atualizado": "2026-09-26"
-  },
-  "Nikoloz Basilashvili": {
-   "slug": "NikolozBasilashvili",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=NikolozBasilashvili",
-   "ano": 2026,
-   "jogos": {
-    "v": 8,
-    "d": 10,
-    "por_quadra": {
-     "Grama": {
-      "v": 2,
-      "d": 2
-     },
-     "Saibro": {
-      "v": 2,
-      "d": 5
-     },
-     "Dura": {
-      "v": 4,
-      "d": 3
-     }
-    }
-   },
-   "forma_ult10": [
-    "L",
-    "L",
-    "W",
-    "L",
-    "L",
-    "L",
-    "W",
-    "W",
-    "W",
-    "W"
-   ],
-   "jogos_recentes": [
-    [
-     "20260813",
-     "Jaime Faria",
-     "6-4 6-4",
-     "L"
-    ],
-    [
-     "20260831",
-     "Seong Chan Hong",
-     "6-3 7-6(1)",
-     "L"
-    ],
-    [
-     "20260914",
-     "Naoya Honda",
-     "2-6 7-6(6) 0-0 RET",
-     "L"
-    ],
-    [
-     "20260923",
-     "Botic Van De Zandschulp",
-     "6-4 7-5",
-     "W"
-    ],
-    [
-     "20260923",
-     "Miomir Kecmanovic",
-     "7-6(3) 6-4",
-     "W"
-    ],
-    [
-     "20260923",
-     "Federico Cina",
-     "6-3 6-2",
-     "W"
-    ],
-    [
-     "20260923",
-     "Hanlei Lu",
-     "6-2 6-0",
-     "W"
-    ]
-   ],
-   "melhores_vitorias": [
-    {
-     "data": "23/09",
-     "torneio": "Chengdu",
-     "round": "R16",
-     "adversario": "Botic Van De Zandschulp",
-     "rank_adv": 40,
-     "placar": "6-4 7-5"
-    },
-    {
-     "data": "23/09",
-     "torneio": "Chengdu",
-     "round": "R32",
-     "adversario": "Miomir Kecmanovic",
-     "rank_adv": 60,
-     "placar": "7-6(3) 6-4"
-    },
-    {
-     "data": "15/06",
-     "torneio": "Halle",
-     "round": "Q2",
-     "adversario": "Lorenzo Sonego",
-     "rank_adv": 65,
-     "placar": "6-4 6-4"
-    }
-   ],
-   "piores_derrotas": [
-    {
-     "data": "14/09",
-     "torneio": "Guangzhou Huangpu CH",
-     "round": "R32",
-     "adversario": "Naoya Honda",
-     "rank_adv": 656,
-     "placar": "2-6 7-6(6) 0-0 RET"
-    },
-    {
-     "data": "20/07",
-     "torneio": "Estoril",
-     "round": "R32",
-     "adversario": "Tiago Torres",
-     "rank_adv": 427,
-     "placar": "6-4 6-2"
-    },
-    {
-     "data": "27/07",
-     "torneio": "San Marino CH",
-     "round": "R16",
-     "adversario": "Mili Poljicak",
-     "rank_adv": 352,
-     "placar": "6-7(8) 6-3 6-4"
-    }
-   ],
-   "saque": {
-    "jogos_com_stats": 17,
-    "aces_pct": 10.0,
-    "df_pct": 6.9,
-    "1st_in_pct": 53.9,
-    "1st_won_pct": 76.2,
-    "2nd_won_pct": 49.8,
-    "spw_pct": 63.7,
-    "hold_pct": null,
-    "bp_salvos_pct": 63.1
-   },
-   "devolucao": {
-    "rpw_pct": null,
-    "vs_1st_pct": null,
-    "vs_2nd_pct": null,
-    "brk_pct": null,
-    "bp_convertidos_pct": null
    },
    "_atualizado": "2026-09-26"
   },
@@ -2557,153 +4458,6 @@
     "vs_2nd_pct": 56.3,
     "brk_pct": 35.0,
     "bp_convertidos_pct": 47.9
-   },
-   "_atualizado": "2026-09-26"
-  },
-  "Fabian Marozsan": {
-   "slug": "FabianMarozsan",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=FabianMarozsan",
-   "ano": 2026,
-   "jogos": {
-    "v": 10,
-    "d": 8,
-    "por_quadra": {
-     "Grama": {
-      "v": 5,
-      "d": 4
-     },
-     "Dura": {
-      "v": 5,
-      "d": 4
-     }
-    }
-   },
-   "forma_ult10": [
-    "W",
-    "L",
-    "W",
-    "L",
-    "L",
-    "W",
-    "W",
-    "L",
-    "W",
-    "W"
-   ],
-   "jogos_recentes": [
-    [
-     "20260813",
-     "Michael Zheng",
-     "3-6 6-1 7-6(1)",
-     "L"
-    ],
-    [
-     "20260823",
-     "James Duckworth",
-     "6-7(4) 6-2 6-4",
-     "L"
-    ],
-    [
-     "20260823",
-     "Martin Damm",
-     "2-6 6-3 6-3",
-     "W"
-    ],
-    [
-     "20260823",
-     "Miomir Kecmanovic",
-     "6-3 6-4",
-     "W"
-    ],
-    [
-     "20260831",
-     "Michael Zheng",
-     "6-4 6-4 6-2",
-     "L"
-    ],
-    [
-     "20260923",
-     "Taro Daniel",
-     "6-7(2) 7-5 7-6(1)",
-     "W"
-    ],
-    [
-     "20260923",
-     "Alex Bolt",
-     "6-4 6-2",
-     "W"
-    ]
-   ],
-   "melhores_vitorias": [
-    {
-     "data": "21/06",
-     "torneio": "Mallorca",
-     "round": "R16",
-     "adversario": "Alejandro Tabilo",
-     "rank_adv": 33,
-     "placar": "6-2 6-3"
-    },
-    {
-     "data": "15/06",
-     "torneio": "Halle",
-     "round": "R32",
-     "adversario": "Miomir Kecmanovic",
-     "rank_adv": 50,
-     "placar": "6-3 3-6 6-4"
-    },
-    {
-     "data": "21/06",
-     "torneio": "Mallorca",
-     "round": "QF",
-     "adversario": "Miomir Kecmanovic",
-     "rank_adv": 51,
-     "placar": "6-4 6-3"
-    }
-   ],
-   "piores_derrotas": [
-    {
-     "data": "08/06",
-     "torneio": "Stuttgart",
-     "round": "R32",
-     "adversario": "Gauthier Onclin",
-     "rank_adv": 186,
-     "placar": "7-6(6) 6-3"
-    },
-    {
-     "data": "13/08",
-     "torneio": "Cincinnati Masters",
-     "round": "R128",
-     "adversario": "Michael Zheng",
-     "rank_adv": 110,
-     "placar": "3-6 6-1 7-6(1)"
-    },
-    {
-     "data": "31/08",
-     "torneio": "US Open",
-     "round": "R128",
-     "adversario": "Michael Zheng",
-     "rank_adv": 107,
-     "placar": "6-4 6-4 6-2"
-    }
-   ],
-   "saque": {
-    "jogos_com_stats": 18,
-    "aces_pct": 7.6,
-    "df_pct": 3.0,
-    "1st_in_pct": 64.8,
-    "1st_won_pct": 70.8,
-    "2nd_won_pct": 53.2,
-    "spw_pct": 64.6,
-    "hold_pct": null,
-    "bp_salvos_pct": 62.6
-   },
-   "devolucao": {
-    "rpw_pct": null,
-    "vs_1st_pct": null,
-    "vs_2nd_pct": null,
-    "brk_pct": null,
-    "bp_convertidos_pct": null
    },
    "_atualizado": "2026-09-26"
   },
@@ -3597,121 +5351,6 @@
    },
    "_atualizado": "2026-09-26"
   },
-  "Alejandro Davidovich Fokina": {
-   "slug": "AlejandroDavidovichFokina",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=AlejandroDavidovichFokina",
-   "ano": 2026,
-   "jogos": {
-    "v": 13,
-    "d": 6,
-    "por_quadra": {
-     "Saibro": {
-      "v": 3,
-      "d": 3
-     },
-     "Grama": {
-      "v": 9,
-      "d": 3
-     },
-     "Dura": {
-      "v": 1,
-      "d": 0
-     }
-    }
-   },
-   "forma_ult10": [
-    "W",
-    "W",
-    "W",
-    "L",
-    "W",
-    "W",
-    "W",
-    "L",
-    "W",
-    "W"
-   ],
-   "jogos_recentes": [
-    [
-     "20260923",
-     "Juan Manuel Cerundolo",
-     "6-4 6-4",
-     "W"
-    ]
-   ],
-   "melhores_vitorias": [
-    {
-     "data": "15/06",
-     "torneio": "Queen's Club",
-     "round": "R32",
-     "adversario": "Cameron Norrie",
-     "rank_adv": 29,
-     "placar": "7-6(6) 6-2"
-    },
-    {
-     "data": "17/05",
-     "torneio": "Hamburg",
-     "round": "R32",
-     "adversario": "Corentin Moutet",
-     "rank_adv": 32,
-     "placar": "6-4 6-4"
-    },
-    {
-     "data": "15/06",
-     "torneio": "Queen's Club",
-     "round": "R16",
-     "adversario": "Corentin Moutet",
-     "rank_adv": 36,
-     "placar": "6-4 6-3"
-    }
-   ],
-   "piores_derrotas": [
-    {
-     "data": "13/07",
-     "torneio": "Umag",
-     "round": "QF",
-     "adversario": "Alex Molcan",
-     "rank_adv": 101,
-     "placar": "3-6 6-1 6-2"
-    },
-    {
-     "data": "08/06",
-     "torneio": "Stuttgart",
-     "round": "R32",
-     "adversario": "Mattia Bellucci",
-     "rank_adv": 78,
-     "placar": "6-2 6-7(5) 6-1"
-    },
-    {
-     "data": "25/05",
-     "torneio": "Roland Garros",
-     "round": "R64",
-     "adversario": "Thiago Agustin Tirante",
-     "rank_adv": 60,
-     "placar": "4-6 7-6(4) 6-1 6-3"
-    }
-   ],
-   "saque": {
-    "jogos_com_stats": 17,
-    "aces_pct": 6.6,
-    "df_pct": 1.6,
-    "1st_in_pct": 66.7,
-    "1st_won_pct": 73.1,
-    "2nd_won_pct": 60.5,
-    "spw_pct": 68.7,
-    "hold_pct": null,
-    "bp_salvos_pct": 70.2
-   },
-   "devolucao": {
-    "rpw_pct": null,
-    "vs_1st_pct": null,
-    "vs_2nd_pct": null,
-    "brk_pct": null,
-    "bp_convertidos_pct": null
-   },
-   "_atualizado": "2026-09-26"
-  },
   "Kristiana Sidorova": {
    "slug": "KristianaSidorova",
    "tour": "wta",
@@ -4023,117 +5662,6 @@
     "vs_2nd_pct": 39.6,
     "brk_pct": 14.1,
     "bp_convertidos_pct": 45.0
-   },
-   "_atualizado": "2026-09-26"
-  },
-  "Jiaqi Wang": {
-   "slug": "JiaqiWang",
-   "tour": "wta",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=JiaqiWang",
-   "ano": 2026,
-   "jogos": {
-    "v": 24,
-    "d": 17,
-    "por_quadra": {
-     "Dura": {
-      "v": 22,
-      "d": 14
-     },
-     "Saibro": {
-      "v": 2,
-      "d": 3
-     }
-    }
-   },
-   "forma_ult10": [
-    "W",
-    "W",
-    "W",
-    "L",
-    "W",
-    "W",
-    "W",
-    "L",
-    "W",
-    "L"
-   ],
-   "jogos_recentes": [
-    [
-     "20260921",
-     "Anastasia Kulikova",
-     "6-4 7-5",
-     "L"
-    ]
-   ],
-   "melhores_vitorias": [
-    {
-     "data": "25/05",
-     "torneio": "W35 Wuning",
-     "round": "QF",
-     "adversario": "Zhuoxuan Bai",
-     "rank_adv": 260,
-     "placar": "3-3 RET"
-    },
-    {
-     "data": "15/06",
-     "torneio": "W35 Zhengzhou",
-     "round": "QF",
-     "adversario": "Han Shi",
-     "rank_adv": 316,
-     "placar": "6-1 6-3"
-    },
-    {
-     "data": "15/06",
-     "torneio": "W35 Zhengzhou",
-     "round": "SF",
-     "adversario": "Daria Khomutsianskaya",
-     "rank_adv": 335,
-     "placar": "6-0 6-4"
-    }
-   ],
-   "piores_derrotas": [
-    {
-     "data": "02/02",
-     "torneio": "W15 Monastir",
-     "round": "R16",
-     "adversario": "Dunja Maric",
-     "rank_adv": 905,
-     "placar": "6-3 6-1"
-    },
-    {
-     "data": "18/05",
-     "torneio": "W35 Wuning",
-     "round": "R32",
-     "adversario": "Shiyu Ye",
-     "rank_adv": 792,
-     "placar": "6-4 6-2"
-    },
-    {
-     "data": "15/06",
-     "torneio": "W35 Zhengzhou",
-     "round": "F",
-     "adversario": "Evialina Laskevich",
-     "rank_adv": 789,
-     "placar": "6-1 6-4"
-    }
-   ],
-   "saque": {
-    "jogos_com_stats": 41,
-    "aces_pct": 1.7,
-    "df_pct": 2.0,
-    "1st_in_pct": 62.6,
-    "1st_won_pct": 60.9,
-    "2nd_won_pct": 48.7,
-    "spw_pct": 56.3,
-    "hold_pct": 63.6,
-    "bp_salvos_pct": 52.7
-   },
-   "devolucao": {
-    "rpw_pct": 47.2,
-    "vs_1st_pct": 40.1,
-    "vs_2nd_pct": 58.0,
-    "brk_pct": 42.6,
-    "bp_convertidos_pct": 52.5
    },
    "_atualizado": "2026-09-26"
   },
@@ -5006,114 +6534,6 @@
     "vs_2nd_pct": 62.5,
     "brk_pct": 56.8,
     "bp_convertidos_pct": 53.2
-   },
-   "_atualizado": "2026-09-26"
-  },
-  "Wushuang Zheng": {
-   "slug": "WushuangZheng",
-   "tour": "wta",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=WushuangZheng",
-   "ano": 2026,
-   "jogos": {
-    "v": 9,
-    "d": 16,
-    "por_quadra": {
-     "Dura": {
-      "v": 4,
-      "d": 12
-     },
-     "Saibro": {
-      "v": 5,
-      "d": 3
-     },
-     "Carpete": {
-      "v": 0,
-      "d": 1
-     }
-    }
-   },
-   "forma_ult10": [
-    "W",
-    "L",
-    "W",
-    "L",
-    "L",
-    "L",
-    "W",
-    "L",
-    "L",
-    "W"
-   ],
-   "jogos_recentes": [],
-   "melhores_vitorias": [
-    {
-     "data": "27/04",
-     "torneio": "Huzhou 125",
-     "round": "R32",
-     "adversario": "Ye Xin Ma",
-     "rank_adv": 175,
-     "placar": "6-3 6-4"
-    },
-    {
-     "data": "06/04",
-     "torneio": "W35 Anning",
-     "round": "QF",
-     "adversario": "Yidi Yang",
-     "rank_adv": 312,
-     "placar": "6-4 6-4"
-    },
-    {
-     "data": "27/04",
-     "torneio": "Huzhou 125",
-     "round": "R16",
-     "adversario": "Sijia Wei",
-     "rank_adv": 382,
-     "placar": "4-3 RET"
-    }
-   ],
-   "piores_derrotas": [
-    {
-     "data": "09/03",
-     "torneio": "W15 Maanshan",
-     "round": "R32",
-     "adversario": "Jiayi Wang",
-     "rank_adv": 740,
-     "placar": "6-0 7-5"
-    },
-    {
-     "data": "01/06",
-     "torneio": "W50 Wuning",
-     "round": "R16",
-     "adversario": "Jiayi Wang",
-     "rank_adv": 574,
-     "placar": "4-6 6-1 6-1"
-    },
-    {
-     "data": "22/06",
-     "torneio": "W15 Maanshan",
-     "round": "R16",
-     "adversario": "Jiayi Wang",
-     "rank_adv": 545,
-     "placar": "6-0 4-6 6-2"
-    }
-   ],
-   "saque": {
-    "jogos_com_stats": 25,
-    "aces_pct": 0.6,
-    "df_pct": 3.1,
-    "1st_in_pct": 66.7,
-    "1st_won_pct": 55.9,
-    "2nd_won_pct": 43.1,
-    "spw_pct": 51.6,
-    "hold_pct": 53.5,
-    "bp_salvos_pct": 50.0
-   },
-   "devolucao": {
-    "rpw_pct": 43.3,
-    "vs_1st_pct": 36.7,
-    "vs_2nd_pct": 54.1,
-    "brk_pct": 35.4,
-    "bp_convertidos_pct": 49.2
    },
    "_atualizado": "2026-09-26"
   },
@@ -7470,175 +8890,6 @@
    },
    "_atualizado": "2026-09-26"
   },
-  "Maria Timofeeva": {
-   "slug": "MariaTimofeeva",
-   "tour": "wta",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=MariaTimofeeva",
-   "ano": 2026,
-   "jogos": {
-    "v": 35,
-    "d": 18,
-    "por_quadra": {
-     "Dura": {
-      "v": 13,
-      "d": 11
-     },
-     "Saibro": {
-      "v": 18,
-      "d": 5
-     },
-     "Grama": {
-      "v": 4,
-      "d": 2
-     }
-    }
-   },
-   "forma_ult10": [
-    "L",
-    "W",
-    "W",
-    "W",
-    "L",
-    "W",
-    "U",
-    "W",
-    "W",
-    "W"
-   ],
-   "jogos_recentes": [
-    [
-     "20260813",
-     "Xiyu Wang",
-     "6-0 3-0 RET",
-     "L"
-    ],
-    [
-     "20260823",
-     "Lanlana Tararudee",
-     "7-6(5) 2-6 7-6(4)",
-     "W"
-    ],
-    [
-     "20260823",
-     "Kamilla Rakhimova",
-     "3-6 6-3 7-6(1)",
-     "W"
-    ],
-    [
-     "20260823",
-     "Shuai Zhang",
-     "6-1 6-3",
-     "W"
-    ],
-    [
-     "20260831",
-     "Elise Mertens",
-     "6-2 7-6(5)",
-     "L"
-    ],
-    [
-     "20260831",
-     "Tamara Zidansek",
-     "6-3 7-5",
-     "W"
-    ],
-    [
-     "20260921",
-     "Mia Pohankova",
-     "",
-     "U"
-    ],
-    [
-     "20260921",
-     "Gabriela Andrea Knutson",
-     "6-1 6-2",
-     "W"
-    ],
-    [
-     "20260921",
-     "Kajsa Rinaldo Persson",
-     "6-3 6-0",
-     "W"
-    ],
-    [
-     "20260921",
-     "Sofia Johnson",
-     "6-4 6-2",
-     "W"
-    ]
-   ],
-   "melhores_vitorias": [
-    {
-     "data": "23/08",
-     "torneio": "Monterrey",
-     "round": "R32",
-     "adversario": "Shuai Zhang",
-     "rank_adv": 53,
-     "placar": "6-1 6-3"
-    },
-    {
-     "data": "04/01",
-     "torneio": "Brisbane",
-     "round": "Q1",
-     "adversario": "Antonia Ruzic",
-     "rank_adv": 70,
-     "placar": "7-5 6-4"
-    },
-    {
-     "data": "23/08",
-     "torneio": "Monterrey",
-     "round": "Q1",
-     "adversario": "Lanlana Tararudee",
-     "rank_adv": 72,
-     "placar": "7-6(5) 2-6 7-6(4)"
-    }
-   ],
-   "piores_derrotas": [
-    {
-     "data": "27/04",
-     "torneio": "W100 Wiesbaden",
-     "round": "R32",
-     "adversario": "Tessa Johanna Brockmann",
-     "rank_adv": 268,
-     "placar": "7-6(5) 6-2"
-    },
-    {
-     "data": "19/01",
-     "torneio": "Australian Open",
-     "round": "Q1",
-     "adversario": "Mai Hontama",
-     "rank_adv": 244,
-     "placar": "1-6 6-4 7-5"
-    },
-    {
-     "data": "13/04",
-     "torneio": "Rouen",
-     "round": "Q2",
-     "adversario": "Chloe Paquet",
-     "rank_adv": 241,
-     "placar": "6-3 7-6(5)"
-    }
-   ],
-   "saque": {
-    "jogos_com_stats": 47,
-    "aces_pct": 2.8,
-    "df_pct": 4.6,
-    "1st_in_pct": 64.7,
-    "1st_won_pct": 60.7,
-    "2nd_won_pct": 47.1,
-    "spw_pct": 55.9,
-    "hold_pct": 65.1,
-    "bp_salvos_pct": 56.6
-   },
-   "devolucao": {
-    "rpw_pct": 48.5,
-    "vs_1st_pct": 43.7,
-    "vs_2nd_pct": 56.4,
-    "brk_pct": 45.4,
-    "bp_convertidos_pct": 50.7
-   },
-   "_atualizado": "2026-09-26"
-  },
   "Han Shi": {
    "slug": "HanShi",
    "tour": "wta",
@@ -9183,165 +10434,6 @@
    },
    "_atualizado": "2026-09-26"
   },
-  "Reese Brantmeier": {
-   "slug": "ReeseBrantmeier",
-   "tour": "wta",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=ReeseBrantmeier",
-   "ano": 2026,
-   "jogos": {
-    "v": 19,
-    "d": 8,
-    "por_quadra": {
-     "Dura": {
-      "v": 18,
-      "d": 7
-     },
-     "Grama": {
-      "v": 1,
-      "d": 1
-     }
-    }
-   },
-   "forma_ult10": [
-    "W",
-    "L",
-    "L",
-    "W",
-    "W",
-    "W",
-    "W",
-    "W",
-    "W",
-    "W"
-   ],
-   "jogos_recentes": [
-    [
-     "20260831",
-     "Oleksandra Oliynykova",
-     "6-4 6-4",
-     "L"
-    ],
-    [
-     "20260914",
-     "Kylie Collins",
-     "7-5 6-3",
-     "L"
-    ],
-    [
-     "20260914",
-     "Oceane Dodin",
-     "6-4 5-7 6-4",
-     "W"
-    ],
-    [
-     "20260921",
-     "Angelina Voloshchuk",
-     "6-3 6-2",
-     "W"
-    ],
-    [
-     "20260921",
-     "Naiktha Bains",
-     "6-4 6-4",
-     "W"
-    ],
-    [
-     "20260921",
-     "Erika Andreeva",
-     "6-3 7-6(5)",
-     "W"
-    ],
-    [
-     "20260921",
-     "Sinja Kraus",
-     "6-3 6-0",
-     "W"
-    ],
-    [
-     "20260921",
-     "Jasmijn Gimbrere",
-     "6-1 6-0",
-     "W"
-    ],
-    [
-     "20260921",
-     "Sofia Johnson",
-     "6-3 6-4",
-     "W"
-    ]
-   ],
-   "melhores_vitorias": [
-    {
-     "data": "21/09",
-     "torneio": "WTA Porto 125",
-     "round": "SF",
-     "adversario": "Sinja Kraus",
-     "rank_adv": 95,
-     "placar": "6-3 6-0"
-    },
-    {
-     "data": "03/08",
-     "torneio": "W100 Landisville PA",
-     "round": "R16",
-     "adversario": "Elizabeth Mandlik",
-     "rank_adv": 178,
-     "placar": "6-3 6-4"
-    },
-    {
-     "data": "01/06",
-     "torneio": "W100 Sumter SC",
-     "round": "SF",
-     "adversario": "Cadence Brace",
-     "rank_adv": 202,
-     "placar": "7-6(5) 2-6 6-3"
-    }
-   ],
-   "piores_derrotas": [
-    {
-     "data": "14/09",
-     "torneio": "Caldas Da Rainha 125",
-     "round": "Q2",
-     "adversario": "Kylie Collins",
-     "rank_adv": 364,
-     "placar": "7-5 6-3"
-    },
-    {
-     "data": "01/06",
-     "torneio": "W100 Sumter SC",
-     "round": "F",
-     "adversario": "Kristina Liutova",
-     "rank_adv": 312,
-     "placar": "6-4 6-3"
-    },
-    {
-     "data": "27/07",
-     "torneio": "Memphis",
-     "round": "R32",
-     "adversario": "Iryna Shymanovich",
-     "rank_adv": 205,
-     "placar": "6-4 6-3"
-    }
-   ],
-   "saque": {
-    "jogos_com_stats": 26,
-    "aces_pct": 6.3,
-    "df_pct": 3.2,
-    "1st_in_pct": 61.5,
-    "1st_won_pct": 69.7,
-    "2nd_won_pct": 48.1,
-    "spw_pct": 61.4,
-    "hold_pct": 74.9,
-    "bp_salvos_pct": 58.0
-   },
-   "devolucao": {
-    "rpw_pct": 45.1,
-    "vs_1st_pct": 39.1,
-    "vs_2nd_pct": 55.2,
-    "brk_pct": 37.2,
-    "bp_convertidos_pct": 42.7
-   },
-   "_atualizado": "2026-09-26"
-  },
   "Katie Swan": {
    "slug": "KatieSwan",
    "tour": "wta",
@@ -10281,173 +11373,6 @@
     "vs_2nd_pct": 53.2,
     "brk_pct": 32.9,
     "bp_convertidos_pct": 44.9
-   },
-   "_atualizado": "2026-09-26"
-  },
-  "Kimberly Birrell": {
-   "slug": "KimberlyBirrell",
-   "tour": "wta",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=KimberlyBirrell",
-   "ano": 2026,
-   "jogos": {
-    "v": 27,
-    "d": 25,
-    "por_quadra": {
-     "Dura": {
-      "v": 21,
-      "d": 15
-     },
-     "?": {
-      "v": 0,
-      "d": 1
-     },
-     "Saibro": {
-      "v": 1,
-      "d": 4
-     },
-     "Grama": {
-      "v": 5,
-      "d": 5
-     }
-    }
-   },
-   "forma_ult10": [
-    "L",
-    "L",
-    "L",
-    "L",
-    "W",
-    "U",
-    "W",
-    "W",
-    "W",
-    "W"
-   ],
-   "jogos_recentes": [
-    [
-     "20260813",
-     "Kamilla Rakhimova",
-     "6-2 6-2",
-     "L"
-    ],
-    [
-     "20260823",
-     "Darja Vidmanova",
-     "7-6(2) 6-3",
-     "L"
-    ],
-    [
-     "20260831",
-     "Ekaterina Alexandrova",
-     "6-1 2-6 6-3",
-     "L"
-    ],
-    [
-     "20260831",
-     "Petra Marcinko",
-     "3-6 7-6(4) 6-3",
-     "W"
-    ],
-    [
-     "20260921",
-     "Maya Joint",
-     "",
-     "U"
-    ],
-    [
-     "20260921",
-     "Katie Volynets",
-     "2-6 6-2 7-5",
-     "W"
-    ],
-    [
-     "20260921",
-     "Ye Xin Ma",
-     "7-5 6-3",
-     "W"
-    ],
-    [
-     "20260921",
-     "Tamara Zidansek",
-     "7-6(2) 6-4",
-     "W"
-    ],
-    [
-     "20260921",
-     "Anna Bondar",
-     "7-5 2-6 6-1",
-     "W"
-    ]
-   ],
-   "melhores_vitorias": [
-    {
-     "data": "25/05",
-     "torneio": "Roland Garros",
-     "round": "R128",
-     "adversario": "Jessica Pegula",
-     "rank_adv": 5,
-     "placar": "1-6 6-3 6-3"
-    },
-    {
-     "data": "12/01",
-     "torneio": "Adelaide",
-     "round": "QF",
-     "adversario": "Jaqueline Cristian",
-     "rank_adv": 37,
-     "placar": "5-7 6-1 7-5"
-    },
-    {
-     "data": "22/06",
-     "torneio": "Eastbourne",
-     "round": "R32",
-     "adversario": "Barbora Krejcikova",
-     "rank_adv": 37,
-     "placar": "6-3 7-6(6)"
-    }
-   ],
-   "piores_derrotas": [
-    {
-     "data": "27/07",
-     "torneio": "Memphis",
-     "round": "R32",
-     "adversario": "Ye Xin Ma",
-     "rank_adv": 194,
-     "placar": "7-6(2) 6-4"
-    },
-    {
-     "data": "10/04",
-     "torneio": "BJK Cup Qualifiers",
-     "round": "RR",
-     "adversario": "Harriet Dart",
-     "rank_adv": 173,
-     "placar": "4-6 6-3 6-3"
-    },
-    {
-     "data": "19/01",
-     "torneio": "Australian Open",
-     "round": "R128",
-     "adversario": "Maddison Inglis",
-     "rank_adv": 168,
-     "placar": "7-6(6) 6-7(9) 6-4"
-    }
-   ],
-   "saque": {
-    "jogos_com_stats": 46,
-    "aces_pct": 2.7,
-    "df_pct": 7.5,
-    "1st_in_pct": 63.8,
-    "1st_won_pct": 63.7,
-    "2nd_won_pct": 42.4,
-    "spw_pct": 56.0,
-    "hold_pct": 65.4,
-    "bp_salvos_pct": 53.5
-   },
-   "devolucao": {
-    "rpw_pct": 43.7,
-    "vs_1st_pct": 37.1,
-    "vs_2nd_pct": 54.1,
-    "brk_pct": 35.9,
-    "bp_convertidos_pct": 49.3
    },
    "_atualizado": "2026-09-26"
   },
@@ -12477,169 +13402,6 @@
     "vs_2nd_pct": 57.4,
     "brk_pct": 41.8,
     "bp_convertidos_pct": 49.3
-   },
-   "_atualizado": "2026-09-25"
-  },
-  "Maya Joint": {
-   "slug": "MayaJoint",
-   "tour": "wta",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=MayaJoint",
-   "ano": 2026,
-   "jogos": {
-    "v": 13,
-    "d": 23,
-    "por_quadra": {
-     "Dura": {
-      "v": 11,
-      "d": 15
-     },
-     "Saibro": {
-      "v": 1,
-      "d": 5
-     },
-     "Grama": {
-      "v": 1,
-      "d": 3
-     }
-    }
-   },
-   "forma_ult10": [
-    "W",
-    "L",
-    "L",
-    "W",
-    "W",
-    "L",
-    "W",
-    "U",
-    "W",
-    "W"
-   ],
-   "jogos_recentes": [
-    [
-     "20260813",
-     "Tamara Korpatsch",
-     "0-6 6-3 6-4",
-     "L"
-    ],
-    [
-     "20260823",
-     "Panna Udvardy",
-     "7-6(5) 6-1",
-     "L"
-    ],
-    [
-     "20260823",
-     "Jessica Hinojosa Gomez",
-     "6-4 6-2",
-     "W"
-    ],
-    [
-     "20260823",
-     "Yulia Putintseva",
-     "0-6 6-3 6-1",
-     "W"
-    ],
-    [
-     "20260831",
-     "Elina Svitolina",
-     "6-2 6-7(6) 6-4",
-     "L"
-    ],
-    [
-     "20260831",
-     "Liudmila Samsonova",
-     "3-6 6-2 6-2",
-     "W"
-    ],
-    [
-     "20260921",
-     "Lanlana Tararudee",
-     "",
-     "U"
-    ],
-    [
-     "20260921",
-     "Dayeon Back",
-     "6-2 6-1",
-     "W"
-    ],
-    [
-     "20260921",
-     "Xinxin Yao",
-     "2-6 7-6(7) 6-3",
-     "W"
-    ]
-   ],
-   "melhores_vitorias": [
-    {
-     "data": "02/08",
-     "torneio": "Toronto",
-     "round": "R64",
-     "adversario": "Sorana Cirstea",
-     "rank_adv": 18,
-     "placar": "6-4 6-4"
-    },
-    {
-     "data": "12/01",
-     "torneio": "Adelaide",
-     "round": "R32",
-     "adversario": "Sofia Kenin",
-     "rank_adv": 28,
-     "placar": "7-6(3) 6-4"
-    },
-    {
-     "data": "31/08",
-     "torneio": "US Open",
-     "round": "R128",
-     "adversario": "Liudmila Samsonova",
-     "rank_adv": 47,
-     "placar": "3-6 6-2 6-2"
-    }
-   ],
-   "piores_derrotas": [
-    {
-     "data": "02/06",
-     "torneio": "Makarska 125",
-     "round": "R16",
-     "adversario": "Yasmine Kabbaj",
-     "rank_adv": 297,
-     "placar": "6-3 6-4"
-    },
-    {
-     "data": "11/05",
-     "torneio": "Paris 125",
-     "round": "R32",
-     "adversario": "Chloe Paquet",
-     "rank_adv": 277,
-     "placar": "5-7 6-0 6-3"
-    },
-    {
-     "data": "27/07",
-     "torneio": "Memphis",
-     "round": "R16",
-     "adversario": "Kristina Liutova",
-     "rank_adv": 229,
-     "placar": "3-6 6-3 6-3"
-    }
-   ],
-   "saque": {
-    "jogos_com_stats": 32,
-    "aces_pct": 2.7,
-    "df_pct": 4.4,
-    "1st_in_pct": 62.9,
-    "1st_won_pct": 58.3,
-    "2nd_won_pct": 47.3,
-    "spw_pct": 54.2,
-    "hold_pct": 60.3,
-    "bp_salvos_pct": 57.2
-   },
-   "devolucao": {
-    "rpw_pct": 43.5,
-    "vs_1st_pct": 35.8,
-    "vs_2nd_pct": 55.4,
-    "brk_pct": 34.0,
-    "bp_convertidos_pct": 49.6
    },
    "_atualizado": "2026-09-25"
   },
@@ -14850,157 +15612,6 @@
     "spw_pct": 64.8,
     "hold_pct": null,
     "bp_salvos_pct": 59.8
-   },
-   "devolucao": {
-    "rpw_pct": null,
-    "vs_1st_pct": null,
-    "vs_2nd_pct": null,
-    "brk_pct": null,
-    "bp_convertidos_pct": null
-   },
-   "_atualizado": "2026-09-25"
-  },
-  "Daniil Medvedev": {
-   "slug": "DaniilMedvedev",
-   "tour": "atp",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=DaniilMedvedev",
-   "ano": 2026,
-   "jogos": {
-    "v": 14,
-    "d": 10,
-    "por_quadra": {
-     "Dura": {
-      "v": 5,
-      "d": 5
-     },
-     "Saibro": {
-      "v": 3,
-      "d": 2
-     },
-     "Grama": {
-      "v": 6,
-      "d": 3
-     }
-    }
-   },
-   "forma_ult10": [
-    "W",
-    "W",
-    "L",
-    "L",
-    "W",
-    "L",
-    "L",
-    "W",
-    "W",
-    "W"
-   ],
-   "jogos_recentes": [
-    [
-     "20260813",
-     "Brandon Nakashima",
-     "6-7(3) 7-6(4) 6-1",
-     "L"
-    ],
-    [
-     "20260813",
-     "Marco Trungelliti",
-     "6-4 7-5",
-     "W"
-    ],
-    [
-     "20260823",
-     "Martin Damm",
-     "7-5 6-3",
-     "L"
-    ],
-    [
-     "20260831",
-     "Frances Tiafoe",
-     "7-6(1) 6-4 7-6(6)",
-     "L"
-    ],
-    [
-     "20260831",
-     "Arthur Rinderknech",
-     "6-4 6-4 6-4",
-     "W"
-    ],
-    [
-     "20260831",
-     "Sebastian Gorzny",
-     "6-1 6-3 7-5",
-     "W"
-    ],
-    [
-     "20260831",
-     "Hugo Gaston",
-     "6-4 6-2 6-4",
-     "W"
-    ]
-   ],
-   "melhores_vitorias": [
-    {
-     "data": "31/08",
-     "torneio": "US Open",
-     "round": "R32",
-     "adversario": "Arthur Rinderknech",
-     "rank_adv": 29,
-     "placar": "6-4 6-4 6-4"
-    },
-    {
-     "data": "15/06",
-     "torneio": "Halle",
-     "round": "R32",
-     "adversario": "Tomas Martin Etcheverry",
-     "rank_adv": 30,
-     "placar": "6-3 6-4"
-    },
-    {
-     "data": "04/01",
-     "torneio": "Brisbane",
-     "round": "F",
-     "adversario": "Brandon Nakashima",
-     "rank_adv": 33,
-     "placar": "6-2 7-6(1)"
-    }
-   ],
-   "piores_derrotas": [
-    {
-     "data": "25/05",
-     "torneio": "Roland Garros",
-     "round": "R128",
-     "adversario": "Adam Walton",
-     "rank_adv": 97,
-     "placar": "6-2 1-6 6-1 1-6 6-4"
-    },
-    {
-     "data": "23/08",
-     "torneio": "Winston-Salem",
-     "round": "R32",
-     "adversario": "Martin Damm",
-     "rank_adv": 92,
-     "placar": "7-5 6-3"
-    },
-    {
-     "data": "15/06",
-     "torneio": "Halle",
-     "round": "QF",
-     "adversario": "Daniel Altmaier",
-     "rank_adv": 81,
-     "placar": "6-4 6-7(6) 6-4"
-    }
-   ],
-   "saque": {
-    "jogos_com_stats": 23,
-    "aces_pct": 10.6,
-    "df_pct": 5.8,
-    "1st_in_pct": 60.5,
-    "1st_won_pct": 75.7,
-    "2nd_won_pct": 49.0,
-    "spw_pct": 65.1,
-    "hold_pct": null,
-    "bp_salvos_pct": 59.5
    },
    "devolucao": {
     "rpw_pct": null,
@@ -26097,139 +26708,6 @@
    },
    "_atualizado": "2026-09-23"
   },
-  "Fiona Crawley": {
-   "slug": "FionaCrawley",
-   "tour": "wta",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=FionaCrawley",
-   "ano": 2026,
-   "jogos": {
-    "v": 18,
-    "d": 10,
-    "por_quadra": {
-     "Dura": {
-      "v": 15,
-      "d": 8
-     },
-     "Saibro": {
-      "v": 1,
-      "d": 1
-     },
-     "Grama": {
-      "v": 2,
-      "d": 1
-     }
-    }
-   },
-   "forma_ult10": [
-    "L",
-    "W",
-    "W",
-    "W",
-    "L",
-    "W",
-    "L",
-    "W",
-    "W",
-    "L"
-   ],
-   "jogos_recentes": [
-    [
-     "20260823",
-     "Julia Grabher",
-     "6-4 6-3",
-     "L"
-    ],
-    [
-     "20260823",
-     "Ekaterina Ovcharenko",
-     "6-4 6-3",
-     "W"
-    ],
-    [
-     "20260823",
-     "Simona Waltert",
-     "7-5 6-3",
-     "W"
-    ],
-    [
-     "20260921",
-     "Carole Monnet",
-     "6-1 7-6(4)",
-     "L"
-    ]
-   ],
-   "melhores_vitorias": [
-    {
-     "data": "23/08",
-     "torneio": "Philadelphia 125",
-     "round": "R32",
-     "adversario": "Simona Waltert",
-     "rank_adv": 85,
-     "placar": "7-5 6-3"
-    },
-    {
-     "data": "29/06",
-     "torneio": "Wimbledon",
-     "round": "Q1",
-     "adversario": "Himeno Sakatsume",
-     "rank_adv": 123,
-     "placar": "7-5 4-6 7-6(8)"
-    },
-    {
-     "data": "20/07",
-     "torneio": "W100 Evansville IN",
-     "round": "R32",
-     "adversario": "Himeno Sakatsume",
-     "rank_adv": 132,
-     "placar": "5-7 6-1 6-1"
-    }
-   ],
-   "piores_derrotas": [
-    {
-     "data": "13/04",
-     "torneio": "W35 Zephyrhills FL",
-     "round": "R16",
-     "adversario": "Daria Egorova",
-     "rank_adv": 633,
-     "placar": "7-5 6-2"
-    },
-    {
-     "data": "23/02",
-     "torneio": "W75 Porto",
-     "round": "QF",
-     "adversario": "Martyna Kubka",
-     "rank_adv": 305,
-     "placar": "6-4 6-1"
-    },
-    {
-     "data": "20/07",
-     "torneio": "W100 Evansville IN",
-     "round": "R16",
-     "adversario": "Yuki Naito",
-     "rank_adv": 298,
-     "placar": "6-4 6-7(5) 6-1"
-    }
-   ],
-   "saque": {
-    "jogos_com_stats": 25,
-    "aces_pct": 1.2,
-    "df_pct": 5.8,
-    "1st_in_pct": 59.7,
-    "1st_won_pct": 61.2,
-    "2nd_won_pct": 44.7,
-    "spw_pct": 54.6,
-    "hold_pct": 59.7,
-    "bp_salvos_pct": 52.2
-   },
-   "devolucao": {
-    "rpw_pct": 48.9,
-    "vs_1st_pct": 40.9,
-    "vs_2nd_pct": 61.6,
-    "brk_pct": 46.7,
-    "bp_convertidos_pct": 49.4
-   },
-   "_atualizado": "2026-09-23"
-  },
   "Carolyn Ansari": {
    "slug": "CarolynAnsari",
    "tour": "wta",
@@ -26479,181 +26957,6 @@
     "vs_2nd_pct": 56.0,
     "brk_pct": 35.8,
     "bp_convertidos_pct": 43.0
-   },
-   "_atualizado": "2026-09-23"
-  },
-  "Anastasia Tikhonova": {
-   "slug": "AnastasiaTikhonova",
-   "tour": "wta",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=AnastasiaTikhonova",
-   "ano": 2026,
-   "jogos": {
-    "v": 14,
-    "d": 25,
-    "por_quadra": {
-     "Dura": {
-      "v": 5,
-      "d": 11
-     },
-     "Saibro": {
-      "v": 6,
-      "d": 13
-     },
-     "Grama": {
-      "v": 3,
-      "d": 1
-     }
-    }
-   },
-   "forma_ult10": [
-    "W",
-    "L",
-    "W",
-    "L",
-    "W",
-    "W",
-    "L",
-    "L",
-    "W",
-    "L"
-   ],
-   "jogos_recentes": [
-    [
-     "20260810",
-     "Ruth Roura Llaverias",
-     "6-3 6-0",
-     "L"
-    ],
-    [
-     "20260810",
-     "Jessica Pieri",
-     "6-4 6-1",
-     "W"
-    ],
-    [
-     "20260817",
-     "Nastasja Schunk",
-     "6-3 6-2",
-     "L"
-    ],
-    [
-     "20260817",
-     "Ane Mintegi Del Olmo",
-     "6-4 6-0",
-     "W"
-    ],
-    [
-     "20260907",
-     "Elsa Jacquemot",
-     "6-7(5) 6-1 6-1",
-     "L"
-    ],
-    [
-     "20260907",
-     "Nao Hibino",
-     "6-4 6-4",
-     "W"
-    ],
-    [
-     "20260907",
-     "Darja Semenistaja",
-     "6-4 4-6 7-5",
-     "W"
-    ],
-    [
-     "20260914",
-     "Kaitlin Quevedo",
-     "6-0 6-2",
-     "L"
-    ],
-    [
-     "20260914",
-     "Whitney Osuigwe",
-     "6-2 6-2",
-     "L"
-    ],
-    [
-     "20260914",
-     "Maria Florencia Urrutia",
-     "6-2 6-1",
-     "W"
-    ],
-    [
-     "20260921",
-     "Anastasia Gasanova",
-     "6-2 6-4",
-     "L"
-    ]
-   ],
-   "melhores_vitorias": [
-    {
-     "data": "07/09",
-     "torneio": "Barranquilla 125",
-     "round": "R32",
-     "adversario": "Darja Semenistaja",
-     "rank_adv": 109,
-     "placar": "6-4 4-6 7-5"
-    },
-    {
-     "data": "30/03",
-     "torneio": "Bogota",
-     "round": "Q2",
-     "adversario": "Marina Bassols Ribera",
-     "rank_adv": 203,
-     "placar": "6-1 4-6 6-3"
-    },
-    {
-     "data": "07/09",
-     "torneio": "Barranquilla 125",
-     "round": "R16",
-     "adversario": "Nao Hibino",
-     "rank_adv": 228,
-     "placar": "6-4 6-4"
-    }
-   ],
-   "piores_derrotas": [
-    {
-     "data": "03/08",
-     "torneio": "W75 Leipzig",
-     "round": "R32",
-     "adversario": "Lola Giza",
-     "rank_adv": 1055,
-     "placar": "6-2 7-5"
-    },
-    {
-     "data": "10/08",
-     "torneio": "W50 Hamburg",
-     "round": "R16",
-     "adversario": "Ruth Roura Llaverias",
-     "rank_adv": 641,
-     "placar": "6-3 6-0"
-    },
-    {
-     "data": "06/04",
-     "torneio": "W35 Boca Raton FL",
-     "round": "R32",
-     "adversario": "Madison Sieg",
-     "rank_adv": 487,
-     "placar": "6-3 6-2"
-    }
-   ],
-   "saque": {
-    "jogos_com_stats": 39,
-    "aces_pct": 4.8,
-    "df_pct": 7.5,
-    "1st_in_pct": 51.5,
-    "1st_won_pct": 64.5,
-    "2nd_won_pct": 46.5,
-    "spw_pct": 55.8,
-    "hold_pct": 62.3,
-    "bp_salvos_pct": 53.2
-   },
-   "devolucao": {
-    "rpw_pct": 42.2,
-    "vs_1st_pct": 36.2,
-    "vs_2nd_pct": 52.3,
-    "brk_pct": 30.2,
-    "bp_convertidos_pct": 43.2
    },
    "_atualizado": "2026-09-23"
   },
@@ -31711,149 +32014,6 @@
     "vs_2nd_pct": 58.9,
     "brk_pct": 42.8,
     "bp_convertidos_pct": 53.0
-   },
-   "_atualizado": "2026-09-22"
-  },
-  "Viktoria Hruncakova": {
-   "slug": "ViktoriaHruncakova",
-   "tour": "wta",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=ViktoriaHruncakova",
-   "ano": 2026,
-   "jogos": {
-    "v": 25,
-    "d": 23,
-    "por_quadra": {
-     "Dura": {
-      "v": 15,
-      "d": 17
-     },
-     "Saibro": {
-      "v": 2,
-      "d": 2
-     },
-     "Grama": {
-      "v": 1,
-      "d": 2
-     },
-     "Carpete": {
-      "v": 7,
-      "d": 2
-     }
-    }
-   },
-   "forma_ult10": [
-    "L",
-    "W",
-    "W",
-    "W",
-    "L",
-    "L",
-    "W",
-    "L",
-    "W",
-    "L"
-   ],
-   "jogos_recentes": [
-    [
-     "20260831",
-     "Susan Bandecchi",
-     "6-3 6-2",
-     "L"
-    ],
-    [
-     "20260831",
-     "Julia Riera",
-     "6-3 6-4",
-     "W"
-    ],
-    [
-     "20260914",
-     "Susan Bandecchi",
-     "6-3 6-2",
-     "L"
-    ],
-    [
-     "20260914",
-     "Erika Andreeva",
-     "6-7(4) 6-4 6-4",
-     "W"
-    ],
-    [
-     "20260921",
-     "Polina Iatcenko",
-     "4-6 6-3 6-3",
-     "L"
-    ]
-   ],
-   "melhores_vitorias": [
-    {
-     "data": "31/08",
-     "torneio": "US Open",
-     "round": "Q1",
-     "adversario": "Julia Riera",
-     "rank_adv": 147,
-     "placar": "6-3 6-4"
-    },
-    {
-     "data": "25/05",
-     "torneio": "Roland Garros",
-     "round": "Q2",
-     "adversario": "Bianca Andreescu",
-     "rank_adv": 159,
-     "placar": "6-7(2) 6-4 6-4"
-    },
-    {
-     "data": "26/01",
-     "torneio": "W100 Fujairah",
-     "round": "R32",
-     "adversario": "Ekaterine Gorgodze",
-     "rank_adv": 169,
-     "placar": "6-2 6-2"
-    }
-   ],
-   "piores_derrotas": [
-    {
-     "data": "27/04",
-     "torneio": "W35 Nottingham",
-     "round": "R32",
-     "adversario": "Ruby Cooling",
-     "rank_adv": 978,
-     "placar": "6-3 4-6 6-3"
-    },
-    {
-     "data": "08/06",
-     "torneio": "W50 Guimaraes",
-     "round": "R32",
-     "adversario": "Lauryn John Baptiste",
-     "rank_adv": 909,
-     "placar": "7-5 6-2"
-    },
-    {
-     "data": "27/07",
-     "torneio": "W50 Dublin",
-     "round": "SF",
-     "adversario": "Amelia Rajecki",
-     "rank_adv": 508,
-     "placar": "6-4 7-5"
-    }
-   ],
-   "saque": {
-    "jogos_com_stats": 43,
-    "aces_pct": 10.1,
-    "df_pct": 6.3,
-    "1st_in_pct": 59.9,
-    "1st_won_pct": 70.4,
-    "2nd_won_pct": 45.2,
-    "spw_pct": 60.3,
-    "hold_pct": 73.7,
-    "bp_salvos_pct": 61.1
-   },
-   "devolucao": {
-    "rpw_pct": 41.3,
-    "vs_1st_pct": 32.4,
-    "vs_2nd_pct": 55.3,
-    "brk_pct": 31.2,
-    "bp_convertidos_pct": 43.4
    },
    "_atualizado": "2026-09-22"
   },
@@ -54758,157 +54918,6 @@
     "vs_2nd_pct": 55.2,
     "brk_pct": 39.5,
     "bp_convertidos_pct": 46.5
-   },
-   "_atualizado": "2026-09-14"
-  },
-  "Lois Boisson": {
-   "slug": "LoisBoisson",
-   "tour": "wta",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=LoisBoisson",
-   "ano": 2026,
-   "jogos": {
-    "v": 3,
-    "d": 12,
-    "por_quadra": {
-     "Saibro": {
-      "v": 1,
-      "d": 5
-     },
-     "Grama": {
-      "v": 0,
-      "d": 2
-     },
-     "Dura": {
-      "v": 2,
-      "d": 5
-     }
-    }
-   },
-   "forma_ult10": [
-    "L",
-    "L",
-    "L",
-    "L",
-    "L",
-    "W",
-    "W",
-    "L",
-    "L",
-    "L"
-   ],
-   "jogos_recentes": [
-    [
-     "20260802",
-     "Antonia Ruzic",
-     "4-6 6-1 6-3",
-     "L"
-    ],
-    [
-     "20260813",
-     "Diane Parry",
-     "4-6 6-4 6-3",
-     "L"
-    ],
-    [
-     "20260813",
-     "Ashlyn Krueger",
-     "6-3 6-2",
-     "W"
-    ],
-    [
-     "20260813",
-     "Belinda Bencic",
-     "6-3 0-0 RET",
-     "W"
-    ],
-    [
-     "20260823",
-     "Capucine Jauffret",
-     "6-1 0-0 RET",
-     "L"
-    ],
-    [
-     "20260831",
-     "Emma Navarro",
-     "7-6(6) 6-7(1) 6-3",
-     "L"
-    ],
-    [
-     "20260913",
-     "Panna Udvardy",
-     "6-4 6-7(6) 6-2",
-     "L"
-    ]
-   ],
-   "melhores_vitorias": [
-    {
-     "data": "13/08",
-     "torneio": "Cincinnati",
-     "round": "R64",
-     "adversario": "Belinda Bencic",
-     "rank_adv": 12,
-     "placar": "6-3 0-0 RET"
-    },
-    {
-     "data": "17/05",
-     "torneio": "Strasbourg",
-     "round": "R32",
-     "adversario": "Xin Yu Wang",
-     "rank_adv": 32,
-     "placar": "6-3 7-6(4)"
-    },
-    {
-     "data": "13/08",
-     "torneio": "Cincinnati",
-     "round": "R128",
-     "adversario": "Ashlyn Krueger",
-     "rank_adv": 56,
-     "placar": "6-3 6-2"
-    }
-   ],
-   "piores_derrotas": [
-    {
-     "data": "23/08",
-     "torneio": "Philadelphia 125",
-     "round": "R32",
-     "adversario": "Capucine Jauffret",
-     "rank_adv": 847,
-     "placar": "6-1 0-0 RET"
-    },
-    {
-     "data": "11/05",
-     "torneio": "Parma 125",
-     "round": "R32",
-     "adversario": "Dominika Salkova",
-     "rank_adv": 117,
-     "placar": "6-7(5) 6-1 6-2"
-    },
-    {
-     "data": "13/09",
-     "torneio": "WTA Guadalajara 500",
-     "round": "R32",
-     "adversario": "Panna Udvardy",
-     "rank_adv": 83,
-     "placar": "6-4 6-7(6) 6-2"
-    }
-   ],
-   "saque": {
-    "jogos_com_stats": 14,
-    "aces_pct": 6.2,
-    "df_pct": 6.2,
-    "1st_in_pct": 62.1,
-    "1st_won_pct": 67.8,
-    "2nd_won_pct": 41.6,
-    "spw_pct": 57.8,
-    "hold_pct": 67.9,
-    "bp_salvos_pct": 58.3
-   },
-   "devolucao": {
-    "rpw_pct": 37.0,
-    "vs_1st_pct": 31.9,
-    "vs_2nd_pct": 45.6,
-    "brk_pct": 17.8,
-    "bp_convertidos_pct": 31.8
    },
    "_atualizado": "2026-09-14"
   },
