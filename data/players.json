@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-09-27T15:47:40+00:00",
+ "gerado_em": "2026-09-27T18:58:35+00:00",
  "ano": 2026,
  "falhas": [],
  "players": {
@@ -10,7 +10,7 @@
    "ano": 2026,
    "jogos": {
     "v": 10,
-    "d": 9,
+    "d": 10,
     "por_quadra": {
      "Grama": {
       "v": 4,
@@ -18,18 +18,18 @@
      },
      "Dura": {
       "v": 6,
-      "d": 5
+      "d": 6
      }
     }
    },
    "forma_ult10": [
     "W",
-    "W",
     "L",
     "W",
     "L",
     "L",
     "W",
+    "L",
     "L",
     "W",
     "W"
@@ -57,6 +57,12 @@
      "20260831",
      "Jaime Faria",
      "6-3 7-6(4) 4-6 1-6 6-2",
+     "L"
+    ],
+    [
+     "20260923",
+     "Nikoloz Basilashvili",
+     "6-4 7-6(4)",
      "L"
     ],
     [
@@ -108,32 +114,32 @@
      "placar": "7-6(4) 5-7 6-1"
     },
     {
+     "data": "23/09",
+     "torneio": "Chengdu",
+     "round": "QF",
+     "adversario": "Nikoloz Basilashvili",
+     "rank_adv": 145,
+     "placar": "6-4 7-6(4)"
+    },
+    {
      "data": "27/07",
      "torneio": "Los Cabos",
      "round": "QF",
      "adversario": "Coleman Wong",
      "rank_adv": 108,
      "placar": "6-1 7-5"
-    },
-    {
-     "data": "13/08",
-     "torneio": "Cincinnati Masters",
-     "round": "R128",
-     "adversario": "Jaime Faria",
-     "rank_adv": 79,
-     "placar": "6-3 6-2"
     }
    ],
    "saque": {
-    "jogos_com_stats": 19,
-    "aces_pct": 5.3,
-    "df_pct": 1.2,
-    "1st_in_pct": 68.1,
-    "1st_won_pct": 70.8,
-    "2nd_won_pct": 53.1,
-    "spw_pct": 65.1,
+    "jogos_com_stats": 20,
+    "aces_pct": 5.2,
+    "df_pct": 1.3,
+    "1st_in_pct": 68.7,
+    "1st_won_pct": 70.5,
+    "2nd_won_pct": 52.2,
+    "spw_pct": 64.8,
     "hold_pct": null,
-    "bp_salvos_pct": 58.2
+    "bp_salvos_pct": 59.0
    },
    "devolucao": {
     "rpw_pct": null,
@@ -150,7 +156,7 @@
    "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=NikolozBasilashvili",
    "ano": 2026,
    "jogos": {
-    "v": 8,
+    "v": 9,
     "d": 10,
     "por_quadra": {
      "Grama": {
@@ -162,18 +168,18 @@
       "d": 5
      },
      "Dura": {
-      "v": 4,
+      "v": 5,
       "d": 3
      }
     }
    },
    "forma_ult10": [
     "L",
-    "L",
     "W",
     "L",
     "L",
     "L",
+    "W",
     "W",
     "W",
     "W",
@@ -197,6 +203,12 @@
      "Naoya Honda",
      "2-6 7-6(6) 0-0 RET",
      "L"
+    ],
+    [
+     "20260923",
+     "Jenson Brooksby",
+     "6-4 7-6(4)",
+     "W"
     ],
     [
      "20260923",
@@ -276,15 +288,15 @@
     }
    ],
    "saque": {
-    "jogos_com_stats": 17,
-    "aces_pct": 10.0,
-    "df_pct": 6.9,
-    "1st_in_pct": 53.9,
-    "1st_won_pct": 76.2,
-    "2nd_won_pct": 49.8,
-    "spw_pct": 63.7,
+    "jogos_com_stats": 18,
+    "aces_pct": 10.2,
+    "df_pct": 6.6,
+    "1st_in_pct": 54.1,
+    "1st_won_pct": 76.1,
+    "2nd_won_pct": 50.6,
+    "spw_pct": 64.1,
     "hold_pct": null,
-    "bp_salvos_pct": 63.1
+    "bp_salvos_pct": 62.5
    },
    "devolucao": {
     "rpw_pct": null,
@@ -448,11 +460,11 @@
    "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=KyrianJacquet",
    "ano": 2026,
    "jogos": {
-    "v": 13,
+    "v": 14,
     "d": 8,
     "por_quadra": {
      "Dura": {
-      "v": 7,
+      "v": 8,
       "d": 4
      },
      "Grama": {
@@ -466,13 +478,13 @@
     }
    },
    "forma_ult10": [
-    "L",
     "W",
     "L",
     "W",
     "W",
     "L",
     "L",
+    "W",
     "W",
     "W",
     "W"
@@ -516,6 +528,12 @@
     ],
     [
      "20260923",
+     "Fabian Marozsan",
+     "7-6(12) 6-4",
+     "W"
+    ],
+    [
+     "20260923",
      "Tomas Martin Etcheverry",
      "6-2 6-3",
      "W"
@@ -545,12 +563,12 @@
      "placar": "1-6 6-1 7-5"
     },
     {
-     "data": "02/08",
-     "torneio": "Canada Masters",
-     "round": "Q1",
-     "adversario": "Alexander Shevchenko",
-     "rank_adv": 89,
-     "placar": "4-6 6-4 6-3"
+     "data": "23/09",
+     "torneio": "Hangzhou",
+     "round": "QF",
+     "adversario": "Fabian Marozsan",
+     "rank_adv": 59,
+     "placar": "7-6(12) 6-4"
     }
    ],
    "piores_derrotas": [
@@ -580,15 +598,15 @@
     }
    ],
    "saque": {
-    "jogos_com_stats": 18,
+    "jogos_com_stats": 19,
     "aces_pct": 7.0,
-    "df_pct": 5.1,
-    "1st_in_pct": 52.6,
-    "1st_won_pct": 71.2,
+    "df_pct": 5.2,
+    "1st_in_pct": 52.8,
+    "1st_won_pct": 72.0,
     "2nd_won_pct": 51.4,
-    "spw_pct": 61.8,
+    "spw_pct": 62.2,
     "hold_pct": null,
-    "bp_salvos_pct": 61.4
+    "bp_salvos_pct": 62.2
    },
    "devolucao": {
     "rpw_pct": null,
@@ -825,7 +843,7 @@
    "ano": 2026,
    "jogos": {
     "v": 8,
-    "d": 9,
+    "d": 10,
     "por_quadra": {
      "Saibro": {
       "v": 2,
@@ -837,17 +855,17 @@
      },
      "Dura": {
       "v": 6,
-      "d": 3
+      "d": 4
      }
     }
    },
    "forma_ult10": [
     "L",
     "L",
-    "L",
     "W",
     "L",
     "W",
+    "L",
     "W",
     "W",
     "W",
@@ -883,6 +901,12 @@
      "Ziga Sesko",
      "6-4 6-2",
      "W"
+    ],
+    [
+     "20260923",
+     "Alejandro Davidovich Fokina",
+     "6-1 7-5",
+     "L"
     ],
     [
      "20260923",
@@ -962,15 +986,15 @@
     }
    ],
    "saque": {
-    "jogos_com_stats": 16,
-    "aces_pct": 5.7,
+    "jogos_com_stats": 17,
+    "aces_pct": 6.0,
     "df_pct": 3.4,
     "1st_in_pct": 62.5,
-    "1st_won_pct": 70.5,
-    "2nd_won_pct": 51.7,
-    "spw_pct": 63.6,
+    "1st_won_pct": 70.0,
+    "2nd_won_pct": 51.8,
+    "spw_pct": 63.3,
     "hold_pct": null,
-    "bp_salvos_pct": 66.7
+    "bp_salvos_pct": 66.1
    },
    "devolucao": {
     "rpw_pct": null,
@@ -987,7 +1011,7 @@
    "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=AlejandroDavidovichFokina",
    "ano": 2026,
    "jogos": {
-    "v": 13,
+    "v": 14,
     "d": 6,
     "por_quadra": {
      "Saibro": {
@@ -999,7 +1023,7 @@
       "d": 3
      },
      "Dura": {
-      "v": 1,
+      "v": 2,
       "d": 0
      }
     }
@@ -1007,16 +1031,22 @@
    "forma_ult10": [
     "W",
     "W",
-    "W",
     "L",
     "W",
     "W",
     "W",
     "L",
+    "W",
     "W",
     "W"
    ],
    "jogos_recentes": [
+    [
+     "20260923",
+     "Alexandre Muller",
+     "6-1 7-5",
+     "W"
+    ],
     [
      "20260923",
      "Juan Manuel Cerundolo",
@@ -1077,13 +1107,13 @@
     }
    ],
    "saque": {
-    "jogos_com_stats": 17,
-    "aces_pct": 6.6,
+    "jogos_com_stats": 18,
+    "aces_pct": 7.1,
     "df_pct": 1.6,
-    "1st_in_pct": 66.7,
-    "1st_won_pct": 73.1,
-    "2nd_won_pct": 60.5,
-    "spw_pct": 68.7,
+    "1st_in_pct": 66.8,
+    "1st_won_pct": 73.5,
+    "2nd_won_pct": 61.6,
+    "spw_pct": 69.3,
     "hold_pct": null,
     "bp_salvos_pct": 70.2
    },
@@ -1784,16 +1814,12 @@
    "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=DaniilMedvedev",
    "ano": 2026,
    "jogos": {
-    "v": 12,
-    "d": 9,
+    "v": 13,
+    "d": 8,
     "por_quadra": {
      "Dura": {
-      "v": 6,
+      "v": 7,
       "d": 5
-     },
-     "Saibro": {
-      "v": 0,
-      "d": 1
      },
      "Grama": {
       "v": 6,
@@ -1802,12 +1828,12 @@
     }
    },
    "forma_ult10": [
-    "W",
     "L",
     "L",
     "W",
     "L",
     "L",
+    "W",
     "W",
     "W",
     "W",
@@ -1858,6 +1884,12 @@
     ],
     [
      "20260923",
+     "Coleman Wong",
+     "6-3 6-7(2) 6-3",
+     "W"
+    ],
+    [
+     "20260923",
      "Valentin Royer",
      "7-6(6) 6-3",
      "W"
@@ -1891,14 +1923,6 @@
    ],
    "piores_derrotas": [
     {
-     "data": "25/05",
-     "torneio": "Roland Garros",
-     "round": "R128",
-     "adversario": "Adam Walton",
-     "rank_adv": 97,
-     "placar": "6-2 1-6 6-1 1-6 6-4"
-    },
-    {
      "data": "23/08",
      "torneio": "Winston-Salem",
      "round": "R32",
@@ -1913,18 +1937,26 @@
      "adversario": "Daniel Altmaier",
      "rank_adv": 81,
      "placar": "6-4 6-7(6) 6-4"
+    },
+    {
+     "data": "08/06",
+     "torneio": "s Hertogenbosch",
+     "round": "SF",
+     "adversario": "Kamil Majchrzak",
+     "rank_adv": 76,
+     "placar": "7-6(4) 6-1"
     }
    ],
    "saque": {
-    "jogos_com_stats": 20,
-    "aces_pct": 12.1,
-    "df_pct": 6.0,
-    "1st_in_pct": 59.9,
-    "1st_won_pct": 77.1,
+    "jogos_com_stats": 21,
+    "aces_pct": 12.4,
+    "df_pct": 5.9,
+    "1st_in_pct": 60.1,
+    "1st_won_pct": 77.2,
     "2nd_won_pct": 50.6,
-    "spw_pct": 66.4,
+    "spw_pct": 66.5,
     "hold_pct": null,
-    "bp_salvos_pct": 62.7
+    "bp_salvos_pct": 63.9
    },
    "devolucao": {
     "rpw_pct": null,
@@ -1942,16 +1974,15 @@
    "ano": 2026,
    "jogos": {
     "v": 16,
-    "d": 6,
+    "d": 7,
     "por_quadra": {
      "Dura": {
       "v": 16,
-      "d": 6
+      "d": 7
      }
     }
    },
    "forma_ult10": [
-    "W",
     "L",
     "W",
     "W",
@@ -1959,6 +1990,7 @@
     "W",
     "W",
     "W",
+    "L",
     "W",
     "W"
    ],
@@ -2022,6 +2054,12 @@
      "Elmer Moller",
      "5-7 6-3 6-4",
      "W"
+    ],
+    [
+     "20260923",
+     "Daniil Medvedev",
+     "6-3 6-7(2) 6-3",
+     "L"
     ],
     [
      "20260923",
@@ -2089,15 +2127,15 @@
     }
    ],
    "saque": {
-    "jogos_com_stats": 22,
-    "aces_pct": 14.5,
-    "df_pct": 4.9,
-    "1st_in_pct": 54.7,
+    "jogos_com_stats": 23,
+    "aces_pct": 14.4,
+    "df_pct": 4.7,
+    "1st_in_pct": 54.9,
     "1st_won_pct": 78.4,
-    "2nd_won_pct": 54.4,
-    "spw_pct": 67.6,
+    "2nd_won_pct": 54.1,
+    "spw_pct": 67.5,
     "hold_pct": null,
-    "bp_salvos_pct": 62.6
+    "bp_salvos_pct": 62.3
    },
    "devolucao": {
     "rpw_pct": null,
