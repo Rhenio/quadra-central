@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-09-27T18:58:35+00:00",
+ "gerado_em": "2026-09-28T18:42:31+00:00",
  "ano": 2026,
  "falhas": [],
  "players": {
@@ -35,12 +35,6 @@
     "W"
    ],
    "jogos_recentes": [
-    [
-     "20260813",
-     "Jaime Faria",
-     "6-3 6-2",
-     "L"
-    ],
     [
      "20260823",
      "Stefanos Tsitsipas",
@@ -148,7 +142,7 @@
     "brk_pct": null,
     "bp_convertidos_pct": null
    },
-   "_atualizado": "2026-09-27"
+   "_atualizado": "2026-09-28"
   },
   "Nikoloz Basilashvili": {
    "slug": "NikolozBasilashvili",
@@ -157,7 +151,7 @@
    "ano": 2026,
    "jogos": {
     "v": 9,
-    "d": 10,
+    "d": 11,
     "por_quadra": {
      "Grama": {
       "v": 2,
@@ -169,13 +163,13 @@
      },
      "Dura": {
       "v": 5,
-      "d": 3
+      "d": 4
      }
     }
    },
    "forma_ult10": [
-    "L",
     "W",
+    "L",
     "L",
     "L",
     "L",
@@ -187,12 +181,6 @@
    ],
    "jogos_recentes": [
     [
-     "20260813",
-     "Jaime Faria",
-     "6-4 6-4",
-     "L"
-    ],
-    [
      "20260831",
      "Seong Chan Hong",
      "6-3 7-6(1)",
@@ -202,6 +190,12 @@
      "20260914",
      "Naoya Honda",
      "2-6 7-6(6) 0-0 RET",
+     "L"
+    ],
+    [
+     "20260923",
+     "Alejandro Davidovich Fokina",
+     "4-6 6-4 6-3",
      "L"
     ],
     [
@@ -288,15 +282,15 @@
     }
    ],
    "saque": {
-    "jogos_com_stats": 18,
-    "aces_pct": 10.2,
-    "df_pct": 6.6,
-    "1st_in_pct": 54.1,
-    "1st_won_pct": 76.1,
-    "2nd_won_pct": 50.6,
-    "spw_pct": 64.1,
+    "jogos_com_stats": 19,
+    "aces_pct": 10.6,
+    "df_pct": 6.3,
+    "1st_in_pct": 54.4,
+    "1st_won_pct": 76.2,
+    "2nd_won_pct": 51.2,
+    "spw_pct": 64.4,
     "hold_pct": null,
-    "bp_salvos_pct": 62.5
+    "bp_salvos_pct": 61.5
    },
    "devolucao": {
     "rpw_pct": null,
@@ -305,7 +299,7 @@
     "brk_pct": null,
     "bp_convertidos_pct": null
    },
-   "_atualizado": "2026-09-27"
+   "_atualizado": "2026-09-28"
   },
   "Fabian Marozsan": {
    "slug": "FabianMarozsan",
@@ -314,7 +308,7 @@
    "ano": 2026,
    "jogos": {
     "v": 10,
-    "d": 8,
+    "d": 9,
     "por_quadra": {
      "Grama": {
       "v": 5,
@@ -322,29 +316,23 @@
      },
      "Dura": {
       "v": 5,
-      "d": 4
+      "d": 5
      }
     }
    },
    "forma_ult10": [
-    "W",
     "L",
     "W",
     "L",
     "L",
     "W",
     "W",
+    "L",
     "L",
     "W",
     "W"
    ],
    "jogos_recentes": [
-    [
-     "20260813",
-     "Michael Zheng",
-     "3-6 6-1 7-6(1)",
-     "L"
-    ],
     [
      "20260823",
      "James Duckworth",
@@ -367,6 +355,12 @@
      "20260831",
      "Michael Zheng",
      "6-4 6-4 6-2",
+     "L"
+    ],
+    [
+     "20260923",
+     "Kyrian Jacquet",
+     "7-6(12) 6-4",
      "L"
     ],
     [
@@ -435,15 +429,15 @@
     }
    ],
    "saque": {
-    "jogos_com_stats": 18,
-    "aces_pct": 7.6,
-    "df_pct": 3.0,
-    "1st_in_pct": 64.8,
-    "1st_won_pct": 70.8,
+    "jogos_com_stats": 19,
+    "aces_pct": 7.5,
+    "df_pct": 2.9,
+    "1st_in_pct": 65.3,
+    "1st_won_pct": 71.1,
     "2nd_won_pct": 53.2,
-    "spw_pct": 64.6,
+    "spw_pct": 64.9,
     "hold_pct": null,
-    "bp_salvos_pct": 62.6
+    "bp_salvos_pct": 62.4
    },
    "devolucao": {
     "rpw_pct": null,
@@ -452,7 +446,7 @@
     "brk_pct": null,
     "bp_convertidos_pct": null
    },
-   "_atualizado": "2026-09-27"
+   "_atualizado": "2026-09-28"
   },
   "Kyrian Jacquet": {
    "slug": "KyrianJacquet",
@@ -461,11 +455,11 @@
    "ano": 2026,
    "jogos": {
     "v": 14,
-    "d": 8,
+    "d": 9,
     "por_quadra": {
      "Dura": {
       "v": 8,
-      "d": 4
+      "d": 5
      },
      "Grama": {
       "v": 4,
@@ -478,36 +472,18 @@
     }
    },
    "forma_ult10": [
-    "W",
     "L",
     "W",
     "W",
     "L",
     "L",
     "W",
+    "L",
     "W",
     "W",
     "W"
    ],
    "jogos_recentes": [
-    [
-     "20260813",
-     "Adolfo Daniel Vallejo",
-     "6-2 6-4",
-     "L"
-    ],
-    [
-     "20260813",
-     "Nicolai Budkov Kjaer",
-     "7-5 6-4",
-     "W"
-    ],
-    [
-     "20260813",
-     "Billy Harris",
-     "6-2 6-1",
-     "W"
-    ],
     [
      "20260818",
      "Aleksandar Vukic",
@@ -525,6 +501,12 @@
      "Lautaro Midon",
      "6-4 6-3",
      "W"
+    ],
+    [
+     "20260923",
+     "Andrey Rublev",
+     "7-6(0) 6-1",
+     "L"
     ],
     [
      "20260923",
@@ -598,15 +580,15 @@
     }
    ],
    "saque": {
-    "jogos_com_stats": 19,
-    "aces_pct": 7.0,
-    "df_pct": 5.2,
-    "1st_in_pct": 52.8,
-    "1st_won_pct": 72.0,
-    "2nd_won_pct": 51.4,
-    "spw_pct": 62.2,
+    "jogos_com_stats": 20,
+    "aces_pct": 7.2,
+    "df_pct": 5.0,
+    "1st_in_pct": 52.9,
+    "1st_won_pct": 71.8,
+    "2nd_won_pct": 51.5,
+    "spw_pct": 62.3,
     "hold_pct": null,
-    "bp_salvos_pct": 62.2
+    "bp_salvos_pct": 62.7
    },
    "devolucao": {
     "rpw_pct": null,
@@ -615,7 +597,7 @@
     "brk_pct": null,
     "bp_convertidos_pct": null
    },
-   "_atualizado": "2026-09-27"
+   "_atualizado": "2026-09-28"
   },
   "Jiaqi Wang": {
    "slug": "JiaqiWang",
@@ -726,7 +708,7 @@
     "brk_pct": 42.6,
     "bp_convertidos_pct": 52.5
    },
-   "_atualizado": "2026-09-27"
+   "_atualizado": "2026-09-28"
   },
   "Wushuang Zheng": {
    "slug": "WushuangZheng",
@@ -834,7 +816,7 @@
     "brk_pct": 35.4,
     "bp_convertidos_pct": 49.2
    },
-   "_atualizado": "2026-09-27"
+   "_atualizado": "2026-09-28"
   },
   "Alexandre Muller": {
    "slug": "AlexandreMuller",
@@ -1003,7 +985,7 @@
     "brk_pct": null,
     "bp_convertidos_pct": null
    },
-   "_atualizado": "2026-09-27"
+   "_atualizado": "2026-09-28"
   },
   "Alejandro Davidovich Fokina": {
    "slug": "AlejandroDavidovichFokina",
@@ -1012,35 +994,41 @@
    "ano": 2026,
    "jogos": {
     "v": 14,
-    "d": 6,
+    "d": 5,
     "por_quadra": {
      "Saibro": {
-      "v": 3,
-      "d": 3
+      "v": 2,
+      "d": 2
      },
      "Grama": {
       "v": 9,
       "d": 3
      },
      "Dura": {
-      "v": 2,
+      "v": 3,
       "d": 0
      }
     }
    },
    "forma_ult10": [
     "W",
-    "W",
     "L",
     "W",
     "W",
     "W",
     "L",
+    "W",
     "W",
     "W",
     "W"
    ],
    "jogos_recentes": [
+    [
+     "20260923",
+     "Nikoloz Basilashvili",
+     "4-6 6-4 6-3",
+     "W"
+    ],
     [
      "20260923",
      "Alexandre Muller",
@@ -1064,20 +1052,20 @@
      "placar": "7-6(6) 6-2"
     },
     {
-     "data": "17/05",
-     "torneio": "Hamburg",
-     "round": "R32",
-     "adversario": "Corentin Moutet",
-     "rank_adv": 32,
-     "placar": "6-4 6-4"
-    },
-    {
      "data": "15/06",
      "torneio": "Queen's Club",
      "round": "R16",
      "adversario": "Corentin Moutet",
      "rank_adv": 36,
      "placar": "6-4 6-3"
+    },
+    {
+     "data": "29/06",
+     "torneio": "Wimbledon",
+     "round": "R128",
+     "adversario": "Juan Manuel Cerundolo",
+     "rank_adv": 42,
+     "placar": "6-4 6-4 7-6(2)"
     }
    ],
    "piores_derrotas": [
@@ -1107,15 +1095,15 @@
     }
    ],
    "saque": {
-    "jogos_com_stats": 18,
-    "aces_pct": 7.1,
-    "df_pct": 1.6,
-    "1st_in_pct": 66.8,
-    "1st_won_pct": 73.5,
-    "2nd_won_pct": 61.6,
-    "spw_pct": 69.3,
+    "jogos_com_stats": 17,
+    "aces_pct": 7.9,
+    "df_pct": 1.9,
+    "1st_in_pct": 65.8,
+    "1st_won_pct": 75.1,
+    "2nd_won_pct": 61.5,
+    "spw_pct": 70.3,
     "hold_pct": null,
-    "bp_salvos_pct": 70.2
+    "bp_salvos_pct": 69.2
    },
    "devolucao": {
     "rpw_pct": null,
@@ -1124,7 +1112,7 @@
     "brk_pct": null,
     "bp_convertidos_pct": null
    },
-   "_atualizado": "2026-09-27"
+   "_atualizado": "2026-09-28"
   },
   "Maya Joint": {
    "slug": "MayaJoint",
@@ -1162,12 +1150,6 @@
     "W"
    ],
    "jogos_recentes": [
-    [
-     "20260813",
-     "Tamara Korpatsch",
-     "0-6 6-3 6-4",
-     "L"
-    ],
     [
      "20260823",
      "Panna Udvardy",
@@ -1299,7 +1281,7 @@
     "brk_pct": 34.0,
     "bp_convertidos_pct": 49.6
    },
-   "_atualizado": "2026-09-27"
+   "_atualizado": "2026-09-28"
   },
   "Kimberly Birrell": {
    "slug": "KimberlyBirrell",
@@ -1341,12 +1323,6 @@
     "W"
    ],
    "jogos_recentes": [
-    [
-     "20260813",
-     "Kamilla Rakhimova",
-     "6-2 6-2",
-     "L"
-    ],
     [
      "20260823",
      "Darja Vidmanova",
@@ -1466,7 +1442,7 @@
     "brk_pct": 35.9,
     "bp_convertidos_pct": 49.3
    },
-   "_atualizado": "2026-09-27"
+   "_atualizado": "2026-09-28"
   },
   "Maria Timofeeva": {
    "slug": "MariaTimofeeva",
@@ -1504,12 +1480,6 @@
     "W"
    ],
    "jogos_recentes": [
-    [
-     "20260813",
-     "Xiyu Wang",
-     "6-0 3-0 RET",
-     "L"
-    ],
     [
      "20260823",
      "Lanlana Tararudee",
@@ -1641,7 +1611,7 @@
     "brk_pct": 45.3,
     "bp_convertidos_pct": 51.1
    },
-   "_atualizado": "2026-09-27"
+   "_atualizado": "2026-09-28"
   },
   "Reese Brantmeier": {
    "slug": "ReeseBrantmeier",
@@ -1806,7 +1776,7 @@
     "brk_pct": 37.7,
     "bp_convertidos_pct": 43.5
    },
-   "_atualizado": "2026-09-27"
+   "_atualizado": "2026-09-28"
   },
   "Daniil Medvedev": {
    "slug": "DaniilMedvedev",
@@ -1814,11 +1784,11 @@
    "ta_url": "https://www.tennisabstract.com/cgi-bin/player.cgi?p=DaniilMedvedev",
    "ano": 2026,
    "jogos": {
-    "v": 13,
+    "v": 14,
     "d": 8,
     "por_quadra": {
      "Dura": {
-      "v": 7,
+      "v": 8,
       "d": 5
      },
      "Grama": {
@@ -1829,10 +1799,10 @@
    },
    "forma_ult10": [
     "L",
-    "L",
     "W",
     "L",
     "L",
+    "W",
     "W",
     "W",
     "W",
@@ -1840,18 +1810,6 @@
     "W"
    ],
    "jogos_recentes": [
-    [
-     "20260813",
-     "Brandon Nakashima",
-     "6-7(3) 7-6(4) 6-1",
-     "L"
-    ],
-    [
-     "20260813",
-     "Marco Trungelliti",
-     "6-4 7-5",
-     "W"
-    ],
     [
      "20260823",
      "Martin Damm",
@@ -1880,6 +1838,12 @@
      "20260831",
      "Hugo Gaston",
      "6-4 6-2 6-4",
+     "W"
+    ],
+    [
+     "20260923",
+     "Roman Safiullin",
+     "7-5 6-4",
      "W"
     ],
     [
@@ -1948,15 +1912,15 @@
     }
    ],
    "saque": {
-    "jogos_com_stats": 21,
-    "aces_pct": 12.4,
+    "jogos_com_stats": 22,
+    "aces_pct": 12.3,
     "df_pct": 5.9,
-    "1st_in_pct": 60.1,
-    "1st_won_pct": 77.2,
-    "2nd_won_pct": 50.6,
-    "spw_pct": 66.5,
+    "1st_in_pct": 60.4,
+    "1st_won_pct": 77.4,
+    "2nd_won_pct": 50.2,
+    "spw_pct": 66.6,
     "hold_pct": null,
-    "bp_salvos_pct": 63.9
+    "bp_salvos_pct": 64.6
    },
    "devolucao": {
     "rpw_pct": null,
@@ -1965,7 +1929,7 @@
     "brk_pct": null,
     "bp_convertidos_pct": null
    },
-   "_atualizado": "2026-09-27"
+   "_atualizado": "2026-09-28"
   },
   "Coleman Wong": {
    "slug": "ColemanWong",
@@ -1995,24 +1959,6 @@
     "W"
    ],
    "jogos_recentes": [
-    [
-     "20260813",
-     "Daniel Altmaier",
-     "3-6 6-3 6-4",
-     "L"
-    ],
-    [
-     "20260813",
-     "Otto Virtanen",
-     "7-6(4) 7-6(2)",
-     "W"
-    ],
-    [
-     "20260813",
-     "Seong Chan Hong",
-     "6-4 6-2",
-     "W"
-    ],
     [
      "20260818",
      "Sebastian Baez",
@@ -2144,7 +2090,7 @@
     "brk_pct": null,
     "bp_convertidos_pct": null
    },
-   "_atualizado": "2026-09-27"
+   "_atualizado": "2026-09-28"
   },
   "Viktoria Hruncakova": {
    "slug": "ViktoriaHruncakova",
@@ -2152,12 +2098,12 @@
    "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=ViktoriaHruncakova",
    "ano": 2026,
    "jogos": {
-    "v": 25,
-    "d": 23,
+    "v": 27,
+    "d": 25,
     "por_quadra": {
      "Dura": {
-      "v": 15,
-      "d": 17
+      "v": 17,
+      "d": 19
      },
      "Saibro": {
       "v": 2,
@@ -2175,15 +2121,15 @@
    },
    "forma_ult10": [
     "L",
-    "W",
-    "W",
-    "W",
-    "L",
     "L",
     "W",
     "L",
     "W",
-    "L"
+    "L",
+    "L",
+    "U",
+    "W",
+    "W"
    ],
    "jogos_recentes": [
     [
@@ -2215,6 +2161,30 @@
      "Polina Iatcenko",
      "4-6 6-3 6-3",
      "L"
+    ],
+    [
+     "20260928",
+     "Anastasia Tikhonova",
+     "6-1 6-2",
+     "L"
+    ],
+    [
+     "20260928",
+     "Anna Blinkova",
+     "",
+     "U"
+    ],
+    [
+     "20260928",
+     "Anastasia Gasanova",
+     "4-2 RET",
+     "W"
+    ],
+    [
+     "20260928",
+     "Jaeda Daniel",
+     "6-4 6-3",
+     "W"
     ]
    ],
    "melhores_vitorias": [
@@ -2270,24 +2240,24 @@
     }
    ],
    "saque": {
-    "jogos_com_stats": 43,
-    "aces_pct": 10.1,
-    "df_pct": 6.3,
-    "1st_in_pct": 59.9,
-    "1st_won_pct": 70.4,
-    "2nd_won_pct": 45.2,
-    "spw_pct": 60.3,
-    "hold_pct": 73.7,
+    "jogos_com_stats": 45,
+    "aces_pct": 10.0,
+    "df_pct": 6.5,
+    "1st_in_pct": 59.6,
+    "1st_won_pct": 70.1,
+    "2nd_won_pct": 45.4,
+    "spw_pct": 60.1,
+    "hold_pct": 73.3,
     "bp_salvos_pct": 61.1
    },
    "devolucao": {
-    "rpw_pct": 41.3,
-    "vs_1st_pct": 32.4,
-    "vs_2nd_pct": 55.3,
-    "brk_pct": 31.2,
-    "bp_convertidos_pct": 43.4
+    "rpw_pct": 41.2,
+    "vs_1st_pct": 32.3,
+    "vs_2nd_pct": 54.9,
+    "brk_pct": 30.9,
+    "bp_convertidos_pct": 43.5
    },
-   "_atualizado": "2026-09-27"
+   "_atualizado": "2026-09-28"
   },
   "Anastasia Tikhonova": {
    "slug": "AnastasiaTikhonova",
@@ -2295,12 +2265,12 @@
    "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=AnastasiaTikhonova",
    "ano": 2026,
    "jogos": {
-    "v": 14,
-    "d": 25,
+    "v": 16,
+    "d": 26,
     "por_quadra": {
      "Dura": {
-      "v": 5,
-      "d": 11
+      "v": 7,
+      "d": 12
      },
      "Saibro": {
       "v": 6,
@@ -2313,16 +2283,16 @@
     }
    },
    "forma_ult10": [
-    "W",
-    "L",
-    "W",
     "L",
     "W",
     "W",
     "L",
     "L",
     "W",
-    "L"
+    "L",
+    "U",
+    "W",
+    "W"
    ],
    "jogos_recentes": [
     [
@@ -2378,6 +2348,24 @@
      "Anastasia Gasanova",
      "6-2 6-4",
      "L"
+    ],
+    [
+     "20260928",
+     "Simona Waltert",
+     "",
+     "U"
+    ],
+    [
+     "20260928",
+     "Aysegul Mert",
+     "7-6(3) 6-2",
+     "W"
+    ],
+    [
+     "20260928",
+     "Viktoria Hruncakova",
+     "6-1 6-2",
+     "W"
     ]
    ],
    "melhores_vitorias": [
@@ -2398,12 +2386,12 @@
      "placar": "6-1 4-6 6-3"
     },
     {
-     "data": "07/09",
-     "torneio": "Barranquilla 125",
-     "round": "R16",
-     "adversario": "Nao Hibino",
-     "rank_adv": 228,
-     "placar": "6-4 6-4"
+     "data": "28/09",
+     "torneio": "WTA Adana 125",
+     "round": "Q2",
+     "adversario": "Viktoria Hruncakova",
+     "rank_adv": 209,
+     "placar": "6-1 6-2"
     }
    ],
    "piores_derrotas": [
@@ -2433,24 +2421,24 @@
     }
    ],
    "saque": {
-    "jogos_com_stats": 39,
+    "jogos_com_stats": 41,
     "aces_pct": 4.8,
     "df_pct": 7.5,
-    "1st_in_pct": 51.5,
-    "1st_won_pct": 64.5,
-    "2nd_won_pct": 46.5,
-    "spw_pct": 55.8,
-    "hold_pct": 62.3,
-    "bp_salvos_pct": 53.2
+    "1st_in_pct": 51.3,
+    "1st_won_pct": 65.0,
+    "2nd_won_pct": 46.8,
+    "spw_pct": 56.2,
+    "hold_pct": 63.2,
+    "bp_salvos_pct": 53.7
    },
    "devolucao": {
-    "rpw_pct": 42.2,
-    "vs_1st_pct": 36.2,
-    "vs_2nd_pct": 52.3,
-    "brk_pct": 30.2,
-    "bp_convertidos_pct": 43.2
+    "rpw_pct": 42.6,
+    "vs_1st_pct": 36.5,
+    "vs_2nd_pct": 52.8,
+    "brk_pct": 31.2,
+    "bp_convertidos_pct": 43.9
    },
-   "_atualizado": "2026-09-27"
+   "_atualizado": "2026-09-28"
   },
   "Fiona Crawley": {
    "slug": "FionaCrawley",
@@ -2458,11 +2446,11 @@
    "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=FionaCrawley",
    "ano": 2026,
    "jogos": {
-    "v": 18,
+    "v": 21,
     "d": 10,
     "por_quadra": {
      "Dura": {
-      "v": 15,
+      "v": 18,
       "d": 8
      },
      "Saibro": {
@@ -2476,16 +2464,16 @@
     }
    },
    "forma_ult10": [
-    "L",
-    "W",
-    "W",
     "W",
     "L",
     "W",
     "L",
     "W",
     "W",
-    "L"
+    "L",
+    "W",
+    "W",
+    "W"
    ],
    "jogos_recentes": [
     [
@@ -2511,6 +2499,24 @@
      "Carole Monnet",
      "6-1 7-6(4)",
      "L"
+    ],
+    [
+     "20260928",
+     "Noma Noha Akugue",
+     "6-3 6-1",
+     "W"
+    ],
+    [
+     "20260928",
+     "Adelina Lachinova",
+     "4-6 6-3 6-3",
+     "W"
+    ],
+    [
+     "20260928",
+     "Lois Boisson",
+     "2-6 6-3 7-5",
+     "W"
     ]
    ],
    "melhores_vitorias": [
@@ -2531,12 +2537,12 @@
      "placar": "7-5 4-6 7-6(8)"
     },
     {
-     "data": "20/07",
-     "torneio": "W100 Evansville IN",
+     "data": "28/09",
+     "torneio": "WTA Adana 125",
      "round": "R32",
-     "adversario": "Himeno Sakatsume",
-     "rank_adv": 132,
-     "placar": "5-7 6-1 6-1"
+     "adversario": "Noma Noha Akugue",
+     "rank_adv": 128,
+     "placar": "6-3 6-1"
     }
    ],
    "piores_derrotas": [
@@ -2566,24 +2572,24 @@
     }
    ],
    "saque": {
-    "jogos_com_stats": 25,
-    "aces_pct": 1.2,
-    "df_pct": 5.8,
-    "1st_in_pct": 59.7,
-    "1st_won_pct": 61.2,
-    "2nd_won_pct": 44.7,
+    "jogos_com_stats": 27,
+    "aces_pct": 1.3,
+    "df_pct": 6.0,
+    "1st_in_pct": 59.2,
+    "1st_won_pct": 61.7,
+    "2nd_won_pct": 44.4,
     "spw_pct": 54.6,
-    "hold_pct": 59.7,
-    "bp_salvos_pct": 52.2
+    "hold_pct": 59.8,
+    "bp_salvos_pct": 51.6
    },
    "devolucao": {
-    "rpw_pct": 48.9,
-    "vs_1st_pct": 40.9,
-    "vs_2nd_pct": 61.6,
-    "brk_pct": 46.7,
-    "bp_convertidos_pct": 49.4
+    "rpw_pct": 49.0,
+    "vs_1st_pct": 41.1,
+    "vs_2nd_pct": 61.5,
+    "brk_pct": 46.9,
+    "bp_convertidos_pct": 48.1
    },
-   "_atualizado": "2026-09-27"
+   "_atualizado": "2026-09-28"
   },
   "Lois Boisson": {
    "slug": "LoisBoisson",
@@ -2592,7 +2598,7 @@
    "ano": 2026,
    "jogos": {
     "v": 3,
-    "d": 12,
+    "d": 14,
     "por_quadra": {
      "Saibro": {
       "v": 1,
@@ -2604,7 +2610,7 @@
      },
      "Dura": {
       "v": 2,
-      "d": 5
+      "d": 7
      }
     }
    },
@@ -2612,33 +2618,15 @@
     "L",
     "L",
     "L",
-    "L",
-    "L",
     "W",
     "W",
     "L",
     "L",
-    "L"
+    "L",
+    "L",
+    "U"
    ],
    "jogos_recentes": [
-    [
-     "20260813",
-     "Diane Parry",
-     "4-6 6-4 6-3",
-     "L"
-    ],
-    [
-     "20260813",
-     "Ashlyn Krueger",
-     "6-3 6-2",
-     "W"
-    ],
-    [
-     "20260813",
-     "Belinda Bencic",
-     "6-3 0-0 RET",
-     "W"
-    ],
     [
      "20260823",
      "Capucine Jauffret",
@@ -2656,6 +2644,18 @@
      "Panna Udvardy",
      "6-4 6-7(6) 6-2",
      "L"
+    ],
+    [
+     "20260928",
+     "Fiona Crawley",
+     "2-6 6-3 7-5",
+     "L"
+    ],
+    [
+     "20260928",
+     "Lucia Bronzetti",
+     "",
+     "U"
     ]
    ],
    "melhores_vitorias": [
@@ -2694,41 +2694,41 @@
      "placar": "6-1 0-0 RET"
     },
     {
+     "data": "28/09",
+     "torneio": "WTA Adana 125",
+     "round": "Q2",
+     "adversario": "Fiona Crawley",
+     "rank_adv": 227,
+     "placar": "2-6 6-3 7-5"
+    },
+    {
      "data": "11/05",
      "torneio": "Parma 125",
      "round": "R32",
      "adversario": "Dominika Salkova",
      "rank_adv": 117,
      "placar": "6-7(5) 6-1 6-2"
-    },
-    {
-     "data": "13/09",
-     "torneio": "Guadalajara",
-     "round": "R32",
-     "adversario": "Panna Udvardy",
-     "rank_adv": 83,
-     "placar": "6-4 6-7(6) 6-2"
     }
    ],
    "saque": {
-    "jogos_com_stats": 14,
-    "aces_pct": 6.2,
+    "jogos_com_stats": 15,
+    "aces_pct": 5.5,
     "df_pct": 6.2,
-    "1st_in_pct": 62.1,
-    "1st_won_pct": 67.8,
-    "2nd_won_pct": 41.6,
-    "spw_pct": 57.8,
-    "hold_pct": 67.9,
-    "bp_salvos_pct": 58.3
+    "1st_in_pct": 61.9,
+    "1st_won_pct": 67.0,
+    "2nd_won_pct": 41.1,
+    "spw_pct": 57.1,
+    "hold_pct": 66.7,
+    "bp_salvos_pct": 59.3
    },
    "devolucao": {
-    "rpw_pct": 37.0,
-    "vs_1st_pct": 31.9,
-    "vs_2nd_pct": 45.6,
-    "brk_pct": 17.8,
-    "bp_convertidos_pct": 31.8
+    "rpw_pct": 37.8,
+    "vs_1st_pct": 32.5,
+    "vs_2nd_pct": 46.6,
+    "brk_pct": 19.9,
+    "bp_convertidos_pct": 35.1
    },
-   "_atualizado": "2026-09-27"
+   "_atualizado": "2026-09-28"
   },
   "Hugo Gaston": {
    "slug": "HugoGaston",
