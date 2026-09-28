@@ -1,8 +1,135 @@
 {
- "gerado_em": "2026-09-28T18:42:31+00:00",
+ "gerado_em": "2026-09-28T21:10:01+00:00",
  "ano": 2026,
  "falhas": [],
  "players": {
+  "Wushuang Zheng": {
+   "slug": "WushuangZheng",
+   "tour": "wta",
+   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=WushuangZheng",
+   "ano": 2026,
+   "jogos": {
+    "v": 12,
+    "d": 16,
+    "por_quadra": {
+     "Dura": {
+      "v": 7,
+      "d": 12
+     },
+     "Saibro": {
+      "v": 5,
+      "d": 3
+     },
+     "Carpete": {
+      "v": 0,
+      "d": 1
+     }
+    }
+   },
+   "forma_ult10": [
+    "L",
+    "L",
+    "L",
+    "W",
+    "L",
+    "L",
+    "W",
+    "W",
+    "W",
+    "W"
+   ],
+   "jogos_recentes": [
+    [
+     "20260928",
+     "Mei Yamaguchi",
+     "6-1 6-3",
+     "W"
+    ],
+    [
+     "20260928",
+     "Polina Leykina",
+     "6-2 6-2",
+     "W"
+    ],
+    [
+     "20260928",
+     "Jiaqi Wang",
+     "6-2 7-6(2)",
+     "W"
+    ]
+   ],
+   "melhores_vitorias": [
+    {
+     "data": "27/04",
+     "torneio": "Huzhou 125",
+     "round": "R32",
+     "adversario": "Ye Xin Ma",
+     "rank_adv": 175,
+     "placar": "6-3 6-4"
+    },
+    {
+     "data": "28/09",
+     "torneio": "WTA Jingshan 125",
+     "round": "R32",
+     "adversario": "Mei Yamaguchi",
+     "rank_adv": 259,
+     "placar": "6-1 6-3"
+    },
+    {
+     "data": "06/04",
+     "torneio": "W35 Anning",
+     "round": "QF",
+     "adversario": "Yidi Yang",
+     "rank_adv": 312,
+     "placar": "6-4 6-4"
+    }
+   ],
+   "piores_derrotas": [
+    {
+     "data": "09/03",
+     "torneio": "W15 Maanshan",
+     "round": "R32",
+     "adversario": "Jiayi Wang",
+     "rank_adv": 740,
+     "placar": "6-0 7-5"
+    },
+    {
+     "data": "01/06",
+     "torneio": "W50 Wuning",
+     "round": "R16",
+     "adversario": "Jiayi Wang",
+     "rank_adv": 574,
+     "placar": "4-6 6-1 6-1"
+    },
+    {
+     "data": "22/06",
+     "torneio": "W15 Maanshan",
+     "round": "R16",
+     "adversario": "Jiayi Wang",
+     "rank_adv": 545,
+     "placar": "6-0 4-6 6-2"
+    }
+   ],
+   "saque": {
+    "jogos_com_stats": 28,
+    "aces_pct": 0.7,
+    "df_pct": 3.1,
+    "1st_in_pct": 66.2,
+    "1st_won_pct": 56.8,
+    "2nd_won_pct": 45.4,
+    "spw_pct": 53.0,
+    "hold_pct": 56.8,
+    "bp_salvos_pct": 50.6
+   },
+   "devolucao": {
+    "rpw_pct": 44.0,
+    "vs_1st_pct": 37.7,
+    "vs_2nd_pct": 54.3,
+    "brk_pct": 36.7,
+    "bp_convertidos_pct": 50.2
+   },
+   "_atualizado": "2026-09-28"
+  },
   "Jenson Brooksby": {
    "slug": "JensonBrooksby",
    "tour": "atp",
@@ -707,114 +834,6 @@
     "vs_2nd_pct": 58.0,
     "brk_pct": 42.6,
     "bp_convertidos_pct": 52.5
-   },
-   "_atualizado": "2026-09-28"
-  },
-  "Wushuang Zheng": {
-   "slug": "WushuangZheng",
-   "tour": "wta",
-   "ta_url": "https://www.tennisabstract.com/cgi-bin/wplayer.cgi?p=WushuangZheng",
-   "ano": 2026,
-   "jogos": {
-    "v": 9,
-    "d": 16,
-    "por_quadra": {
-     "Dura": {
-      "v": 4,
-      "d": 12
-     },
-     "Saibro": {
-      "v": 5,
-      "d": 3
-     },
-     "Carpete": {
-      "v": 0,
-      "d": 1
-     }
-    }
-   },
-   "forma_ult10": [
-    "W",
-    "L",
-    "W",
-    "L",
-    "L",
-    "L",
-    "W",
-    "L",
-    "L",
-    "W"
-   ],
-   "jogos_recentes": [],
-   "melhores_vitorias": [
-    {
-     "data": "27/04",
-     "torneio": "Huzhou 125",
-     "round": "R32",
-     "adversario": "Ye Xin Ma",
-     "rank_adv": 175,
-     "placar": "6-3 6-4"
-    },
-    {
-     "data": "06/04",
-     "torneio": "W35 Anning",
-     "round": "QF",
-     "adversario": "Yidi Yang",
-     "rank_adv": 312,
-     "placar": "6-4 6-4"
-    },
-    {
-     "data": "27/04",
-     "torneio": "Huzhou 125",
-     "round": "R16",
-     "adversario": "Sijia Wei",
-     "rank_adv": 382,
-     "placar": "4-3 RET"
-    }
-   ],
-   "piores_derrotas": [
-    {
-     "data": "09/03",
-     "torneio": "W15 Maanshan",
-     "round": "R32",
-     "adversario": "Jiayi Wang",
-     "rank_adv": 740,
-     "placar": "6-0 7-5"
-    },
-    {
-     "data": "01/06",
-     "torneio": "W50 Wuning",
-     "round": "R16",
-     "adversario": "Jiayi Wang",
-     "rank_adv": 574,
-     "placar": "4-6 6-1 6-1"
-    },
-    {
-     "data": "22/06",
-     "torneio": "W15 Maanshan",
-     "round": "R16",
-     "adversario": "Jiayi Wang",
-     "rank_adv": 545,
-     "placar": "6-0 4-6 6-2"
-    }
-   ],
-   "saque": {
-    "jogos_com_stats": 25,
-    "aces_pct": 0.6,
-    "df_pct": 3.1,
-    "1st_in_pct": 66.7,
-    "1st_won_pct": 55.9,
-    "2nd_won_pct": 43.1,
-    "spw_pct": 51.6,
-    "hold_pct": 53.5,
-    "bp_salvos_pct": 50.0
-   },
-   "devolucao": {
-    "rpw_pct": 43.3,
-    "vs_1st_pct": 36.7,
-    "vs_2nd_pct": 54.1,
-    "brk_pct": 35.4,
-    "bp_convertidos_pct": 49.2
    },
    "_atualizado": "2026-09-28"
   },
