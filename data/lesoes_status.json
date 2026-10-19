@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-10-18",
+ "gerado_em": "2026-10-19",
  "jogadores": {
   "Nikoloz Basilashvili": {
    "status": "amarelo",
@@ -11,7 +11,7 @@
     }
    ],
    "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 25,
+   "dias_sem_jogar": 26,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -21,7 +21,7 @@
    "status_auto": "verde",
    "sinais_auto": [],
    "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 25,
+   "dias_sem_jogar": 26,
    "area": "costas (persistente)",
    "resumo": "Fora do US Open por dor persistente nas costas; sem jogos desde julho e sem retorno anunciado.",
    "eventos": [
@@ -44,7 +44,7 @@
     }
    ],
    "ultimo_jogo": "2026-09-28",
-   "dias_sem_jogar": 20,
+   "dias_sem_jogar": 21,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -56,11 +56,11 @@
     {
      "tipo": "gap",
      "data": "2026-08-31",
-     "dias": 48
+     "dias": 49
     }
    ],
    "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 48,
+   "dias_sem_jogar": 49,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -70,7 +70,7 @@
    "status_auto": "verde",
    "sinais_auto": [],
    "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 25,
+   "dias_sem_jogar": 26,
    "area": "joelho direito (2 cirurgias) / costas + abdômen",
    "resumo": "RET no R4 de Wimbledon (06/07, costas/abdômen) ainda dentro da janela de 90 dias. Jogou Cincinnati e US Open (perdeu para Shelton no R2) sem novo abandono. Vira verde em 04/10 se nada mudar.",
    "eventos": [
@@ -97,11 +97,11 @@
     {
      "tipo": "gap",
      "data": "2026-08-31",
-     "dias": 48
+     "dias": 49
     }
    ],
    "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 48,
+   "dias_sem_jogar": 49,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -113,11 +113,11 @@
     {
      "tipo": "gap",
      "data": "2026-08-17",
-     "dias": 62
+     "dias": 63
     }
    ],
    "ultimo_jogo": "2026-08-17",
-   "dias_sem_jogar": 62,
+   "dias_sem_jogar": 63,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -132,7 +132,7 @@
     }
    ],
    "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 27,
+   "dias_sem_jogar": 28,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -147,7 +147,7 @@
     }
    ],
    "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 27,
+   "dias_sem_jogar": 28,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -162,7 +162,7 @@
     }
    ],
    "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 27,
+   "dias_sem_jogar": 28,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -174,11 +174,11 @@
     {
      "tipo": "gap",
      "data": "2026-08-31",
-     "dias": 48
+     "dias": 49
     }
    ],
    "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 48,
+   "dias_sem_jogar": 49,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -190,11 +190,11 @@
     {
      "tipo": "gap",
      "data": "2026-08-31",
-     "dias": 48
+     "dias": 49
     }
    ],
    "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 48,
+   "dias_sem_jogar": 49,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -206,11 +206,11 @@
     {
      "tipo": "gap",
      "data": "2026-08-31",
-     "dias": 48
+     "dias": 49
     }
    ],
    "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 48,
+   "dias_sem_jogar": 49,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -222,11 +222,11 @@
     {
      "tipo": "gap",
      "data": "2026-08-31",
-     "dias": 48
+     "dias": 49
     }
    ],
    "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 48,
+   "dias_sem_jogar": 49,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -238,11 +238,11 @@
     {
      "tipo": "gap",
      "data": "2026-08-31",
-     "dias": 48
+     "dias": 49
     }
    ],
    "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 48,
+   "dias_sem_jogar": 49,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -254,11 +254,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-14",
-     "dias": 34
+     "dias": 35
     }
    ],
    "ultimo_jogo": "2026-09-14",
-   "dias_sem_jogar": 34,
+   "dias_sem_jogar": 35,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -270,11 +270,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-07",
-     "dias": 41
+     "dias": 42
     }
    ],
    "ultimo_jogo": "2026-09-07",
-   "dias_sem_jogar": 41,
+   "dias_sem_jogar": 42,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -286,11 +286,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-07",
-     "dias": 41
+     "dias": 42
     }
    ],
    "ultimo_jogo": "2026-09-07",
-   "dias_sem_jogar": 41,
+   "dias_sem_jogar": 42,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -302,11 +302,11 @@
     {
      "tipo": "gap",
      "data": "2026-08-31",
-     "dias": 48
+     "dias": 49
     }
    ],
    "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 48,
+   "dias_sem_jogar": 49,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -322,11 +322,11 @@
     {
      "tipo": "gap",
      "data": "2026-08-31",
-     "dias": 48
+     "dias": 49
     }
    ],
    "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 48,
+   "dias_sem_jogar": 49,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -342,11 +342,11 @@
     {
      "tipo": "gap",
      "data": "2026-08-31",
-     "dias": 48
+     "dias": 49
     }
    ],
    "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 48,
+   "dias_sem_jogar": 49,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -361,7 +361,7 @@
     }
    ],
    "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 25,
+   "dias_sem_jogar": 26,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -373,11 +373,11 @@
     {
      "tipo": "gap",
      "data": "2026-08-31",
-     "dias": 48
+     "dias": 49
     }
    ],
    "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 48,
+   "dias_sem_jogar": 49,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -389,11 +389,11 @@
     {
      "tipo": "gap",
      "data": "2026-08-31",
-     "dias": 48
+     "dias": 49
     }
    ],
    "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 48,
+   "dias_sem_jogar": 49,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -408,7 +408,7 @@
     }
    ],
    "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 25,
+   "dias_sem_jogar": 26,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -423,7 +423,7 @@
     }
    ],
    "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 25,
+   "dias_sem_jogar": 26,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -438,7 +438,7 @@
     }
    ],
    "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 25,
+   "dias_sem_jogar": 26,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -453,7 +453,7 @@
     }
    ],
    "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 27,
+   "dias_sem_jogar": 28,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -465,11 +465,11 @@
     {
      "tipo": "gap",
      "data": "2026-08-31",
-     "dias": 48
+     "dias": 49
     }
    ],
    "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 48,
+   "dias_sem_jogar": 49,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -481,11 +481,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-14",
-     "dias": 34
+     "dias": 35
     }
    ],
    "ultimo_jogo": "2026-09-14",
-   "dias_sem_jogar": 34,
+   "dias_sem_jogar": 35,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -497,11 +497,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-14",
-     "dias": 34
+     "dias": 35
     }
    ],
    "ultimo_jogo": "2026-09-14",
-   "dias_sem_jogar": 34,
+   "dias_sem_jogar": 35,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -513,11 +513,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-14",
-     "dias": 34
+     "dias": 35
     }
    ],
    "ultimo_jogo": "2026-09-14",
-   "dias_sem_jogar": 34,
+   "dias_sem_jogar": 35,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -529,11 +529,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-14",
-     "dias": 34
+     "dias": 35
     }
    ],
    "ultimo_jogo": "2026-09-14",
-   "dias_sem_jogar": 34,
+   "dias_sem_jogar": 35,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -545,11 +545,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-14",
-     "dias": 34
+     "dias": 35
     }
    ],
    "ultimo_jogo": "2026-09-14",
-   "dias_sem_jogar": 34,
+   "dias_sem_jogar": 35,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -561,11 +561,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-14",
-     "dias": 34
+     "dias": 35
     }
    ],
    "ultimo_jogo": "2026-09-14",
-   "dias_sem_jogar": 34,
+   "dias_sem_jogar": 35,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -580,7 +580,7 @@
     }
    ],
    "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 27,
+   "dias_sem_jogar": 28,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -592,11 +592,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-13",
-     "dias": 35
+     "dias": 36
     }
    ],
    "ultimo_jogo": "2026-09-13",
-   "dias_sem_jogar": 35,
+   "dias_sem_jogar": 36,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -608,11 +608,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-14",
-     "dias": 34
+     "dias": 35
     }
    ],
    "ultimo_jogo": "2026-09-14",
-   "dias_sem_jogar": 34,
+   "dias_sem_jogar": 35,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -624,11 +624,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-13",
-     "dias": 35
+     "dias": 36
     }
    ],
    "ultimo_jogo": "2026-09-13",
-   "dias_sem_jogar": 35,
+   "dias_sem_jogar": 36,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -640,11 +640,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-14",
-     "dias": 34
+     "dias": 35
     }
    ],
    "ultimo_jogo": "2026-09-14",
-   "dias_sem_jogar": 34,
+   "dias_sem_jogar": 35,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -656,11 +656,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-14",
-     "dias": 34
+     "dias": 35
     }
    ],
    "ultimo_jogo": "2026-09-14",
-   "dias_sem_jogar": 34,
+   "dias_sem_jogar": 35,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -672,11 +672,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-13",
-     "dias": 35
+     "dias": 36
     }
    ],
    "ultimo_jogo": "2026-09-13",
-   "dias_sem_jogar": 35,
+   "dias_sem_jogar": 36,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -688,11 +688,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-14",
-     "dias": 34
+     "dias": 35
     }
    ],
    "ultimo_jogo": "2026-09-14",
-   "dias_sem_jogar": 34,
+   "dias_sem_jogar": 35,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -704,11 +704,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-14",
-     "dias": 34
+     "dias": 35
     }
    ],
    "ultimo_jogo": "2026-09-14",
-   "dias_sem_jogar": 34,
+   "dias_sem_jogar": 35,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -720,11 +720,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-14",
-     "dias": 34
+     "dias": 35
     }
    ],
    "ultimo_jogo": "2026-09-14",
-   "dias_sem_jogar": 34,
+   "dias_sem_jogar": 35,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -736,11 +736,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-13",
-     "dias": 35
+     "dias": 36
     }
    ],
    "ultimo_jogo": "2026-09-13",
-   "dias_sem_jogar": 35,
+   "dias_sem_jogar": 36,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -752,11 +752,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-14",
-     "dias": 34
+     "dias": 35
     }
    ],
    "ultimo_jogo": "2026-09-14",
-   "dias_sem_jogar": 34,
+   "dias_sem_jogar": 35,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -768,11 +768,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-14",
-     "dias": 34
+     "dias": 35
     }
    ],
    "ultimo_jogo": "2026-09-14",
-   "dias_sem_jogar": 34,
+   "dias_sem_jogar": 35,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -784,11 +784,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-14",
-     "dias": 34
+     "dias": 35
     }
    ],
    "ultimo_jogo": "2026-09-14",
-   "dias_sem_jogar": 34,
+   "dias_sem_jogar": 35,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -800,11 +800,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-13",
-     "dias": 35
+     "dias": 36
     }
    ],
    "ultimo_jogo": "2026-09-13",
-   "dias_sem_jogar": 35,
+   "dias_sem_jogar": 36,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -816,11 +816,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-14",
-     "dias": 34
+     "dias": 35
     }
    ],
    "ultimo_jogo": "2026-09-14",
-   "dias_sem_jogar": 34,
+   "dias_sem_jogar": 35,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -832,11 +832,11 @@
     {
      "tipo": "gap",
      "data": "2026-08-17",
-     "dias": 62
+     "dias": 63
     }
    ],
    "ultimo_jogo": "2026-08-17",
-   "dias_sem_jogar": 62,
+   "dias_sem_jogar": 63,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -848,11 +848,11 @@
     {
      "tipo": "gap",
      "data": "2026-08-17",
-     "dias": 62
+     "dias": 63
     }
    ],
    "ultimo_jogo": "2026-08-17",
-   "dias_sem_jogar": 62,
+   "dias_sem_jogar": 63,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -864,11 +864,11 @@
     {
      "tipo": "gap",
      "data": "2026-08-31",
-     "dias": 48
+     "dias": 49
     }
    ],
    "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 48,
+   "dias_sem_jogar": 49,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -880,11 +880,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-07",
-     "dias": 41
+     "dias": 42
     }
    ],
    "ultimo_jogo": "2026-09-07",
-   "dias_sem_jogar": 41,
+   "dias_sem_jogar": 42,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -896,11 +896,11 @@
     {
      "tipo": "gap",
      "data": "2026-08-31",
-     "dias": 48
+     "dias": 49
     }
    ],
    "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 48,
+   "dias_sem_jogar": 49,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -912,11 +912,11 @@
     {
      "tipo": "gap",
      "data": "2026-08-23",
-     "dias": 56
+     "dias": 57
     }
    ],
    "ultimo_jogo": "2026-08-23",
-   "dias_sem_jogar": 56,
+   "dias_sem_jogar": 57,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -928,219 +928,11 @@
     {
      "tipo": "gap",
      "data": "2026-08-17",
-     "dias": 62
+     "dias": 63
     }
    ],
    "ultimo_jogo": "2026-08-17",
-   "dias_sem_jogar": 62,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Noma Noha Akugue": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-14",
-     "dias": 34
-    }
-   ],
-   "ultimo_jogo": "2026-09-14",
-   "dias_sem_jogar": 34,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Nastasja Schunk": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-14",
-     "dias": 34
-    }
-   ],
-   "ultimo_jogo": "2026-09-14",
-   "dias_sem_jogar": 34,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Jazmin Ortenzi": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-14",
-     "dias": 34
-    }
-   ],
-   "ultimo_jogo": "2026-09-14",
-   "dias_sem_jogar": 34,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Sara Bejlek": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-13",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-13",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Vendula Valdmannova": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-14",
-     "dias": 34
-    }
-   ],
-   "ultimo_jogo": "2026-09-14",
-   "dias_sem_jogar": 34,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Sloane Stephens": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-13",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-13",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Nauhany Vitoria Leme Da Silva": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-14",
-     "dias": 34
-    }
-   ],
-   "ultimo_jogo": "2026-09-14",
-   "dias_sem_jogar": 34,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Marta Kostyuk": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-13",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-13",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Anastasiya Soboleva": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-14",
-     "dias": 34
-    }
-   ],
-   "ultimo_jogo": "2026-09-14",
-   "dias_sem_jogar": 34,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Kayla Cross": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-14",
-     "dias": 34
-    }
-   ],
-   "ultimo_jogo": "2026-09-14",
-   "dias_sem_jogar": 34,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Elina Avanesyan": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-14",
-     "dias": 34
-    }
-   ],
-   "ultimo_jogo": "2026-09-14",
-   "dias_sem_jogar": 34,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Dominika Salkova": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-14",
-     "dias": 34
-    }
-   ],
-   "ultimo_jogo": "2026-09-14",
-   "dias_sem_jogar": 34,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Magdalena Frech": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-13",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-13",
-   "dias_sem_jogar": 35,
+   "dias_sem_jogar": 63,
    "area": "",
    "resumo": "",
    "eventos": []
