@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-10-26",
+ "gerado_em": "2026-10-27",
  "jogadores": {
   "Jenson Brooksby": {
    "status": "amarelo",
@@ -8,11 +8,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-23",
-     "dias": 33
+     "dias": 34
     }
    ],
    "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 33,
+   "dias_sem_jogar": 34,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -28,11 +28,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-23",
-     "dias": 33
+     "dias": 34
     }
    ],
    "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 33,
+   "dias_sem_jogar": 34,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -44,11 +44,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-23",
-     "dias": 33
+     "dias": 34
     }
    ],
    "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 33,
+   "dias_sem_jogar": 34,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -60,11 +60,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-23",
-     "dias": 33
+     "dias": 34
     }
    ],
    "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 33,
+   "dias_sem_jogar": 34,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -76,11 +76,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-21",
-     "dias": 35
+     "dias": 36
     }
    ],
    "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
+   "dias_sem_jogar": 36,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -92,11 +92,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-23",
-     "dias": 33
+     "dias": 34
     }
    ],
    "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 33,
+   "dias_sem_jogar": 34,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -108,11 +108,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-23",
-     "dias": 33
+     "dias": 34
     }
    ],
    "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 33,
+   "dias_sem_jogar": 34,
    "area": "costas (persistente)",
    "resumo": "Fora do US Open por dor persistente nas costas; sem jogos desde julho e sem retorno anunciado.",
    "eventos": [
@@ -132,11 +132,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-21",
-     "dias": 35
+     "dias": 36
     }
    ],
    "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
+   "dias_sem_jogar": 36,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -148,11 +148,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-21",
-     "dias": 35
+     "dias": 36
     }
    ],
    "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
+   "dias_sem_jogar": 36,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -164,11 +164,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-21",
-     "dias": 35
+     "dias": 36
     }
    ],
    "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
+   "dias_sem_jogar": 36,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -180,11 +180,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-21",
-     "dias": 35
+     "dias": 36
     }
    ],
    "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
+   "dias_sem_jogar": 36,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -196,11 +196,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-23",
-     "dias": 33
+     "dias": 34
     }
    ],
    "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 33,
+   "dias_sem_jogar": 34,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -212,11 +212,11 @@
     {
      "tipo": "gap",
      "data": "2026-09-23",
-     "dias": 33
+     "dias": 34
     }
    ],
    "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 33,
+   "dias_sem_jogar": 34,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -231,894 +231,7 @@
     }
    ],
    "ultimo_jogo": "2026-09-28",
-   "dias_sem_jogar": 28,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Hugo Gaston": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-23",
-     "dias": 33
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 33,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Kamil Majchrzak": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-23",
-     "dias": 33
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 33,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Yunchaokete Bu": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-23",
-     "dias": 33
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 33,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Adolfo Daniel Vallejo": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-23",
-     "dias": 33
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 33,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Denis Shapovalov": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-23",
-     "dias": 33
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 33,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Adrian Mannarino": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-23",
-     "dias": 33
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 33,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Lloyd Harris": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-23",
-     "dias": 33
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 33,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Maja Chwalinska": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Federico Cina": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-23",
-     "dias": 33
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 33,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Leylah Fernandez": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Polina Iatcenko": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Roman Safiullin": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-23",
-     "dias": 33
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 33,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Teodora Kostovic": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Andrey Rublev": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-23",
-     "dias": 33
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 33,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Valentin Vacherot": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-08-31",
-     "dias": 56
-    }
-   ],
-   "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 56,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Hubert Hurkacz": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-23",
-     "dias": 33
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 33,
-   "area": "joelho direito (2 cirurgias) / costas + abdômen",
-   "resumo": "RET no R4 de Wimbledon (06/07, costas/abdômen) ainda dentro da janela de 90 dias. Jogou Cincinnati e US Open (perdeu para Shelton no R2) sem novo abandono. Vira verde em 04/10 se nada mudar.",
-   "eventos": [
-    {
-     "data": "2025-07-15",
-     "tipo": "anuncio",
-     "torneio": "—",
-     "area": "joelho dir.",
-     "nota": "Artroscopia; encerrou a temporada 2025."
-    },
-    {
-     "data": "2026-07-06",
-     "tipo": "ret",
-     "torneio": "Wimbledon R4",
-     "area": "costas/abdômen",
-     "nota": "Abandonou contra Struff após liderar por 2 sets a 0."
-    }
-   ]
-  },
-  "Quentin Halys": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-08-31",
-     "dias": 56
-    }
-   ],
-   "ultimo_jogo": "2026-08-31",
-   "dias_sem_jogar": 56,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Nika Radisic": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Ekaterina Yashina": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Polina Leykina": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-08-17",
-     "dias": 70
-    }
-   ],
-   "ultimo_jogo": "2026-08-17",
-   "dias_sem_jogar": 70,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Talia Gibson": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Katie Volynets": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Jaime Faria": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-23",
-     "dias": 33
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 33,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Juan Manuel Cerundolo": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-23",
-     "dias": 33
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 33,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Lorenzo Sonego": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-23",
-     "dias": 33
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 33,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Vit Kopriva": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-23",
-     "dias": 33
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 33,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Taro Daniel": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-23",
-     "dias": 33
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 33,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Alina Korneeva": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-09-21"
-    },
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Tatiana Prozorova": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Anna Bondar": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Taylah Preston": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Rebeka Masarova": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Ksenia Zaytseva": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Jessica Pieri": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Berfu Cengiz": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Han Shi": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Guiomar Maristany Zuleta de Reales": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Maria Sakkari": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Anastasia Gasanova": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Fangran Tian": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Nuria Brancaccio": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Ekaterine Gorgodze": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Oksana Selekhmeteva": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Angelina Voloshchuk": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Mia Pohankova": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Katie Swan": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Rinky Hijikata": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-23",
-     "dias": 33
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 33,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Julia Grabher": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Deniz Dilek": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Mia Ristic": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Gabriela Andrea Knutson": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Elena-Gabriela Ruse": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-08-13"
-    },
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Alejandro Tabilo": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-23",
-     "dias": 33
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 33,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Botic Van de Zandschulp": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-23",
-     "dias": 33
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 33,
+   "dias_sem_jogar": 29,
    "area": "",
    "resumo": "",
    "eventos": []
@@ -1456,6 +569,31 @@
      "torneio": "US Open R2",
      "area": "—",
      "nota": "Completou dois jogos sem problema físico visível."
+    }
+   ]
+  },
+  "Hubert Hurkacz": {
+   "status": "amarelo",
+   "status_auto": null,
+   "sinais_auto": [],
+   "ultimo_jogo": null,
+   "dias_sem_jogar": null,
+   "area": "joelho direito (2 cirurgias) / costas + abdômen",
+   "resumo": "RET no R4 de Wimbledon (06/07, costas/abdômen) ainda dentro da janela de 90 dias. Jogou Cincinnati e US Open (perdeu para Shelton no R2) sem novo abandono. Vira verde em 04/10 se nada mudar.",
+   "eventos": [
+    {
+     "data": "2025-07-15",
+     "tipo": "anuncio",
+     "torneio": "—",
+     "area": "joelho dir.",
+     "nota": "Artroscopia; encerrou a temporada 2025."
+    },
+    {
+     "data": "2026-07-06",
+     "tipo": "ret",
+     "torneio": "Wimbledon R4",
+     "area": "costas/abdômen",
+     "nota": "Abandonou contra Struff após liderar por 2 sets a 0."
     }
    ]
   },
