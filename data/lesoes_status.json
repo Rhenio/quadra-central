@@ -1,241 +1,6 @@
 {
- "gerado_em": "2026-10-28",
+ "gerado_em": "2026-10-29",
  "jogadores": {
-  "Jenson Brooksby": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-23",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Nikoloz Basilashvili": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-09-14"
-    },
-    {
-     "tipo": "gap",
-     "data": "2026-09-23",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Fabian Marozsan": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-23",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Kyrian Jacquet": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-23",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Jiaqi Wang": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 37
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 37,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Alexandre Muller": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-23",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Alejandro Davidovich Fokina": {
-   "status": "vermelho",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-23",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 35,
-   "area": "costas (persistente)",
-   "resumo": "Fora do US Open por dor persistente nas costas; sem jogos desde julho e sem retorno anunciado.",
-   "eventos": [
-    {
-     "data": "2026-08-20",
-     "tipo": "desistencia_torneio",
-     "torneio": "US Open",
-     "area": "costas",
-     "nota": "Sem competir desde julho."
-    }
-   ]
-  },
-  "Maya Joint": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 37
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 37,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Kimberly Birrell": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 37
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 37,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Maria Timofeeva": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 37
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 37,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Reese Brantmeier": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-21",
-     "dias": 37
-    }
-   ],
-   "ultimo_jogo": "2026-09-21",
-   "dias_sem_jogar": 37,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Daniil Medvedev": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-23",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Coleman Wong": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "gap",
-     "data": "2026-09-23",
-     "dias": 35
-    }
-   ],
-   "ultimo_jogo": "2026-09-23",
-   "dias_sem_jogar": 35,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
-  "Lois Boisson": {
-   "status": "amarelo",
-   "status_auto": "amarelo",
-   "sinais_auto": [
-    {
-     "tipo": "ret",
-     "data": "2026-08-23"
-    }
-   ],
-   "ultimo_jogo": "2026-09-28",
-   "dias_sem_jogar": 30,
-   "area": "",
-   "resumo": "",
-   "eventos": []
-  },
   "Jannik Sinner": {
    "status": "vermelho",
    "status_auto": null,
@@ -301,6 +66,24 @@
      "torneio": "US Open",
      "area": "—",
      "nota": "Substituído pelo lucky loser Otto Virtanen."
+    }
+   ]
+  },
+  "Alejandro Davidovich Fokina": {
+   "status": "vermelho",
+   "status_auto": null,
+   "sinais_auto": [],
+   "ultimo_jogo": null,
+   "dias_sem_jogar": null,
+   "area": "costas (persistente)",
+   "resumo": "Fora do US Open por dor persistente nas costas; sem jogos desde julho e sem retorno anunciado.",
+   "eventos": [
+    {
+     "data": "2026-08-20",
+     "tipo": "desistencia_torneio",
+     "torneio": "US Open",
+     "area": "costas",
+     "nota": "Sem competir desde julho."
     }
    ]
   },
